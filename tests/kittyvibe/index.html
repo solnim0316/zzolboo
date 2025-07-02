@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>만약 내가 공룡시대에 태어났다면?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="start">
+    <h1>성격유형별 공룡 테스트 </h1>
+    <p>나는 어떤 공룡이였을까? </p>
+    <input id="nameInput" type="text" placeholder="이름을 입력하세요" style="margin:10px auto 10px auto;display:block;width:80%;max-width:300px;text-align:center;">
+    <button id="startBtn">테스트 시작하기</button>
+  </div>
+
+  <div class="question" style="display:none;">
+    <div class="progress"><div class="progress-bar"></div></div>
+    <h3 id="qText"></h3>
+    <ul id="optList"></ul>
+  </div>
+
+<div class="result" style="display:none;">
+  <img id="rImg" />
+  <h2 id="rTitle"></h2>
+  <p id="rDesc"></p>
+  <p id="rMatch"></p>
+  <p id="rMismatch"></p>
+
+  <button onclick="goHome()">처음으로</button>
+  <button onclick="restartTest()">다시 하기</button>
+  <button onclick="copyShareLink()">공유하기</button>
+  <button onclick="downloadImage()">이미지 저장</button>
+</div>
+  <script src="script.js"></script>
+  
+</body>
+</html>

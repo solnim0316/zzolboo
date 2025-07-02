@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>테토/에겐 테스트</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</head>
+<body>
+  
+  <div class="start">
+    <div class="start-screen">
+      <img src="img/testo_vs_egen.png" alt="테토 vs 에겐" class="main-visual" />
+      <h1 class="title">MZ 감성 성향 테스트</h1>
+      <p class="subtitle">“친구들이 날 테토라고 부르던데... 진짜 맞는 걸까?”<br>30초면 결과 나옴!</p>
+      <h2>성별을 선택해 주세요</h2>
+      <button id="maleBtn">남자</button>
+      <button id="femaleBtn">여자</button>
+    </div>
+  </div>
+
+  <div class="question" style="display:none;">
+    <div class="progress"><div class="progress-bar" style="width:0%; height:10px; background:#000;"></div></div>
+    <h3 id="qText"></h3>
+    <ul id="optList"></ul>
+  </div>
+
+  <div class="result" style="display:none;">
+    <img id="rImg" style="width:200px;" />
+    <h2 id="rTitle"></h2>
+    <p id="rDesc"></p>
+
+    <div class="result-buttons">
+      <button id="retryBtn">다시 시작</button>
+      <button id="homeBtn">처음으로</button>
+      <button id="shareBtn">공유하기</button>
+      <button id="saveBtn">이미지 저장</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

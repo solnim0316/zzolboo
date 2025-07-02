@@ -1,0 +1,124 @@
+body {
+  font-family: 'Pretendard', sans-serif;
+  background: #fffaf4;
+  color: #333;
+  margin: 0;
+  padding: 2rem;
+}
+h1, h3 {
+  text-align: center;
+}
+.start, .question, .result {
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+}
+button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  background: #ffdbdb;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.progress {
+  height: 8px;
+  background: #eee;
+  margin-bottom: 1rem;
+}
+.progress-bar {
+  height: 100%;
+  background: #ff8080;
+  width: 0%;
+  transition: width 0.3s;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  margin: 0.5rem 0;
+  padding: 0.8rem;
+  background: #fce4ec;
+  border-radius: 10px;
+  cursor: pointer;
+}
+li:hover {
+  background: #f8bbd0;
+}
+.share-modal {
+  position: fixed;
+  left: 0; top: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.15);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.share-modal-content {
+  background: #fff8f5;
+  border-radius: 16px;
+  padding: 18px 12px 14px 12px;
+  min-width: 220px;
+  max-width: 90vw;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  position: relative;
+  text-align: left;
+}
+.share-modal-close {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  font-size: 22px;
+  color: #888;
+  cursor: pointer;
+  z-index: 2;
+}
+.share-preview {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.share-btns {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+.share-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  border-radius: 8px;
+  background: #ffe3e3;
+  color: #222;
+  font-size: 14px;
+  padding: 7px 12px;
+  cursor: pointer;
+  transition: background 0.15s;
+  min-width: 80px;
+  min-height: 32px;
+}
+.share-btn img {
+  width: 20px; height: 20px;
+  display: inline-block;
+}
+.share-btn:hover {
+  background: #ffd6d6;
+}
+.share-btn.kakao svg {
+  width: 20px; height: 20px;
+  fill: #3c1e1e;
+}
+.share-btn.facebook svg {
+  width: 20px; height: 20px;
+  fill: #1877f3;
+}
+.share-btn.x svg {
+  width: 20px; height: 20px;
+  fill: #222;
+}
+.share-btn.link svg {
+  width: 20px; height: 20px;
+  fill: #888;
+}

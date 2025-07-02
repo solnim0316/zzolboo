@@ -1,0 +1,254 @@
+article {
+  display: flex;
+  flex-direction: column;
+}
+.question {
+  display: none;
+}
+.result {
+  display: none;
+}
+#img {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+}
+.share {
+  margin: auto 0;
+}
+.kakao_ad {
+  width: 320px;
+  margin: auto;
+}
+.banner {
+  display: flex;
+  justify-content: center;
+  width: 300px;
+  margin: 0 auto;
+}
+.banner-img {
+  width: 300px;
+}
+/* 기본 초기화 */
+body {
+  font-family: 'Pretendard', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fffefc;
+  color: #222;
+}
+
+/* 시작 화면 스타일 */
+.start-screen {
+  text-align: center;
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #fff0f0, #ffecec);
+}
+
+.main-visual {
+  width: 220px;
+  border-radius: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+button {
+  background: #ff7272;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 999px;
+  padding: 0.8rem 1.6rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #ff4f4f;
+}
+
+/* 📱 모바일 반응형 스타일 */
+@media screen and (max-width: 480px) {
+  .main-visual {
+    width: 160px;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    padding: 0 1rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  #rImg {
+    width: 90%;
+    max-width: 320px;
+    height: auto;
+  }
+
+  .question,
+  .result {
+    padding: 1rem;
+  }
+}
+/* 질문, 결과 등 이후 섹션도 여기에 스타일 추가 예정 */
+/* ===== 질문 화면 감성 스타일 ===== */
+.question {
+  display: none;
+  padding: 2rem;
+  background-color: #fffafc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#qText {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+#optList {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 480px;
+}
+
+#optList li {
+  background: #fff0f5;
+  padding: 1rem 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+#optList li:hover {
+  background: #ffe2ed;
+  transform: translateY(-2px);
+}
+
+/* 진행 바 */
+.progress {
+  background: #eee;
+  border-radius: 999px;
+  overflow: hidden;
+  height: 10px;
+  margin: 0 auto 2rem auto;
+  max-width: 480px;
+}
+
+.progress-bar {
+  background: #ff7b9c;
+  height: 100%;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+/* 결과 화면 */
+.result {
+  display: none;
+  padding: 2rem;
+  text-align: center;
+  background-color: #fffafc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#rImg {
+  max-width: 280px;
+  width: 100%;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+#rTitle {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+#rDesc {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.result-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  animation: fadeInUp 1s ease;
+}
+
+.result-buttons button {
+  background: #ffdcdc;
+  color: #333;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 1.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.result-buttons button:hover {
+  background: #ffbcbc;
+}
+
+/* 애니메이션 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,48 @@
+body {
+  font-family: 'Pretendard', sans-serif;
+  background: #fffaf4;
+  color: #333;
+  margin: 0;
+  padding: 2rem;
+}
+h1, h3 {
+  text-align: center;
+}
+.start, .question, .result {
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+}
+button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  background: #ffdbdb;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.progress {
+  height: 8px;
+  background: #eee;
+  margin-bottom: 1rem;
+}
+.progress-bar {
+  height: 100%;
+  background: #ff8080;
+  width: 0%;
+  transition: width 0.3s;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  margin: 0.5rem 0;
+  padding: 0.8rem;
+  background: #fce4ec;
+  border-radius: 10px;
+  cursor: pointer;
+}
+li:hover {
+  background: #f8bbd0;
+}

@@ -1,0 +1,6 @@
+{
+  "title": "공룡 성격유형 테스트",
+  "desc": "내가 공룡시대에 태어났다면 어떤 공룡일까?",
+  "img": "tests/dino_test/dino_thumb.png",
+  "url": "tests/dino_test/index.html"
+}
