@@ -9,6 +9,7 @@
 </head>
 <body>
   <div id="loading" class="loading-screen">
+    <img id="loadingGif" src="img/loading.gif" alt="로딩 중" style="width:60px;height:60px;display:block;margin:0 auto 10px auto;">
     <div class="loading-text">날 알아 가는 중...</div>
   </div>
   <header class="site-header">
@@ -19,7 +20,7 @@
   <section class="main-banner">
     <div class="banner-title">
       <img src="img/logo_naragaja.png" alt="메인로고" class="banner-logo">
-      <span class="banner-title-text">졸&부</span>
+      <span class="banner-title-text">쫄부월드</span>
     </div>
     <h2 class="banner-desc">감성 테스트 시작해볼까요?</h2>
     <button class="view-all-btn">전체보기</button>
@@ -28,10 +29,10 @@
   <section class="recommend-section">
     <div class="recommend-title">이주의 추천 테스트</div>
     <div class="recommend-card">
-      <img src="img/testo_vs_egen_thumb.png" alt="추천테스트 썸네일" class="recommend-thumb">
+      <img src="img/testo_vs_egen_thumb.png" alt="테토 vs 에겐 썸네일" class="recommend-thumb">
       <div class="recommend-info">
-        <div class="recommend-desc">당신과 어울리는 고양이는?</div>
-        <button class="recommend-btn">테스트하기</button>
+        <div class="recommend-desc">테토 vs 에겐 테스트</div>
+        <button class="recommend-btn" onclick="showLoadingAndGo('tests/testo-egen/')">테스트하기</button>
       </div>
     </div>
   </section>
@@ -55,5 +56,14 @@
   </main>
 
   <script src="script.js"></script>
+  <script>
+function showLoadingAndGo(url) {
+  const loading = document.getElementById('loading');
+  if (loading) loading.style.display = 'flex';
+  setTimeout(function() {
+    location.href = url;
+  }, 500);
+}
+</script>
 </body>
 </html>
