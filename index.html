@@ -6,10 +6,10 @@
   <title>🐱날 알아가는 시간 날아가자</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://cdn.jsdelivr.net/npm/pretendard@latest/dist/web/static/pretendard.css" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐱</text></svg>">
 </head>
 <body>
   <div id="loading" class="loading-screen">
-    <img id="loadingGif" src="img/loading.gif" alt="로딩 중" style="width:60px;height:60px;display:block;margin:0 auto 10px auto;">
     <div class="loading-text">날 알아 가는 중...</div>
   </div>
   <header class="site-header">
@@ -23,7 +23,7 @@
       <span class="banner-title-text">쫄부월드</span>
     </div>
     <h2 class="banner-desc">감성 테스트 시작해볼까요?</h2>
-    <button class="view-all-btn">전체보기</button>
+    <button class="view-all-btn" onclick="showLoadingAndGo('index.html')">전체보기</button>
   </section>
 
   <section class="recommend-section">

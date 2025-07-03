@@ -6,6 +6,14 @@ fetch("tests.json")
       const a = document.createElement("a");
       a.href = test.url;
       a.className = "card";
+      a.onclick = function(e) {
+        e.preventDefault();
+        const loading = document.getElementById('loading');
+        if (loading) loading.style.display = 'flex';
+        setTimeout(() => {
+          location.href = test.url;
+        }, 500);
+      };
       a.innerHTML = `
         <img src="${test.img}" alt="${test.title}">
         <div class="card-text">
@@ -16,4 +24,4 @@ fetch("tests.json")
       container.appendChild(a);
     });
   });
-  document.getElementById("loading").style.display = "none";
+document.getElementById("loading").style.display = "none";
