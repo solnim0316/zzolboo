@@ -122,3 +122,24 @@ li:hover {
   width: 20px; height: 20px;
   fill: #888;
 }
+
+/* 결과 이미지 반응형 스타일 */
+.result-img {
+  display: block;
+  max-width: 90vw;
+  max-height: 40vh;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 1rem auto;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  background: #fff;
+  object-fit: contain;
+}
+
+@media (min-width: 600px) {
+  .result-img {
+    max-width: 320px;
+    max-height: 320px;
+  }
+}

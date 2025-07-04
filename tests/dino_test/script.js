@@ -299,6 +299,10 @@ function showQuestion() {
   });
 }
 
+// 결과지 상단에 시트 기반 카드형 정보 표시 (DINO_CARD_MAP 활용)
+import { DINO_CARD_MAP } from './dino_card_map.js';
+import { results } from './dino_results.js';
+
 const results ={
   "INTJ": {
     "MBTI": "INTJ",
@@ -379,6 +383,7 @@ const results ={
     "MBTI": "INFP",
     "title": "INFP – 브라키오사우루스",
     "desc": "브라키오사우루스는 INFP 성향을 지닌 공룡으로, 성격이 뚜렷하고 개성 있는 특징을 갖고 있어요.",
+    "img": "img/1INFP.PNG",
     "match": [
       "INFJ",
       "ENFJ"
@@ -542,8 +547,8 @@ const results ={
   },
   "???": {
     "MBTI": "???",
-    "title": "??? – 크립토사우루스",
-    "desc": "크립토사우루스는 모든 성향을 균형 있게 가진 전설적인 공룡이에요. 감정과 이성, 계획과 즉흥 사이를 자유롭게 오가며, 상황에 따라 어떤 공룡으로도 변할 수 있는 유연한 성격이에요. 실존 여부는 밝혀지지 않았지만, 당신처럼 모든 기질이 완벽히 균형 잡힌 사람에게만 나타난다고 해요.",
+    "title": "??? – 부사우루스",
+    "desc": "부사우루스는 모든 성향을 균형 있게 가진 전설적인 공룡이에요. 감정과 이성, 계획과 즉흥 사이를 자유롭게 오가며, 상황에 따라 어떤 공룡으로도 변할 수 있는 유연한 성격이에요. 실존 여부는 밝혀지지 않았지만, 당신처럼 모든 기질이 완벽히 균형 잡힌 사람에게만 나타난다고 해요.",
     "match": [
       "INFP",
       "ENTJ"
@@ -618,7 +623,27 @@ function finish() {
 
   const mbti = getMBTI();
   const data = results[mbti];
+  const card = DINO_CARD_MAP[mbti];
 
+  // --- 시트 기반 카드형 정보 표시 ---
+  const cardBox = document.getElementById("dinoCardBox");
+  if (cardBox && card) {
+    cardBox.innerHTML = `
+      <div class="dino-card-sheet">
+        <div class="dino-card-title">${card.character} <span class="dino-card-mbti">(${card.mbti})</span></div>
+        <div class="dino-card-desc">${card.description}</div>
+        <div class="dino-card-keywords">키워드: ${card.keywords.map(k=>`<span class='dino-keyword'>${k}</span>`).join(' ')}</div>
+        <div class="dino-card-match">
+          <span>잘 맞는 MBTI: ${card.goodMatches.map(m=>`${m.label}(${m.mbti})`).join(', ')}</span>
+        </div>
+        <div class="dino-card-badmatch">
+          <span>상극 MBTI: ${card.badMatches.map(m=>`${m.label}(${m.mbti})`).join(', ') || '없음'}</span>
+        </div>
+      </div>
+    `;
+    cardBox.style.display = 'block';
+  }
+  // --- 기존 결과지 로직 ---
   if (!data) {
     $rTitle.textContent = "결과를 찾을 수 없습니다.";
     $rDesc.textContent = `MBTI: ${mbti}`;
@@ -628,7 +653,15 @@ function finish() {
     return;
   }
 
-  $rImg.src = data.img || "";
+  // INFP 결과일 때만 결과카드 이미지 표시
+  if (mbti === "INFP" && data.img) {
+    $rImg.src = data.img;
+    $rImg.style.display = "block";
+  } else {
+    $rImg.src = data.img || "";
+    $rImg.style.display = data.img ? "block" : "none";
+  }
+  $rImg.className = "result-img";
   $rTitle.textContent = userName + "님의 결과: " + data.title;
   $rDesc.textContent = data.desc;
 
