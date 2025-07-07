@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from '../styles/mainPage.module.css';
 
 function MainPage() {
   const [tests, setTests] = useState([]);
   const [loading, setLoading] = useState(true);
   const [fetchError, setFetchError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loadTests = async () => {
@@ -29,7 +31,10 @@ function MainPage() {
   const handleCardClick = (url) => {
     setLoading(true);
     setTimeout(() => {
-      window.location.href = url;
+      // 기존: window.location.href = url;
+      // 개선: React Router 라우트로 이동
+      const route = url.replace('/index.html', '').replace('index.html', '');
+      navigate(`/${route.replace(/^\/|\/$/g, '')}`);
     }, 500);
   };
 
@@ -99,21 +104,61 @@ function MainPage() {
         ))}
       </section>
 
-      <main className={styles.cardContainer}>
+      <main
+        className={styles.cardContainer}
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '24px',
+          justifyContent: 'center',
+          background: '#fff',
+          minHeight: 200,
+          padding: 24,
+        }}
+      >
         {tests.map((test, idx) => (
           <a
             key={test.title + idx}
-            href={test.url}
+            href={`/${test.url.replace('/index.html', '').replace('index.html', '')}`}
             className={styles.testCard}
+            style={{
+              display: 'block',
+              width: 220,
+              minHeight: 260,
+              background: '#f8f8f8',
+              border: '1px solid #ddd',
+              borderRadius: 16,
+              boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+              textDecoration: 'none',
+              color: '#222',
+              overflow: 'hidden',
+              padding: 16,
+            }}
             onClick={(e) => {
               e.preventDefault();
               handleCardClick(test.url);
             }}
           >
-            <img src={`/${test.img}`} alt={test.title} className={styles.testCardImg} />
+            <img
+              src={`/${test.img}`}
+              alt={test.title}
+              className={styles.testCardImg}
+              style={{
+                width: '100%',
+                height: 120,
+                objectFit: 'cover',
+                borderRadius: 12,
+                marginBottom: 12,
+                background: '#eee',
+              }}
+            />
             <div>
-              <h3 className={styles.testCardTitle}>{test.title}</h3>
-              <p className={styles.testCardDesc}>{test.desc}</p>
+              <h3 className={styles.testCardTitle} style={{ fontSize: 18, margin: 0 }}>
+                {test.title}
+              </h3>
+              <p className={styles.testCardDesc} style={{ fontSize: 14, margin: '8px 0 0 0', color: '#555' }}>
+                {test.desc}
+              </p>
             </div>
           </a>
         ))}
