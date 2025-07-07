@@ -1,0 +1,42 @@
+{
+  "name": "mainportal",
+  "version": "1.0.0",
+  "description": "쫄부 테스트 프로젝트용 저장소",
+  "main": "script.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/solnim0316/zzolboo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/solnim0316/zzolboo/issues"
+  },
+  "homepage": "https://github.com/solnim0316/zzolboo#readme",
+  "keywords": [],
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "react-scripts": "^5.0.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+/* 공룡 성격 테스트 스타일 (모듈 CSS) */
+.dinoTestWrapper {
+  padding: 2rem;
+  max-width: 500px;
+  margin: auto;
+  background: #fffaf4;
+  color: #333;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px #0001;
+}
+.progress {
+  height: 8px;
+  background: #eee;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.progressBar {
+  height: 100%;
+  background: #ff8080;
+  width: 0%;
+  transition: width 0.3s;
+}
+.option {
+  margin: 0.5rem 0;
+  padding: 0.8rem;
+  background: #fce4ec;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.option:hover {
+  background: #f8bbd0;
+}
+button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  background: #ffdbdb;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 12px;
+}
+input[type="text"] {
+  font-size: 1rem;
+  border: 1px solid #ffd6d6;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  margin-bottom: 10px;
+}

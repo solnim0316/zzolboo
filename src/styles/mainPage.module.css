@@ -1,0 +1,209 @@
+/* mainPage.module.css - 메인페이지 전용 스타일 */
+
+.siteHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  text-align: center;
+}
+.siteLogo {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  margin-bottom: 6px;
+  max-width: 80%;
+}
+.siteSubtitle {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #666;
+  text-align: center;
+}
+.mainBanner {
+  background: #fff3e6;
+  border-radius: 18px;
+  padding: 22px 18px 18px 18px;
+  margin: 0 12px 18px 12px;
+  text-align: center;
+  position: relative;
+}
+.bannerTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.bannerLogo {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+}
+.bannerTitleText {
+  font-size: 22px;
+  font-weight: 700;
+  color: #b48e6b;
+  letter-spacing: -1px;
+}
+.bannerDesc {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+}
+.viewAllBtn {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  background: #f7e6d3;
+  color: #b48e6b;
+  border: none;
+  border-radius: 16px;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.recommendSection {
+  margin: 0 12px 18px 12px;
+}
+.recommendTitle {
+  font-size: 15px;
+  color: #b48e6b;
+  margin-bottom: 7px;
+  font-weight: 600;
+}
+.recommendCard {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px #f3e6d3;
+  padding: 12px 14px;
+  gap: 12px;
+}
+.recommendThumb {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+.recommendInfo {
+  flex: 1;
+}
+.recommendDesc {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.recommendBtn {
+  background: #b48e6b;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 6px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.popularSection {
+  margin: 0 12px 18px 12px;
+}
+.popularTitle {
+  font-size: 15px;
+  color: #b48e6b;
+  margin-bottom: 7px;
+  font-weight: 600;
+}
+.popularList {
+  background: #fff;
+  border-radius: 14px;
+  padding: 12px 18px;
+  margin: 0;
+  font-size: 15px;
+  color: #444;
+}
+.popularList li {
+  margin-bottom: 4px;
+}
+.hashtagSection {
+  margin: 0 12px 18px 12px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.hashtag {
+  background: #f7e6d3;
+  color: #b48e6b;
+  border-radius: 12px;
+  padding: 4px 12px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin: 0 12px 24px 12px;
+}
+.testCard {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px #f3e6d3;
+  width: 48%;
+  min-width: 150px;
+  max-width: 190px;
+  margin-bottom: 0;
+  padding: 16px 10px 12px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+.testCard:hover {
+  box-shadow: 0 4px 16px #e6cdb3;
+}
+.testCardImg {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  object-fit: cover;
+}
+.testCardTitle {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.testCardDesc {
+  font-size: 13px;
+  color: #b48e6b;
+}
+.loadingScreen {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #fffaf7;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 18px;
+  font-weight: 600;
+  color: #b48e6b;
+  display: none;
+}
+@media (max-width: 430px) {
+  .mainBanner, .recommendSection, .popularSection, .hashtagSection, .cardContainer {
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+  .testCard {
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+  }
+}
