@@ -1,0 +1,35 @@
+mainportal\
+├── public\
+│   ├── img\
+│   ├── tests\
+│   │   ├── testo-egen\
+│   │   ├── cat-mbti\
+│   │   ├── kittyvibe\
+│   │   ├── new_test\
+│   │   └── ... (기타 테스트 폴더)
+│   ├── tests.json
+│   └── ... (기타 정적 파일)
+├── src\
+│   ├── components\
+│   │   └── Common\
+│   │       └── Header.jsx
+│   │   └── ShareCard.jsx
+│   ├── data\
+│   │   ├── getDinoCardData.js
+│   │   ├── dino_card_map.js
+│   │   ├── cardPalette.js
+│   │   └── dinoImageMap.js
+│   ├── pages\
+│   │   ├── MainPage.jsx
+│   │   ├── ResultPage.jsx
+│   │   ├── TestoEgenPage.jsx
+│   │   ├── CatMbtiPage.jsx
+│   │   ├── KittyVibePage.jsx
+│   │   ├── NewTestPage.jsx
+│   │   └── ... (기타 테스트 페이지)
+│   ├── styles\
+│   │   └── mainPage.module.css
+│   ├── App.js
+│   ├── index.js
+│   └── ... (기타 소스 파일)
+└── package.json

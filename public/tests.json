@@ -3,18 +3,18 @@
     "title": "테토 vs 에겐 테스트",
     "desc": "나의 사이다력 vs 공감력은?",
     "img": "img/testo_vs_egen_thumb.png",
-    "url": "testo-egen/index.html"
+    "url": "testo-egen"
   },
   {
     "title": "고양이 MBTI 테스트",
     "desc": "너의 고양이 성격유형은?",
     "img": "img/cat_mbti_thumb.png",
-    "url": "cat-mbti/index.html"
+    "url": "cat-mbti"
   },
   {
     "title": "공룡 성격유형 테스트",
     "desc": "내가 공룡시대에 태어났다면 어떤 공룡일까?",
     "img": "dino_test/dino_thumb.png",
-    "url": "dino_test/index.html"
+    "url": "dino_test"
   }
 ]
