@@ -114,54 +114,64 @@ function MainPage() {
           background: '#fff',
           minHeight: 200,
           padding: 24,
+          border: '2px dashed #007aff', // 디버깅용 테두리
         }}
       >
-        {tests.map((test, idx) => (
-          <a
-            key={test.title + idx}
-            href={`/${test.url.replace('/index.html', '').replace('index.html', '')}`}
-            className={styles.testCard}
-            style={{
-              display: 'block',
-              width: 220,
-              minHeight: 260,
-              background: '#f8f8f8',
-              border: '1px solid #ddd',
-              borderRadius: 16,
-              boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
-              textDecoration: 'none',
-              color: '#222',
-              overflow: 'hidden',
-              padding: 16,
-            }}
-            onClick={(e) => {
-              e.preventDefault();
-              handleCardClick(test.url);
-            }}
-          >
-            <img
-              src={`/${test.img}`}
-              alt={test.title}
-              className={styles.testCardImg}
+        {console.log("Rendering tests:", tests)}
+        {tests.map((test, idx) => {
+          console.log("Rendering card:", test.title, test);
+          return (
+            <a
+              key={test.title + idx}
+              href={`/${test.url}`}
+              className={styles.testCard}
               style={{
-                width: '100%',
-                height: 120,
-                objectFit: 'cover',
-                borderRadius: 12,
-                marginBottom: 12,
-                background: '#eee',
+                display: 'block',
+                width: 220,
+                minHeight: 260,
+                background: '#f8f8f8',
+                border: '2px solid #ff9800', // 디버깅용 테두리
+                borderRadius: 16,
+                boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+                textDecoration: 'none',
+                color: '#222',
+                overflow: 'hidden',
+                padding: 16,
+                margin: 8,
               }}
-            />
-            <div>
-              <h3 className={styles.testCardTitle} style={{ fontSize: 18, margin: 0 }}>
-                {test.title}
-              </h3>
-              <p className={styles.testCardDesc} style={{ fontSize: 14, margin: '8px 0 0 0', color: '#555' }}>
-                {test.desc}
-              </p>
-            </div>
-          </a>
-        ))}
+              onClick={(e) => {
+                e.preventDefault();
+                handleCardClick(test.url);
+              }}
+            >
+              <img
+                src={`/${test.img}`}
+                alt={test.title}
+                className={styles.testCardImg}
+                style={{
+                  width: '100%',
+                  height: 120,
+                  objectFit: 'cover',
+                  borderRadius: 12,
+                  marginBottom: 12,
+                  background: '#eee',
+                }}
+                onError={e => {
+                  e.target.onerror = null;
+                  e.target.src = '/img/default_thumb.png';
+                }}
+              />
+              <div>
+                <h3 className={styles.testCardTitle} style={{ fontSize: 18, margin: 0 }}>
+                  {test.title}
+                </h3>
+                <p className={styles.testCardDesc} style={{ fontSize: 14, margin: '8px 0 0 0', color: '#555' }}>
+                  {test.desc}
+                </p>
+              </div>
+            </a>
+          );
+        })}
       </main>
     </div>
   );
