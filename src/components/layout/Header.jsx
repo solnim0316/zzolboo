@@ -1,0 +1,15 @@
+// 🐱 웹사이트 헤더 컴포넌트
+export default function Header() {
+  return (
+    <header className="text-center py-4 px-4 sm:py-6 md:py-8">
+      {/* 🏷️ 메인 타이틀 - 모바일: 작게, 데스크톱: 크게 */}
+      <div className="text-xl sm:text-2xl md:text-3xl font-bold text-[#5D4037]">
+        🐱 쫄부월드 🐱
+      </div>
+      {/* 💬 서브 텍스트 */}
+      <p className="text-xs sm:text-sm md:text-base text-[#8D6E63] mt-1 sm:mt-2">
+        오늘도 테스트로 날 알아가자 ✦
+      </p>
+    </header>
+  );
+}

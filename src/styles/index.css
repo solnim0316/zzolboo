@@ -1,0 +1,63 @@
+/* SUIT 폰트 임포트를 맨 위로 이동 */
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/SUIT/fonts/static/woff2/SUIT.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🎨 프로젝트 색상 변수 */
+:root {
+  /* 기본 색상 */
+  --color-primary: #5D4037;        /* 메인 갈색 */
+  --color-primary-light: #8D6E63;  /* 연한 갈색 */
+  --color-primary-dark: #4E342E;   /* 진한 갈색 */
+  
+  /* 배경 색상 */
+  --color-bg-main: #FCFAF6;        /* 메인 배경 */
+  --color-bg-warm: #FFF1E9;        /* 따뜻한 배경 */
+  --color-bg-card: #FFFFFF;        /* 카드 배경 */
+  
+  /* 텍스트 색상 */
+  --color-text-main: #2F2F2F;      /* 메인 텍스트 */
+  --color-text-sub: #8D6E63;       /* 서브 텍스트 */
+  --color-text-muted: #B08968;     /* 연한 텍스트 */
+  
+  /* 액센트 색상 */
+  --color-accent-pink: #F48FB1;    /* 핑크 버튼 */
+  --color-accent-pink-hover: #F06292; /* 핑크 호버 */
+  --color-accent-pink-active: #E91E63; /* 핑크 클릭 */
+  
+  /* 기능 색상 */
+  --color-button-primary: #A1887F; /* 기본 버튼 */
+  --color-button-hover: #8D6E63;   /* 버튼 호버 */
+  --color-button-active: #795548;  /* 버튼 클릭 */
+}
+
+/* 🎯 Tailwind 커스텀 클래스 */
+@layer utilities {
+  .bg-background {
+    background-color: var(--color-bg-main);
+  }
+  
+  .text-text {
+    color: var(--color-text-main);
+  }
+  
+  .text-primary {
+    color: var(--color-primary);
+  }
+  
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+  
+  .bg-primary-hover:hover {
+    background-color: var(--color-primary-dark);
+  }
+}
+
+body {
+  font-family: 'SUIT', sans-serif;
+  background-color: var(--color-bg-main);
+  color: var(--color-text-main);
+}
