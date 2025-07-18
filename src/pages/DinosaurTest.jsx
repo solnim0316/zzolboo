@@ -414,108 +414,169 @@ export default function DinosaurTest() {
         {/* 🎯 결과 화면 */}
         {currentStep === 'result' && result && (
           <div className="flex flex-col items-center justify-center min-h-screen px-4 py-8">
-            <div className="max-w-4xl w-full space-y-6">
+            <div className="max-w-4xl w-full space-y-8">
               
-              {/* 🎨 공유용 이미지 카드 */}
-              <div className={`bg-gradient-to-br ${getCardPalette(result.MBTI).background} rounded-3xl p-8 shadow-2xl`}>
-                <div className="text-center">
-                  {/* 🌐 도메인 표시 */}
-                  <div className={`text-sm ${getCardPalette(result.MBTI).textSecondary} mb-6`}>ZZOLBOOWORLD.COM</div>
-                  
-                  {/* 🦕 공룡 이미지 영역 */}
-                  <div className={`bg-gradient-to-br ${getCardPalette(result.MBTI).imageArea} rounded-2xl p-8 mb-6 min-h-[200px] flex items-center justify-center`}>
-                    <img
-                      src={result.image}
-                      alt={result.dinosaur}
-                      className="w-48 h-48 object-contain"
-                    />
+              {/* 🎨 Instagram-ready 공유용 카드 */}
+              <div className={`relative bg-gradient-to-br ${getCardPalette(result.MBTI).background} rounded-3xl p-8 shadow-2xl border-4 border-white overflow-hidden`}>
+                {/* 배경 장식 패턴 */}
+                <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
+                  <div className="text-8xl">🦕</div>
+                </div>
+                
+                <div className="relative z-10">
+                  {/* 상단 브랜드 영역 */}
+                  <div className="flex items-center justify-between mb-8">
+                    <div className={`text-sm font-semibold ${getCardPalette(result.MBTI).textSecondary} tracking-wider`}>
+                      ZZOLBOOWORLD.COM
+                    </div>
+                    <div className="text-2xl">🦕</div>
                   </div>
-                  
-                  {/* 🏷️ 특성 태그들 */}
-                  <div className="flex flex-wrap justify-center gap-2 mb-6">
-                    {getCharacteristicTags(result.MBTI).map((tag, index) => (
-                      <span
-                        key={index}
-                        className={`px-4 py-2 bg-gradient-to-r ${getCardPalette(result.MBTI).tagBg} text-white rounded-full text-sm font-medium shadow-lg`}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  {/* 🎯 메인 결과 텍스트 */}
-                  <h2 className={`text-2xl font-bold ${getCardPalette(result.MBTI).textMain} mb-4`}>
-                    {getMainResultText(result.MBTI, result.dinosaur)}
-                  </h2>
-                  
-                  {/* 🔥 MBTI 타입 강조 */}
-                  <div className={`inline-block bg-gradient-to-r ${getCardPalette(result.MBTI).mbtiButton} text-white px-8 py-3 rounded-full text-2xl font-bold shadow-lg mb-6`}>
-                    {result.MBTI}
-                  </div>
-                  
-                  {/* 🦕 공룡 이름 */}
-                  <div className={`bg-gradient-to-r ${getCardPalette(result.MBTI).dinosaurName} ${getCardPalette(result.MBTI).textMain} px-6 py-3 rounded-2xl text-xl font-bold`}>
-                    {result.dinosaur}
-                  </div>
-                  
-                  {/* 💕 궁합 정보 */}
-                  <div className="flex justify-between items-center mt-8">
-                    <div className="text-center">
-                      <div className={`text-sm ${getCardPalette(result.MBTI).textSecondary} mb-2`}>좋은 궁합 공룡❤️</div>
-                      <div className="space-y-1">
-                        {result.match.map((matchType, index) => (
-                          <div key={index} className={`${getCardPalette(result.MBTI).matchBg} px-3 py-1 rounded-lg text-sm ${getCardPalette(result.MBTI).textMain}`}>
-                            {matchType}/{results[matchType]?.dinosaur?.split('사우루스')[0] || ''}사우루스
-                          </div>
-                        ))}
+
+                  {/* 메인 콘텐츠 영역 */}
+                  <div className="text-center space-y-6">
+                    
+                    {/* MBTI 타입 뱃지 - 가장 눈에 띄게 */}
+                    <div className="flex justify-center mb-6">
+                      <div className={`inline-flex items-center gap-3 bg-gradient-to-r ${getCardPalette(result.MBTI).mbtiButton} text-white px-10 py-4 rounded-2xl shadow-2xl border-2 border-white/20`}>
+                        <span className="text-3xl font-black tracking-wider">{result.MBTI}</span>
+                        <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
                       </div>
+                    </div>
+
+                    {/* 공룡 이미지와 이름 */}
+                    <div className="relative">
+                      <div className={`bg-white/30 backdrop-blur-sm rounded-3xl p-6 mb-4 shadow-xl border border-white/20`}>
+                        <img
+                          src={result.image}
+                          alt={result.dinosaur}
+                          className="w-40 h-40 mx-auto object-contain drop-shadow-2xl"
+                        />
+                      </div>
+                      <div className={`inline-block bg-white/20 backdrop-blur-sm ${getCardPalette(result.MBTI).textMain} px-6 py-2 rounded-2xl text-lg font-bold shadow-lg border border-white/30`}>
+                        {result.dinosaur}
+                      </div>
+                    </div>
+
+                    {/* 메인 캐치프레이즈 */}
+                    <div className={`bg-white/25 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/30`}>
+                      <h2 className={`text-2xl font-bold ${getCardPalette(result.MBTI).textMain} leading-relaxed`}>
+                        {getMainResultText(result.MBTI, result.dinosaur)}
+                      </h2>
                     </div>
                     
-                    <div className="text-center">
-                      <div className={`text-sm ${getCardPalette(result.MBTI).textSecondary} mb-2`}>만나면 싸우는 공룡⚡</div>
-                      <div className={`${getCardPalette(result.MBTI).mismatchBg} px-3 py-1 rounded-lg text-sm ${getCardPalette(result.MBTI).textMain}`}>
-                        {result.mismatch !== "없음" ? 
-                          `${result.mismatch}/${results[result.mismatch]?.dinosaur?.split('사우루스')[0] || ''}사우루스` :
-                          "없음"
-                        }
+                    {/* 특성 태그들 - 더 세련되게 */}
+                    <div className="flex flex-wrap justify-center gap-3">
+                      {getCharacteristicTags(result.MBTI).map((tag, index) => (
+                        <span
+                          key={index}
+                          className={`px-5 py-2 bg-gradient-to-r ${getCardPalette(result.MBTI).tagBg} text-white rounded-full text-sm font-semibold shadow-lg border border-white/20 transform hover:scale-105 transition-transform`}
+                        >
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* 궁합 정보 - 카드 스타일로 개선 */}
+                    <div className="grid grid-cols-2 gap-4 mt-8">
+                      {/* 좋은 궁합 */}
+                      <div className="bg-white/25 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-white/30">
+                        <div className="flex items-center justify-center gap-2 mb-3">
+                          <span className="text-lg">💕</span>
+                          <span className={`text-sm font-semibold ${getCardPalette(result.MBTI).textMain}`}>
+                            궁합 BEST
+                          </span>
+                        </div>
+                        <div className="space-y-2">
+                          {result.match.slice(0, 2).map((matchType, index) => (
+                            <div key={index} className="bg-white/40 rounded-xl p-2 text-center">
+                              <div className={`text-xs font-bold ${getCardPalette(result.MBTI).textMain}`}>
+                                {matchType}
+                              </div>
+                              <div className={`text-xs ${getCardPalette(result.MBTI).textSecondary}`}>
+                                {results[matchType]?.dinosaur?.split('사우루스')[0] || ''}사우루스
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* 상극 */}
+                      <div className="bg-white/25 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-white/30">
+                        <div className="flex items-center justify-center gap-2 mb-3">
+                          <span className="text-lg">⚡</span>
+                          <span className={`text-sm font-semibold ${getCardPalette(result.MBTI).textMain}`}>
+                            주의 관계
+                          </span>
+                        </div>
+                        <div className="bg-white/40 rounded-xl p-2 text-center">
+                          <div className={`text-xs font-bold ${getCardPalette(result.MBTI).textMain}`}>
+                            {result.mismatch !== "없음" ? result.mismatch : "없음"}
+                          </div>
+                          {result.mismatch !== "없음" && (
+                            <div className={`text-xs ${getCardPalette(result.MBTI).textSecondary}`}>
+                              {results[result.mismatch]?.dinosaur?.split('사우루스')[0] || ''}사우루스
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 하단 브랜딩 */}
+                    <div className="pt-6 border-t border-white/20">
+                      <div className={`text-xs ${getCardPalette(result.MBTI).textSecondary} font-medium tracking-wider`}>
+                        ✨ ZZOLBOOWORLD.COM ✨
                       </div>
                     </div>
                   </div>
-                  
-                  {/* 🌐 하단 도메인 */}
-                  <div className={`text-sm ${getCardPalette(result.MBTI).textSecondary} mt-6`}>ZZOLBOOWORLD.COM</div>
                 </div>
               </div>
 
-              {/* 📝 부연설명 텍스트 카드 */}
-              <div className="bg-white rounded-3xl shadow-2xl p-8">
+              {/* 📝 상세 설명 카드 - 개선된 디자인 */}
+              <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
                 <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                    {userName}님의 결과: {result.title}
-                  </h3>
-                  <div className="w-16 h-1 bg-primary mx-auto rounded-full"></div>
+                  <div className="inline-flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center">
+                      <span className="text-white text-xl">📊</span>
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-800">
+                      {userName}님의 상세 분석
+                    </h3>
+                  </div>
+                  <div className="w-20 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
                 </div>
                 
-                {/* 📄 상세 설명 */}
-                <div className="bg-gray-50 rounded-2xl p-6 mb-6">
-                  <p className="text-gray-700 text-lg leading-relaxed text-center">
+                {/* 📄 성격 요약 */}
+                <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-6 mb-8 border border-gray-100">
+                  <h4 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+                    <span className="text-2xl">✨</span>
+                    성격 요약
+                  </h4>
+                  <p className="text-gray-700 text-lg leading-relaxed">
                     {result.desc}
                   </p>
                 </div>
 
-                {/* 💕 궁합 상세 정보 */}
-                <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  <div className="bg-green-50 p-6 rounded-2xl">
-                    <h4 className="font-bold text-green-700 mb-4 text-lg flex items-center">
-                      💚 나의 절친 공룡들
+                {/* 💕 궁합 상세 정보 - 카드 스타일로 개선 */}
+                <div className="grid md:grid-cols-2 gap-6 mb-8">
+                  <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-2xl border border-green-100 shadow-lg">
+                    <h4 className="font-bold text-green-700 mb-6 text-lg flex items-center gap-2">
+                      <span className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                        <span className="text-white text-sm">💚</span>
+                      </span>
+                      최고의 파트너
                     </h4>
-                    <div className="space-y-3">
+                    <div className="space-y-4">
                       {result.match.map((matchType, index) => (
-                        <div key={index} className="bg-white p-4 rounded-xl shadow-sm">
-                          <div className="font-semibold text-green-600 mb-2">
-                            {results[matchType]?.dinosaur || matchType} ({matchType})
+                        <div key={index} className="bg-white p-4 rounded-xl shadow-sm border border-green-100 hover:shadow-md transition-shadow">
+                          <div className="flex items-center gap-3 mb-2">
+                            <div className="w-10 h-10 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center">
+                              <span className="text-white text-xs font-bold">{matchType}</span>
+                            </div>
+                            <div className="font-semibold text-green-700">
+                              {results[matchType]?.dinosaur || matchType}
+                            </div>
                           </div>
-                          <div className="text-sm text-green-600">
+                          <div className="text-sm text-green-600 ml-13">
                             {result.matchReason[index]}
                           </div>
                         </div>
@@ -525,15 +586,23 @@ export default function DinosaurTest() {
 
                   {/* 💔 상극 정보 */}
                   {result.mismatch !== "없음" && (
-                    <div className="bg-red-50 p-6 rounded-2xl">
-                      <h4 className="font-bold text-red-700 mb-4 text-lg flex items-center">
-                        💔 만나면 싸우는 공룡
+                    <div className="bg-gradient-to-br from-red-50 to-pink-50 p-6 rounded-2xl border border-red-100 shadow-lg">
+                      <h4 className="font-bold text-red-700 mb-6 text-lg flex items-center gap-2">
+                        <span className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
+                          <span className="text-white text-sm">⚡</span>
+                        </span>
+                        주의가 필요한 관계
                       </h4>
-                      <div className="bg-white p-4 rounded-xl shadow-sm">
-                        <div className="font-semibold text-red-600 mb-2">
-                          {results[result.mismatch]?.dinosaur || result.mismatch} ({result.mismatch})
+                      <div className="bg-white p-4 rounded-xl shadow-sm border border-red-100">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="w-10 h-10 bg-gradient-to-r from-red-400 to-pink-500 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">{result.mismatch}</span>
+                          </div>
+                          <div className="font-semibold text-red-700">
+                            {results[result.mismatch]?.dinosaur || result.mismatch}
+                          </div>
                         </div>
-                        <div className="text-sm text-red-600">
+                        <div className="text-sm text-red-600 ml-13">
                           {result.mismatchReason}
                         </div>
                       </div>
@@ -541,25 +610,29 @@ export default function DinosaurTest() {
                   )}
                 </div>
 
-                {/* 🔄 액션 버튼들 */}
+                {/* 🔄 액션 버튼들 - 더 매력적으로 */}
                 <div className="flex flex-col sm:flex-row gap-4">
                   <button
                     onClick={goHome}
-                    className="flex-1 bg-gray-500 text-white py-4 rounded-2xl font-bold hover:bg-gray-600 transition-colors text-lg"
+                    className="flex-1 bg-gradient-to-r from-gray-500 to-gray-600 text-white py-4 rounded-2xl font-bold hover:from-gray-600 hover:to-gray-700 transition-all duration-200 text-lg shadow-lg transform hover:scale-105 flex items-center justify-center gap-2"
                   >
-                    🏠 처음으로
+                    <span className="text-xl">🏠</span>
+                    처음으로
                   </button>
                   <button
                     onClick={restartTest}
-                    className="flex-1 bg-primary text-white py-4 rounded-2xl font-bold hover:bg-primary/90 transition-colors text-lg"
+                    className="flex-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white py-4 rounded-2xl font-bold hover:from-purple-600 hover:to-pink-600 transition-all duration-200 text-lg shadow-lg transform hover:scale-105 flex items-center justify-center gap-2"
                   >
-                    🔄 다시 하기
+                    <span className="text-xl">🔄</span>
+                    다시 테스트
                   </button>
                   <button
                     onClick={() => alert('공유 기능 준비 중입니다! 🦕')}
-                    className="flex-1 bg-green-500 text-white py-4 rounded-2xl font-bold hover:bg-green-600 transition-colors text-lg"
+                    className="flex-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white py-4 rounded-2xl font-bold hover:from-green-600 hover:to-emerald-600 transition-all duration-200 text-lg shadow-lg transform hover:scale-105 flex items-center justify-center gap-2 relative overflow-hidden"
                   >
-                    📤 공유하기
+                    <span className="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-400 opacity-0 hover:opacity-20 transition-opacity"></span>
+                    <span className="relative text-xl">📤</span>
+                    <span className="relative">공유하기</span>
                   </button>
                 </div>
               </div>

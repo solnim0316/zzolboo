@@ -19,27 +19,6 @@ export const dinosaurImages = {
   '???': '/images/tests/dinosaur/UNKNOWN.png',   // 부사우루스 (균형형)
 };
 
-// 🐱 CAT-MBTI 이미지 경로 매핑
-export const catMbtiImages = {
-  INTJ: '/images/tests/cat-mbti/INTJ.png',
-  INTP: '/images/tests/cat-mbti/INTP.png',
-  ENTJ: '/images/tests/cat-mbti/ENTJ.png',
-  ENTP: '/images/tests/cat-mbti/ENTP.png',
-  INFJ: '/images/tests/cat-mbti/INFJ.png',
-  INFP: '/images/tests/cat-mbti/INFP.png',
-  ENFJ: '/images/tests/cat-mbti/ENFJ.png',
-  ENFP: '/images/tests/cat-mbti/ENFP.png',
-  ISTJ: '/images/tests/cat-mbti/ISTJ.png',
-  ISFJ: '/images/tests/cat-mbti/ISFJ.png',
-  ESTJ: '/images/tests/cat-mbti/ESTJ.png',
-  ESFJ: '/images/tests/cat-mbti/ESFJ.png',
-  ISTP: '/images/tests/cat-mbti/ISTP.png',
-  ISFP: '/images/tests/cat-mbti/ISFP.png',
-  ESTP: '/images/tests/cat-mbti/ESTP.png',
-  ESFP: '/images/tests/cat-mbti/ESFP.png',
-  '???': '/images/tests/cat-mbti/UNKNOWN.png',
-};
-
 // 🎨 공룡별 테마 색상 (기존 쫄부월드 테마와 조화)
 export const dinosaurThemes = {
   INTJ: { primary: '#6366f1', secondary: '#e0e7ff' },  // 보라/남색 계열
