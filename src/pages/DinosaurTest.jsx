@@ -340,7 +340,7 @@ export default function DinosaurTest() {
         
         {/* 🎯 시작 화면 */}
         {currentStep === 'intro' && (
-          <div className="flex flex-col items-center justify-center min-h-screen px-4">
+          <div className="flex flex-col items-center pt-8 px-4">
             <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full text-center">
               <div className="text-6xl mb-6">{testInfo.emoji}</div>
               <h1 className="text-2xl font-bold mb-4 text-gray-800">

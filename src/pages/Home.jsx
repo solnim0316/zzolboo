@@ -21,17 +21,6 @@ export default function Home() {
       description: "만약 내가 공룡시대에 태어났다면? 나는 어떤 공룡이였을까?"
     },
     {
-      id: "catmbti",
-      title: "고양이별 MBTI 테스트",
-      world: "고양이별",
-      emoji: "🌌",
-      theme: "파스텔",
-      thumbnail: "/images/worlds/catmbti.png",
-      isFeatured: false,
-      isThemed: true,
-      description: "쫄과 부가 고양이별에서 당신의 성격을 분석해드려요!"
-    },
-    {
       id: "dream-cafe",
       title: "꿈속 카페 테스트",
       world: "꿈속 카페",
@@ -88,7 +77,7 @@ export default function Home() {
       <Header />
       
       {/* 📱 메인 콘텐츠 */}
-      <main className="bg-background text-text min-h-screen px-4 py-6 sm:px-6 md:px-8 lg:px-12">
+      <main className="bg-background text-text min-h-screen px-4 pt-0 pb-6 sm:px-6 md:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
           
           {/* 🌟 Hero 배너 - 오늘의 추천 */}

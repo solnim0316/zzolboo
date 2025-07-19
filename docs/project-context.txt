@@ -1,0 +1,63 @@
+📁 프로젝트명: 쫄부월드 (ZzolBoo World)
+
+🌐 핵심 콘셉트:  
+고양이 캐릭터 '쫄'과 '부'가 다양한 세계관을 여행하며 각각의 성격 유형 테스트를 진행하는 형식.
+각 테스트는 하나의 독립된 세계로 구성되며, 세계마다 고유한 그림체/컨셉/결과 유형을 가짐.
+그러나 쫄과 부는 어떤 세계를 가도 ‘변하지 않는 본질’을 유지하며 반복 등장하는 중심 캐릭터임.
+
+✨ 테스트 분류:
+1. 쫄부 테마 테스트 (세계관 있음)
+  - 세계관, 감정선, 캐릭터 대사 포함
+  - 결과 이미지 = AI 이미지 + 손그림 조합
+  - Hero 영역 / Featured 영역에 우선 배치
+
+2. 일반 테스트 (비테마 / 캐주얼)
+  - 일반 성격/밸런스/밈 테스트 등
+  - 별도 세계관 없이 단순 UI 카드로 구성
+  - Recommended 영역에 배치됨
+
+📌 예외 결과:
+- 특정 테스트에서 “균형형 / 분류불가형”이 나올 경우, 항상 부/쫄 손그림 캐릭터로 결과 도출
+- 그림체: 고정된 핸드드로잉 일러스트 (일관성 유지)
+- 결과 문구는 메타적이고 감성적인 말투로 구성됨
+
+📦 컴포넌트 구조 개요:
+- HeroBanner.jsx       // 오늘의 추천 (쫄부)
+- ThemedTestList.jsx   // 세계관 기반 테스트 리스트
+- GeneralTestList.jsx  // 일반 테스트 리스트
+- SecretWorldBanner.jsx// 잠금 해제형 테스트 (예정)
+- ResultPage.jsx       // 결과 페이지: 세계관 기반 결과 렌더링
+- TestPlayer.jsx       // 테스트 로직 / 진행 컨트롤러
+
+📁 테스트 데이터 구조:
+{
+  id: "dinosaur-mbti",
+  title: "성격유형별 공룡 테스트",
+  world: "공룡시대",
+  emoji: "🦕",
+  theme: "쥬라기",
+  thumbnail: "/images/tests/dinosaur/ENTJ.png",
+  isFeatured: true,
+  isThemed: true
+}
+
+🧠 디렉토리 참고:
+- /data/tests/themedTests.json → 쫄부세계관 기반 테스트
+- /data/tests/casualTests.json → 일반 테스트
+- /data/results/resultTemplates.json → 유형별 결과 출력
+
+🎨 디자인 규칙:
+- 쫄부세계관: 각 테스트는 별도 일러스트/디자인 사용 가능 (그림체 다름 O)
+- 일반 테스트: 통일된 레이아웃/그리드 카드 UI
+- 예외형 결과: 항상 동일한 부 or 쫄 핸드드로잉 이미지 사용
+
+📝 코드 생성 시 Copilot 가이드:
+- ThemedTestList에는 world, theme 필드를 활용하여 배경 색/아이콘/카드 테마 분기
+- ResultPage는 isThemed 여부에 따라 쫄부 결과용 캐릭터 + 설명 블록 추가
+- 테스트 ID는 unique하고 kebab-case 권장
+- 각 테스트는 JSON 기반으로 분기되며 전역 테스트 로직은 TestPlayer.jsx에서 처리
+
+📎 참고사항:
+- 쫄은 시크한 노르웨이숲, 부는 애교많은 랙돌
+- 쫄은 사용자 기준으로 항상 약간 비판적인 시선, 부는 친근하고 다정한 말투
+

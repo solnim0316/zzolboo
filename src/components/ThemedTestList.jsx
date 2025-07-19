@@ -25,14 +25,14 @@ export default function ThemedTestList({ tests }) {
   };
 
   return (
-    <section className="mb-8">
+    <section className="mb-6">
       {/* 📋 섹션 제목 */}
-      <h2 className="text-xl sm:text-2xl font-bold mb-4 text-[#5D4037]">
+      <h2 className="text-xl sm:text-2xl font-bold mb-2 text-[#5D4037]">
         🐱 쫄부 세계관 테스트
       </h2>
       
       {/* 🎴 테스트 카드 그리드 */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
         {tests && tests.map(test => (
           <div key={test.id} 
                className={`${getThemeColors(test.theme)} rounded-lg sm:rounded-xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105 cursor-pointer overflow-hidden`}>

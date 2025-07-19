@@ -1,15 +1,15 @@
-// 🌟 오늘의 추천 (쫄부) Hero 영역
+//     <section className="w-full bg-gradient-to-br from-pink-100 via-purple-100 to-yellow-100 rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 text-center shadow-lg mb-1">& 오늘의 추천 (쫄부) Hero 영역
 export default function HeroBanner({ featuredTest }) {
   return (
     <section className="w-full bg-gradient-to-br from-pink-100 via-purple-100 to-yellow-100 rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 text-center shadow-lg mb-8">
       
       {/* ✨ 상단 배지 */}
-      <div className="text-xs sm:text-sm md:text-base text-[#8D6E63] mb-3 sm:mb-4">
+      <div className="text-xs sm:text-sm md:text-base text-[#8D6E63] mb-1 sm:mb-2">
         ✨ 오늘의 쫄부 추천 테스트 ✨
       </div>
       
       {/* 🐱 캐릭터 영역 */}
-      <div className="flex justify-center items-center gap-4 sm:gap-6 mb-4 sm:mb-6">
+      <div className="flex justify-center items-center gap-4 sm:gap-6 mb-2 sm:mb-3">
         <div className="text-3xl sm:text-4xl md:text-5xl">🐱</div>
         <div className="text-lg sm:text-xl md:text-2xl font-bold text-[#5D4037]">
           쫄 & 부
@@ -18,8 +18,8 @@ export default function HeroBanner({ featuredTest }) {
       </div>
       
       {/* 📝 메인 텍스트 */}
-      <div className="mb-4 sm:mb-6">
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#5D4037] mb-2 sm:mb-3">
+      <div className="mb-2 sm:mb-3">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#5D4037] mb-0.5 sm:mb-1">
           {featuredTest ? featuredTest.title : "쫄부월드에 오신 걸 환영해요!"}
         </h2>
         <p className="text-sm sm:text-base md:text-lg text-[#6D4C41] leading-relaxed">
@@ -33,7 +33,7 @@ export default function HeroBanner({ featuredTest }) {
       </button>
       
       {/* 💫 하단 장식 */}
-      <div className="mt-4 sm:mt-6 text-xs sm:text-sm text-[#8D6E63]">
+      <div className="mt-1 sm:mt-2 text-xs sm:text-sm text-[#8D6E63]">
         🌟 쫄과 부와 함께 새로운 자아를 발견해보세요 🌟
       </div>
     </section>
