@@ -4,6 +4,10 @@ import TestPlayer from "./pages/TestPlayer";
 import ResultPage from "./pages/ResultPage";
 import DinosaurTest from "./pages/DinosaurTest";
 import CatTest from "./pages/CatTest";
+import About from "./pages/About";
+import TermsOfService from "./pages/TermsOfService";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Contact from "./pages/Contact";
 
 export default function App() {
   return (
@@ -14,6 +18,10 @@ export default function App() {
         <Route path="/test/:testId/result" element={<ResultPage />} />
         <Route path="/dinosaur-test" element={<DinosaurTest />} />
         <Route path="/cat-test" element={<CatTest />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/terms" element={<TermsOfService />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   );

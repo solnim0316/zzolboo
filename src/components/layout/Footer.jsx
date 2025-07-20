@@ -1,4 +1,6 @@
 // 🦶 웹사이트 푸터 컴포넌트
+import { Link } from 'react-router-dom';
+
 export default function Footer() {
   return (
     <footer className="bg-gray-200 text-center px-4 py-4 sm:py-6 md:py-8 mt-8 sm:mt-12">
@@ -7,17 +9,26 @@ export default function Footer() {
         &copy; 2025 ZZOLBOOWORLD. All rights reserved.
       </p>
       
-      {/* 🔗 추가 링크들 */}
+      {/* 🔗 필수 법적 링크들 */}
       <div className="mt-2 sm:mt-3 flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm">
-        <a href="#" className="text-gray-500 hover:text-gray-700 transition-colors duration-200">
+        <Link to="/about" className="text-gray-500 hover:text-gray-700 transition-colors duration-200">
+          회사소개
+        </Link>
+        <Link to="/terms" className="text-gray-500 hover:text-gray-700 transition-colors duration-200">
           이용약관
-        </a>
-        <a href="#" className="text-gray-500 hover:text-gray-700 transition-colors duration-200">
+        </Link>
+        <Link to="/privacy" className="text-gray-500 hover:text-gray-700 transition-colors duration-200">
           개인정보처리방침
-        </a>
-        <a href="#" className="text-gray-500 hover:text-gray-700 transition-colors duration-200">
+        </Link>
+        <Link to="/contact" className="text-gray-500 hover:text-gray-700 transition-colors duration-200">
           문의하기
-        </a>
+        </Link>
+      </div>
+      
+      {/* 📧 연락처 정보 */}
+      <div className="mt-3 sm:mt-4 text-xs text-gray-500">
+        <p>문의: 016sol@gmail.com</p>
+        <p className="mt-1">🐱 쫄과 부가 함께하는 특별한 성격 테스트 세계 🐰</p>
       </div>
     </footer>
   )

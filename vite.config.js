@@ -1,9 +1,17 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
+import { viteSitemapPlugin } from './plugins/viteSitemapPlugin.js'
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    viteSitemapPlugin({
+      enableInDev: true,
+      autoRebuild: true,
+      logLevel: 'info'
+    })
+  ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src')

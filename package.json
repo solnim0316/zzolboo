@@ -1,11 +1,16 @@
 {
   "name": "my-tailwind-app",
   "version": "1.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sitemap": "node scripts/generateSitemap.js",
+    "sitemap:dynamic": "node scripts/dynamicSitemap.js",
+    "sitemap:monitor": "node scripts/sitemapMonitor.js start",
+    "sitemap:update": "node scripts/sitemapMonitor.js update",
+    "sitemap:status": "node scripts/sitemapMonitor.js status",
+    "prebuild": "npm run sitemap:dynamic"
   },
   "dependencies": {
     "react": "^18.2.0",
