@@ -10,13 +10,24 @@ export default function Home() {
   // 📊 테스트 데이터 (임시 더미 데이터)
   const themedTests = [
     {
+      id: "cat-mbti",
+      title: "고양이 MBTI 테스트",
+      world: "고양이 왕국",
+      emoji: "🐾",
+      theme: "고양이 세상",
+      thumbnail: "/images/tests/cat-mbti/ENFJ.png",
+      isFeatured: true,
+      isThemed: true,
+      description: "쫄과 부가 안내하는 고양이 왕국! 너는 어떤 성격의 고양이일까?"
+    },
+    {
       id: "dinosaur-mbti",
       title: "성격유형별 공룡 테스트",
       world: "공룡시대",
       emoji: "🦕",
       theme: "쥬라기",
       thumbnail: "/images/tests/dinosaur/ENTJ.png",
-      isFeatured: true,
+      isFeatured: false,
       isThemed: true,
       description: "만약 내가 공룡시대에 태어났다면? 나는 어떤 공룡이였을까?"
     },

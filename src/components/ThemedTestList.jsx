@@ -19,6 +19,8 @@ export default function ThemedTestList({ tests }) {
   const handleTestStart = (testId) => {
     if (testId === 'dinosaur-mbti') {
       navigate('/dinosaur-test');
+    } else if (testId === 'cat-mbti') {
+      navigate('/cat-test');
     } else {
       navigate(`/test/${testId}`);
     }
