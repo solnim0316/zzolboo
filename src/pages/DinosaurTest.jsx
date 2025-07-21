@@ -2,8 +2,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { dinosaurTestData } from '@/data/dinosaurTestData';
+
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import ImageGeneratorComponent from '@/components/common/ImageGeneratorComponent';
 
 export default function DinosaurTest() {
   const navigate = useNavigate();
@@ -429,31 +431,32 @@ export default function DinosaurTest() {
                     <div className={`text-sm font-semibold ${getCardPalette(result.MBTI).textSecondary} tracking-wider`}>
                       ZZOLBOOWORLD.COM
                     </div>
-                    <div className="text-2xl">🦕</div>
+                    {/* MBTI(이모지) 뱃지 - 진한 이모지 대신 */}
+                    <div className={`inline-flex items-center gap-2 bg-gradient-to-r ${getCardPalette(result.MBTI).mbtiButton} text-white px-4 py-2 rounded-xl shadow-lg border border-white/20 text-base font-bold`}>
+                      <span>{result.MBTI} 🦕</span>
+                    </div>
                   </div>
 
                   {/* 메인 콘텐츠 영역 */}
                   <div className="text-center space-y-6">
                     
                     {/* MBTI 타입 뱃지 - 가장 눈에 띄게 */}
+                    {/* 공룡 이름 - 기존 MBTI 위치 */}
                     <div className="flex justify-center mb-6">
-                      <div className={`inline-flex items-center gap-3 bg-gradient-to-r ${getCardPalette(result.MBTI).mbtiButton} text-white px-10 py-4 rounded-2xl shadow-2xl border-2 border-white/20`}>
-                        <span className="text-3xl font-black tracking-wider">{result.MBTI}</span>
-                        <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                      <div className="inline-flex items-center gap-3 bg-white/70 text-gray-800 px-8 py-3 rounded-2xl shadow border border-gray-200 text-2xl font-extrabold">
+                        {result.dinosaur}
                       </div>
                     </div>
 
-                    {/* 공룡 이미지와 이름 */}
+
+                    {/* 공룡 이미지 (이름 칸 삭제, 이미지 사이즈 키움) */}
                     <div className="relative">
                       <div className={`bg-white/30 backdrop-blur-sm rounded-3xl p-6 mb-4 shadow-xl border border-white/20`}>
                         <img
                           src={result.image}
                           alt={result.dinosaur}
-                          className="w-40 h-40 mx-auto object-contain drop-shadow-2xl"
+                          className="w-56 h-56 mx-auto object-contain drop-shadow-2xl"
                         />
-                      </div>
-                      <div className={`inline-block bg-white/20 backdrop-blur-sm ${getCardPalette(result.MBTI).textMain} px-6 py-2 rounded-2xl text-lg font-bold shadow-lg border border-white/30`}>
-                        {result.dinosaur}
                       </div>
                     </div>
 
@@ -634,6 +637,17 @@ export default function DinosaurTest() {
                     <span className="relative text-xl">📤</span>
                     <span className="relative">공유하기</span>
                   </button>
+                {/* 이미지 저장 버튼 및 생성 컴포넌트 */}
+                <div className="flex-1 mt-2">
+                  <ImageGeneratorComponent
+                    testType="dinosaur"
+                    result={result.MBTI}
+                    characterImage={result.image}
+                    userName={userName || '사용자'}
+                    description={getMainResultText(result.MBTI, result.dinosaur)}
+                    characterName={result.dinosaur}
+                  />
+                </div>
                 </div>
               </div>
             </div>
