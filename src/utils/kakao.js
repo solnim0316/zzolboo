@@ -1,7 +1,8 @@
 // 🔑 카카오 SDK 초기화
 // 실제 배포시에는 환경 변수로 관리하거나 실제 앱 키로 변경 필요
 
-const KAKAO_APP_KEY = 'your_kakao_app_key_here'; // 실제 카카오 앱 키로 변경 필요
+// .env 파일에서 불러오기 (Vite 환경)
+const KAKAO_APP_KEY = import.meta.env.VITE_KAKAO_APP_KEY;
 
 export function initKakao() {
   if (typeof window !== 'undefined' && window.Kakao) {
