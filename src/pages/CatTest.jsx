@@ -7,6 +7,7 @@ import { catImages } from '@/data/catImages';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ImageGeneratorComponent from '@/components/common/ImageGeneratorComponent';
+import SocialShare from '@/components/common/SocialShare';
 
 export default function CatTest() {
   const navigate = useNavigate();
@@ -645,14 +646,13 @@ export default function CatTest() {
                     <span className="text-xl">🔄</span>
                     다시 테스트
                   </button>
-                  <button
-                    onClick={() => alert('공유 기능 준비 중입니다! 🐱')}
-                    className="flex-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white py-4 rounded-2xl font-bold hover:from-green-600 hover:to-emerald-600 transition-all duration-200 text-lg shadow-lg transform hover:scale-105 flex items-center justify-center gap-2 relative overflow-hidden"
-                  >
-                    <span className="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-400 opacity-0 hover:opacity-20 transition-opacity"></span>
-                    <span className="relative text-xl">📤</span>
-                    <span className="relative">공유하기</span>
-                  </button>
+                  
+                  {/* 소셜 공유 컴포넌트 */}
+                  <SocialShare 
+                    testType="cat"
+                    result={result}
+                    userName={userName}
+                  />
                 {/* 이미지 저장 버튼 및 생성 컴포넌트 */}
                 <div className="flex-1 mt-2">
                   <ImageGeneratorComponent

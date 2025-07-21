@@ -4,6 +4,7 @@ import TestPlayer from "./pages/TestPlayer";
 import ResultPage from "./pages/ResultPage";
 import DinosaurTest from "./pages/DinosaurTest";
 import CatTest from "./pages/CatTest";
+import SharedResult from "./pages/SharedResult";
 import About from "./pages/About";
 import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/test/:testId" element={<TestPlayer />} />
         <Route path="/test/:testId/result" element={<ResultPage />} />
+        <Route path="/share" element={<SharedResult />} />
         <Route path="/dinosaur-test" element={<DinosaurTest />} />
         <Route path="/cat-test" element={<CatTest />} />
         <Route path="/about" element={<About />} />
