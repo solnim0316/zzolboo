@@ -1,4 +1,6 @@
 // 🎯 일반 테스트 리스트 (캐주얼)
+import { Link } from 'react-router-dom';
+
 export default function GeneralTestList({ tests }) {
   return (
     <section className="mb-8">
@@ -10,8 +12,11 @@ export default function GeneralTestList({ tests }) {
       {/* 🎴 테스트 카드 그리드 - 통일된 레이아웃 */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {tests && tests.map(test => (
-          <div key={test.id} 
-               className="bg-white rounded-lg sm:rounded-xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105 cursor-pointer overflow-hidden">
+          <Link 
+            key={test.id} 
+            to={`/${test.id}`}
+            className="bg-white rounded-lg sm:rounded-xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105 cursor-pointer overflow-hidden block"
+          >
             
             {/* 🎨 카드 내용 */}
             <div className="p-4 sm:p-5">
@@ -30,7 +35,7 @@ export default function GeneralTestList({ tests }) {
                 테스트 시작하기
               </button>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

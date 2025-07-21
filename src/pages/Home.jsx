@@ -57,13 +57,6 @@ export default function Home() {
 
   const casualTests = [
     {
-      id: "simple-mbti",
-      title: "간단 MBTI 테스트",
-      thumbnail: "/images/tests/simple-mbti.png",
-      isThemed: false,
-      description: "5분 만에 알아보는 나의 성격 유형"
-    },
-    {
       id: "color-psychology",
       title: "색깔 심리 테스트",
       thumbnail: "/images/tests/color-psychology.png",
@@ -71,11 +64,11 @@ export default function Home() {
       description: "좋아하는 색깔로 알아보는 심리 상태"
     },
     {
-      id: "food-personality",
-      title: "음식 성격 테스트",
-      thumbnail: "/images/tests/food-personality.png",
+      id: "food-test",
+      title: "오늘 뭐 먹지? 테스트",
+      thumbnail: "/images/tests/food-test.png",
       isThemed: false,
-      description: "좋아하는 음식으로 알아보는 성격"
+      description: "80가지 한국 음식 중 오늘의 메뉴를 추천받아보세요!"
     }
   ];
 
