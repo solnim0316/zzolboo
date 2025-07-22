@@ -12,9 +12,9 @@ export default function Home() {
     {
       id: "cat-mbti",
       title: "고양이 MBTI 테스트",
-      world: "고양이 왕국",
+      world: "고양이",
       emoji: "🐾",
-      theme: "고양이 세상",
+      theme: "고양이",
       thumbnail: "/images/tests/cat-mbti/ENFJ.png",
       isFeatured: true,
       isThemed: true,

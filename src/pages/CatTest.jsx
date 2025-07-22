@@ -571,8 +571,10 @@ export default function CatTest() {
                     <span className="text-2xl">✨</span>
                     성격 요약
                   </h4>
-                  <p className="text-gray-700 text-lg leading-relaxed">
-                    {result.description}
+                  <p className="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
+                    {Array.isArray(result.description)
+                      ? result.description.join('\n')
+                      : result.description}
                   </p>
                 </div>
 

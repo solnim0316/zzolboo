@@ -128,7 +128,14 @@ export const dinosaurTestData = {
       MBTI: "INTJ",
       title: "INTJ – 스피노사우루스",
       dinosaur: "스피노사우루스",
-      desc: "스피노사우루스는 INTJ 성향을 지닌 공룡으로, 성격이 뚜렷하고 개성 있는 특징을 갖고 있어요.",
+      desc: [
+        "스피노사우루스는 조용하지만 듬직한 전략가예요.",
+        "혼자만의 시간도 소중히 여기죠.",
+        "마음은 따뜻하지만 표현은 서툴 수 있어요.",
+        "계획을 세우고 차근차근 실천하는 타입!",
+        "가끔은 귀여운 허당미도 있습니다.",
+        "믿음직한 친구가 되어주는 공룡이에요."
+      ],
       image: "/images/tests/dinosaur/INTJ.png",
       match: ["ENFP", "ISFP"],
       matchReason: [
@@ -142,7 +149,14 @@ export const dinosaurTestData = {
       MBTI: "INTP",
       title: "INTP – 데이노니쿠스",
       dinosaur: "데이노니쿠스",
-      desc: "데이노니쿠스는 INTP 성향을 지닌 공룡으로, 성격이 뚜렷하고 개성 있는 특징을 갖고 있어요.",
+      desc: [
+        "데이노니쿠스는 호기심 많은 탐구자예요.",
+        "새로운 것에 관심이 많고, 분석을 좋아해요.",
+        "혼자서 상상에 빠지는 걸 즐깁니다.",
+        "귀여운 엉뚱함이 매력 포인트!",
+        "가끔은 엉뚱한 질문으로 모두를 웃게 해요.",
+        "따뜻한 마음을 가진 공룡 친구랍니다."
+      ],
       image: "/images/tests/dinosaur/INTP.png",
       match: ["INFJ", "ENTP"],
       matchReason: [
@@ -156,7 +170,14 @@ export const dinosaurTestData = {
       MBTI: "ENTJ",
       title: "ENTJ – 티라노사우루스",
       dinosaur: "티라노사우루스",
-      desc: "티라노사우루스는 ENTJ 성향을 지닌 공룡으로, 성격이 뚜렷하고 개성 있는 특징을 갖고 있어요.",
+      desc: [
+        "티라노사우루스는 카리스마 넘치는 리더예요.",
+        "목표를 정하면 끝까지 밀고 나가요.",
+        "친구들을 잘 챙기는 따뜻한 면도 있답니다.",
+        "계획적이면서도 귀여운 허당미가 있어요.",
+        "가끔은 장난도 잘 치는 공룡이에요.",
+        "믿음직한 친구가 되어줍니다."
+      ],
       image: "/images/tests/dinosaur/ENTJ.png",
       match: ["ENFP", "ESFJ"],
       matchReason: [
@@ -170,7 +191,14 @@ export const dinosaurTestData = {
       MBTI: "ENTP",
       title: "ENTP – 알로사우루스",
       dinosaur: "알로사우루스",
-      desc: "알로사우루스는 ENTP 성향을 지닌 공룡으로, 성격이 뚜렷하고 개성 있는 특징을 갖고 있어요.",
+      desc: [
+        "알로사우루스는 아이디어 뱅크 공룡이에요.",
+        "새로운 것을 시도하는 걸 좋아합니다.",
+        "장난기 많고 귀여운 매력이 있어요.",
+        "친구들과 수다 떠는 걸 즐깁니다.",
+        "가끔은 엉뚱한 상상도 해요.",
+        "따뜻한 분위기를 만드는 공룡이에요."
+      ],
       image: "/images/tests/dinosaur/ENTP.png",
       match: ["ENFJ", "ISFP"],
       matchReason: [
@@ -184,7 +212,14 @@ export const dinosaurTestData = {
       MBTI: "INFJ",
       title: "INFJ – 마이아사우라",
       dinosaur: "마이아사우라",
-      desc: "마이아사우라는 INFJ 성향을 지닌 공룡으로, 성격이 뚜렷하고 개성 있는 특징을 갖고 있어요.",
+      desc: [
+        "마이아사우라는 조용하고 신비로운 공룡이에요.",
+        "친구의 마음을 잘 이해해줍니다.",
+        "따뜻한 위로를 건네는 능력이 있어요.",
+        "상상력이 풍부하고, 감성이 깊어요.",
+        "혼자만의 시간도 소중히 여깁니다.",
+        "포근한 분위기를 가진 공룡 친구예요."
+      ],
       image: "/images/tests/dinosaur/INFJ.png",
       match: ["INFP", "INTP"],
       matchReason: [
@@ -198,7 +233,14 @@ export const dinosaurTestData = {
       MBTI: "INFP",
       title: "INFP – 브라키오사우루스",
       dinosaur: "브라키오사우루스",
-      desc: "브라키오사우루스는 INFP 성향을 지닌 공룡으로, 성격이 뚜렷하고 개성 있는 특징을 갖고 있어요.",
+      desc: [
+        "브라키오사우루스는 감성적인 몽상가예요.",
+        "상상력이 풍부하고, 마음이 따뜻해요.",
+        "친구를 소중히 여기는 타입입니다.",
+        "귀여운 허당미가 매력 포인트!",
+        "혼자만의 시간도 즐길 줄 알아요.",
+        "포근한 분위기를 가진 공룡이에요."
+      ],
       image: "/images/tests/dinosaur/INFP.png",
       match: ["INFJ", "ENFJ"],
       matchReason: [
@@ -212,7 +254,14 @@ export const dinosaurTestData = {
       MBTI: "ENFJ",
       title: "ENFJ – 이구아노돈",
       dinosaur: "이구아노돈",
-      desc: "이구아노돈는 ENFJ 성향을 지닌 공룡으로, 성격이 뚜렷하고 개성 있는 특징을 갖고 있어요.",
+      desc: [
+        "이구아노돈은 모두를 챙기는 따뜻한 리더예요.",
+        "친구의 고민을 잘 들어줍니다.",
+        "분위기를 밝게 만드는 능력이 있어요.",
+        "귀여운 장난도 잘 치는 편이에요.",
+        "가끔은 허당미도 보입니다.",
+        "믿음직한 친구가 되어주는 공룡이에요."
+      ],
       image: "/images/tests/dinosaur/ENFJ.png",
       match: ["ISTP", "INFJ"],
       matchReason: [
@@ -226,7 +275,14 @@ export const dinosaurTestData = {
       MBTI: "ENFP",
       title: "ENFP – 벨로시랩터",
       dinosaur: "벨로시랩터",
-      desc: "벨로시랩터는 ENFP 성향을 지닌 공룡으로, 성격이 뚜렷하고 개성 있는 특징을 갖고 있어요.",
+      desc: [
+        "벨로시랩터는 에너지 넘치는 공룡이에요.",
+        "새로운 친구를 사귀는 걸 좋아합니다.",
+        "귀여운 장난꾸러기 면도 있어요.",
+        "상상력이 풍부하고, 긍정적이에요.",
+        "가끔은 엉뚱한 행동으로 모두를 웃게 해요.",
+        "따뜻한 마음을 가진 공룡 친구랍니다."
+      ],
       image: "/images/tests/dinosaur/ENFP.png",
       match: ["ENTP", "ISFJ"],
       matchReason: [
@@ -240,7 +296,14 @@ export const dinosaurTestData = {
       MBTI: "ISTJ",
       title: "ISTJ – 안킬로사우루스",
       dinosaur: "안킬로사우루스",
-      desc: "안킬로사우루스는 ISTJ 성향을 지닌 공룡으로, 성격이 뚜렷하고 개성 있는 특징을 갖고 있어요.",
+      desc: [
+        "안킬로사우루스는 듬직한 수호자예요.",
+        "책임감이 강하고, 신뢰를 중요하게 여깁니다.",
+        "친구를 위해서라면 뭐든 해주는 타입!",
+        "귀여운 허당미도 가끔 보여요.",
+        "계획적이고 꼼꼼한 성격입니다.",
+        "따뜻한 마음을 가진 공룡이에요."
+      ],
       image: "/images/tests/dinosaur/ISTJ.png",
       match: ["ENTJ", "ISFJ"],
       matchReason: [
@@ -254,7 +317,14 @@ export const dinosaurTestData = {
       MBTI: "ISFJ",
       title: "ISFJ – 트리케라톱스",
       dinosaur: "트리케라톱스",
-      desc: "트리케라톱스는 ISFJ 성향을 지닌 공룡으로, 성격이 뚜렷하고 개성 있는 특징을 갖고 있어요.",
+      desc: [
+        "트리케라톱스는 다정한 보호자예요.",
+        "친구를 잘 챙기고, 배려심이 깊어요.",
+        "포근한 분위기를 만들어줍니다.",
+        "귀여운 장난도 가끔 치는 편이에요.",
+        "책임감이 강하고, 신뢰를 중요하게 여깁니다.",
+        "따뜻한 마음을 가진 공룡 친구랍니다."
+      ],
       image: "/images/tests/dinosaur/ISFJ.png",
       match: ["ENTJ", "ENTP"],
       matchReason: [
@@ -268,7 +338,14 @@ export const dinosaurTestData = {
       MBTI: "ESTJ",
       title: "ESTJ – 카르노타우루스",
       dinosaur: "카르노타우루스",
-      desc: "카르노타우루스는 ESTJ 성향을 지닌 공룡으로, 성격이 뚜렷하고 개성 있는 특징을 갖고 있어요.",
+      desc: [
+        "카르노타우루스는 믿음직한 리더예요.",
+        "계획적이고, 책임감이 강합니다.",
+        "친구들을 잘 챙기는 따뜻한 면도 있어요.",
+        "귀여운 허당미가 매력 포인트!",
+        "가끔은 장난도 잘 치는 공룡이에요.",
+        "믿음직한 친구가 되어줍니다."
+      ],
       image: "/images/tests/dinosaur/ESTJ.png",
       match: ["INFJ", "ISFP"],
       matchReason: [
@@ -282,7 +359,14 @@ export const dinosaurTestData = {
       MBTI: "ESFJ",
       title: "ESFJ – 스테고사우루스",
       dinosaur: "스테고사우루스",
-      desc: "스테고사우루스는 ESFJ 성향을 지닌 공룡으로, 성격이 뚜렷하고 개성 있는 특징을 갖고 있어요.",
+      desc: [
+        "스테고사우루스는 온화하고 다정한 공룡이에요.",
+        "친구를 잘 챙기고, 배려심이 깊어요.",
+        "포근한 분위기를 만들어줍니다.",
+        "귀여운 장난도 가끔 치는 편이에요.",
+        "책임감이 강하고, 신뢰를 중요하게 여깁니다.",
+        "따뜻한 마음을 가진 공룡 친구랍니다."
+      ],
       image: "/images/tests/dinosaur/ESFJ.png",
       match: ["ENFP", "INTJ"],
       matchReason: [
@@ -296,7 +380,14 @@ export const dinosaurTestData = {
       MBTI: "ISTP",
       title: "ISTP – 파키리노사우루스",
       dinosaur: "파키리노사우루스",
-      desc: "파키리노사우루스는 ISTP 성향을 지닌 공룡으로, 성격이 뚜렷하고 개성 있는 특징을 갖고 있어요.",
+      desc: [
+        "파키리노사우루스는 쿨한 매력의 공룡이에요.",
+        "혼자만의 시간도 소중히 여깁니다.",
+        "필요할 때만 다가오는 츤데레 타입!",
+        "귀여운 허당미가 매력 포인트예요.",
+        "가끔은 엉뚱한 행동으로 모두를 웃게 해요.",
+        "따뜻한 마음을 가진 공룡 친구랍니다."
+      ],
       image: "/images/tests/dinosaur/ISTP.png",
       match: ["ISFJ", "ENTJ"],
       matchReason: [
@@ -310,7 +401,14 @@ export const dinosaurTestData = {
       MBTI: "ISFP",
       title: "ISFP – 파키케팔로사우루스",
       dinosaur: "파키케팔로사우루스",
-      desc: "파키케팔로사우루스는 ISFP 성향을 지닌 공룡으로, 성격이 뚜렷하고 개성 있는 특징을 갖고 있어요.",
+      desc: [
+        "파키케팔로사우루스는 예술적 감성이 풍부한 공룡이에요.",
+        "온화하고 부드러운 성격입니다.",
+        "자유로운 분위기를 좋아해요.",
+        "귀여운 허당미가 매력 포인트!",
+        "혼자만의 시간도 즐길 줄 알아요.",
+        "따뜻한 마음을 가진 공룡이에요."
+      ],
       image: "/images/tests/dinosaur/ISFP.png",
       match: ["ESTJ", "ENTP"],
       matchReason: [
@@ -324,7 +422,14 @@ export const dinosaurTestData = {
       MBTI: "ESTP",
       title: "ESTP – 기가노토사우루스",
       dinosaur: "기가노토사우루스",
-      desc: "기가노토사우루스는 ESTP 성향을 지닌 공룡으로, 성격이 뚜렷하고 개성 있는 특징을 갖고 있어요.",
+      desc: [
+        "기가노토사우루스는 에너지 넘치는 공룡이에요.",
+        "새로운 도전을 두려워하지 않습니다.",
+        "친구들과 어울리는 걸 좋아해요.",
+        "귀여운 장난꾸러기 면도 있어요.",
+        "가끔은 엉뚱한 행동으로 모두를 웃게 해요.",
+        "따뜻한 마음을 가진 공룡 친구랍니다."
+      ],
       image: "/images/tests/dinosaur/ESTP.png",
       match: ["INFP", "ENTJ"],
       matchReason: [
@@ -338,7 +443,14 @@ export const dinosaurTestData = {
       MBTI: "ESFP",
       title: "ESFP – 파라사우롤로푸스",
       dinosaur: "파라사우롤로푸스",
-      desc: "파라사우롤로푸스는 ESFP 성향을 지닌 공룡으로, 성격이 뚜렷하고 개성 있는 특징을 갖고 있어요.",
+      desc: [
+        "파라사우롤로푸스는 즐거움을 선사하는 공룡이에요.",
+        "사교적이고, 친구들과 어울리는 걸 좋아해요.",
+        "귀여운 장난꾸러기 면도 있습니다.",
+        "긍정적인 에너지가 넘쳐요.",
+        "가끔은 엉뚱한 행동으로 모두를 웃게 해요.",
+        "따뜻한 마음을 가진 공룡 친구랍니다."
+      ],
       image: "/images/tests/dinosaur/ESFP.png",
       match: ["INTP", "ENTP"],
       matchReason: [
@@ -352,7 +464,14 @@ export const dinosaurTestData = {
       MBTI: "???",
       title: "??? – 부사우루스",
       dinosaur: "부사우루스",
-      desc: "부사우루스는 모든 성향을 균형 있게 가진 전설적인 공룡이에요. 감정과 이성, 계획과 즉흥 사이를 자유롭게 오가며, 상황에 따라 어떤 공룡으로도 변할 수 있는 유연한 성격이에요. 실존 여부는 밝혀지지 않았지만, 당신처럼 모든 기질이 완벽히 균형 잡힌 사람에게만 나타난다고 해요.",
+      desc: [
+        "부사우루스는 전설적인 균형의 공룡이에요.",
+        "감정과 이성, 계획과 즉흥을 모두 갖췄어요.",
+        "상황에 따라 다양한 모습으로 변신합니다.",
+        "귀여운 허당미와 따뜻한 마음이 공존해요.",
+        "모든 친구와 잘 어울릴 수 있는 타입!",
+        "희귀하고 특별한 존재랍니다."
+      ],
       image: "/images/tests/dinosaur/UNKNOWN.png",
       match: ["INFP", "ENTJ"],
       matchReason: [

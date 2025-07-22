@@ -124,7 +124,14 @@ export const catQuestions = [
 export const catResults = {
   "ENFJ": {
     title: "ENFJ – 랙돌",
-    description: "처음 본 고양이에게도 먼저 다가가 인싸력을 발휘하는 따뜻한 고양이! 배려심 넘치고, 주인의 기분을 귀신같이 캐치해요.",
+    description: [
+      "처음 본 고양이에게도 먼저 다가가 인싸력을 발휘하는 따뜻한 고양이!",
+      "배려심 넘치고, 주인의 기분을 귀신같이 캐치해요.",
+      "항상 주변을 살피며 모두와 잘 어울립니다.",
+      "리더십이 뛰어나고, 친구를 챙기는 데 능숙해요.",
+      "새로운 환경에도 금방 적응하는 편입니다.",
+      "가족과의 유대감을 소중히 여깁니다."
+    ],
     breed: "랙돌",
     image: "/images/tests/cat-mbti/ENFJ.png",
     match: ["INFP", "ISFJ"],
@@ -137,7 +144,14 @@ export const catResults = {
   },
   "INFP": {
     title: "INFP – 샴",
-    description: "감성적이고 낭만적인 고양이. 혼자만의 시간도 필요하지만, 애정이 넘치는 주인과는 깊은 유대를 맺어요.",
+    description: [
+      "감성적이고 낭만적인 고양이.",
+      "혼자만의 시간도 필요하지만, 애정이 넘치는 주인과는 깊은 유대를 맺어요.",
+      "상상력이 풍부하고, 조용한 공간을 좋아합니다.",
+      "섬세한 감정 표현이 특징이에요.",
+      "자유로운 분위기에서 더욱 빛을 발합니다.",
+      "마음이 맞는 친구와 깊은 우정을 나눕니다."
+    ],
     breed: "샴",
     image: "/images/tests/cat-mbti/INFP.png",
     match: ["ENFJ", "INFJ"],
@@ -150,7 +164,14 @@ export const catResults = {
   },
   "ISTP": {
     title: "ISTP – 러시안블루",
-    description: "쿨하고 독립적인 성격! 자기만의 루틴과 취향이 명확하며, 관심이 갈 때만 애정을 표현해요.",
+    description: [
+      "쿨하고 독립적인 성격!",
+      "자기만의 루틴과 취향이 명확합니다.",
+      "관심이 갈 때만 애정을 표현해요.",
+      "실용적이고 현실적인 면이 강합니다.",
+      "혼자만의 시간을 즐기는 타입이에요.",
+      "필요할 때만 다가오는 츤데레 고양이입니다."
+    ],
     breed: "러시안블루",
     image: "/images/tests/cat-mbti/ISTP.png",
     match: ["INTP", "ISTJ"],
@@ -163,7 +184,14 @@ export const catResults = {
   },
   "ESFP": {
     title: "ESFP – 토이거",
-    description: "사교성과 생동감의 아이콘인 ESFP는 토이거처럼 주목받는 걸 좋아하고 모두를 즐겁게 만듭니다.",
+    description: [
+      "사교성과 생동감의 아이콘인 고양이!",
+      "토이거처럼 주목받는 걸 좋아합니다.",
+      "모두를 즐겁게 만드는 분위기 메이커예요.",
+      "즉흥적이고 에너지가 넘칩니다.",
+      "새로운 경험을 두려워하지 않아요.",
+      "친구들과 어울리는 걸 좋아합니다."
+    ],
     breed: "토이거",
     image: "/images/tests/cat-mbti/ESFP.png",
     match: ["ISFJ", "ENFP"],
@@ -176,7 +204,14 @@ export const catResults = {
   },
   "INTJ": {
     title: "INTJ – 브리티시 숏헤어",
-    description: "계획적이고 전략적인 브리티시 숏헤어. 겉으로는 시크하지만 속은 따뜻한 츤데레형이에요.",
+    description: [
+      "계획적이고 전략적인 브리티시 숏헤어.",
+      "겉으로는 시크하지만 속은 따뜻한 츤데레형이에요.",
+      "분석적이고 신중한 성격입니다.",
+      "목표를 세우고 차근차근 실천해요.",
+      "혼자만의 시간을 소중히 여깁니다.",
+      "필요할 때는 리더십을 발휘합니다."
+    ],
     breed: "브리티시 숏헤어",
     image: "/images/tests/cat-mbti/INTJ.png",
     match: ["INFJ", "ISTP"],
@@ -189,7 +224,14 @@ export const catResults = {
   },
   "ISFJ": {
     title: "ISFJ – 스코티시 폴드",
-    description: "조용하고 헌신적인 ISFJ는 스코티시 폴드처럼 주변 사람을 살뜰히 챙기며 안정감을 줍니다.",
+    description: [
+      "조용하고 헌신적인 고양이.",
+      "스코티시 폴드처럼 주변을 살뜰히 챙깁니다.",
+      "안정감을 주는 존재예요.",
+      "섬세하고 따뜻한 마음을 가졌어요.",
+      "가족을 위해 희생도 마다하지 않습니다.",
+      "믿음직한 동반자 타입입니다."
+    ],
     breed: "스코티시 폴드",
     image: "/images/tests/cat-mbti/ISFJ.png",
     match: ["ESFJ", "ISTJ"],
@@ -202,7 +244,14 @@ export const catResults = {
   },
   "ENTP": {
     title: "ENTP – 먼치킨",
-    description: "궁금한 건 못 참는 호기심 천국! 탐험을 좋아하고, 늘 새로운 장난감을 찾는 창의력 고양이.",
+    description: [
+      "궁금한 건 못 참는 호기심 천국!",
+      "탐험을 좋아하고, 늘 새로운 장난감을 찾습니다.",
+      "창의력이 뛰어난 고양이예요.",
+      "변화와 자극을 즐깁니다.",
+      "새로운 친구를 쉽게 사귀어요.",
+      "아이디어가 넘치는 타입입니다."
+    ],
     breed: "먼치킨",
     image: "/images/tests/cat-mbti/ENTP.png",
     match: ["INTP", "ENFP"],
@@ -215,7 +264,14 @@ export const catResults = {
   },
   "INFJ": {
     title: "INFJ – 노르웨이숲",
-    description: "신비롭고 조용한 고양이. 내면의 세계가 풍부하고, 한 번 믿으면 평생 함께하는 타입이에요.",
+    description: [
+      "신비롭고 조용한 고양이.",
+      "내면의 세계가 풍부합니다.",
+      "한 번 믿으면 평생 함께하는 타입이에요.",
+      "깊이 있는 대화를 좋아합니다.",
+      "섬세하고 직관적인 성격입니다.",
+      "혼자만의 시간도 소중히 여깁니다."
+    ],
     breed: "노르웨이숲",
     image: "/images/tests/cat-mbti/INFJ.png",
     match: ["ENFP", "INTJ"],
@@ -228,7 +284,14 @@ export const catResults = {
   },
   "ENFP": {
     title: "ENFP – 버마",
-    description: "항상 호기심으로 가득 찬 버마 고양이처럼, ENFP는 창의력과 열정이 넘치며 새로운 사람이나 상황에 쉽게 끌립니다.",
+    description: [
+      "항상 호기심으로 가득 찬 고양이!",
+      "창의력과 열정이 넘칩니다.",
+      "새로운 사람이나 상황에 쉽게 끌려요.",
+      "즉흥적이고 자유로운 영혼입니다.",
+      "다양한 경험을 추구합니다.",
+      "주변에 긍정 에너지를 전파해요."
+    ],
     breed: "버마",
     image: "/images/tests/cat-mbti/ENFP.png",
     match: ["INFJ", "INFP"],
@@ -241,7 +304,14 @@ export const catResults = {
   },
   "ESTP": {
     title: "ESTP – 벵갈",
-    description: "활동적이고 에너지가 넘치는 ESTP는 벵갈 고양이처럼 민첩하고 도전적인 삶을 즐깁니다.",
+    description: [
+      "활동적이고 에너지가 넘치는 고양이!",
+      "벵갈 고양이처럼 민첩합니다.",
+      "도전적인 삶을 즐깁니다.",
+      "즉흥적이고 모험심이 강해요.",
+      "새로운 자극을 찾아 나섭니다.",
+      "친구들과 어울리는 걸 좋아해요."
+    ],
     breed: "벵갈",
     image: "/images/tests/cat-mbti/ESTP.png",
     match: ["ISFP", "ISTP"],
@@ -254,7 +324,14 @@ export const catResults = {
   },
   "ISFP": {
     title: "ISFP – 페르시안",
-    description: "고요하고 우아한 페르시안처럼, ISFP는 내향적이면서도 예술적인 감각이 뛰어난 고양이입니다.",
+    description: [
+      "고요하고 우아한 페르시안 고양이.",
+      "내향적이면서도 예술적인 감각이 뛰어납니다.",
+      "섬세하고 온화한 성격이에요.",
+      "자유로운 분위기를 선호합니다.",
+      "감정 표현이 솔직합니다.",
+      "혼자만의 시간을 즐깁니다."
+    ],
     breed: "페르시안",
     image: "/images/tests/cat-mbti/ISFP.png",
     match: ["ESFP", "ESTP"],
@@ -267,7 +344,14 @@ export const catResults = {
   },
   "ESTJ": {
     title: "ESTJ – 아비시니안",
-    description: "조직적이고 책임감 강한 ESTJ는 규칙을 중요하게 여기며, 아비시니안처럼 활발하면서도 질서를 선호합니다.",
+    description: [
+      "조직적이고 책임감 강한 고양이.",
+      "규칙을 중요하게 여깁니다.",
+      "아비시니안처럼 활발하면서도 질서를 선호합니다.",
+      "리더십이 뛰어나고, 주변을 잘 챙깁니다.",
+      "새로운 환경에도 빠르게 적응합니다.",
+      "가족을 소중히 여기며, 보호 본능이 강합니다."
+    ],
     breed: "아비시니안",
     image: "/images/tests/cat-mbti/ESTJ.png",
     match: ["ISTJ", "ESFJ"],
@@ -280,7 +364,14 @@ export const catResults = {
   },
   "ESFJ": {
     title: "ESFJ – 셀커크 렉스",
-    description: "온화하고 헌신적인 ESFJ는 셀커크 렉스 고양이처럼 따뜻한 분위기를 자아내며 사람을 좋아합니다.",
+    description: [
+      "온화하고 헌신적인 고양이.",
+      "셀커크 렉스처럼 따뜻한 분위기를 자아냅니다.",
+      "사람을 좋아하고, 친화력이 뛰어납니다.",
+      "배려심이 많고, 협동을 중시해요.",
+      "가족과 친구를 소중히 여깁니다.",
+      "주변을 밝게 만드는 존재입니다."
+    ],
     breed: "셀커크 렉스",
     image: "/images/tests/cat-mbti/ESFJ.png",
     match: ["ISFP", "ESTJ"],
@@ -293,7 +384,14 @@ export const catResults = {
   },
   "ISTJ": {
     title: "ISTJ – 터키시 앙고라",
-    description: "논리적이고 책임감 있는 ISTJ는 터키시 앙고라처럼 일관된 루틴을 중요하게 생각합니다.",
+    description: [
+      "논리적이고 책임감 있는 고양이.",
+      "터키시 앙고라처럼 일관된 루틴을 중요하게 생각합니다.",
+      "신뢰와 성실을 바탕으로 행동해요.",
+      "체계적이고 꼼꼼한 성격입니다.",
+      "변화보다는 안정을 추구합니다.",
+      "가족을 위해 헌신하는 타입입니다."
+    ],
     breed: "터키시 앙고라",
     image: "/images/tests/cat-mbti/ISTJ.png",
     match: ["ESTJ", "ISFJ"],
@@ -306,7 +404,14 @@ export const catResults = {
   },
   "INTP": {
     title: "INTP – 오리엔탈 쇼트헤어",
-    description: "호기심 많고 분석적인 INTP는 오리엔탈 쇼트헤어처럼 날렵하고 독창적인 사고를 가진 고양이에요. 말은 없지만 자신만의 세계가 또렷한 철학자 타입!",
+    description: [
+      "호기심 많고 분석적인 고양이.",
+      "오리엔탈 쇼트헤어처럼 날렵합니다.",
+      "독창적인 사고를 가진 철학자 타입이에요.",
+      "말은 없지만 자신만의 세계가 또렷합니다.",
+      "새로운 아이디어를 탐구하는 걸 좋아해요.",
+      "혼자 있어도 외롭지 않은 스타일입니다."
+    ],
     breed: "오리엔탈 쇼트헤어",
     image: "/images/tests/cat-mbti/INTP.png",
     match: ["ENTP", "ISTP"],
@@ -319,7 +424,14 @@ export const catResults = {
   },
   "ENTJ": {
     title: "ENTJ – 싱가푸라",
-    description: "작지만 카리스마 넘치는 싱가푸라처럼 ENTJ는 리더십이 강하고 계획적인 성향이에요. 목표를 정하면 끝까지 밀고 나가는 추진력 갑 고양이!",
+    description: [
+      "작지만 카리스마 넘치는 고양이.",
+      "싱가푸라처럼 리더십이 강합니다.",
+      "계획적인 성향이에요.",
+      "목표를 정하면 끝까지 밀고 나가요.",
+      "추진력이 뛰어나고, 결단력이 강합니다.",
+      "주변을 이끄는 리더 타입입니다."
+    ],
     breed: "싱가푸라",
     image: "/images/tests/cat-mbti/ENTJ.png",
     match: ["INTP", "ESTJ"],

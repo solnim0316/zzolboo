@@ -555,8 +555,10 @@ export default function DinosaurTest() {
                     <span className="text-2xl">✨</span>
                     성격 요약
                   </h4>
-                  <p className="text-gray-700 text-lg leading-relaxed">
-                    {result.desc}
+                  <p className="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
+                    {Array.isArray(result.desc)
+                      ? result.desc.join('\n')
+                      : result.desc}
                   </p>
                 </div>
 
