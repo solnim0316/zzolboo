@@ -68,7 +68,7 @@ export default function Home() {
       title: "오늘 뭐 먹지? 테스트",
       thumbnail: "/images/tests/food-test.png",
       isThemed: false,
-      description: "80가지 한국 음식 중 오늘의 메뉴를 추천받아보세요!"
+      description: "120가지 음식 중 오늘의 메뉴를 추천받아보세요!"
     }
   ];
 

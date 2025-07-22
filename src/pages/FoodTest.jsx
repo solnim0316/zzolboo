@@ -26,7 +26,7 @@ const shareKakao = (result) => {
       content: {
         title: `오늘 뭐 먹지? 추천 메뉴: ${result.name}`,
         description: result.description,
-        imageUrl: window.location.origin + (result.image || ''),
+        imageUrl: window.location.origin + '/images/thumbs/foodtest.png',
         link: {
           mobileWebUrl: window.location.href,
           webUrl: window.location.href,
