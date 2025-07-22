@@ -103,37 +103,37 @@ export const getFoodRecommendation = (answers) => {
 
   // 매운맛 선호
   if (topTypes.includes('spicy')) {
-    const spicyFoods = [1, 4, 5, 6, 7, 10, 29, 43, 46, 75]; // 불고기, 제육볶음, 닭갈비 등
+    const spicyFoods = [1, 4, 5, 6, 7, 10, 29, 43, 46, 75, 86, 97, 100, 105, 118]; // 기존+웃긴 매운 메뉴
     recommendedFood = foodTestResults[spicyFoods[Math.floor(Math.random() * spicyFoods.length)] - 1];
   }
   // 로맨틱/고급 선호
   else if (topTypes.includes('romantic') || topTypes.includes('luxury') || topTypes.includes('fancy')) {
-    const fancyFoods = [34, 35, 36, 55, 58, 59, 60, 63]; // 스테이크, 파스타, 피자 등
+    const fancyFoods = [34, 35, 36, 55, 58, 59, 60, 63, 84, 85, 91, 95, 99, 109, 114, 117]; // 기존+웃긴 고급/로맨틱 메뉴
     recommendedFood = foodTestResults[fancyFoods[Math.floor(Math.random() * fancyFoods.length)] - 1];
   }
   // 아시아 요리 선호
   else if (topTypes.includes('asian')) {
-    const asianFoods = [20, 21, 22, 23, 24, 25, 41, 42, 43, 44, 45, 46, 47, 48]; // 일식, 동남아, 인도 등
+    const asianFoods = [20, 21, 22, 23, 24, 25, 41, 42, 43, 44, 45, 46, 47, 48, 87, 98, 101, 108, 111]; // 기존+웃긴 아시아 메뉴
     recommendedFood = foodTestResults[asianFoods[Math.floor(Math.random() * asianFoods.length)] - 1];
   }
   // 서양 요리 선호
   else if (topTypes.includes('western')) {
-    const westernFoods = [34, 35, 36, 37, 38, 39, 40, 70, 71, 72, 73, 74]; // 양식
+    const westernFoods = [34, 35, 36, 37, 38, 39, 40, 70, 71, 72, 73, 74, 82, 91, 95, 103, 112, 114, 117]; // 기존+웃긴 서양 메뉴
     recommendedFood = foodTestResults[westernFoods[Math.floor(Math.random() * westernFoods.length)] - 1];
   }
   // 한식 선호
   else if (topTypes.includes('korean')) {
-    const koreanFoods = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]; // 한식
+    const koreanFoods = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 92, 93, 100, 105, 106, 115]; // 기존+웃긴 한식 메뉴
     recommendedFood = foodTestResults[koreanFoods[Math.floor(Math.random() * koreanFoods.length)] - 1];
   }
   // 패스트푸드/간편식 선호
   else if (topTypes.includes('fast') || topTypes.includes('budget')) {
-    const fastFoods = [9, 10, 11, 12, 79, 80]; // 김밥, 떡볶이, 순대, 라면 등
+    const fastFoods = [9, 10, 11, 12, 79, 80, 88, 94, 95, 99, 108, 115]; // 기존+웃긴 패스트푸드 메뉴
     recommendedFood = foodTestResults[fastFoods[Math.floor(Math.random() * fastFoods.length)] - 1];
   }
   // 달콤한 것 선호
   else if (topTypes.includes('sweet')) {
-    const sweetFoods = [64, 65, 66]; // 브런치, 디저트류
+    const sweetFoods = [64, 65, 66, 89, 96, 102, 104, 107, 116, 120]; // 기존+웃긴 달콤 메뉴
     recommendedFood = foodTestResults[sweetFoods[Math.floor(Math.random() * sweetFoods.length)] - 1];
   }
   // 기본값 - 랜덤 추천

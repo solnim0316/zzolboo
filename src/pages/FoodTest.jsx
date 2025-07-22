@@ -1,5 +1,51 @@
 // 🍽️ 오늘 뭐 먹지? 테스트 페이지
 import React, { useState } from 'react';
+// 카카오톡 공유를 위한 스크립트 로드 및 함수
+const loadKakaoScript = () => {
+  const kakaoKey = import.meta.env.VITE_KAKAO_APP_KEY;
+  if (!window.Kakao) {
+    const script = document.createElement('script');
+    script.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.5.0/kakao.min.js';
+    script.async = true;
+    script.onload = () => {
+      if (window.Kakao && !window.Kakao.isInitialized()) {
+        window.Kakao.init(kakaoKey);
+      }
+    };
+    document.body.appendChild(script);
+  } else if (!window.Kakao.isInitialized()) {
+    window.Kakao.init(kakaoKey);
+  }
+};
+
+const shareKakao = (result) => {
+  loadKakaoScript();
+  if (window.Kakao && window.Kakao.Share) {
+    window.Kakao.Share.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: `오늘 뭐 먹지? 추천 메뉴: ${result.name}`,
+        description: result.description,
+        imageUrl: window.location.origin + (result.image || ''),
+        link: {
+          mobileWebUrl: window.location.href,
+          webUrl: window.location.href,
+        },
+      },
+      buttons: [
+        {
+          title: '테스트 하러 가기',
+          link: {
+            mobileWebUrl: window.location.href,
+            webUrl: window.location.href,
+          },
+        },
+      ],
+    });
+  } else {
+    alert('카카오톡 공유를 불러올 수 없습니다.');
+  }
+};
 import { useNavigate } from 'react-router-dom';
 import { foodTestData } from '../data/foodTestData';
 import Header from '../components/layout/Header';
@@ -12,6 +58,7 @@ export default function FoodTest() {
   const [answers, setAnswers] = useState([]);
   const [result, setResult] = useState(null);
   const [testStarted, setTestStarted] = useState(false);
+  const [shareModalOpen, setShareModalOpen] = useState(false);
 
   const { questions, getRecommendation } = foodTestData;
   const currentQuestion = questions[currentQuestionIndex];
@@ -91,26 +138,54 @@ export default function FoodTest() {
           <div className="max-w-lg w-full bg-white rounded-2xl shadow-xl p-8 text-center">
             <div className="text-6xl mb-4">{result.emoji || '🍽️'}</div>
             <h1 className="text-2xl font-bold text-gray-800 mb-4">추천 메뉴</h1>
-            
-
             <div className="mb-6">
               <h2 className="text-3xl font-bold text-orange-600 mb-2">{result.name}</h2>
               <p className="text-gray-600 leading-relaxed">{result.description}</p>
             </div>
-
             {/* 공유하기 버튼 */}
             <div className="mb-8 flex justify-center">
               <button
-                onClick={() => {
-                  navigator.clipboard.writeText(window.location.href);
-                  alert('링크가 복사되었습니다!');
-                }}
+                onClick={() => setShareModalOpen(true)}
                 className="px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-lg font-semibold hover:from-green-600 hover:to-emerald-600 transition-all duration-200"
               >
                 📤 공유하기
               </button>
             </div>
-
+            {/* 공유 모달 */}
+            {shareModalOpen && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+                <div className="bg-white rounded-xl shadow-lg p-6 w-80 text-center relative">
+                  <button
+                    className="absolute top-2 right-2 text-gray-400 hover:text-gray-700 text-xl"
+                    onClick={() => setShareModalOpen(false)}
+                  >
+                    ×
+                  </button>
+                  <h3 className="text-lg font-bold mb-4">공유 방법 선택</h3>
+                  <div className="flex flex-col gap-3">
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText(window.location.href);
+                        alert('링크가 복사되었습니다!');
+                        setShareModalOpen(false);
+                      }}
+                      className="w-full py-3 bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded-lg font-semibold hover:from-blue-500 hover:to-blue-700 transition-all duration-200"
+                    >
+                      🔗 링크 복사하기
+                    </button>
+                    <button
+                      onClick={() => {
+                        shareKakao(result);
+                        setShareModalOpen(false);
+                      }}
+                      className="w-full py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-white rounded-lg font-semibold hover:from-yellow-500 hover:to-yellow-600 transition-all duration-200"
+                    >
+                      � 카카오톡으로 공유하기
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
             <div className="flex gap-3 justify-center">
               <button
                 onClick={restartTest}

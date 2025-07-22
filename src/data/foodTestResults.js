@@ -89,4 +89,45 @@ export const foodTestResults = [
   { id: 78, name: "연어스테이크", description: "고소한 연어와 소스, 연어스테이크!", image: "/images/food/salmon-steak.png", emoji: "🐟🥩" },
   { id: 79, name: "치킨텐더", description: "바삭한 치킨텐더와 소스!", image: "/images/food/chicken-tender.png", emoji: "🍗🍟" },
   { id: 80, name: "감자튀김", description: "바삭한 감자튀김, 모두가 좋아하는 사이드!", image: "/images/food/french-fries.png", emoji: "🍟" }
+  // --- 웃기고 어이없는 메뉴 (81~120) ---
+  ,{ id: 81, name: "초코치킨", description: "달콤한 초콜릿과 치킨의 충격적 만남!", image: "/images/food/choco-chicken.png", emoji: "🍫🍗" }
+  ,{ id: 82, name: "김치피자", description: "매콤한 김치와 치즈의 이색 조화!", image: "/images/food/kimchi-pizza.png", emoji: "🍕🌶️" }
+  ,{ id: 83, name: "라면샐러드", description: "생라면과 신선한 채소의 바삭함!", image: "/images/food/ramen-salad.png", emoji: "🍜🥗" }
+  ,{ id: 84, name: "수박스테이크", description: "수박을 스테이크처럼 썰어먹는 신개념 요리!", image: "/images/food/watermelon-steak.png", emoji: "🍉🥩" }
+  ,{ id: 85, name: "치즈떡볶이피자", description: "떡볶이와 피자의 환상 콜라보!", image: "/images/food/tteokbokki-pizza.png", emoji: "🍕🍢" }
+  ,{ id: 86, name: "마라아이스크림", description: "마라의 얼얼함과 아이스크림의 달콤함!", image: "/images/food/mala-icecream.png", emoji: "🍦🌶️" }
+  ,{ id: 87, name: "오이초밥", description: "오이로 만든 초밥, 상큼함이 가득!", image: "/images/food/cucumber-sushi.png", emoji: "🥒🍣" }
+  ,{ id: 88, name: "팝콘밥", description: "밥 대신 팝콘으로 만든 신개념 덮밥!", image: "/images/food/popcorn-rice.png", emoji: "🍿🍚" }
+  ,{ id: 89, name: "바나나카레", description: "달콤한 바나나와 카레의 만남!", image: "/images/food/banana-curry.png", emoji: "🍌🍛" }
+  ,{ id: 90, name: "피클스무디", description: "피클을 갈아 만든 상큼한 스무디!", image: "/images/food/pickle-smoothie.png", emoji: "🥒🥤" }
+  ,{ id: 91, name: "고구마피자", description: "달콤한 고구마와 치즈의 조화!", image: "/images/food/sweetpotato-pizza.png", emoji: "🍕🍠" }
+  ,{ id: 92, name: "참치초코롤", description: "참치와 초콜릿의 이색 롤!", image: "/images/food/tuna-choco-roll.png", emoji: "🍫🐟" }
+  ,{ id: 93, name: "딸기김밥", description: "딸기와 밥의 상큼한 만남!", image: "/images/food/strawberry-gimbap.png", emoji: "🍓🍙" }
+  ,{ id: 94, name: "옥수수라떼", description: "옥수수와 우유의 고소한 조화!", image: "/images/food/corn-latte.png", emoji: "🌽🥛" }
+  ,{ id: 95, name: "피자라면", description: "피자와 라면을 한 번에!", image: "/images/food/pizza-ramen.png", emoji: "🍕🍜" }
+  ,{ id: 96, name: "멸치아이스크림", description: "멸치의 감칠맛과 아이스크림의 달콤함!", image: "/images/food/anchovy-icecream.png", emoji: "🍦🐟" }
+  ,{ id: 97, name: "고추장파스타", description: "고추장으로 만든 매콤한 파스타!", image: "/images/food/gochujang-pasta.png", emoji: "🍝🌶️" }
+  ,{ id: 98, name: "마늘초밥", description: "마늘향 가득한 초밥!", image: "/images/food/garlic-sushi.png", emoji: "🧄🍣" }
+  ,{ id: 99, name: "단호박버거", description: "단호박 패티가 들어간 건강 버거!", image: "/images/food/pumpkin-burger.png", emoji: "🎃🍔" }
+  ,{ id: 100, name: "김치스무디", description: "김치와 과일의 상큼한 스무디!", image: "/images/food/kimchi-smoothie.png", emoji: "🥤🌶️" }
+  ,{ id: 101, name: "아보카도라면", description: "아보카도와 라면의 부드러운 조화!", image: "/images/food/avocado-ramen.png", emoji: "🥑🍜" }
+  ,{ id: 102, name: "치즈팥빙수", description: "치즈와 팥빙수의 달콤한 만남!", image: "/images/food/cheese-bingsu.png", emoji: "🧀🍧" }
+  ,{ id: 103, name: "고등어피자", description: "고등어 토핑이 올라간 피자!", image: "/images/food/mackerel-pizza.png", emoji: "🍕🐟" }
+  ,{ id: 104, name: "오렌지카레", description: "오렌지와 카레의 상큼한 조화!", image: "/images/food/orange-curry.png", emoji: "🍊🍛" }
+  ,{ id: 105, name: "초코김치볶음밥", description: "초콜릿과 김치볶음밥의 달콤매콤함!", image: "/images/food/choco-kimchi-bokkeumbap.png", emoji: "🍫🍚" }
+  ,{ id: 106, name: "파인애플떡볶이", description: "파인애플이 들어간 달콤 떡볶이!", image: "/images/food/pineapple-tteokbokki.png", emoji: "🍍🍢" }
+  ,{ id: 107, name: "고구마라떼", description: "달콤한 고구마와 우유의 만남!", image: "/images/food/sweetpotato-latte.png", emoji: "🍠🥛" }
+  ,{ id: 108, name: "양파튀김라면", description: "양파튀김이 들어간 라면!", image: "/images/food/onion-ramen.png", emoji: "🧅🍜" }
+  ,{ id: 109, name: "딸기치즈돈까스", description: "딸기와 치즈가 들어간 돈까스!", image: "/images/food/strawberry-cheese-donkatsu.png", emoji: "🍓🧀🍖" }
+  ,{ id: 110, name: "참외샐러드", description: "참외와 채소의 상큼한 샐러드!", image: "/images/food/melon-salad.png", emoji: "🍈🥗" }
+  ,{ id: 111, name: "고추참치파스타", description: "고추참치로 만든 매콤 파스타!", image: "/images/food/chili-tuna-pasta.png", emoji: "🌶️🐟🍝" }
+  ,{ id: 112, name: "옥수수피자", description: "옥수수 토핑이 듬뿍 올라간 피자!", image: "/images/food/corn-pizza.png", emoji: "🌽🍕" }
+  ,{ id: 113, name: "마늘치킨버거", description: "마늘향 가득 치킨버거!", image: "/images/food/garlic-chicken-burger.png", emoji: "🧄🍗🍔" }
+  ,{ id: 114, name: "블루베리파스타", description: "블루베리와 파스타의 달콤한 만남!", image: "/images/food/blueberry-pasta.png", emoji: "🫐🍝" }
+  ,{ id: 115, name: "고구마치즈라면", description: "고구마와 치즈가 들어간 라면!", image: "/images/food/sweetpotato-cheese-ramen.png", emoji: "🍠🧀🍜" }
+  ,{ id: 116, name: "딸기샌드위치", description: "딸기와 생크림이 들어간 샌드위치!", image: "/images/food/strawberry-sandwich.png", emoji: "🍓🥪" }
+  ,{ id: 117, name: "단호박피자", description: "단호박 토핑이 올라간 피자!", image: "/images/food/pumpkin-pizza.png", emoji: "🎃🍕" }
+  ,{ id: 118, name: "고추장치킨", description: "고추장 양념의 매콤한 치킨!", image: "/images/food/gochujang-chicken.png", emoji: "🌶️🍗" }
+  ,{ id: 119, name: "파인애플볶음밥", description: "파인애플이 들어간 볶음밥!", image: "/images/food/pineapple-bokkeumbap.png", emoji: "🍍🍚" }
+  ,{ id: 120, name: "초코바나나샐러드", description: "초코와 바나나, 채소의 달콤한 샐러드!", image: "/images/food/choco-banana-salad.png", emoji: "🍫🍌🥗" }
 ];

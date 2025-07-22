@@ -13,7 +13,7 @@ export default function Header() {
       </Link>
       {/* 💬 서브 텍스트 */}
       <p className="text-xs sm:text-sm md:text-base text-[#8D6E63] mt-1 sm:mt-2">
-        오늘도 테스트로 날 알아가자 ✦
+       ✦ 매일 업데이트 되는 재미있는 테스트들을 즐겨봐요! ✦
       </p>
     </header>
   );
