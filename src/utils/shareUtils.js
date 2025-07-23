@@ -24,10 +24,26 @@ export function generateShareUrl(testType, mbti, characterName, userName = '') {
 }
 
 /**
+ * 🎯 테스트별 시작 페이지 URL 생성
+ */
+function getTestStartUrl(testType) {
+  switch(testType) {
+    case 'cat':
+      return `${BASE_URL}/cat-test`;
+    case 'dinosaur':
+      return `${BASE_URL}/dinosaur-test`;
+    case 'food':
+      return `${BASE_URL}/food-test`;
+    default:
+      return BASE_URL;
+  }
+}
+
+/**
  * 📱 카카오톡 공유
  */
 export function shareToKakao(shareData) {
-  const { url, title, description, imageUrl } = shareData;
+  const { url, title, description, imageUrl, testType } = shareData;
   
   // 카카오 SDK 로드 및 초기화 확인
   if (!isKakaoLoaded()) {
@@ -66,8 +82,8 @@ export function shareToKakao(shareData) {
       {
         title: '나도 테스트하기',
         link: {
-          mobileWebUrl: BASE_URL,
-          webUrl: BASE_URL,
+          mobileWebUrl: getTestStartUrl(testType),
+          webUrl: getTestStartUrl(testType),
         },
       },
     ],
@@ -204,6 +220,7 @@ export function createShareData(testType, result, userName = '') {
     title,
     description,
     text: description,
-    imageUrl
+    imageUrl,
+    testType
   };
 }
