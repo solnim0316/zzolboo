@@ -84,125 +84,18 @@ export const movieQuestions = [
 ];
 
 // 📺 실제 넷플릭스 작품 데이터베이스 (512개)
-export const netflixContent = [
-  // === 한국 드라마/영화 (128개) ===
-  // 🔥 최신 인기작
-  { id: 1, title: "오징어 게임", type: "series", year: 2021, genre: "thriller", mood: "suspense", country: "korean", tags: ["trending", "binge", "dark"] },
-  { id: 2, title: "지금 우리 학교는", type: "series", year: 2022, genre: "thriller", mood: "suspense", country: "korean", tags: ["trending", "zombie", "youth"] },
-  { id: 3, title: "사랑의 불시착", type: "series", year: 2019, genre: "romance", mood: "bright", country: "korean", tags: ["classic", "healing", "romance"] },
-  { id: 4, title: "킹덤", type: "series", year: 2019, genre: "thriller", mood: "suspense", country: "korean", tags: ["historical", "zombie", "binge"] },
-  { id: 5, title: "스위트홈", type: "series", year: 2020, genre: "thriller", mood: "suspense", country: "korean", tags: ["monster", "dark", "binge"] },
-  { id: 6, title: "펜트하우스", type: "series", year: 2020, genre: "drama", mood: "serious", country: "korean", tags: ["makjang", "revenge", "binge"] },
-  { id: 7, title: "이태원 클라쓰", type: "series", year: 2020, genre: "drama", mood: "bright", country: "korean", tags: ["youth", "business", "healing"] },
-  { id: 8, title: "사이코지만 괜찮아", type: "series", year: 2020, genre: "romance", mood: "healing", country: "korean", tags: ["healing", "psychology", "romance"] },
-  { id: 9, title: "도깨비", type: "series", year: 2016, genre: "fantasy", mood: "healing", country: "korean", tags: ["classic", "fantasy", "romance"] },
-  { id: 10, title: "SKY 캐슬", type: "series", year: 2018, genre: "drama", mood: "serious", country: "korean", tags: ["education", "family", "social"] },
-  
-  // 🎬 한국 영화
-  { id: 11, title: "기생충", type: "movie", year: 2019, genre: "thriller", mood: "serious", country: "korean", tags: ["oscar", "social", "classic"] },
-  { id: 12, title: "봉오동 전투", type: "movie", year: 2019, genre: "action", mood: "serious", country: "korean", tags: ["historical", "war", "patriotic"] },
-  { id: 13, title: "극한직업", type: "movie", year: 2019, genre: "comedy", mood: "bright", country: "korean", tags: ["comedy", "action", "entertainment"] },
-  { id: 14, title: "마약왕", type: "movie", year: 2018, genre: "crime", mood: "serious", country: "korean", tags: ["crime", "based-on-true", "dark"] },
-  { id: 15, title: "1987", type: "movie", year: 2017, genre: "drama", mood: "serious", country: "korean", tags: ["historical", "democracy", "lesson"] },
-  { id: 16, title: "군함도", type: "movie", year: 2017, genre: "drama", mood: "serious", country: "korean", tags: ["historical", "war", "heavy"] },
-  { id: 17, title: "택시운전사", type: "movie", year: 2017, genre: "drama", mood: "serious", country: "korean", tags: ["historical", "gwangju", "lesson"] },
-  { id: 18, title: "곡성", type: "movie", year: 2016, genre: "horror", mood: "suspense", country: "korean", tags: ["horror", "mystery", "occult"] },
-  { id: 19, title: "아가씨", type: "movie", year: 2016, genre: "thriller", mood: "suspense", country: "korean", tags: ["psychological", "plot-twist", "adult"] },
-  { id: 20, title: "부산행", type: "movie", year: 2016, genre: "action", mood: "suspense", country: "korean", tags: ["zombie", "action", "emotional"] },
-
-  // 🌟 최근 화제작
-  { id: 21, title: "나의 해방일지", type: "series", year: 2022, genre: "drama", mood: "healing", country: "korean", tags: ["slice-of-life", "healing", "rural"] },
-  { id: 22, title: "기묘한 이야기", type: "series", year: 2022, genre: "mystery", mood: "suspense", country: "korean", tags: ["anthology", "mystery", "horror"] },
-  { id: 23, title: "우리들의 블루스", type: "series", year: 2022, genre: "drama", mood: "healing", country: "korean", tags: ["jeju", "ensemble", "healing"] },
-  { id: 24, title: "2521", type: "series", year: 2022, genre: "romance", mood: "bright", country: "korean", tags: ["youth", "first-love", "nostalgia"] },
-  { id: 25, title: "사업제안서", type: "series", year: 2022, genre: "romance", mood: "bright", country: "korean", tags: ["office", "romance", "comedy"] },
-  { id: 26, title: "내 아이디는 강남미인", type: "series", year: 2018, genre: "romance", mood: "bright", country: "korean", tags: ["beauty", "college", "youth"] },
-  { id: 27, title: "미스터 션샤인", type: "series", year: 2018, genre: "drama", mood: "serious", country: "korean", tags: ["historical", "independence", "epic"] },
-  { id: 28, title: "시그널", type: "series", year: 2016, genre: "thriller", mood: "suspense", country: "korean", tags: ["time-travel", "crime", "mystery"] },
-  { id: 29, title: "또 오해영", type: "series", year: 2016, genre: "romance", mood: "bright", country: "korean", tags: ["romance", "comedy", "healing"] },
-  { id: 30, title: "태양의 후예", type: "series", year: 2016, genre: "romance", mood: "bright", country: "korean", tags: ["military", "doctor", "romance"] },
+// 넷플릭스 작품 데이터는 별도 파일(netflixContent.js)에서 import
+import { netflixContent, tagWeights } from './netflixContent.js';
 
   // === 미국/서구 작품 (128개) ===
   // 🔥 넷플릭스 오리지널 시리즈
   { id: 31, title: "기묘한 이야기 시즌 1", type: "series", year: 2016, genre: "sci-fi", mood: "suspense", country: "western", tags: ["supernatural", "80s", "kids"] },
-  { id: 32, title: "기묘한 이야기 시즌 2", type: "series", year: 2017, genre: "sci-fi", mood: "suspense", country: "western", tags: ["supernatural", "80s", "kids"] },
-  { id: 33, title: "기묘한 이야기 시즌 3", type: "series", year: 2019, genre: "sci-fi", mood: "suspense", country: "western", tags: ["supernatural", "80s", "kids"] },
-  { id: 34, title: "기묘한 이야기 시즌 4", type: "series", year: 2022, genre: "sci-fi", mood: "suspense", country: "western", tags: ["supernatural", "80s", "kids"] },
-  { id: 35, title: "하우스 오브 카드", type: "series", year: 2013, genre: "drama", mood: "serious", country: "western", tags: ["politics", "dark", "power"] },
-  { id: 36, title: "오렌지 이즈 더 뉴 블랙", type: "series", year: 2013, genre: "drama", mood: "serious", country: "western", tags: ["prison", "women", "social"] },
-  { id: 37, title: "나르코스", type: "series", year: 2015, genre: "crime", mood: "serious", country: "western", tags: ["drugs", "colombia", "crime"] },
-  { id: 38, title: "13가지 이유", type: "series", year: 2017, genre: "drama", mood: "serious", country: "western", tags: ["teen", "suicide", "dark"] },
-  { id: 39, title: "더 크라운", type: "series", year: 2016, genre: "drama", mood: "serious", country: "western", tags: ["royal", "historical", "britain"] },
-  { id: 40, title: "미나드헌터", type: "series", year: 2017, genre: "crime", mood: "suspense", country: "western", tags: ["serial-killer", "fbi", "psychology"] },
-
-  // 🎭 인기 드라마
-  { id: 41, title: "브리저튼", type: "series", year: 2020, genre: "romance", mood: "bright", country: "western", tags: ["period", "romance", "steamy"] },
-  { id: 42, title: "루시퍼", type: "series", year: 2016, genre: "fantasy", mood: "bright", country: "western", tags: ["devil", "police", "comedy"] },
-  { id: 43, title: "더 엄브렐러 아카데미", type: "series", year: 2019, genre: "sci-fi", mood: "bright", country: "western", tags: ["superheroes", "dysfunctional", "comedy"] },
-  { id: 44, title: "더 위쳐", type: "series", year: 2019, genre: "fantasy", mood: "serious", country: "western", tags: ["medieval", "monster", "magic"] },
-  { id: 45, title: "섹스 에듀케이션", type: "series", year: 2019, genre: "comedy", mood: "bright", country: "western", tags: ["teen", "sex", "education"] },
-  { id: 46, title: "제시카 존스", type: "series", year: 2015, genre: "action", mood: "serious", country: "western", tags: ["superhero", "trauma", "dark"] },
-  { id: 47, title: "데어데블", type: "series", year: 2015, genre: "action", mood: "serious", country: "western", tags: ["superhero", "blind", "crime"] },
-  { id: 48, title: "루크 케이지", type: "series", year: 2016, genre: "action", mood: "serious", country: "western", tags: ["superhero", "harlem", "power"] },
-  { id: 49, title: "아이언 피스트", type: "series", year: 2017, genre: "action", mood: "serious", country: "western", tags: ["martial-arts", "mystical", "superhero"] },
-  { id: 50, title: "더 디펜더스", type: "series", year: 2017, genre: "action", mood: "serious", country: "western", tags: ["superhero", "team", "nyc"] },
-
-  // 🎬 할리우드 영화
-  { id: 51, title: "블랙 미러: 밴더스내치", type: "movie", year: 2018, genre: "sci-fi", mood: "suspense", country: "western", tags: ["interactive", "dystopia", "choice"] },
-  { id: 52, title: "더 아이리시맨", type: "movie", year: 2019, genre: "crime", mood: "serious", country: "western", tags: ["mafia", "scorsese", "epic"] },
-  { id: 53, title: "로마", type: "movie", year: 2018, genre: "drama", mood: "serious", country: "western", tags: ["mexican", "black-white", "family"] },
-  { id: 54, title: "마리지 스토리", type: "movie", year: 2019, genre: "drama", mood: "serious", country: "western", tags: ["divorce", "relationship", "emotional"] },
-  { id: 55, title: "6 언더그라운드", type: "movie", year: 2019, genre: "action", mood: "bright", country: "western", tags: ["ryan-reynolds", "action", "team"] },
-  { id: 56, title: "트리플 프론티어", type: "movie", year: 2019, genre: "action", mood: "serious", country: "western", tags: ["military", "heist", "jungle"] },
-  { id: 57, title: "버드 박스", type: "movie", year: 2018, genre: "horror", mood: "suspense", country: "western", tags: ["post-apocalyptic", "survival", "monster"] },
-  { id: 58, title: "엑스트렉션", type: "movie", year: 2020, genre: "action", mood: "serious", country: "western", tags: ["mercenary", "rescue", "intense"] },
-  { id: 59, title: "더 올드 가드", type: "movie", year: 2020, genre: "action", mood: "serious", country: "western", tags: ["immortal", "warrior", "team"] },
-  { id: 60, title: "스펜서 컨피덴셜", type: "movie", year: 2020, genre: "action", mood: "bright", country: "western", tags: ["buddy-cop", "comedy", "boston"] },
-
-  // === 일본 애니메이션/드라마 (128개) ===
-  // 🎌 스튜디오 지브리
-  { id: 61, title: "센과 치히로의 행방불명", type: "movie", year: 2001, genre: "animation", mood: "healing", country: "japanese", tags: ["ghibli", "miyazaki", "magic"] },
-  { id: 62, title: "토토로", type: "movie", year: 1988, genre: "animation", mood: "healing", country: "japanese", tags: ["ghibli", "miyazaki", "family"] },
-  { id: 63, title: "하울의 움직이는 성", type: "movie", year: 2004, genre: "animation", mood: "healing", country: "japanese", tags: ["ghibli", "miyazaki", "romance"] },
-  { id: 64, title: "모노노케 히메", type: "movie", year: 1997, genre: "animation", mood: "serious", country: "japanese", tags: ["ghibli", "miyazaki", "nature"] },
-  { id: 65, title: "마녀 배달부 키키", type: "movie", year: 1989, genre: "animation", mood: "bright", country: "japanese", tags: ["ghibli", "miyazaki", "coming-of-age"] },
-  { id: 66, title: "천공의 성 라퓨타", type: "movie", year: 1986, genre: "animation", mood: "bright", country: "japanese", tags: ["ghibli", "miyazaki", "adventure"] },
-  { id: 67, title: "붉은 돼지", type: "movie", year: 1992, genre: "animation", mood: "healing", country: "japanese", tags: ["ghibli", "miyazaki", "pilot"] },
-  { id: 68, title: "바람계곡의 나우시카", type: "movie", year: 1984, genre: "animation", mood: "serious", country: "japanese", tags: ["ghibli", "miyazaki", "post-apocalyptic"] },
-
-  // 📺 일본 드라마
-  { id: 69, title: "테라스 하우스", type: "series", year: 2012, genre: "reality", mood: "bright", country: "japanese", tags: ["reality", "romance", "youth"] },
-  { id: 70, title: "기묘한 과자점 사장", type: "series", year: 2020, genre: "mystery", mood: "healing", country: "japanese", tags: ["mystery", "healing", "food"] },
-  { id: 71, title: "알몸 감독", type: "series", year: 2019, genre: "comedy", mood: "bright", country: "japanese", tags: ["comedy", "variety", "naked"] },
-  { id: 72, title: "심야식당", type: "series", year: 2016, genre: "drama", mood: "healing", country: "japanese", tags: ["food", "healing", "slice-of-life"] },
-  { id: 73, title: "언더웨어", type: "series", year: 2015, genre: "comedy", mood: "bright", country: "japanese", tags: ["comedy", "underwear", "workplace"] },
-  { id: 74, title: "아가미와 아네모네", type: "series", year: 2019, genre: "romance", mood: "healing", country: "japanese", tags: ["romance", "healing", "ocean"] },
-
-  // � 애니메이션 시리즈
-  { id: 75, title: "원피스", type: "series", year: 1999, genre: "animation", mood: "bright", country: "japanese", tags: ["adventure", "pirate", "long-running"] },
-  { id: 76, title: "나루토", type: "series", year: 2002, genre: "animation", mood: "bright", country: "japanese", tags: ["ninja", "shounen", "friendship"] },
-  { id: 77, title: "나루토 질풍전", type: "series", year: 2007, genre: "animation", mood: "serious", country: "japanese", tags: ["ninja", "shounen", "mature"] },
-  { id: 78, title: "드래곤볼 Z", type: "series", year: 1989, genre: "animation", mood: "bright", country: "japanese", tags: ["martial-arts", "shounen", "classic"] },
-  { id: 79, title: "블리치", type: "series", year: 2004, genre: "animation", mood: "serious", country: "japanese", tags: ["supernatural", "shounen", "death"] },
-  { id: 80, title: "헌터x헌터", type: "series", year: 2011, genre: "animation", mood: "bright", country: "japanese", tags: ["adventure", "shounen", "hunter"] },
   { id: 81, title: "공각기동대 SAC_2045", type: "series", year: 2020, genre: "animation", mood: "serious", country: "japanese", tags: ["cyberpunk", "police", "ai"] },
   { id: 82, title: "아키라", type: "movie", year: 1988, genre: "animation", mood: "serious", country: "japanese", tags: ["cyberpunk", "dystopia", "classic"] },
 
   // === 기타 국가 작품 (128개) ===
   // 🇪🇸 스페인
   { id: 83, title: "종이의 집 시즌 1", type: "series", year: 2017, genre: "crime", mood: "suspense", country: "international", tags: ["heist", "bank", "resistance"] },
-  { id: 84, title: "종이의 집 시즌 2", type: "series", year: 2017, genre: "crime", mood: "suspense", country: "international", tags: ["heist", "bank", "resistance"] },
-  { id: 85, title: "종이의 집 시즌 3", type: "series", year: 2019, genre: "crime", mood: "suspense", country: "international", tags: ["heist", "bank", "resistance"] },
-  { id: 86, title: "종이의 집 시즄 4", type: "series", year: 2020, genre: "crime", mood: "suspense", country: "international", tags: ["heist", "bank", "resistance"] },
-  { id: 87, title: "종이의 집 시즌 5", type: "series", year: 2021, genre: "crime", mood: "suspense", country: "international", tags: ["heist", "bank", "finale"] },
-  { id: 88, title: "엘리트", type: "series", year: 2018, genre: "drama", mood: "serious", country: "international", tags: ["teen", "private-school", "murder"] },
-  { id: 89, title: "비스", type: "series", year: 2020, genre: "drama", mood: "serious", country: "international", tags: ["catholic", "school", "dark"] },
-
-  // 🇧🇷 브라질
-  { id: 90, title: "3%", type: "series", year: 2016, genre: "sci-fi", mood: "serious", country: "international", tags: ["dystopia", "selection", "inequality"] },
-  { id: 91, title: "메카니즘", type: "series", year: 2018, genre: "thriller", mood: "suspense", country: "international", tags: ["political", "conspiracy", "brazil"] },
-
-  // 🇩🇪 독일
   { id: 92, title: "다크", type: "series", year: 2017, genre: "sci-fi", mood: "suspense", country: "international", tags: ["time-travel", "mystery", "family"] },
   { id: 93, title: "바빌론 베를린", type: "series", year: 2017, genre: "drama", mood: "serious", country: "international", tags: ["1920s", "weimar", "noir"] },
 
