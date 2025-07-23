@@ -332,6 +332,13 @@ export default function CatTest() {
     
     setResult(resultWithImage);
     setCurrentStep('result');
+    
+    // Google Analytics 이벤트 추적
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'test_result_viewed', {
+        test_name: 'cat-test'
+      });
+    }
   };
 
   // 🔄 테스트 재시작

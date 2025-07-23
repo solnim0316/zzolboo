@@ -29,7 +29,7 @@ export default function HeroBanner({ featuredTest }) {
       
       {/* 🚀 메인 CTA 버튼 */}
       <button className="bg-[#F48FB1] hover:bg-[#F06292] active:bg-[#E91E63] text-white text-sm sm:text-base md:text-lg font-bold py-3 px-8 sm:py-4 sm:px-12 md:py-5 md:px-16 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl">
-        {featuredTest ? `${featuredTest.world} 입장하기` : "세계관 탐험 시작하기"}
+        {featuredTest ? "테스트 시작하기" : "테스트 시작하기"}
       </button>
       
       {/* 💫 하단 장식 */}

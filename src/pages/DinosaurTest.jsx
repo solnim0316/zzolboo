@@ -317,6 +317,13 @@ export default function DinosaurTest() {
     const resultData = results[mbtiType];
     setResult(resultData);
     setCurrentStep('result');
+    
+    // Google Analytics 이벤트 추적
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'test_result_viewed', {
+        test_name: 'dinosaur-test'
+      });
+    }
   };
 
   // 🔄 테스트 재시작

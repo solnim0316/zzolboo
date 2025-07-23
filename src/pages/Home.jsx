@@ -57,18 +57,39 @@ export default function Home() {
 
   const casualTests = [
     {
-      id: "color-psychology",
-      title: "색깔 심리 테스트",
-      thumbnail: "/images/tests/color-psychology.png",
-      isThemed: false,
-      description: "좋아하는 색깔로 알아보는 심리 상태"
-    },
-    {
       id: "food-test",
       title: "오늘 뭐 먹지? 테스트",
       thumbnail: "/images/tests/food-test.png",
       isThemed: false,
       description: "120가지 음식 중 오늘의 메뉴를 추천받아보세요!"
+    },
+    {
+      id: "fashion-test",
+      title: "오늘 뭐 입지? 테스트",
+      thumbnail: "/images/tests/fashion-test.png",
+      isThemed: false,
+      description: "지금 기분에 딱 맞는 패션 스타일을 찾아보세요!"
+    },
+    {
+      id: "movie-test",
+      title: "넷플릭스로 뭐 볼까?",
+      thumbnail: "/images/tests/movie-test.png",
+      isThemed: false,
+      description: "512개 실제 작품 중에서 지금 기분에 맞는 컨텐츠를 추천받아보세요!"
+    },
+    {
+      id: "color-test",
+      title: "오늘 기분 색깔 테스트",
+      thumbnail: "/images/tests/color-test.png",
+      isThemed: false,
+      description: "지금 내 마음을 색깔로 표현하면 어떨까요?"
+    },
+    {
+      id: "color-psychology",
+      title: "색깔 심리 테스트",
+      thumbnail: "/images/tests/color-psychology.png",
+      isThemed: false,
+      description: "좋아하는 색깔로 알아보는 심리 상태"
     }
   ];
 

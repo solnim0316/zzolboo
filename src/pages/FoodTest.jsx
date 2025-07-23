@@ -80,6 +80,13 @@ export default function FoodTest() {
       // 테스트 완료 - 결과 계산
       const recommendation = getRecommendation(newAnswers);
       setResult(recommendation);
+      
+      // Google Analytics 이벤트 추적
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'test_result_viewed', {
+          test_name: 'food-test'
+        });
+      }
     }
   };
 
