@@ -21,7 +21,7 @@ export default function Home() {
       thumbnail: "/images/tests/cat-mbti/ENFJ.png",
       isFeatured: true,
       isThemed: true,
-      description: "쫄과 부가 안내하는 고양이 왕국! 너는 어떤 성격의 고양이일까?",
+      description: "고양이가 되어버린 나.나는 어떤 성격의 고양이일까?",
       tags: ["MBTI", "성격", "동물", "재미"]
     },
     {
@@ -62,14 +62,14 @@ export default function Home() {
     },
     {
       id: "family-mbti",
-      title: "우리 엄마 MBTI 테스트",
+      title: "내가 해주는 엄마의 MBTI 테스트",
       world: "우리집",
       emoji: "👩‍👧‍👦",
       theme: "따뜻한 가족",
       thumbnail: "/images/tests/family-mbti.png",
       isFeatured: false,
       isThemed: true,
-      description: "내가 생각하는 우리 엄마는 어떤 성격일까? 16가지 엄마 유형 중 찾아보세요!",
+      description: "우리 엄마의 mbti가 궁금하다면?",
       tags: ["MBTI", "성격", "재미"]
     }
   ];
@@ -129,7 +129,10 @@ export default function Home() {
   ];
 
   // 모든 테스트 합치기
-  const allTests = [...themedTests, ...casualTests];
+  // 더미 항목 id 목록
+  const hiddenTestIds = ["dream-cafe", "magic-forest", "color-psychology"];
+  // 모든 테스트 합치고, 숨길 항목 제외
+  const allTests = [...themedTests, ...casualTests].filter(test => !hiddenTestIds.includes(test.id));
 
   // 태그별 필터링
   const filteredTests = selectedTag === 'all' 
