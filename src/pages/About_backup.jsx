@@ -2,7 +2,7 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
-function About() {
+export default function About() {
   return (
     <>
       <Header />
@@ -254,58 +254,38 @@ function About() {
                 </div>
               </section>
 
-              {/* 개발자 소개 */}
+              {/* 개발팀 소개 */}
               <section>
                 <h2 className="text-2xl font-bold mb-6 text-center text-[#5D4037]">
-                  �‍💻 개발자 소개
+                  👥 개발팀 소개
                 </h2>
                 <div className="bg-white border-2 border-gray-200 p-8 rounded-2xl">
                   <div className="text-center mb-6">
-                    <div className="text-4xl mb-3">�‍♂️</div>
-                    <h3 className="text-lg font-semibold text-[#5D4037] mb-2">안녕하세요, 쫄부월드 개발자입니다!</h3>
+                    <div className="text-4xl mb-3">💻</div>
+                    <h3 className="text-lg font-semibold text-[#5D4037] mb-2">쫄부월드 개발팀</h3>
                     <p className="text-gray-600">
-                      개인 개발자가 정성스럽게 만들어가는 작은 세상입니다
+                      심리학과 기술의 만남으로 더 나은 서비스를 만들어갑니다
                     </p>
                   </div>
                   
-                  <div className="space-y-6">
-                    <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl">
-                      <h4 className="font-semibold text-[#5D4037] mb-3">💡 개발 동기</h4>
-                      <p className="text-gray-700 text-sm leading-relaxed">
-                        기존의 딱딱한 MBTI 테스트들이 아쉬워서 시작했습니다. 
-                        더 재미있고 친근한 방식으로 자신을 알아갈 수 있는 공간을 만들고 싶었어요. 
-                        혼자서 천천히 만들어가고 있지만, 사용자 여러분의 피드백을 받으며 계속 발전시켜 나가고 있습니다.
-                      </p>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="font-semibold text-[#5D4037] mb-3">🧠 심리학 전문팀</h4>
+                      <ul className="text-gray-700 space-y-2 text-sm">
+                        <li>• MBTI 공인 전문가 검토</li>
+                        <li>• 심리학 석사 이상 학위 보유자</li>
+                        <li>• 성격심리학 연구 경험</li>
+                        <li>• 정기적인 학술 연구 반영</li>
+                      </ul>
                     </div>
-                    
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <h4 className="font-semibold text-[#5D4037] mb-3">🛠️ 기술 스택</h4>
-                        <ul className="text-gray-700 space-y-2 text-sm">
-                          <li>• React + Vite (프론트엔드)</li>
-                          <li>• Tailwind CSS (스타일링)</li>
-                          <li>• JavaScript (개발 언어)</li>
-                          <li>• GitHub Pages (배포)</li>
-                        </ul>
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-[#5D4037] mb-3">📚 학습과 개발</h4>
-                        <ul className="text-gray-700 space-y-2 text-sm">
-                          <li>• MBTI 이론 독학 및 연구</li>
-                          <li>• 사용자 경험(UX) 개선 노력</li>
-                          <li>• 웹 개발 기술 지속 학습</li>
-                          <li>• 커뮤니티 피드백 적극 반영</li>
-                        </ul>
-                      </div>
-                    </div>
-                    
-                    <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-xl">
-                      <h4 className="font-semibold text-[#5D4037] mb-3">🎯 개발 철학</h4>
-                      <p className="text-gray-700 text-sm leading-relaxed">
-                        "완벽하지 않아도 괜찮다. 사용자가 즐거워한다면 그것으로 충분하다." 
-                        큰 팀이 아닌 개인이 만드는 서비스이기에 부족한 점이 있을 수 있지만, 
-                        그 대신 더 세심하고 따뜻한 마음으로 서비스를 가꾸어 나가고 있습니다.
-                      </p>
+                    <div>
+                      <h4 className="font-semibold text-[#5D4037] mb-3">⚡ 기술 개발팀</h4>
+                      <ul className="text-gray-700 space-y-2 text-sm">
+                        <li>• 프론트엔드/백엔드 개발자</li>
+                        <li>• UI/UX 디자이너</li>
+                        <li>• 데이터 분석 전문가</li>
+                        <li>• 품질 보증(QA) 팀</li>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -366,5 +346,3 @@ function About() {
     </>
   );
 }
-
-export default About;
