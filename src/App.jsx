@@ -17,6 +17,8 @@ import MBTIGuide from "./pages/MBTIGuide";
 import FAQ from "./pages/FAQ";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import FamilyMbtiTest from "./pages/FamilyMbtiTest";
+import FamilyMbtiResult from "./pages/FamilyMbtiResult";
 
 export default function App() {
   return (
@@ -36,6 +38,8 @@ export default function App() {
         <Route path="/mbti-guide" element={<MBTIGuide />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:postId" element={<BlogPost />} />
+        <Route path="/family-mbti" element={<FamilyMbtiTest />} />
+        <Route path="/family-mbti-result/:resultType" element={<FamilyMbtiResult />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />

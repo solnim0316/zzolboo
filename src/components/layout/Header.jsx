@@ -9,8 +9,6 @@ export default function Header() {
     { name: '홈', path: '/', icon: '🏠', clickable: true },
     { name: 'MBTI 가이드', path: '/mbti-guide', icon: '📚', clickable: true },
     { name: '블로그', path: '/blog', icon: '📝', clickable: true },
-    { name: 'MBTI 테스트', path: '#', icon: '🐾', clickable: false },
-    { name: '일반 테스트', path: '#', icon: '🎯', clickable: false },
     { name: 'FAQ', path: '/faq', icon: '❓', clickable: true },
     { name: '소개', path: '/about', icon: '💫', clickable: true }
   ];

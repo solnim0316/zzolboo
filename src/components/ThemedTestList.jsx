@@ -11,6 +11,7 @@ export default function ThemedTestList({ tests }) {
       case '따뜻한 브라운': return 'bg-gradient-to-br from-amber-100 to-orange-100';
       case '신비로운 초록': return 'bg-gradient-to-br from-emerald-100 to-teal-100';
       case '쥬라기': return 'bg-gradient-to-br from-green-100 to-emerald-100';
+      case '따뜻한 가족': return 'bg-gradient-to-br from-pink-100 to-rose-100';
       default: return 'bg-gradient-to-br from-pink-100 to-purple-100';
     }
   };
@@ -21,6 +22,8 @@ export default function ThemedTestList({ tests }) {
       navigate('/dinosaur-test');
     } else if (testId === 'cat-mbti') {
       navigate('/cat-test');
+    } else if (testId === 'family-mbti') {
+      navigate('/family-mbti');
     } else {
       navigate(`/test/${testId}`);
     }

@@ -203,10 +203,32 @@ export function createShareData(testType, result, userName = '') {
       emoji: '🦕',
       testName: '공룡 MBTI 테스트', 
       world: '공룡시대'
+    },
+    'family-mbti': {
+      emoji: '👩‍👧‍👦',
+      testName: '우리 엄마 MBTI 테스트',
+      world: '우리 집'
     }
   };
   
   const data = baseData[testType];
+  
+  // family-mbti의 경우 특별 처리
+  if (testType === 'family-mbti') {
+    const shareUrl = `${BASE_URL}/family-mbti-result/${result.type}`;
+    const title = `${data.emoji} ${userName ? `${userName}님의` : '나의'} ${data.testName} 결과`;
+    const description = `${data.world}에서 우리 엄마는 "${result.title}" ${data.emoji}\n\n${result.shareText || '우리 엄마 MBTI 테스트를 해보세요!'}\n\n쫄부월드에서 ${userName ? `${userName}님과` : ''} 함께 테스트해보세요!`;
+    
+    return {
+      url: shareUrl,
+      title,
+      description,
+      text: description,
+      imageUrl: `${BASE_URL}/images/family-mbti-og.png`, // 기본 이미지
+      testType
+    };
+  }
+  
   const shareUrl = generateShareUrl(testType, result.MBTI, result.breed || result.name, userName);
   
   const title = `${data.emoji} ${userName ? `${userName}님의` : '나의'} ${data.testName} 결과`;
