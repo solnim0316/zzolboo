@@ -18,7 +18,7 @@ function About() {
               <section className="text-center">
                 <div className="text-6xl mb-4">🌟</div>
                 <h2 className="text-2xl font-bold text-[#5D4037] mb-4">
-                  재미있고 정확한 성격 테스트의 세계
+                  재미있고 친근한 성격 테스트의 세계
                 </h2>
                 <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
                   쫄부월드는 2024년에 시작된 MBTI 기반의 성격 테스트 전문 플랫폼입니다. 
@@ -72,10 +72,10 @@ function About() {
                   
                   <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-6 rounded-2xl">
                     <div className="text-3xl mb-3">🔬</div>
-                    <h3 className="text-lg font-semibold text-[#5D4037] mb-2">과학적 기반의 정확한 분석</h3>
+                    <h3 className="text-lg font-semibold text-[#5D4037] mb-2">MBTI 이론 기반의 재미있는 분석</h3>
                     <p className="text-gray-700">
-                      Myers-Briggs Type Indicator의 공식 이론을 기반으로 하여 신뢰성 있는 결과를 제공합니다. 
-                      심리학 전공자와 MBTI 전문가의 검토를 거쳐 제작된 테스트로 
+                      Myers-Briggs Type Indicator의 이론을 기반으로 하여 흥미로운 결과를 제공합니다. 
+                      심리학 이론을 친근하고 재미있게 각색하여 제작된 테스트로 
                       자신을 더 깊이 이해할 수 있는 맞춤형 결과를 받아보세요.
                     </p>
                   </div>

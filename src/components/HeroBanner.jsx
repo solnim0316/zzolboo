@@ -1,4 +1,6 @@
 //     <section className="w-full bg-gradient-to-br from-pink-100 via-purple-100 to-yellow-100 rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 text-center shadow-lg mb-1">& 오늘의 추천 (쫄부) Hero 영역
+import { Link } from 'react-router-dom';
+
 export default function HeroBanner({ featuredTest }) {
   return (
     <section className="w-full bg-gradient-to-br from-pink-100 via-purple-100 to-yellow-100 rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-10 text-center shadow-lg mb-8">
@@ -28,9 +30,18 @@ export default function HeroBanner({ featuredTest }) {
       </div>
       
       {/* 🚀 메인 CTA 버튼 */}
-      <button className="bg-[#F48FB1] hover:bg-[#F06292] active:bg-[#E91E63] text-white text-sm sm:text-base md:text-lg font-bold py-3 px-8 sm:py-4 sm:px-12 md:py-5 md:px-16 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl">
-        {featuredTest ? "테스트 시작하기" : "테스트 시작하기"}
-      </button>
+      <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+        <button className="bg-[#F48FB1] hover:bg-[#F06292] active:bg-[#E91E63] text-white text-sm sm:text-base md:text-lg font-bold py-3 px-8 sm:py-4 sm:px-12 md:py-5 md:px-16 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl">
+          {featuredTest ? "테스트 시작하기" : "테스트 시작하기"}
+        </button>
+        
+        <Link 
+          to="/mbti-guide"
+          className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white text-sm sm:text-base font-semibold py-2 px-6 sm:py-3 sm:px-8 rounded-full transition-all duration-200 transform hover:scale-105 shadow-md hover:shadow-lg"
+        >
+          📚 MBTI 가이드
+        </Link>
+      </div>
       
       {/* 💫 하단 장식 */}
       <div className="mt-1 sm:mt-2 text-xs sm:text-sm text-[#8D6E63]">
