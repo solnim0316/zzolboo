@@ -99,20 +99,20 @@ export default function MovieTest() {
   // 시작 화면
   if (!testStarted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
+      <div className="min-h-screen bg-[#141414]">
         <Header />
         <div className="flex flex-col items-center justify-center p-4 min-h-[calc(100vh-200px)]">
-          <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">
+          <div className="max-w-md w-full bg-[#181818] rounded-2xl shadow-xl p-8 text-center">
             <div className="text-6xl mb-4">{testInfo.emoji}</div>
-            <h1 className="text-2xl font-bold mb-4 text-gray-800">
+            <h1 className="text-2xl font-bold mb-4 text-white">
               {testInfo.title}
             </h1>
-            <p className="text-gray-600 mb-8 leading-relaxed">
+            <p className="text-gray-300 mb-8 leading-relaxed">
               {testInfo.subtitle}
             </p>
             <button
               onClick={() => setTestStarted(true)}
-              className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-4 rounded-xl font-bold hover:from-blue-600 hover:to-indigo-600 transition-all transform hover:scale-105 shadow-lg text-lg"
+              className="w-full bg-[#E50914] text-white py-4 rounded-xl font-bold hover:bg-[#B0060F] transition-all transform hover:scale-105 shadow-lg text-lg"
             >
               테스트 시작하기
             </button>
@@ -126,28 +126,28 @@ export default function MovieTest() {
   // 결과 화면
   if (result) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
+      <div className="min-h-screen bg-[#141414]">
         <Header />
         <div className="flex flex-col items-center justify-center p-4 min-h-[calc(100vh-200px)]">
-          <div className="max-w-2xl w-full bg-white rounded-2xl shadow-xl p-8">
+          <div className="max-w-2xl w-full bg-[#181818] rounded-2xl shadow-xl p-8">
             <div className="text-center mb-8">
               <div className="text-6xl mb-4">📺</div>
-              <h2 className="text-3xl font-bold text-gray-800 mb-2">
+              <h2 className="text-3xl font-bold text-white mb-2">
                 {result.title}
               </h2>
-              <p className="text-lg text-indigo-600 mb-2">
+              <p className="text-lg text-[#E50914] mb-2">
                 {result.year} • {result.type === 'series' ? '시리즈' : '영화'} • {result.genre}
               </p>
               <div className="flex items-center justify-center mb-4">
                 <span className="text-yellow-500 text-xl">⭐</span>
-                <span className="text-lg font-semibold ml-1">{result.rating}/10</span>
+                <span className="text-lg font-semibold ml-1 text-white">{result.rating}/10</span>
               </div>
-              
-              <div className="bg-gradient-to-r from-blue-100 to-indigo-100 rounded-xl p-6 mb-6">
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
-                  � 왜 이 작품인가요?
+
+              <div className="bg-[#232323] rounded-xl p-6 mb-6">
+                <h3 className="text-lg font-semibold text-white mb-3">
+                  🎬 왜 이 작품인가요?
                 </h3>
-                <div className="text-sm text-gray-700">
+                <div className="text-sm text-gray-300">
                   {result.matchReasons && result.matchReasons.length > 0 ? (
                     <ul className="list-disc list-inside space-y-1">
                       {result.matchReasons.map((reason, index) => (
@@ -161,36 +161,36 @@ export default function MovieTest() {
               </div>
 
               {result.synopsis && (
-                <div className="bg-yellow-50 rounded-xl p-4 mb-6">
-                  <h3 className="text-md font-semibold text-gray-800 mb-2">
+                <div className="bg-[#222] rounded-xl p-4 mb-6">
+                  <h3 className="text-md font-semibold text-white mb-2">
                     📖 줄거리
                   </h3>
-                  <p className="text-sm text-gray-700 leading-relaxed">
+                  <p className="text-sm text-gray-300 leading-relaxed">
                     {result.synopsis}
                   </p>
                 </div>
               )}
 
               {result.funnyReview && (
-                <div className="bg-green-50 rounded-xl p-4 mb-6">
-                  <h3 className="text-md font-semibold text-gray-800 mb-2">
+                <div className="bg-[#222] rounded-xl p-4 mb-6">
+                  <h3 className="text-md font-semibold text-white mb-2">
                     😄 한줄평
                   </h3>
-                  <p className="text-sm text-gray-700 italic">
+                  <p className="text-sm text-gray-300 italic">
                     "{result.funnyReview}"
                   </p>
                 </div>
               )}
 
-              <div className="bg-gray-50 rounded-xl p-4 mb-6">
-                <h3 className="text-md font-semibold text-gray-800 mb-2">
+              <div className="bg-[#232323] rounded-xl p-4 mb-6">
+                <h3 className="text-md font-semibold text-white mb-2">
                   🏷️ 작품 특징
                 </h3>
                 <div className="flex flex-wrap justify-center gap-2">
                   {result.tags && result.tags.slice(0, 4).map((tag, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium"
+                      className="px-3 py-1 bg-[#E50914] text-white rounded-full text-sm font-medium"
                     >
                       #{tag}
                     </span>
@@ -202,19 +202,19 @@ export default function MovieTest() {
             <div className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={() => navigate('/')}
-                className="flex-1 bg-gray-500 text-white py-3 rounded-xl font-semibold hover:bg-gray-600 transition-colors"
+                className="flex-1 bg-[#232323] text-white py-3 rounded-xl font-semibold hover:bg-[#333] transition-colors"
               >
                 🏠 홈으로
               </button>
               <button
                 onClick={restartTest}
-                className="flex-1 bg-blue-500 text-white py-3 rounded-xl font-semibold hover:bg-blue-600 transition-colors"
+                className="flex-1 bg-[#E50914] text-white py-3 rounded-xl font-semibold hover:bg-[#B0060F] transition-colors"
               >
                 🔄 다시 테스트
               </button>
               <button
                 onClick={() => setShareModalOpen(true)}
-                className="flex-1 bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-indigo-600 transition-all"
+                className="flex-1 bg-white text-[#E50914] py-3 rounded-xl font-semibold border border-[#E50914] hover:bg-[#E50914] hover:text-white transition-all"
               >
                 📤 공유하기
               </button>
@@ -225,8 +225,8 @@ export default function MovieTest() {
         {/* 공유 모달 */}
         {shareModalOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-2xl p-6 max-w-sm w-full">
-              <h3 className="text-lg font-bold mb-4">공유 방법 선택</h3>
+            <div className="bg-[#181818] rounded-2xl p-6 max-w-sm w-full">
+              <h3 className="text-lg font-bold mb-4 text-white">공유 방법 선택</h3>
               <div className="flex flex-col gap-3">
                 <button
                   onClick={() => {
@@ -234,7 +234,7 @@ export default function MovieTest() {
                     alert('링크가 복사되었습니다!');
                     setShareModalOpen(false);
                   }}
-                  className="w-full py-3 bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded-lg font-semibold hover:from-blue-500 hover:to-blue-700 transition-all duration-200"
+                  className="w-full py-3 bg-[#E50914] text-white rounded-lg font-semibold hover:bg-[#B0060F] transition-all duration-200"
                 >
                   🔗 링크 복사하기
                 </button>
@@ -243,13 +243,13 @@ export default function MovieTest() {
                     shareKakao(result);
                     setShareModalOpen(false);
                   }}
-                  className="w-full py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-white rounded-lg font-semibold hover:from-yellow-500 hover:to-yellow-600 transition-all duration-200"
+                  className="w-full py-3 bg-yellow-500 text-white rounded-lg font-semibold hover:bg-yellow-600 transition-all duration-200"
                 >
                   💬 카카오톡 공유
                 </button>
                 <button
                   onClick={() => setShareModalOpen(false)}
-                  className="w-full py-3 bg-gray-400 text-white rounded-lg font-semibold hover:bg-gray-500 transition-colors"
+                  className="w-full py-3 bg-[#232323] text-white rounded-lg font-semibold hover:bg-[#333] transition-colors"
                 >
                   닫기
                 </button>
@@ -264,28 +264,28 @@ export default function MovieTest() {
 
   // 질문 화면
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
+    <div className="min-h-screen bg-[#141414]">
       <Header />
       <div className="flex flex-col items-center justify-center p-4 min-h-[calc(100vh-200px)]">
-        <div className="max-w-2xl w-full bg-white rounded-2xl shadow-xl p-8">
+        <div className="max-w-2xl w-full bg-[#181818] rounded-2xl shadow-xl p-8">
           <div className="mb-6">
             <div className="flex justify-between items-center mb-2">
-              <span className="text-sm text-gray-600">
+              <span className="text-sm text-gray-400">
                 {currentQuestionIndex + 1} / {questions.length}
               </span>
-              <span className="text-sm text-gray-600">
+              <span className="text-sm text-gray-400">
                 {Math.round(((currentQuestionIndex + 1) / questions.length) * 100)}%
               </span>
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
+            <div className="w-full bg-[#232323] rounded-full h-2">
               <div 
-                className="bg-gradient-to-r from-blue-500 to-indigo-500 h-2 rounded-full transition-all duration-300"
+                className="bg-[#E50914] h-2 rounded-full transition-all duration-300"
                 style={{ width: `${((currentQuestionIndex + 1) / questions.length) * 100}%` }}
               />
             </div>
           </div>
 
-          <h2 className="text-xl font-bold mb-8 text-center text-gray-800">
+          <h2 className="text-xl font-bold mb-8 text-center text-white">
             {questions[currentQuestionIndex].question}
           </h2>
 
@@ -294,7 +294,7 @@ export default function MovieTest() {
               <button
                 key={index}
                 onClick={() => selectAnswer(option.type)}
-                className="w-full p-4 text-left bg-gray-50 hover:bg-gradient-to-r hover:from-blue-100 hover:to-indigo-100 rounded-xl transition-all border border-gray-200 hover:border-indigo-300 hover:shadow-md"
+                className="w-full p-4 text-left bg-[#232323] hover:bg-[#E50914] hover:text-white rounded-xl transition-all border border-[#232323] hover:border-[#E50914] hover:shadow-md text-gray-200 font-semibold"
               >
                 {option.text}
               </button>
