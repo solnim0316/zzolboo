@@ -19,6 +19,8 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import FamilyMbtiTest from "./pages/FamilyMbtiTest";
 import FamilyMbtiResult from "./pages/FamilyMbtiResult";
+import Gallery from "./pages/Gallery";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
@@ -40,10 +42,13 @@ export default function App() {
         <Route path="/blog/:postId" element={<BlogPost />} />
         <Route path="/family-mbti" element={<FamilyMbtiTest />} />
         <Route path="/family-mbti-result/:resultType" element={<FamilyMbtiResult />} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/contact" element={<Contact />} />
+        {/* 404 에러 페이지 - 모든 라우트의 마지막에 위치 */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );

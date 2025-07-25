@@ -113,7 +113,7 @@ export default function FoodTest() {
               음식 추천 테스트
             </p>
             <p className="text-sm text-gray-500 mb-6">
-              120가지 한국 음식 중 오늘의 메뉴를 추천받아보세요!
+              120가지 다양한 음식 중 오늘의 메뉴를 추천받아보세요!
             </p>
             <button
               onClick={startTest}

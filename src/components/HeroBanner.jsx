@@ -31,9 +31,12 @@ export default function HeroBanner({ featuredTest }) {
       
       {/* 🚀 메인 CTA 버튼 */}
       <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-        <button className="bg-[#F48FB1] hover:bg-[#F06292] active:bg-[#E91E63] text-white text-sm sm:text-base md:text-lg font-bold py-3 px-8 sm:py-4 sm:px-12 md:py-5 md:px-16 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl">
+        <Link 
+          to={featuredTest ? `/cat-test` : "/cat-test"}
+          className="bg-[#F48FB1] hover:bg-[#F06292] active:bg-[#E91E63] text-white text-sm sm:text-base md:text-lg font-bold py-3 px-8 sm:py-4 sm:px-12 md:py-5 md:px-16 rounded-full transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl inline-block text-center"
+        >
           {featuredTest ? "테스트 시작하기" : "테스트 시작하기"}
-        </button>
+        </Link>
         
         <Link 
           to="/mbti-guide"

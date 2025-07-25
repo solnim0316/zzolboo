@@ -7,6 +7,7 @@ export default function Header() {
 
   const menuItems = [
     { name: '홈', path: '/', icon: '🏠', clickable: true },
+    { name: '갤러리', path: '/gallery', icon: '📸', clickable: false },
     { name: 'MBTI 가이드', path: '/mbti-guide', icon: '📚', clickable: true },
     { name: '블로그', path: '/blog', icon: '📝', clickable: true },
     { name: 'FAQ', path: '/faq', icon: '❓', clickable: true },

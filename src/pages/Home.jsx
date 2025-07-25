@@ -1,4 +1,5 @@
 // 🏠 홈 페이지 컴포넌트 - 쫄부월드
+import { Link } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import HeroBanner from "@/components/HeroBanner";
@@ -216,6 +217,47 @@ export default function Home() {
           {/* 🎯 일반 테스트 */}
           {filteredCasualTests.length > 0 && (
             <GeneralTestList tests={filteredCasualTests} />
+          )}
+
+          {/* 📸 갤러리 미리보기 섹션 - 전체 보기일 때만 표시 */}
+          {selectedTag === 'all' && (
+            <section className="mb-20">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-[#5D4037] mb-4">
+                  📸 쫄부 갤러리
+                </h2>
+                <p className="text-gray-600 text-lg">
+                  쫄과 부의 일상과 개발 과정을 만나보세요!
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                {/* 갤러리 미리보기 이미지들 */}
+                {[
+                  { emoji: '🐸', title: '쫄이의 일상', category: 'zzol' },
+                  { emoji: '🐰', title: '부의 하루', category: 'boo' },
+                  { emoji: '🫶', title: '함께하는 시간', category: 'together' },
+                  { emoji: '💻', title: '개발 현장', category: 'workspace' }
+                ].map((item, index) => (
+                  <div
+                    key={index}
+                    className="aspect-square bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl flex items-center justify-center text-4xl hover:scale-105 transition-transform cursor-pointer shadow-md"
+                  >
+                    {item.emoji}
+                  </div>
+                ))}
+              </div>
+              
+              <div className="text-center">
+                <Link
+                  to="/gallery"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-xl font-bold hover:from-purple-600 hover:to-pink-600 transition-all transform hover:scale-105 shadow-lg"
+                >
+                  <span>📸</span>
+                  <span>갤러리 전체보기</span>
+                </Link>
+              </div>
+            </section>
           )}
           
           {/* 결과가 없을 때 */}
