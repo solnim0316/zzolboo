@@ -1,6 +1,6 @@
 // 🔄 동적 Sitemap 생성기 (라우트 기반)
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 // 사이트 설정
 const SITE_CONFIG = {
@@ -139,9 +139,9 @@ function addNewRoute(routePath, config = {}) {
 }
 
 // 메인 실행
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   console.log('🚀 동적 Sitemap 생성기 시작...');
   saveDynamicSitemap();
 }
 
-module.exports = { saveDynamicSitemap, addNewRoute, SPECIAL_PAGES };
+export { saveDynamicSitemap, addNewRoute, SPECIAL_PAGES };

@@ -7,145 +7,30 @@ import ThemedTestList from "@/components/ThemedTestList";
 import GeneralTestList from "@/components/GeneralTestList";
 import SecretWorldBanner from "@/components/SecretWorldBanner";
 import { useState } from "react";
+import { TAG_CATEGORIES, testUtils } from "@/data/testConfigs";
 
 export default function Home() {
   const [selectedTag, setSelectedTag] = useState('all');
 
-  // 📊 테스트 데이터 (태그 추가)
-  const themedTests = [
-    {
-      id: "cat-mbti",
-      title: "고양이 MBTI 테스트",
-      world: "고양이",
-      emoji: "🐾",
-      theme: "고양이",
-      thumbnail: "/images/tests/cat-mbti/ENFJ.png",
-      isFeatured: true,
-      isThemed: true,
-      description: "고양이가 되어버린 나.나는 어떤 성격의 고양이일까?",
-      tags: ["MBTI", "성격", "동물", "재미"]
-    },
-    {
-      id: "dinosaur-mbti",
-      title: "성격유형별 공룡 테스트",
-      world: "공룡시대",
-      emoji: "🦕",
-      theme: "쥬라기",
-      thumbnail: "/images/tests/dinosaur/ENTJ.png",
-      isFeatured: false,
-      isThemed: true,
-      description: "만약 내가 공룡시대에 태어났다면? 나는 어떤 공룡이였을까?",
-      tags: ["MBTI", "성격", "역사", "모험"]
-    },
-    {
-      id: "dream-cafe",
-      title: "꿈속 카페 테스트",
-      world: "꿈속 카페",
-      emoji: "☕",
-      theme: "따뜻한 브라운",
-      thumbnail: "/images/worlds/dream-cafe.png",
-      isFeatured: false,
-      isThemed: true,
-      description: "쫄과 부가 운영하는 꿈속 카페에서 당신의 취향을 알아보세요",
-      tags: ["취향", "일상", "힐링", "재미"]
-    },
-    {
-      id: "magic-forest",
-      title: "마법의 숲 테스트",
-      world: "마법의 숲",
-      emoji: "🌳",
-      theme: "신비로운 초록",
-      thumbnail: "/images/worlds/magic-forest.png",
-      isFeatured: false,
-      isThemed: true,
-      description: "쫄과 부와 함께 마법의 숲을 탐험하며 진정한 자아를 발견해보세요",
-      tags: ["자아", "탐험", "판타지", "성장"]
-    },
-    {
-      id: "family-mbti",
-      title: "내가 해주는 엄마의 MBTI 테스트",
-      world: "우리집",
-      emoji: "👩‍👧‍👦",
-      theme: "따뜻한 가족",
-      thumbnail: "/images/tests/family-mbti.png",
-      isFeatured: false,
-      isThemed: true,
-      description: "우리 엄마의 mbti가 궁금하다면?",
-      tags: ["MBTI", "성격", "재미"]
-    }
-  ];
+  // 🏷️ 태그 카테고리 (testConfigs에서 가져옴)
+  const tagCategories = TAG_CATEGORIES;
 
-  const casualTests = [
-    {
-      id: "food-test",
-      title: "오늘 뭐 먹지? 테스트",
-      thumbnail: "/images/tests/food-test.png",
-      isThemed: false,
-      description: "120가지 음식 중 오늘의 메뉴를 추천받아보세요!",
-      tags: ["음식", "일상", "추천", "재미"]
-    },
-    {
-      id: "fashion-test",
-      title: "오늘 뭐 입지? 테스트",
-      thumbnail: "/images/tests/fashion-test.png",
-      isThemed: false,
-      description: "지금 기분에 딱 맞는 패션 스타일을 찾아보세요!",
-      tags: ["패션", "스타일", "일상", "추천"]
-    },
-    {
-      id: "movie-test",
-      title: "넷플릭스로 뭐 볼까?",
-      thumbnail: "/images/tests/movie-test.png",
-      isThemed: false,
-      description: "512개 실제 작품 중에서 지금 기분에 맞는 컨텐츠를 추천받아보세요!",
-      tags: ["영화", "엔터테인먼트", "추천", "재미"]
-    },
-    {
-      id: "color-test",
-      title: "오늘 기분 색깔 테스트",
-      thumbnail: "/images/tests/color-test.png",
-      isThemed: false,
-      description: "지금 내 마음을 색깔로 표현하면 어떨까요?",
-      tags: ["감정", "색깔", "심리", "자아"]
-    },
-    {
-      id: "color-psychology",
-      title: "색깔 심리 테스트",
-      thumbnail: "/images/tests/color-psychology.png",
-      isThemed: false,
-      description: "좋아하는 색깔로 알아보는 심리 상태",
-      tags: ["심리", "색깔", "성격", "분석"]
-    }
-  ];
+  // 📊 테스트 데이터 (testConfigs에서 가져옴)
+  const themedTests = testUtils.getThemedTests();
+  const casualTests = testUtils.getCasualTests();
 
-  // 🏷️ 태그 카테고리 정의
-  const tagCategories = [
-    { id: 'all', name: '전체', icon: '🌟' },
-    { id: 'MBTI', name: 'MBTI', icon: '🧠' },
-    { id: '성격', name: '성격분석', icon: '🔍' },
-    { id: '일상', name: '일상재미', icon: '😊' },
-    { id: '추천', name: '맞춤 추천', icon: '💡' },
-    { id: '재미', name: '재미요소', icon: '🎉' },
-    { id: '심리', name: '심리테스트', icon: '💭' }
-  ];
+  // 모든 테스트 합치기 (testConfigs 활용)
+  const allTests = testUtils.getPublicTests();
 
-  // 모든 테스트 합치기
-  // 더미 항목 id 목록
-  const hiddenTestIds = ["dream-cafe", "magic-forest", "color-psychology"];
-  // 모든 테스트 합치고, 숨길 항목 제외
-  const allTests = [...themedTests, ...casualTests].filter(test => !hiddenTestIds.includes(test.id));
-
-  // 태그별 필터링
-  const filteredTests = selectedTag === 'all' 
-    ? allTests 
-    : allTests.filter(test => test.tags && test.tags.includes(selectedTag));
+  // 태그별 필터링 (testConfigs 활용)
+  const filteredTests = testUtils.getTestsByTag(selectedTag);
 
   // 필터링된 테스트를 테마형과 일반형으로 분리
   const filteredThemedTests = filteredTests.filter(test => test.isThemed);
   const filteredCasualTests = filteredTests.filter(test => !test.isThemed);
 
-  // 🌟 Featured 테스트 찾기
-  const featuredTest = themedTests.find(test => test.isFeatured);
+  // 🌟 Featured 테스트 찾기 (testConfigs 활용)
+  const featuredTest = testUtils.getFeaturedTest();
   
   return (
     <>

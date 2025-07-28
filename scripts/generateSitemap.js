@@ -1,6 +1,6 @@
 // 📄 Sitemap 자동 생성 스크립트
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 // 사이트 기본 정보
 const SITE_URL = 'https://www.zzolbooworld.com';
@@ -103,8 +103,8 @@ export function addPageToSitemap(url, options = {}) {
 }
 
 // 메인 실행
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   saveSitemap();
 }
 
-module.exports = { saveSitemap, pages };
+export { saveSitemap, pages };

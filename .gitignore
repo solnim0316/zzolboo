@@ -1,2 +1,22 @@
 # 환경변수 파일 무시
 .env
+
+# AI 이미지 생성 관련 파일들 (전체 폴더 제외)
+tools/image-generators/
+
+# 루트의 이미지 생성 스크립트들 제외
+generate_*.py
+outputs*/
+*.py
+
+# 임시 이미지 파일들  
+*.tmp.png
+*.temp.jpg
+
+# 시스템 파일
+.DS_Store
+Thumbs.db
+
+# 로그 파일
+*.log
+debug.log
