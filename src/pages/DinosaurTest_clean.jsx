@@ -10,12 +10,11 @@ import SocialShare from '@/components/common/SocialShare';
 
 export default function DinosaurTest() {
   const navigate = useNavigate();
-  const [currentStep, setCurrentStep] = useState('intro'); // 'intro', 'test', 'result', 'loading'
+  const [currentStep, setCurrentStep] = useState('intro'); // 'intro', 'test'
   const [userName, setUserName] = useState('');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [scores, setScores] = useState({ E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 });
   const [result, setResult] = useState(null);
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   const { testInfo, questions, results } = dinosaurTestData;
 
@@ -246,7 +245,7 @@ export default function DinosaurTest() {
     return textMap[mbtiType] || `나는 특별한 ${dinosaur}야! 🦕`;
   };
 
-  // �️ MBTI 타입별 특성 태그 매핑
+  // ⭐️ MBTI 타입별 특성 태그 매핑
   const getCharacteristicTags = (mbtiType) => {
     const tagMap = {
       'INTJ': ['전략가', '독립적', '통찰력', '계획성'],
@@ -270,7 +269,7 @@ export default function DinosaurTest() {
     return tagMap[mbtiType] || ['특별한', '독특한', '개성적', '매력적'];
   };
 
-  // �🎯 테스트 시작
+  // 🎯 테스트 시작
   const startTest = () => {
     if (!userName.trim()) {
       alert('이름을 입력해주세요!');
@@ -317,26 +316,9 @@ export default function DinosaurTest() {
     const mbtiType = calculateMBTI(finalScores);
     const resultData = results[mbtiType];
     
-    // 먼저 로딩 화면 표시
-    setCurrentStep('loading');
-    setResult({ ...resultData, MBTI: mbtiType });
-    
-    // 이미지 프리로딩
-    const img = new Image();
-    img.onload = () => {
-      setIsImageLoaded(true);
-      // 이미지 로드 완료 후 최소 1초 후에 결과 표시
-      setTimeout(() => {
-        setCurrentStep('result');
-      }, 1000);
-    };
-    img.onerror = () => {
-      // 이미지 로드 실패시에도 2초 후 결과 표시
-      setTimeout(() => {
-        setCurrentStep('result');
-      }, 2000);
-    };
-    img.src = resultData.image;
+    // 결과 페이지로 이동 (사용자 이름 포함)
+    const encodedUserName = encodeURIComponent(userName || '익명');
+    navigate(`/dinosaur-test-result/${mbtiType}/${encodedUserName}`);
     
     // Google Analytics 이벤트 추적
     if (typeof gtag !== 'undefined') {
@@ -353,7 +335,6 @@ export default function DinosaurTest() {
     setCurrentQuestion(0);
     setScores({ E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 });
     setResult(null);
-    setIsImageLoaded(false);
   };
 
   // 🏠 홈으로 가기
@@ -442,283 +423,7 @@ export default function DinosaurTest() {
           </div>
         )}
 
-        {/* ⏳ 로딩 화면 */}
-        {currentStep === 'loading' && (
-          <div className="flex flex-col items-center justify-center min-h-screen px-4 py-8">
-            <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full text-center">
-              {/* 로딩 애니메이션 */}
-              <div className="text-6xl mb-6 animate-bounce">🦕</div>
-              
-              {/* 로딩 스피너 */}
-              <div className="flex justify-center mb-6">
-                <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-primary"></div>
-              </div>
-              
-              <h2 className="text-2xl font-bold mb-4 text-gray-800">
-                결과 분석 중...
-              </h2>
-              <p className="text-lg text-gray-600 mb-4">
-                {userName || '익명'}님만의 공룡 타입을 찾고 있어요! 🔍
-              </p>
-              
-              {/* 로딩 바 */}
-              <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
-                <div className="bg-primary h-2 rounded-full animate-pulse" style={{ width: '70%' }}></div>
-              </div>
-              
-              <p className="text-sm text-gray-500">
-                잠시만 기다려 주세요...
-              </p>
-            </div>
-          </div>
-        )}
-
-        {/* 🎯 결과 화면 */}
-        {currentStep === 'result' && result && (
-          <div className="flex flex-col items-center justify-center min-h-screen px-4 py-8">
-            <div className="max-w-4xl w-full space-y-8">
-              
-              {/* 🎨 Instagram-ready 공유용 카드 */}
-              <div className={`relative bg-gradient-to-br ${getCardPalette(result.MBTI).background} rounded-3xl p-8 shadow-2xl border-4 border-white overflow-hidden`}>
-                {/* 배경 장식 패턴 */}
-                <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
-                  <div className="text-8xl">🦕</div>
-                </div>
-                
-                <div className="relative z-10">
-                  {/* 상단 브랜드 영역 */}
-                  <div className="flex items-center justify-between mb-8">
-                    <div className={`text-sm font-semibold ${getCardPalette(result.MBTI).textSecondary} tracking-wider`}>
-                      ZZOLBOOWORLD.COM
-                    </div>
-                    {/* MBTI(이모지) 뱃지 - 진한 이모지 대신 */}
-                    <div className={`inline-flex items-center gap-2 bg-gradient-to-r ${getCardPalette(result.MBTI).mbtiButton} text-white px-4 py-2 rounded-xl shadow-lg border border-white/20 text-base font-bold`}>
-                      <span>{result.MBTI} 🦕</span>
-                    </div>
-                  </div>
-
-                  {/* 메인 콘텐츠 영역 */}
-                  <div className="text-center space-y-6">
-                    
-                    {/* MBTI 타입 뱃지 - 가장 눈에 띄게 */}
-                    {/* 공룡 이름 - 기존 MBTI 위치 */}
-                    <div className="flex justify-center mb-6">
-                      <div className="inline-flex items-center gap-3 bg-white/70 text-gray-800 px-8 py-3 rounded-2xl shadow border border-gray-200 text-2xl font-extrabold">
-                        {result.dinosaur}
-                      </div>
-                    </div>
-
-
-                    {/* 공룡 이미지 (이름 칸 삭제, 이미지 사이즈 키움) */}
-                    <div className="relative">
-                      <div className={`bg-white/30 backdrop-blur-sm rounded-3xl p-6 mb-4 shadow-xl border border-white/20`}>
-                        <img
-                          src={result.image}
-                          alt={result.dinosaur}
-                          className="w-56 h-56 mx-auto object-contain drop-shadow-2xl"
-                        />
-                      </div>
-                    </div>
-
-                    {/* 메인 캐치프레이즈 */}
-                    <div className={`bg-white/25 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/30`}>
-                      <h2 className={`text-2xl font-bold ${getCardPalette(result.MBTI).textMain} leading-relaxed`}>
-                        {getMainResultText(result.MBTI, result.dinosaur)}
-                      </h2>
-                    </div>
-                    
-                    {/* 특성 태그들 - 더 세련되게 */}
-                    <div className="flex flex-wrap justify-center gap-3">
-                      {getCharacteristicTags(result.MBTI).map((tag, index) => (
-                        <span
-                          key={index}
-                          className={`px-5 py-2 bg-gradient-to-r ${getCardPalette(result.MBTI).tagBg} text-white rounded-full text-sm font-semibold shadow-lg border border-white/20 transform hover:scale-105 transition-transform`}
-                        >
-                          #{tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* 궁합 정보 - 카드 스타일로 개선 */}
-                    <div className="grid grid-cols-2 gap-4 mt-8">
-                      {/* 좋은 궁합 */}
-                      <div className="bg-white/25 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-white/30">
-                        <div className="flex items-center justify-center gap-2 mb-3">
-                          <span className="text-lg">💕</span>
-                          <span className={`text-sm font-semibold ${getCardPalette(result.MBTI).textMain}`}>
-                            궁합 BEST
-                          </span>
-                        </div>
-                        <div className="space-y-2">
-                          {result.match.slice(0, 2).map((matchType, index) => (
-                            <div key={index} className="bg-white/40 rounded-xl p-2 text-center">
-                              <div className={`text-xs font-bold ${getCardPalette(result.MBTI).textMain}`}>
-                                {matchType}
-                              </div>
-                              <div className={`text-xs ${getCardPalette(result.MBTI).textSecondary}`}>
-                                {results[matchType]?.dinosaur?.split('사우루스')[0] || ''}사우루스
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* 상극 */}
-                      <div className="bg-white/25 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-white/30">
-                        <div className="flex items-center justify-center gap-2 mb-3">
-                          <span className="text-lg">⚡</span>
-                          <span className={`text-sm font-semibold ${getCardPalette(result.MBTI).textMain}`}>
-                            주의 관계
-                          </span>
-                        </div>
-                        <div className="bg-white/40 rounded-xl p-2 text-center">
-                          <div className={`text-xs font-bold ${getCardPalette(result.MBTI).textMain}`}>
-                            {result.mismatch !== "없음" ? result.mismatch : "없음"}
-                          </div>
-                          {result.mismatch !== "없음" && (
-                            <div className={`text-xs ${getCardPalette(result.MBTI).textSecondary}`}>
-                              {results[result.mismatch]?.dinosaur?.split('사우루스')[0] || ''}사우루스
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* 하단 브랜딩 */}
-                    <div className="pt-6 border-t border-white/20">
-                      <div className={`text-xs ${getCardPalette(result.MBTI).textSecondary} font-medium tracking-wider`}>
-                        ✨ ZZOLBOOWORLD.COM ✨
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* 📝 상세 설명 카드 - 개선된 디자인 */}
-              <div className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
-                <div className="text-center mb-8">
-                  <div className="inline-flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full flex items-center justify-center">
-                      <span className="text-white text-xl">📊</span>
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-800">
-                      {userName}님의 상세 분석
-                    </h3>
-                  </div>
-                  <div className="w-20 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
-                </div>
-                
-                {/* 📄 성격 요약 */}
-                <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-6 mb-8 border border-gray-100">
-                  <h4 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
-                    <span className="text-2xl">✨</span>
-                    성격 요약
-                  </h4>
-                  <p className="text-gray-700 text-lg leading-relaxed whitespace-pre-line">
-                    {Array.isArray(result.desc)
-                      ? result.desc.join('\n')
-                      : result.desc}
-                  </p>
-                </div>
-
-                {/* 💕 궁합 상세 정보 - 카드 스타일로 개선 */}
-                <div className="grid md:grid-cols-2 gap-6 mb-8">
-                  <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-2xl border border-green-100 shadow-lg">
-                    <h4 className="font-bold text-green-700 mb-6 text-lg flex items-center gap-2">
-                      <span className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                        <span className="text-white text-sm">💚</span>
-                      </span>
-                      최고의 파트너
-                    </h4>
-                    <div className="space-y-4">
-                      {result.match.map((matchType, index) => (
-                        <div key={index} className="bg-white p-4 rounded-xl shadow-sm border border-green-100 hover:shadow-md transition-shadow">
-                          <div className="flex items-center gap-3 mb-2">
-                            <div className="w-10 h-10 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center">
-                              <span className="text-white text-xs font-bold">{matchType}</span>
-                            </div>
-                            <div className="font-semibold text-green-700">
-                              {results[matchType]?.dinosaur || matchType}
-                            </div>
-                          </div>
-                          <div className="text-sm text-green-600 ml-13">
-                            {result.matchReason[index]}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* 💔 상극 정보 */}
-                  {result.mismatch !== "없음" && (
-                    <div className="bg-gradient-to-br from-red-50 to-pink-50 p-6 rounded-2xl border border-red-100 shadow-lg">
-                      <h4 className="font-bold text-red-700 mb-6 text-lg flex items-center gap-2">
-                        <span className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
-                          <span className="text-white text-sm">⚡</span>
-                        </span>
-                        주의가 필요한 관계
-                      </h4>
-                      <div className="bg-white p-4 rounded-xl shadow-sm border border-red-100">
-                        <div className="flex items-center gap-3 mb-2">
-                          <div className="w-10 h-10 bg-gradient-to-r from-red-400 to-pink-500 rounded-full flex items-center justify-center">
-                            <span className="text-white text-xs font-bold">{result.mismatch}</span>
-                          </div>
-                          <div className="font-semibold text-red-700">
-                            {results[result.mismatch]?.dinosaur || result.mismatch}
-                          </div>
-                        </div>
-                        <div className="text-sm text-red-600 ml-13">
-                          {result.mismatchReason}
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* 🔄 액션 버튼들 - 더 매력적으로 */}
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <button
-                    onClick={goHome}
-                    className="flex-1 bg-gradient-to-r from-gray-500 to-gray-600 text-white py-4 rounded-2xl font-bold hover:from-gray-600 hover:to-gray-700 transition-all duration-200 text-lg shadow-lg transform hover:scale-105 flex items-center justify-center gap-2"
-                  >
-                    <span className="text-xl">🏠</span>
-                    처음으로
-                  </button>
-                  <button
-                    onClick={restartTest}
-                    className="flex-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white py-4 rounded-2xl font-bold hover:from-purple-600 hover:to-pink-600 transition-all duration-200 text-lg shadow-lg transform hover:scale-105 flex items-center justify-center gap-2"
-                  >
-                    <span className="text-xl">🔄</span>
-                    다시 테스트
-                  </button>
-                  
-                  {/* 소셜 공유 컴포넌트 */}
-                  <SocialShare 
-                    testType="dinosaur"
-                    result={{
-                      MBTI: result.MBTI,
-                      name: result.dinosaur,
-                      image: result.image
-                    }}
-                    userName={userName}
-                  />
-                {/* 이미지 저장 버튼 및 생성 컴포넌트 */}
-                <div className="flex-1 mt-2">
-                  <ImageGeneratorComponent
-                    testType="dinosaur"
-                    result={result.MBTI}
-                    characterImage={result.image}
-                    userName={userName || '사용자'}
-                    description={getMainResultText(result.MBTI, result.dinosaur)}
-                    characterName={result.dinosaur}
-                  />
-                </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-
+        
       </main>
       <Footer />
     </>

@@ -10,6 +10,8 @@ export default function FamilyMbtiTest() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [currentStep, setCurrentStep] = useState('test'); // 'test' | 'loading'
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   const { questions } = familyMbtiTestData;
   const progressPercentage = ((currentQuestion + 1) / questions.length) * 100;
@@ -26,9 +28,29 @@ export default function FamilyMbtiTest() {
         setCurrentQuestion(currentQuestion + 1);
         setIsAnimating(false);
       } else {
-        // 테스트 완료 - 결과 계산
+        // 테스트 완료 - 로딩 화면으로 전환
+        setCurrentStep('loading');
+        
+        // 결과 계산 및 이미지 미리 로딩
         const mbtiResult = calculateMBTIResult(newAnswers);
-        navigate(`/family-mbti-result/${mbtiResult}`);
+        
+        // 이미지 미리 로딩 (Family MBTI는 결과 페이지에서 이미지를 사용)
+        const img = new Image();
+        img.onload = () => {
+          setIsImageLoaded(true);
+          setTimeout(() => {
+            navigate(`/family-mbti-result/${mbtiResult}`);
+          }, 1000); // 로딩 완료 후 1초 대기
+        };
+        img.onerror = () => {
+          // 이미지 로딩 실패 시에도 2초 후 결과 페이지로 이동
+          setTimeout(() => {
+            navigate(`/family-mbti-result/${mbtiResult}`);
+          }, 2000);
+        };
+        
+        // 임시로 기본 이미지 사용 (실제 결과 이미지는 결과 페이지에서 로딩)
+        img.src = '/images/gallery/family-mbti-placeholder.jpg';
       }
     }, 500);
   };
@@ -40,6 +62,9 @@ export default function FamilyMbtiTest() {
       <Header />
       
       <main className="bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 min-h-screen">
+        
+        {/* 📝 테스트 화면 */}
+        {currentStep === 'test' && (
         <div className="max-w-4xl mx-auto px-4 py-8">
           
           {/* 🎯 헤더 섹션 */}
@@ -163,6 +188,39 @@ export default function FamilyMbtiTest() {
           </div>
 
         </div>
+        )}
+
+        {/* ⏳ 로딩 화면 */}
+        {currentStep === 'loading' && (
+          <div className="flex flex-col items-center justify-center min-h-screen px-4 py-8">
+            <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full text-center">
+              {/* 로딩 애니메이션 */}
+              <div className="text-6xl mb-6 animate-bounce">👩‍👧‍👦</div>
+              
+              {/* 로딩 스피너 */}
+              <div className="flex justify-center mb-6">
+                <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-pink-500"></div>
+              </div>
+              
+              <h2 className="text-2xl font-bold mb-4 text-gray-800">
+                엄마의 성격 분석 중...
+              </h2>
+              <p className="text-lg text-gray-600 mb-4">
+                우리 엄마는 어떤 MBTI일까요? 🤔
+              </p>
+              
+              {/* 로딩 바 */}
+              <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
+                <div className="bg-pink-500 h-2 rounded-full animate-pulse" style={{ width: '70%' }}></div>
+              </div>
+              
+              <p className="text-sm text-gray-500">
+                잠시만 기다려 주세요...
+              </p>
+            </div>
+          </div>
+        )}
+        
       </main>
 
       <Footer />

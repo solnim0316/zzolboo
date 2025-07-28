@@ -11,11 +11,12 @@ import SocialShare from '@/components/common/SocialShare';
 
 export default function CatTest() {
   const navigate = useNavigate();
-  const [currentStep, setCurrentStep] = useState('intro'); // 'intro', 'test', 'result'
+  const [currentStep, setCurrentStep] = useState('intro'); // 'intro', 'test', 'result', 'loading'
   const [userName, setUserName] = useState('');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [scores, setScores] = useState({ E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 });
   const [result, setResult] = useState(null);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   // 테스트 정보
   const testInfo = {
@@ -330,8 +331,26 @@ export default function CatTest() {
       image: catImages[mbtiType]
     };
     
+    // 먼저 로딩 화면 표시
+    setCurrentStep('loading');
     setResult(resultWithImage);
-    setCurrentStep('result');
+    
+    // 이미지 프리로딩
+    const img = new Image();
+    img.onload = () => {
+      setIsImageLoaded(true);
+      // 이미지 로드 완료 후 최소 1초 후에 결과 표시
+      setTimeout(() => {
+        setCurrentStep('result');
+      }, 1000);
+    };
+    img.onerror = () => {
+      // 이미지 로드 실패시에도 2초 후 결과 표시
+      setTimeout(() => {
+        setCurrentStep('result');
+      }, 2000);
+    };
+    img.src = resultWithImage.image;
     
     // Google Analytics 이벤트 추적
     if (typeof gtag !== 'undefined') {
@@ -348,6 +367,7 @@ export default function CatTest() {
     setCurrentQuestion(0);
     setScores({ E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 });
     setResult(null);
+    setIsImageLoaded(false);
   };
 
   // 🏠 홈으로 가기
@@ -432,6 +452,37 @@ export default function CatTest() {
                   </button>
                 ))}
               </div>
+            </div>
+          </div>
+        )}
+
+        {/* ⏳ 로딩 화면 */}
+        {currentStep === 'loading' && (
+          <div className="flex flex-col items-center justify-center min-h-screen px-4 py-8">
+            <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full text-center">
+              {/* 로딩 애니메이션 */}
+              <div className="text-6xl mb-6 animate-bounce">🐱</div>
+              
+              {/* 로딩 스피너 */}
+              <div className="flex justify-center mb-6">
+                <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-primary"></div>
+              </div>
+              
+              <h2 className="text-2xl font-bold mb-4 text-gray-800">
+                결과 분석 중...
+              </h2>
+              <p className="text-lg text-gray-600 mb-4">
+                {userName || '익명'}님만의 고양이 타입을 찾고 있어요! 🔍
+              </p>
+              
+              {/* 로딩 바 */}
+              <div className="w-full bg-gray-200 rounded-full h-2 mb-4">
+                <div className="bg-primary h-2 rounded-full animate-pulse" style={{ width: '70%' }}></div>
+              </div>
+              
+              <p className="text-sm text-gray-500">
+                잠시만 기다려 주세요...
+              </p>
             </div>
           </div>
         )}
