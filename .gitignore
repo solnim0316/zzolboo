@@ -1,6 +1,16 @@
 # 환경변수 파일 무시
 .env
 
+# Node.js 관련
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 빌드 결과물
+dist/
+build/
+
 # AI 이미지 생성 관련 파일들 (전체 폴더 제외)
 tools/image-generators/
 
@@ -20,3 +30,9 @@ Thumbs.db
 # 로그 파일
 *.log
 debug.log
+
+# IDE 파일
+.vscode/
+.idea/
+*.swp
+*.swo

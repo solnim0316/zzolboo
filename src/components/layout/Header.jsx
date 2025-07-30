@@ -1,6 +1,7 @@
 // 🐱 웹사이트 헤더 컴포넌트
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { AccessibleNavButton } from '@/components/common/AccessibleButton';
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -28,23 +29,25 @@ export default function Header() {
           </Link>
 
           {/* 🖥️ 데스크톱 네비게이션 */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-8" role="navigation" aria-label="메인 네비게이션">
             {menuItems.map((item) => (
               item.clickable ? (
                 <Link
                   key={item.path}
                   to={item.path}
-                  className="flex items-center space-x-1 text-gray-700 hover:text-[#5D4037] px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                  className="flex items-center space-x-1 text-gray-700 hover:text-[#5D4037] px-3 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-[#F48FB1] focus:ring-offset-2"
+                  aria-label={`${item.name} 페이지로 이동`}
                 >
-                  <span>{item.icon}</span>
+                  <span aria-hidden="true">{item.icon}</span>
                   <span>{item.name}</span>
                 </Link>
               ) : (
                 <span
                   key={item.path}
                   className="flex items-center space-x-1 text-gray-400 cursor-not-allowed px-3 py-2 rounded-md text-sm font-medium"
+                  aria-label={`${item.name} (준비 중)`}
                 >
-                  <span>{item.icon}</span>
+                  <span aria-hidden="true">{item.icon}</span>
                   <span>{item.name}</span>
                 </span>
               )

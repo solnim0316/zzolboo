@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ErrorBoundary from "./components/common/ErrorBoundary";
 import Home from "./pages/Home";
 import TestPlayer from "./pages/TestPlayer";
 import ResultPage from "./pages/ResultPage";
@@ -24,32 +25,34 @@ import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
-    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/test/:testId" element={<TestPlayer />} />
-        <Route path="/test/:testId/result" element={<ResultPage />} />
-        <Route path="/share" element={<SharedResult />} />
-        <Route path="/dinosaur-test" element={<DinosaurTest />} />
-        <Route path="/cat-test" element={<CatTest />} />
-        <Route path="/food-test" element={<FoodTest />} />
-        <Route path="/fashion-test" element={<FashionTest />} />
-        <Route path="/movie-test" element={<MovieTest />} />
-        <Route path="/color-test" element={<ColorTest />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/mbti-guide" element={<MBTIGuide />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:postId" element={<BlogPost />} />
-        <Route path="/family-mbti" element={<FamilyMbtiTest />} />
-        <Route path="/family-mbti-result/:resultType" element={<FamilyMbtiResult />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/faq" element={<FAQ />} />
-        <Route path="/terms" element={<TermsOfService />} />
-        <Route path="/privacy" element={<PrivacyPolicy />} />
-        <Route path="/contact" element={<Contact />} />
-        {/* 404 에러 페이지 - 모든 라우트의 마지막에 위치 */}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Router>
+    <ErrorBoundary>
+      <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/test/:testId" element={<TestPlayer />} />
+          <Route path="/test/:testId/result" element={<ResultPage />} />
+          <Route path="/share" element={<SharedResult />} />
+          <Route path="/dinosaur-test" element={<DinosaurTest />} />
+          <Route path="/cat-test" element={<CatTest />} />
+          <Route path="/food-test" element={<FoodTest />} />
+          <Route path="/fashion-test" element={<FashionTest />} />
+          <Route path="/movie-test" element={<MovieTest />} />
+          <Route path="/color-test" element={<ColorTest />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/mbti-guide" element={<MBTIGuide />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:postId" element={<BlogPost />} />
+          <Route path="/family-mbti" element={<FamilyMbtiTest />} />
+          <Route path="/family-mbti-result/:resultType" element={<FamilyMbtiResult />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/terms" element={<TermsOfService />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/contact" element={<Contact />} />
+          {/* 404 에러 페이지 - 모든 라우트의 마지막에 위치 */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
+    </ErrorBoundary>
   );
 }
