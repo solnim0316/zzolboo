@@ -13,6 +13,7 @@ import SharedResult from "./pages/SharedResult";
 import About from "./pages/About";
 import TermsOfService from "./pages/TermsOfService";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import CookiePolicy from "./pages/CookiePolicy";
 import Contact from "./pages/Contact";
 import MBTIGuide from "./pages/MBTIGuide";
 import FAQ from "./pages/FAQ";
@@ -48,6 +49,7 @@ export default function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/terms" element={<TermsOfService />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/cookies" element={<CookiePolicy />} />
           <Route path="/contact" element={<Contact />} />
           {/* 404 에러 페이지 - 모든 라우트의 마지막에 위치 */}
           <Route path="*" element={<NotFound />} />

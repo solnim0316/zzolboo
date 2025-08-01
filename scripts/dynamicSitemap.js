@@ -17,7 +17,8 @@ const SPECIAL_PAGES = {
   '/about': { priority: '0.8', changefreq: 'monthly' },
   '/contact': { priority: '0.7', changefreq: 'monthly' },
   '/terms': { priority: '0.5', changefreq: 'yearly' },
-  '/privacy': { priority: '0.5', changefreq: 'yearly' }
+  '/privacy': { priority: '0.5', changefreq: 'yearly' },
+  '/cookies': { priority: '0.5', changefreq: 'yearly' }
 };
 
 // 제외할 경로들 (관리자 페이지, 임시 페이지 등)

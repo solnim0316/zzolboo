@@ -20,6 +20,9 @@ export default function Footer() {
         <Link to="/privacy" className="text-gray-500 hover:text-gray-700 transition-colors duration-200">
           개인정보처리방침
         </Link>
+        <Link to="/cookies" className="text-gray-500 hover:text-gray-700 transition-colors duration-200">
+          쿠키 정책
+        </Link>
         <Link to="/contact" className="text-gray-500 hover:text-gray-700 transition-colors duration-200">
           문의하기
         </Link>
