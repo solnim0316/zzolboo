@@ -4,13 +4,12 @@ import { lolTestData } from '../data/lolTestData';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import SocialShare from '../components/common/SocialShare';
-import ShareModal from '../components/result/ShareModal';
 
 const LolTestResult = () => {
   const { resultKey } = useParams();
   const navigate = useNavigate();
   const [result, setResult] = useState(null);
-  const [showShareModal, setShowShareModal] = useState(false);
+
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -30,9 +29,7 @@ const LolTestResult = () => {
     navigate('/lol-test');
   };
 
-  const handleShare = () => {
-    setShowShareModal(true);
-  };
+
 
   const getLineColor = (line) => {
     const colors = {
@@ -198,12 +195,17 @@ const LolTestResult = () => {
             >
               🎮 테스트 다시하기
             </button>
-            <button
-              onClick={handleShare}
-              className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-xl font-medium transition-colors"
-            >
-              📤 결과 공유하기
-            </button>
+            <SocialShare 
+              testType="lol"
+              result={{
+                title: result.title,
+                line: result.line,
+                role: result.role,
+                characterName: result.characterName,
+                catchphrase: result.catchphrase
+              }}
+              className="px-8 py-3 rounded-xl font-medium"
+            />
           </div>
 
           {/* 추가 정보 */}
@@ -232,17 +234,6 @@ const LolTestResult = () => {
       </main>
 
       <Footer />
-
-      {/* 공유 모달 */}
-      {showShareModal && (
-        <ShareModal
-          isOpen={showShareModal}
-          onClose={() => setShowShareModal(false)}
-          title={`🎮 롤 라인 추천 테스트 결과: ${result.title}`}
-          description={`나는 ${result.title}입니다! ${result.catchphrase}`}
-          url={window.location.href}
-        />
-      )}
     </div>
   );
 };

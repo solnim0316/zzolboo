@@ -34,6 +34,8 @@ function getTestStartUrl(testType) {
       return `${BASE_URL}/dinosaur-test`;
     case 'food':
       return `${BASE_URL}/food-test`;
+    case 'lol':
+      return `${BASE_URL}/lol-test`;
     default:
       return BASE_URL;
   }
@@ -208,6 +210,11 @@ export function createShareData(testType, result, userName = '') {
       emoji: '👩‍👧‍👦',
       testName: '우리 엄마 MBTI 테스트',
       world: '우리 집'
+    },
+    lol: {
+      emoji: '🎮',
+      testName: '롤 라인 추천 테스트',
+      world: '리그 오브 레전드'
     }
   };
   
@@ -225,6 +232,22 @@ export function createShareData(testType, result, userName = '') {
       description,
       text: description,
       imageUrl: `${BASE_URL}/images/family-mbti-og.png`, // 기본 이미지
+      testType
+    };
+  }
+  
+  // lol 테스트의 경우 특별 처리
+  if (testType === 'lol') {
+    const shareUrl = window.location.href;
+    const title = `${data.emoji} ${userName ? `${userName}님의` : '나의'} ${data.testName} 결과`;
+    const description = `${data.world}에서 ${userName ? `${userName}님은` : '나는'} "${result.title}" ${data.emoji}\n\n${result.catchphrase}\n\n쫄부월드에서 ${userName ? `${userName}님과` : ''} 함께 테스트해보세요!`;
+    
+    return {
+      url: shareUrl,
+      title,
+      description,
+      text: description,
+      imageUrl: `${BASE_URL}/og-image.png`, // 기본 이미지
       testType
     };
   }

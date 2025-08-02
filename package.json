@@ -16,6 +16,7 @@
     "test:image-generator:generate": "node scripts/testImageGenerator.js --generate"
   },
   "dependencies": {
+    "canvas": "^3.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.1"
