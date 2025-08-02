@@ -1,6 +1,6 @@
 // 🎮 서브 홈 페이지 컴포넌트 - 203040 세대를 위한 컨텐츠
 import { Link } from "react-router-dom";
-import Header from "@/components/layout/Header";
+import BroHeader from "@/components/layout/BroHeader";
 import Footer from "@/components/layout/Footer";
 import { useState } from "react";
 import { TAG_CATEGORIES, testUtils } from "@/data/testConfigs";
@@ -33,7 +33,7 @@ export default function SubHome() {
       isThemed: true,
       description: "성향 기반으로 추천하는 롤 라인 & 역할군",
       tags: ["추천", "게임", "성격", "재미"],
-      route: "/lol-test",
+      route: "/bro/lol-test",
       difficulty: "medium",
       estimatedTime: "4분",
       questionCount: 11,
@@ -54,8 +54,8 @@ export default function SubHome() {
 
   return (
     <>
-      {/* 🎯 상단 헤더 */}
-      <Header />
+             {/* 🎯 상단 헤더 */}
+       <BroHeader />
       
              {/* 📱 메인 콘텐츠 */}
                <main className="bg-gradient-to-br from-pink-100 via-purple-100 to-yellow-100 min-h-screen px-4 pt-0 pb-6 sm:px-6 md:px-8 lg:px-12">

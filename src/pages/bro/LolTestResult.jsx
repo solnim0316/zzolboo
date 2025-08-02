@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { lolTestData } from '../data/lolTestData';
-import Header from '../components/layout/Header';
-import Footer from '../components/layout/Footer';
-import LolShareModal from '../components/common/LolShareModal';
+import { lolTestData } from '../../data/lolTestData';
+import BroHeader from '../../components/layout/BroHeader';
+import Footer from '../../components/layout/Footer';
+import LolShareModal from '../../components/common/LolShareModal';
 
 const LolTestResult = () => {
   const { resultKey } = useParams();
@@ -23,11 +23,11 @@ const LolTestResult = () => {
   }, [resultKey]);
 
   const handleGoHome = () => {
-    navigate('/');
+    navigate('/bro');
   };
 
   const handleRetakeTest = () => {
-    navigate('/lol-test');
+    navigate('/bro/lol-test');
   };
 
 
@@ -57,7 +57,7 @@ const LolTestResult = () => {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900">
-        <Header />
+        <BroHeader />
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center text-white">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
@@ -72,7 +72,7 @@ const LolTestResult = () => {
   if (!result) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900">
-        <Header />
+        <BroHeader />
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center text-white">
             <h2 className="text-2xl font-bold mb-4">결과를 찾을 수 없습니다</h2>
@@ -91,7 +91,7 @@ const LolTestResult = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900">
-      <Header />
+      <BroHeader />
       
       <main className="container mx-auto px-4 py-8">
         {/* 결과 헤더 */}

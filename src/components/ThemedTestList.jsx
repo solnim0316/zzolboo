@@ -24,8 +24,6 @@ export default function ThemedTestList({ tests }) {
       navigate('/cat-test');
     } else if (testId === 'family-mbti') {
       navigate('/family-mbti');
-    } else if (testId === 'lol-line-recommendation') {
-      navigate('/lol-test');
     } else {
       navigate(`/test/${testId}`);
     }

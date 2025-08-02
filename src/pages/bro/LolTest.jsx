@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { lolTestData } from '../data/lolTestData';
-import Header from '../components/layout/Header';
-import Footer from '../components/layout/Footer';
-import Button from '../components/common/Button';
-import LoadingSpinner from '../components/common/LoadingSpinner';
+import { lolTestData } from '../../data/lolTestData';
+import BroHeader from '../../components/layout/BroHeader';
+import Footer from '../../components/layout/Footer';
+import Button from '../../components/common/Button';
+import LoadingSpinner from '../../components/common/LoadingSpinner';
 
 const LolTest = () => {
   const navigate = useNavigate();
@@ -394,9 +394,9 @@ const LolTest = () => {
         const resultKey = `${selectedLine}-${determinedRole}`;
         
         setIsLoading(true);
-        setTimeout(() => {
-          navigate(`/lol-result/${resultKey}`);
-        }, 1500);
+                 setTimeout(() => {
+           navigate(`/bro/lol-result/${resultKey}`);
+         }, 1500);
       }
     }
   };
@@ -423,7 +423,7 @@ const LolTest = () => {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900">
-        <Header />
+        <BroHeader />
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
             <LoadingSpinner />
@@ -439,7 +439,7 @@ const LolTest = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900">
-      <Header />
+      <BroHeader />
       
       <main className="container mx-auto px-4 py-8">
         {/* 진행률 바 */}

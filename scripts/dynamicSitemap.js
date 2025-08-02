@@ -23,8 +23,8 @@ const SPECIAL_PAGES = {
   '/image-curator': { priority: '0.6', changefreq: 'monthly' },
   '/auto-image-generator': { priority: '0.6', changefreq: 'monthly' },
   '/free-image-generator': { priority: '0.6', changefreq: 'monthly' },
-  '/lol-test': { priority: '0.8', changefreq: 'weekly' },
-  '/lol-result': { priority: '0.7', changefreq: 'weekly' }
+  '/bro/lol-test': { priority: '0.8', changefreq: 'weekly' },
+  '/bro/lol-result': { priority: '0.7', changefreq: 'weekly' }
 };
 
 // 제외할 경로들 (관리자 페이지, 임시 페이지 등)

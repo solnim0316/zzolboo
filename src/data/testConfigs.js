@@ -89,29 +89,7 @@ export const THEMED_TESTS = [
       backgroundMusic: null
     }
   },
-  {
-    id: "lol-line-recommendation",
-    title: "롤 라인 추천 테스트",
-    world: "리그 오브 레전드",
-    emoji: "🎮",
-    theme: "게임",
-    thumbnail: "/images/tests/lol/thumbnail.png",
-    isFeatured: true,
-    isThemed: true,
-    description: "성향 기반으로 추천하는 롤 라인 & 역할군",
-    tags: ["추천", "게임", "성격", "재미"],
-    route: "/lol-test",
-    difficulty: "medium",
-    estimatedTime: "4분",
-    questionCount: 11,
-    // 세계관 설정
-    worldConfig: {
-      backgroundColor: "#1a1a2e",
-      primaryColor: "#16213e",
-      characterStyle: "gaming",
-      backgroundMusic: null
-    }
-  },
+
   // 🔒 숨겨진 테스트들 (미래 구현 예정)
   {
     id: "dream-cafe",

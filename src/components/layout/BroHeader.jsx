@@ -1,9 +1,9 @@
-// 🐱 웹사이트 헤더 컴포넌트
+// 🕶️ BRO 전용 헤더 컴포넌트
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { AccessibleNavButton } from '@/components/common/AccessibleButton';
 
-export default function Header() {
+export default function BroHeader() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdowns, setActiveDropdowns] = useState(new Set());
 
@@ -58,24 +58,24 @@ export default function Header() {
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* 🏷️ 로고/브랜드 */}
+          {/* 🏷️ BRO 로고/브랜드 */}
           <Link 
-            to="/" 
+            to="/bro" 
             className="flex items-center space-x-2 text-lg sm:text-xl font-bold text-[#5D4037] hover:text-[#4A2C2A] transition-colors"
           >
-                         <img 
-               src="/images/logo/logo.PNG" 
-               alt="쫄부월드 로고" 
-               className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
-               onError={(e) => {
-                 console.log('로고 이미지 로드 실패:', e.target.src);
-                 e.target.style.display = 'none';
-                 e.target.nextSibling.style.display = 'inline';
-               }}
-               onLoad={(e) => {
-                 console.log('로고 이미지 로드 성공:', e.target.src);
-               }}
-             />
+            <img 
+              src="/images/logo/logo.PNG" 
+              alt="쫄부월드 로고" 
+              className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+              onError={(e) => {
+                console.log('로고 이미지 로드 실패:', e.target.src);
+                e.target.style.display = 'none';
+                e.target.nextSibling.style.display = 'inline';
+              }}
+              onLoad={(e) => {
+                console.log('로고 이미지 로드 성공:', e.target.src);
+              }}
+            />
             <span style={{ display: 'none' }}>🐱</span>
             <span>쫄부월드</span>
           </Link>
@@ -220,4 +220,4 @@ export default function Header() {
       </div>
     </header>
   );
-}
+} 
