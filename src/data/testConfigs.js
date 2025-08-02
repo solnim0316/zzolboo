@@ -14,7 +14,8 @@ export const TAG_CATEGORIES = [
   { id: '음식', name: '음식', icon: '🍽️' },
   { id: '패션', name: '패션', icon: '👗' },
   { id: '영화', name: '영화', icon: '🎬' },
-  { id: '색깔', name: '색깔', icon: '🎨' }
+  { id: '색깔', name: '색깔', icon: '🎨' },
+  { id: '게임', name: '게임', icon: '🎮' }
 ];
 
 // 🎭 쫄부 테마 테스트 (세계관 기반)
@@ -85,6 +86,29 @@ export const THEMED_TESTS = [
       backgroundColor: "#FFF3E0",
       primaryColor: "#FF9800",
       characterStyle: "warm",
+      backgroundMusic: null
+    }
+  },
+  {
+    id: "lol-line-recommendation",
+    title: "롤 라인 추천 테스트",
+    world: "리그 오브 레전드",
+    emoji: "🎮",
+    theme: "게임",
+    thumbnail: "/images/tests/lol/thumbnail.png",
+    isFeatured: true,
+    isThemed: true,
+    description: "성향 기반으로 추천하는 롤 라인 & 역할군",
+    tags: ["추천", "게임", "성격", "재미"],
+    route: "/lol-test",
+    difficulty: "medium",
+    estimatedTime: "4분",
+    questionCount: 11,
+    // 세계관 설정
+    worldConfig: {
+      backgroundColor: "#1a1a2e",
+      primaryColor: "#16213e",
+      characterStyle: "gaming",
       backgroundMusic: null
     }
   },

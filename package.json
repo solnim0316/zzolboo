@@ -11,7 +11,9 @@
     "sitemap:monitor": "node scripts/sitemapMonitor.js start",
     "sitemap:update": "node scripts/sitemapMonitor.js update",
     "sitemap:status": "node scripts/sitemapMonitor.js status",
-    "prebuild": "npm run sitemap:dynamic"
+    "prebuild": "npm run sitemap:dynamic",
+    "test:image-generator": "node scripts/testImageGenerator.js",
+    "test:image-generator:generate": "node scripts/testImageGenerator.js --generate"
   },
   "dependencies": {
     "react": "^18.2.0",

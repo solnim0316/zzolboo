@@ -22,6 +22,11 @@ import BlogPost from "./pages/BlogPost";
 import FamilyMbtiTest from "./pages/FamilyMbtiTest";
 import FamilyMbtiResult from "./pages/FamilyMbtiResult";
 import Gallery from "./pages/Gallery";
+import ImageCuratorDemo from "./pages/ImageCuratorDemo";
+import AutoImageGeneratorDemo from "./pages/AutoImageGeneratorDemo";
+import FreeImageGeneratorDemo from "./pages/FreeImageGeneratorDemo";
+import LolTest from "./pages/LolTest";
+import LolTestResult from "./pages/LolTestResult";
 import NotFound from "./pages/NotFound";
 
 export default function App() {
@@ -51,6 +56,11 @@ export default function App() {
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/cookies" element={<CookiePolicy />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/image-curator" element={<ImageCuratorDemo />} />
+          <Route path="/auto-image-generator" element={<AutoImageGeneratorDemo />} />
+          <Route path="/free-image-generator" element={<FreeImageGeneratorDemo />} />
+          <Route path="/lol-test" element={<LolTest />} />
+          <Route path="/lol-result/:resultKey" element={<LolTestResult />} />
           {/* 404 에러 페이지 - 모든 라우트의 마지막에 위치 */}
           <Route path="*" element={<NotFound />} />
         </Routes>
