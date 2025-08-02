@@ -27,6 +27,7 @@ import AutoImageGeneratorDemo from "./pages/AutoImageGeneratorDemo";
 import FreeImageGeneratorDemo from "./pages/FreeImageGeneratorDemo";
 import LolTest from "./pages/LolTest";
 import LolTestResult from "./pages/LolTestResult";
+import SubHome from "./pages/SubHome";
 import NotFound from "./pages/NotFound";
 
 export default function App() {
@@ -58,11 +59,12 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/image-curator" element={<ImageCuratorDemo />} />
           <Route path="/auto-image-generator" element={<AutoImageGeneratorDemo />} />
-          <Route path="/free-image-generator" element={<FreeImageGeneratorDemo />} />
-          <Route path="/lol-test" element={<LolTest />} />
-          <Route path="/lol-result/:resultKey" element={<LolTestResult />} />
-          {/* 404 에러 페이지 - 모든 라우트의 마지막에 위치 */}
-          <Route path="*" element={<NotFound />} />
+                            <Route path="/free-image-generator" element={<FreeImageGeneratorDemo />} />
+                  <Route path="/lol-test" element={<LolTest />} />
+                  <Route path="/lol-result/:resultKey" element={<LolTestResult />} />
+                  <Route path="/bro" element={<SubHome />} />
+                  {/* 404 에러 페이지 - 모든 라우트의 마지막에 위치 */}
+                  <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </ErrorBoundary>

@@ -12,6 +12,7 @@ const SITE_CONFIG = {
 // 특별 페이지 설정 (우선순위 및 빈도 커스터마이징)
 const SPECIAL_PAGES = {
   '/': { priority: '1.0', changefreq: 'daily' },
+            '/bro': { priority: '0.9', changefreq: 'weekly' },
   '/dinosaur-test': { priority: '0.9', changefreq: 'weekly' },
   '/cat-test': { priority: '0.9', changefreq: 'weekly' },
   '/about': { priority: '0.8', changefreq: 'monthly' },
