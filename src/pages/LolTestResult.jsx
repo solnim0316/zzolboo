@@ -3,12 +3,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { lolTestData } from '../data/lolTestData';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
-import SocialShare from '../components/common/SocialShare';
+import LolShareModal from '../components/common/LolShareModal';
 
 const LolTestResult = () => {
   const { resultKey } = useParams();
   const navigate = useNavigate();
   const [result, setResult] = useState(null);
+  const [showShareModal, setShowShareModal] = useState(false);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -108,9 +109,27 @@ const LolTestResult = () => {
             {/* 캐릭터 이미지 및 기본 정보 */}
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 mb-8">
               <div className="flex-shrink-0">
-                <div className="w-48 h-48 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center text-6xl">
-                  {getLineIcon(result.line)}
-                </div>
+                {result.image ? (
+                  <div className="w-48 h-48 rounded-2xl overflow-hidden shadow-lg">
+                    <img 
+                      src={result.image} 
+                      alt={`${result.line} ${result.role} 캐릭터`}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        // 이미지 로드 실패시 이모지로 대체
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
+                      }}
+                    />
+                    <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center text-6xl" style={{display: 'none'}}>
+                      {getLineIcon(result.line)}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="w-48 h-48 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center text-6xl">
+                    {getLineIcon(result.line)}
+                  </div>
+                )}
               </div>
               <div className="flex-1 text-center lg:text-left">
                 <h2 className="text-3xl font-bold text-gray-800 mb-4">
@@ -195,17 +214,12 @@ const LolTestResult = () => {
             >
               🎮 테스트 다시하기
             </button>
-            <SocialShare 
-              testType="lol"
-              result={{
-                title: result.title,
-                line: result.line,
-                role: result.role,
-                characterName: result.characterName,
-                catchphrase: result.catchphrase
-              }}
-              className="px-8 py-3 rounded-xl font-medium"
-            />
+            <button
+              onClick={() => setShowShareModal(true)}
+              className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-xl font-medium transition-colors"
+            >
+              📤 공유하기
+            </button>
           </div>
 
           {/* 추가 정보 */}
@@ -232,6 +246,19 @@ const LolTestResult = () => {
           </div>
         </div>
       </main>
+
+      {/* 공유 모달 */}
+      <LolShareModal
+        isOpen={showShareModal}
+        onClose={() => setShowShareModal(false)}
+        result={{
+          title: result.title,
+          line: result.line,
+          role: result.role,
+          characterName: result.characterName,
+          catchphrase: result.catchphrase
+        }}
+      />
 
       <Footer />
     </div>
