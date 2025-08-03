@@ -28,6 +28,10 @@ import FreeImageGeneratorDemo from "./pages/FreeImageGeneratorDemo";
 import LolTest from "./pages/bro/LolTest";
 import LolTestResult from "./pages/bro/LolTestResult";
 import BroHome from "./pages/bro/BroHome";
+import LoveHabitTest from "./pages/LoveHabitTest";
+import LoveHabitTestResult from "./pages/LoveHabitTestResult";
+import DramaTest from "./pages/DramaTest";
+import DramaTestResult from "./pages/DramaTestResult";
 import NotFound from "./pages/NotFound";
 
 export default function App() {
@@ -63,6 +67,10 @@ export default function App() {
                           <Route path="/bro/lol-test" element={<LolTest />} />
         <Route path="/bro/lol-result/:resultKey" element={<LolTestResult />} />
                   <Route path="/bro" element={<BroHome />} />
+                  <Route path="/love-habit-test" element={<LoveHabitTest />} />
+                  <Route path="/love-habit-result/:resultKey" element={<LoveHabitTestResult />} />
+                  <Route path="/drama-test" element={<DramaTest />} />
+                  <Route path="/drama-result/:resultKey" element={<DramaTestResult />} />
                   {/* 404 에러 페이지 - 모든 라우트의 마지막에 위치 */}
                   <Route path="*" element={<NotFound />} />
         </Routes>

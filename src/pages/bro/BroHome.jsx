@@ -24,14 +24,14 @@ export default function SubHome() {
   const broTests = [
     {
       id: "lol-line-recommendation",
-      title: "롤 라인 추천 테스트",
+      title: "라인 성향 분석 테스트",
       world: "리그 오브 레전드",
       emoji: "🎮",
       theme: "게임",
       thumbnail: "/images/tests/lol/thumbnail.png",
       isFeatured: true,
       isThemed: true,
-      description: "성향 기반으로 추천하는 롤 라인 & 역할군",
+      description: "티어가 오르지않는 이유가 어쩌면?",
       tags: ["추천", "게임", "성격", "재미"],
       route: "/bro/lol-test",
       difficulty: "medium",
@@ -64,37 +64,35 @@ export default function SubHome() {
           {/* 🌟 Hero 배너 - BRO 전용 */}
           <section className="w-full rounded-xl sm:rounded-2xl shadow-lg mb-8 overflow-hidden">
             {/* 🖼️ BRO 전용 배너 이미지 */}
-            <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem]">
-                             <img 
-                 src="/images/banner/bro/bro1.png" 
-                 alt="BRO 전용 배너 이미지" 
-                 className="w-full h-full object-cover"
-               />
+            <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] md:aspect-[3/1]">
+              <img 
+                src="/images/banner/bro/bro1.png" 
+                alt="BRO 전용 배너 이미지" 
+                className="w-full h-full object-cover object-center"
+                loading="eager"
+              />
             </div>
           </section>
           
           {/* 🏷️ 태그 네비게이션 섹션 */}
           <section className="mb-12">
-                         <div className="text-center mb-8">
-                               <h2 className="text-2xl font-bold mb-4 text-[#5D4037]">
-                  🏷️ 관심 분야별 탐색
-                </h2>
-                <p className="text-[#6D4C41]">
-                  본인의 관심사에 맞는 테스트를 선택해보세요!
-                </p>
-             </div>
+            <div className="text-center mb-8">
+              <h2 className="text-2xl font-bold mb-4 text-[#5D4037]">
+                🏷️ 테마 카테고리
+              </h2>
+            </div>
             
-                         {/* 태그 필터 버튼들 */}
-             <div className="flex flex-wrap justify-center gap-3 mb-8">
-                               {broTagCategories.map((tag) => (
+            {/* 태그 필터 버튼들 */}
+            <div className="flex flex-wrap justify-center gap-3 mb-8">
+              {broTagCategories.map((tag) => (
                 <button
                   key={tag.id}
                   onClick={() => setSelectedTag(tag.id)}
-                                                                          className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
-                      selectedTag === tag.id
-                        ? 'bg-[#F48FB1] text-white shadow-lg border border-[#F06292]'
-                        : 'bg-white text-[#5D4037] hover:bg-[#FCE4EC] shadow-md border border-[#F8BBD9]'
-                    }`}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
+                    selectedTag === tag.id
+                      ? 'bg-[#F48FB1] text-white shadow-lg border border-[#F06292]'
+                      : 'bg-white text-[#5D4037] hover:bg-[#FCE4EC] shadow-md border border-[#F8BBD9]'
+                  }`}
                 >
                   <span>{tag.icon}</span>
                   <span>{tag.name}</span>
@@ -104,34 +102,25 @@ export default function SubHome() {
             
             {/* 필터링 결과 표시 */}
             {selectedTag !== 'all' && (
-                             <div className="text-center mb-6">
-                                   <div className="inline-flex items-center gap-2 bg-[#F48FB1] text-white px-4 py-2 rounded-full border border-[#F06292]">
-                    <span className="text-sm">
-                      '{broTagCategories.find(t => t.id === selectedTag)?.name}' 분야로 필터링 중
-                    </span>
-                    <button 
-                      onClick={() => setSelectedTag('all')}
-                      className="text-white hover:text-[#FCE4EC] text-sm underline"
-                    >
-                      전체 보기
-                    </button>
-                  </div>
-               </div>
+              <div className="text-center mb-6">
+                <div className="inline-flex items-center gap-2 bg-[#F48FB1] text-white px-4 py-2 rounded-full border border-[#F06292]">
+                  <span className="text-sm">
+                    '{broTagCategories.find(t => t.id === selectedTag)?.name}' 분야로 필터링 중
+                  </span>
+                  <button 
+                    onClick={() => setSelectedTag('all')}
+                    className="text-white hover:text-[#FCE4EC] text-sm underline"
+                  >
+                    전체 보기
+                  </button>
+                </div>
+              </div>
             )}
           </section>
           
-                     {/* 🎮 BRO 테스트 리스트 */}
+          {/* 🎮 BRO 테스트 리스트 */}
           {filteredTests.length > 0 && (
             <section className="mb-12">
-              <div className="text-center mb-8">
-                                                         <h2 className="text-3xl font-bold text-[#5D4037] mb-4">
-                          🔥 BRO 테스트
-                        </h2>
-                        <p className="text-[#6D4C41]">
-                          남자들의 도파민을 자극하는 강렬한 테스트들을 경험해보세요
-                        </p>
-              </div>
-              
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredTests.map((test) => (
                                      <div
@@ -188,49 +177,16 @@ export default function SubHome() {
             </section>
           )}
 
-                     {/* 📊 통계 섹션 */}
-           <section className="mb-12">
-                           <div className="bg-white rounded-xl shadow-lg p-8 border border-[#F8BBD9]">
-               <div className="text-center mb-8">
-                                                           <h2 className="text-2xl font-bold text-[#5D4037] mb-4">
-                    📊 BRO 테스트 현황
-                  </h2>
-                  <p className="text-[#6D4C41]">
-                    현재 준비된 BRO 테스트들을 확인해보세요
-                  </p>
-              </div>
-              
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                                 <div className="text-center">
-                                       <div className="text-3xl font-bold text-[#F48FB1] mb-2">1</div>
-                    <div className="text-[#5D4037]">게임 테스트</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-[#F06292] mb-2">0</div>
-                    <div className="text-[#5D4037]">골프 테스트</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-[#E91E63] mb-2">0</div>
-                    <div className="text-[#5D4037]">취미 테스트</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-[#C2185B] mb-2">0</div>
-                    <div className="text-[#5D4037]">투자 테스트</div>
-                 </div>
-              </div>
-            </div>
-          </section>
-
-                     {/* 🚀 새로운 테스트 제안 */}
+                                          {/* 🚀 새로운 테스트 제안 */}
            <section className="mb-12">
                            <div className="bg-gradient-to-r from-[#F48FB1] to-[#F06292] rounded-xl p-8 border border-[#E91E63]">
                <div className="text-center">
                                                            <h2 className="text-2xl font-bold text-white mb-4">
-                    🚀 새로운 BRO 테스트 제안
-                  </h2>
-                  <p className="text-white mb-6">
-                    어떤 강렬한 테스트를 더 추가하면 좋을까요? 여러분의 의견을 들려주세요!
-                  </p>
+                     🚀 새로운 테스트 제안
+                   </h2>
+                   <p className="text-white mb-6">
+                     어떤 강렬한 테스트를 더 추가하면 좋을까요? 여러분의 의견을 들려주세요!
+                   </p>
                 
                                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                                        <div className="bg-white rounded-lg p-4 shadow-sm border border-[#F8BBD9]">
@@ -252,30 +208,79 @@ export default function SubHome() {
                  </div>
                 
                                                          <button className="bg-white text-[#5D4037] px-6 py-3 rounded-lg font-semibold hover:bg-[#FCE4EC] transition-colors border border-[#F8BBD9]">
-                          💡 BRO 테스트 아이디어 제안하기
-                        </button>
-              </div>
-            </div>
-          </section>
+                           💡 테스트 아이디어 제안하기
+                         </button>
+               </div>
+             </div>
+           </section>
+
+                     {/* 📊 통계 섹션 */}
+           <section className="mb-12">
+                           <div className="bg-white rounded-xl shadow-lg p-8 border border-[#F8BBD9]">
+               <div className="text-center mb-8">
+                                                           <h2 className="text-2xl font-bold text-[#5D4037] mb-4">
+                     📊 테스트 현황
+                   </h2>
+                   <p className="text-[#6D4C41]">
+                     현재 준비된 테스트들을 확인해보세요
+                   </p>
+               </div>
+               
+               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                                 <div className="text-center">
+                                       <div className="text-3xl font-bold text-[#F48FB1] mb-2">1</div>
+                     <div className="text-[#5D4037]">게임 테스트</div>
+                   </div>
+                   <div className="text-center">
+                     <div className="text-3xl font-bold text-[#F06292] mb-2">0</div>
+                     <div className="text-[#5D4037]">골프 테스트</div>
+                   </div>
+                   <div className="text-center">
+                     <div className="text-3xl font-bold text-[#E91E63] mb-2">0</div>
+                     <div className="text-[#5D4037]">취미 테스트</div>
+                   </div>
+                   <div className="text-center">
+                     <div className="text-3xl font-bold text-[#C2185B] mb-2">0</div>
+                     <div className="text-[#5D4037]">투자 테스트</div>
+                  </div>
+               </div>
+               
+               {/* 게임 관련 저작권 표기 */}
+               <div className="mt-6 pt-4 border-t border-[#F8BBD9] text-center">
+                 <p className="text-xs text-[#6D4C41]">
+                   League of Legends는 Riot Games, Inc.의 등록상표입니다.
+                   <br />
+                   <a 
+                     href="https://www.leagueoflegends.com" 
+                     target="_blank" 
+                     rel="noopener noreferrer"
+                     className="text-[#F48FB1] hover:text-[#F06292] underline"
+                   >
+                     공식 사이트 방문
+                   </a>
+                 </p>
+               </div>
+             </div>
+           </section>
           
-          {/* 결과가 없을 때 */}
-          {filteredTests.length === 0 && (
-            <div className="text-center py-12">
-              <div className="text-6xl mb-4">🔍</div>
-                                                       <h3 className="text-xl font-bold text-[#5D4037] mb-2">
-                          해당 분야의 BRO 테스트가 아직 준비되지 않았어요
-                        </h3>
-                        <p className="text-[#6D4C41] mb-6">
-                          다른 분야를 선택해보시거나 전체 보기를 이용해주세요!
-                        </p>
-                        <button 
-                          onClick={() => setSelectedTag('all')}
-                          className="bg-[#F48FB1] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#F06292] transition-colors border border-[#F06292]"
-                        >
-                          전체 BRO 테스트 보기
-                        </button>
-            </div>
-          )}
+                     {/* 결과가 없을 때 */}
+           {filteredTests.length === 0 && (
+             <div className="text-center py-12">
+               <div className="text-6xl mb-4">🔍</div>
+                                                        <h3 className="text-xl font-bold text-[#5D4037] mb-2">
+                           해당 분야의 테스트가 아직 준비되지 않았어요
+                         </h3>
+                         <p className="text-[#6D4C41] mb-6">
+                           다른 분야를 선택해보시거나 전체 보기를 이용해주세요!
+                         </p>
+                         <button 
+                           onClick={() => setSelectedTag('all')}
+                           className="bg-[#F48FB1] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#F06292] transition-colors border border-[#F06292]"
+                         >
+                           전체 테스트 보기
+                         </button>
+             </div>
+           )}
         </div>
       </main>
       

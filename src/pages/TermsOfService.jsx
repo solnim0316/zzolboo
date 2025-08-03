@@ -82,6 +82,10 @@ export default function TermsOfService() {
                 <p>
                   회사가 제공하는 콘텐츠 및 시스템의 저작권은 회사에 있으며, 사전 동의 없이 영리적 목적의 사용, 복제, 배포를 금지합니다.
                 </p>
+                <p className="mt-3">
+                  회사는 일부 테스트에서 제3자의 상표나 저작물을 참조할 수 있으며, 이는 해당 권리자의 권리를 존중하는 범위 내에서 사용됩니다. 
+                  예를 들어, League of Legends는 Riot Games, Inc.의 등록상표이며, 관련 테스트는 해당 게임의 공식 사이트를 참조합니다.
+                </p>
               </section>
 
               <section>

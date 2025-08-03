@@ -243,6 +243,22 @@ const LolTestResult = () => {
                 </ul>
               </div>
             </div>
+            
+            {/* 저작권 표기 */}
+            <div className="mt-6 pt-4 border-t border-gray-600">
+              <p className="text-xs text-gray-400">
+                League of Legends는 Riot Games, Inc.의 등록상표입니다.
+                <br />
+                <a 
+                  href="https://www.leagueoflegends.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:text-blue-300 underline"
+                >
+                  공식 사이트 방문
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </main>

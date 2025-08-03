@@ -24,7 +24,11 @@ const SPECIAL_PAGES = {
   '/auto-image-generator': { priority: '0.6', changefreq: 'monthly' },
   '/free-image-generator': { priority: '0.6', changefreq: 'monthly' },
   '/bro/lol-test': { priority: '0.8', changefreq: 'weekly' },
-  '/bro/lol-result': { priority: '0.7', changefreq: 'weekly' }
+  '/bro/lol-result': { priority: '0.7', changefreq: 'weekly' },
+  '/love-habit-test': { priority: '0.8', changefreq: 'weekly' },
+  '/love-habit-result': { priority: '0.7', changefreq: 'weekly' },
+  '/drama-test': { priority: '0.8', changefreq: 'weekly' },
+  '/drama-result': { priority: '0.7', changefreq: 'weekly' }
 };
 
 // 제외할 경로들 (관리자 페이지, 임시 페이지 등)

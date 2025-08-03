@@ -35,7 +35,11 @@ function getTestStartUrl(testType) {
     case 'food':
       return `${BASE_URL}/food-test`;
     case 'lol':
-      return `${BASE_URL}/lol-test`;
+      return `${BASE_URL}/bro/lol-test`;
+    case 'love-habit':
+      return `${BASE_URL}/love-habit-test`;
+    case 'drama':
+      return `${BASE_URL}/drama-test`;
     default:
       return BASE_URL;
   }
@@ -55,8 +59,10 @@ export function shareToKakao(shareData) {
   
   // 개발 모드에서는 링크 복사로 대체
   if (import.meta.env.DEV) {
-    console.log('🔧 개발 모드: 카카오톡 공유 시뮬레이션');
-    console.log('공유할 데이터:', { url, title, description, imageUrl });
+    if (import.meta.env.DEV) {
+      console.log('🔧 개발 모드: 카카오톡 공유 시뮬레이션');
+      console.log('공유할 데이터:', { url, title, description, imageUrl });
+    }
     copyToClipboard(url).then(() => {
       alert('🔧 개발 모드: 공유 링크가 복사되었습니다! (카카오톡 공유 시뮬레이션)');
     });
@@ -143,7 +149,9 @@ export async function shareNative(shareData) {
         url: url,
       });
     } catch (err) {
+      if (import.meta.env.DEV) {
       console.log('네이티브 공유 취소됨');
+    }
     }
   } else {
     // 폴백: 링크 복사
@@ -215,6 +223,16 @@ export function createShareData(testType, result, userName = '') {
       emoji: '🎮',
       testName: '롤 라인 추천 테스트',
       world: '리그 오브 레전드'
+    },
+    'love-habit': {
+      emoji: '💘',
+      testName: '연애 습관 테스트',
+      world: '연애 심리'
+    },
+    'drama': {
+      emoji: '📺',
+      testName: '드라마 주인공 테스트',
+      world: '드라마 연애'
     }
   };
   
@@ -241,6 +259,37 @@ export function createShareData(testType, result, userName = '') {
     const shareUrl = window.location.href;
     const title = `${data.emoji} ${userName ? `${userName}님의` : '나의'} ${data.testName} 결과`;
     const description = `${data.world}에서 ${userName ? `${userName}님은` : '나는'} "${result.title}" ${data.emoji}\n\n${result.catchphrase}\n\n쫄부월드에서 ${userName ? `${userName}님과` : ''} 함께 테스트해보세요!`;
+    
+    return {
+      url: shareUrl,
+      title,
+      description,
+      text: description,
+      imageUrl: `${BASE_URL}/og-image.png`, // 기본 이미지
+      testType
+    };
+  }
+  
+  // love-habit 테스트의 경우 특별 처리
+  if (testType === 'love-habit') {
+    const shareUrl = window.location.href;
+    const title = `${data.emoji} ${userName ? `${userName}님의` : '나의'} ${data.testName} 결과`;
+    const description = `${data.world}에서 ${userName ? `${userName}님은` : '나는'} "${result.title}" ${data.emoji}\n\n${result.description}\n\n쫄부월드에서 ${userName ? `${userName}님과` : ''} 함께 테스트해보세요!`;
+    
+    return {
+      url: shareUrl,
+      title,
+      description,
+      text: description,
+      imageUrl: `${BASE_URL}/og-image.png`, // 기본 이미지
+      testType
+    };
+  }
+
+  if (testType === 'drama') {
+    const shareUrl = window.location.href;
+    const title = `${data.emoji} ${userName ? `${userName}님의` : '나의'} ${data.testName} 결과`;
+    const description = `${data.world}에서 ${userName ? `${userName}님은` : '나는'} "${result.title}" ${data.emoji}\n\n${result.description}\n\n쫄부월드에서 ${userName ? `${userName}님과` : ''} 함께 테스트해보세요!`;
     
     return {
       url: shareUrl,

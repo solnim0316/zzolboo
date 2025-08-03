@@ -27,9 +27,16 @@ export default defineConfig({
       output: {
         manualChunks: undefined
       }
+    },
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
     }
   },
   define: {
-    __DEV__: JSON.stringify(true)
+    __DEV__: JSON.stringify(process.env.NODE_ENV === 'development')
   }
 })

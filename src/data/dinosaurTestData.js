@@ -7,7 +7,7 @@ export const dinosaurTestData = {
     subtitle: "나는 어떤 공룡이였을까?",
     description: "만약 내가 공룡시대에 태어났다면?",
     emoji: "🦕",
-    thumbnail: "/images/tests/dinosaur/thumbnail.png"
+    thumbnail: "/images/tests/dinosaur/thumbnail.webp"
   },
 
   // ❓ 테스트 질문들
@@ -136,7 +136,7 @@ export const dinosaurTestData = {
         "가끔은 귀여운 허당미도 있습니다.",
         "믿음직한 친구가 되어주는 공룡이에요."
       ],
-      image: "/images/tests/dinosaur/INTJ.png",
+      image: "/images/tests/dinosaur/INTJ.webp",
       match: ["ENFP", "ISFP"],
       matchReason: [
         "ENFP와는 공통된 가치관으로 잘 통하고 신뢰를 쌓아갑니다.",
@@ -157,7 +157,7 @@ export const dinosaurTestData = {
         "가끔은 엉뚱한 질문으로 모두를 웃게 해요.",
         "따뜻한 마음을 가진 공룡 친구랍니다."
       ],
-      image: "/images/tests/dinosaur/INTP.png",
+      image: "/images/tests/dinosaur/INTP.webp",
       match: ["INFJ", "ENTP"],
       matchReason: [
         "INFJ와는 공통된 가치관으로 잘 통하고 신뢰를 쌓아갑니다.",
@@ -178,7 +178,7 @@ export const dinosaurTestData = {
         "가끔은 장난도 잘 치는 공룡이에요.",
         "믿음직한 친구가 되어줍니다."
       ],
-      image: "/images/tests/dinosaur/ENTJ.png",
+      image: "/images/tests/dinosaur/ENTJ.webp",
       match: ["ENFP", "ESFJ"],
       matchReason: [
         "ENFP와는 공통된 가치관으로 잘 통하고 신뢰를 쌓아갑니다.",
@@ -199,7 +199,7 @@ export const dinosaurTestData = {
         "가끔은 엉뚱한 상상도 해요.",
         "따뜻한 분위기를 만드는 공룡이에요."
       ],
-      image: "/images/tests/dinosaur/ENTP.png",
+      image: "/images/tests/dinosaur/ENTP.webp",
       match: ["ENFJ", "ISFP"],
       matchReason: [
         "ENFJ와는 공통된 가치관으로 잘 통하고 신뢰를 쌓아갑니다.",
@@ -220,7 +220,7 @@ export const dinosaurTestData = {
         "혼자만의 시간도 소중히 여깁니다.",
         "포근한 분위기를 가진 공룡 친구예요."
       ],
-      image: "/images/tests/dinosaur/INFJ.png",
+      image: "/images/tests/dinosaur/INFJ.webp",
       match: ["INFP", "INTP"],
       matchReason: [
         "INFP와는 공통된 가치관으로 잘 통하고 신뢰를 쌓아갑니다.",
@@ -241,7 +241,7 @@ export const dinosaurTestData = {
         "혼자만의 시간도 즐길 줄 알아요.",
         "포근한 분위기를 가진 공룡이에요."
       ],
-      image: "/images/tests/dinosaur/INFP.png",
+      image: "/images/tests/dinosaur/INFP.webp",
       match: ["INFJ", "ENFJ"],
       matchReason: [
         "INFJ와는 공통된 가치관으로 잘 통하고 신뢰를 쌓아갑니다.",
@@ -262,7 +262,7 @@ export const dinosaurTestData = {
         "가끔은 허당미도 보입니다.",
         "믿음직한 친구가 되어주는 공룡이에요."
       ],
-      image: "/images/tests/dinosaur/ENFJ.png",
+      image: "/images/tests/dinosaur/ENFJ.webp",
       match: ["ISTP", "INFJ"],
       matchReason: [
         "ISTP와는 공통된 가치관으로 잘 통하고 신뢰를 쌓아갑니다.",
@@ -283,7 +283,7 @@ export const dinosaurTestData = {
         "가끔은 엉뚱한 행동으로 모두를 웃게 해요.",
         "따뜻한 마음을 가진 공룡 친구랍니다."
       ],
-      image: "/images/tests/dinosaur/ENFP.png",
+      image: "/images/tests/dinosaur/ENFP.webp",
       match: ["ENTP", "ISFJ"],
       matchReason: [
         "ENTP와는 공통된 가치관으로 잘 통하고 신뢰를 쌓아갑니다.",
@@ -304,7 +304,7 @@ export const dinosaurTestData = {
         "계획적이고 꼼꼼한 성격입니다.",
         "따뜻한 마음을 가진 공룡이에요."
       ],
-      image: "/images/tests/dinosaur/ISTJ.png",
+      image: "/images/tests/dinosaur/ISTJ.webp",
       match: ["ENTJ", "ISFJ"],
       matchReason: [
         "ENTJ와는 공통된 가치관으로 잘 통하고 신뢰를 쌓아갑니다.",
@@ -325,7 +325,7 @@ export const dinosaurTestData = {
         "책임감이 강하고, 신뢰를 중요하게 여깁니다.",
         "따뜻한 마음을 가진 공룡 친구랍니다."
       ],
-      image: "/images/tests/dinosaur/ISFJ.png",
+      image: "/images/tests/dinosaur/ISFJ.webp",
       match: ["ENTJ", "ENTP"],
       matchReason: [
         "ENTJ와는 공통된 가치관으로 잘 통하고 신뢰를 쌓아갑니다.",
@@ -346,7 +346,7 @@ export const dinosaurTestData = {
         "가끔은 장난도 잘 치는 공룡이에요.",
         "믿음직한 친구가 되어줍니다."
       ],
-      image: "/images/tests/dinosaur/ESTJ.png",
+      image: "/images/tests/dinosaur/ESTJ.webp",
       match: ["INFJ", "ISFP"],
       matchReason: [
         "INFJ와는 공통된 가치관으로 잘 통하고 신뢰를 쌓아갑니다.",
@@ -367,7 +367,7 @@ export const dinosaurTestData = {
         "책임감이 강하고, 신뢰를 중요하게 여깁니다.",
         "따뜻한 마음을 가진 공룡 친구랍니다."
       ],
-      image: "/images/tests/dinosaur/ESFJ.png",
+      image: "/images/tests/dinosaur/ESFJ.webp",
       match: ["ENFP", "INTJ"],
       matchReason: [
         "ENFP와는 공통된 가치관으로 잘 통하고 신뢰를 쌓아갑니다.",
@@ -388,7 +388,7 @@ export const dinosaurTestData = {
         "가끔은 엉뚱한 행동으로 모두를 웃게 해요.",
         "따뜻한 마음을 가진 공룡 친구랍니다."
       ],
-      image: "/images/tests/dinosaur/ISTP.png",
+      image: "/images/tests/dinosaur/ISTP.webp",
       match: ["ISFJ", "ENTJ"],
       matchReason: [
         "ISFJ와는 공통된 가치관으로 잘 통하고 신뢰를 쌓아갑니다.",
@@ -409,7 +409,7 @@ export const dinosaurTestData = {
         "혼자만의 시간도 즐길 줄 알아요.",
         "따뜻한 마음을 가진 공룡이에요."
       ],
-      image: "/images/tests/dinosaur/ISFP.png",
+      image: "/images/tests/dinosaur/ISFP.webp",
       match: ["ESTJ", "ENTP"],
       matchReason: [
         "ESTJ와는 공통된 가치관으로 잘 통하고 신뢰를 쌓아갑니다.",
@@ -430,7 +430,7 @@ export const dinosaurTestData = {
         "가끔은 엉뚱한 행동으로 모두를 웃게 해요.",
         "따뜻한 마음을 가진 공룡 친구랍니다."
       ],
-      image: "/images/tests/dinosaur/ESTP.png",
+      image: "/images/tests/dinosaur/ESTP.webp",
       match: ["INFP", "ENTJ"],
       matchReason: [
         "INFP와는 공통된 가치관으로 잘 통하고 신뢰를 쌓아갑니다.",
@@ -451,7 +451,7 @@ export const dinosaurTestData = {
         "가끔은 엉뚱한 행동으로 모두를 웃게 해요.",
         "따뜻한 마음을 가진 공룡 친구랍니다."
       ],
-      image: "/images/tests/dinosaur/ESFP.png",
+      image: "/images/tests/dinosaur/ESFP.webp",
       match: ["INTP", "ENTP"],
       matchReason: [
         "INTP와는 공통된 가치관으로 잘 통하고 신뢰를 쌓아갑니다.",
@@ -472,7 +472,7 @@ export const dinosaurTestData = {
         "모든 친구와 잘 어울릴 수 있는 타입!",
         "희귀하고 특별한 존재랍니다."
       ],
-      image: "/images/tests/dinosaur/UNKNOWN.png",
+      image: "/images/tests/dinosaur/UNKNOWN.webp",
       match: ["INFP", "ENTJ"],
       matchReason: [
         "INFP: 감정적인 면을 이끌어내며 깊은 대화를 가능하게 해요.",

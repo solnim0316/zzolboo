@@ -13,7 +13,8 @@
     "sitemap:status": "node scripts/sitemapMonitor.js status",
     "prebuild": "npm run sitemap:dynamic",
     "test:image-generator": "node scripts/testImageGenerator.js",
-    "test:image-generator:generate": "node scripts/testImageGenerator.js --generate"
+    "test:image-generator:generate": "node scripts/testImageGenerator.js --generate",
+    "optimize-images": "node scripts/optimizeImages.js"
   },
   "dependencies": {
     "canvas": "^3.1.2",
@@ -27,7 +28,9 @@
     "@vitejs/plugin-react": "^3.1.0",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
+    "sharp": "^0.34.3",
     "tailwindcss": "^3.3.2",
+    "terser": "^5.43.1",
     "vite": "^4.4.9"
   }
 }

@@ -91,13 +91,13 @@ export default function Home() {
             )}
           </section>
           
-          {/* �🎭 쫄부 세계관 테스트 */}
+          {/* 🎭 쫄부 세계관 테스트 */}
           {filteredThemedTests.length > 0 && (
             <ThemedTestList tests={filteredThemedTests} />
           )}
           
           {/* 🔒 비밀 세계관 배너 - 전체 보기일 때만 표시 */}
-          {selectedTag === 'all' && <SecretWorldBanner />}
+          {/* {selectedTag === 'all' && <SecretWorldBanner />} */}
           
           {/* 🎯 일반 테스트 */}
           {filteredCasualTests.length > 0 && (

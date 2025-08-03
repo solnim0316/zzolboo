@@ -133,7 +133,7 @@ export const catResults = {
       "가족과의 유대감을 소중히 여깁니다."
     ],
     breed: "랙돌",
-    image: "/images/tests/cat-mbti/ENFJ.png",
+          image: "/images/tests/cat-mbti/ENFJ.webp",
     match: ["INFP", "ISFJ"],
     mismatch: "ISTP",
     matchReason: [
@@ -153,7 +153,7 @@ export const catResults = {
       "마음이 맞는 친구와 깊은 우정을 나눕니다."
     ],
     breed: "샴",
-    image: "/images/tests/cat-mbti/INFP.png",
+          image: "/images/tests/cat-mbti/INFP.webp",
     match: ["ENFJ", "INFJ"],
     mismatch: "ESTJ",
     matchReason: [
@@ -173,7 +173,7 @@ export const catResults = {
       "필요할 때만 다가오는 츤데레 고양이입니다."
     ],
     breed: "러시안블루",
-    image: "/images/tests/cat-mbti/ISTP.png",
+          image: "/images/tests/cat-mbti/ISTP.webp",
     match: ["INTP", "ISTJ"],
     mismatch: "ENFJ",
     matchReason: [
@@ -193,7 +193,7 @@ export const catResults = {
       "친구들과 어울리는 걸 좋아합니다."
     ],
     breed: "토이거",
-    image: "/images/tests/cat-mbti/ESFP.png",
+          image: "/images/tests/cat-mbti/ESFP.webp",
     match: ["ISFJ", "ENFP"],
     mismatch: "INTJ",
     matchReason: [
@@ -213,7 +213,7 @@ export const catResults = {
       "필요할 때는 리더십을 발휘합니다."
     ],
     breed: "브리티시 숏헤어",
-    image: "/images/tests/cat-mbti/INTJ.png",
+          image: "/images/tests/cat-mbti/INTJ.webp",
     match: ["INFJ", "ISTP"],
     mismatch: "ESFP",
     matchReason: [
@@ -233,7 +233,7 @@ export const catResults = {
       "믿음직한 동반자 타입입니다."
     ],
     breed: "스코티시 폴드",
-    image: "/images/tests/cat-mbti/ISFJ.png",
+          image: "/images/tests/cat-mbti/ISFJ.webp",
     match: ["ESFJ", "ISTJ"],
     mismatch: "ENTP",
     matchReason: [
@@ -253,7 +253,7 @@ export const catResults = {
       "아이디어가 넘치는 타입입니다."
     ],
     breed: "먼치킨",
-    image: "/images/tests/cat-mbti/ENTP.png",
+          image: "/images/tests/cat-mbti/ENTP.webp",
     match: ["INTP", "ENFP"],
     mismatch: "ISFJ",
     matchReason: [
@@ -273,7 +273,7 @@ export const catResults = {
       "혼자만의 시간도 소중히 여깁니다."
     ],
     breed: "노르웨이숲",
-    image: "/images/tests/cat-mbti/INFJ.png",
+          image: "/images/tests/cat-mbti/INFJ.webp",
     match: ["ENFP", "INTJ"],
     mismatch: "ESTP",
     matchReason: [
@@ -293,7 +293,7 @@ export const catResults = {
       "주변에 긍정 에너지를 전파해요."
     ],
     breed: "버마",
-    image: "/images/tests/cat-mbti/ENFP.png",
+          image: "/images/tests/cat-mbti/ENFP.webp",
     match: ["INFJ", "INFP"],
     mismatch: "ISTJ",
     matchReason: [
@@ -313,7 +313,7 @@ export const catResults = {
       "친구들과 어울리는 걸 좋아해요."
     ],
     breed: "벵갈",
-    image: "/images/tests/cat-mbti/ESTP.png",
+          image: "/images/tests/cat-mbti/ESTP.webp",
     match: ["ISFP", "ISTP"],
     mismatch: "INFJ",
     matchReason: [
@@ -333,7 +333,7 @@ export const catResults = {
       "혼자만의 시간을 즐깁니다."
     ],
     breed: "페르시안",
-    image: "/images/tests/cat-mbti/ISFP.png",
+          image: "/images/tests/cat-mbti/ISFP.webp",
     match: ["ESFP", "ESTP"],
     mismatch: "ENTJ",
     matchReason: [
@@ -353,7 +353,7 @@ export const catResults = {
       "가족을 소중히 여기며, 보호 본능이 강합니다."
     ],
     breed: "아비시니안",
-    image: "/images/tests/cat-mbti/ESTJ.png",
+          image: "/images/tests/cat-mbti/ESTJ.webp",
     match: ["ISTJ", "ESFJ"],
     mismatch: "INFP",
     matchReason: [
@@ -373,7 +373,7 @@ export const catResults = {
       "주변을 밝게 만드는 존재입니다."
     ],
     breed: "셀커크 렉스",
-    image: "/images/tests/cat-mbti/ESFJ.png",
+          image: "/images/tests/cat-mbti/ESFJ.webp",
     match: ["ISFP", "ESTJ"],
     mismatch: "INTP",
     matchReason: [
@@ -393,7 +393,7 @@ export const catResults = {
       "가족을 위해 헌신하는 타입입니다."
     ],
     breed: "터키시 앙고라",
-    image: "/images/tests/cat-mbti/ISTJ.png",
+          image: "/images/tests/cat-mbti/ISTJ.webp",
     match: ["ESTJ", "ISFJ"],
     mismatch: "ENFP",
     matchReason: [
@@ -413,7 +413,7 @@ export const catResults = {
       "혼자 있어도 외롭지 않은 스타일입니다."
     ],
     breed: "오리엔탈 쇼트헤어",
-    image: "/images/tests/cat-mbti/INTP.png",
+          image: "/images/tests/cat-mbti/INTP.webp",
     match: ["ENTP", "ISTP"],
     mismatch: "ESFJ",
     matchReason: [
@@ -433,7 +433,7 @@ export const catResults = {
       "주변을 이끄는 리더 타입입니다."
     ],
     breed: "싱가푸라",
-    image: "/images/tests/cat-mbti/ENTJ.png",
+          image: "/images/tests/cat-mbti/ENTJ.webp",
     match: ["INTP", "ESTJ"],
     mismatch: "ISFP",
     matchReason: [

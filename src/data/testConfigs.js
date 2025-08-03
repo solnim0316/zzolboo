@@ -15,7 +15,8 @@ export const TAG_CATEGORIES = [
   { id: '패션', name: '패션', icon: '👗' },
   { id: '영화', name: '영화', icon: '🎬' },
   { id: '색깔', name: '색깔', icon: '🎨' },
-  { id: '게임', name: '게임', icon: '🎮' }
+  { id: '게임', name: '게임', icon: '🎮' },
+  { id: '연애', name: '연애', icon: '💘' }
 ];
 
 // 🎭 쫄부 테마 테스트 (세계관 기반)
@@ -26,7 +27,7 @@ export const THEMED_TESTS = [
     world: "고양이 왕국",
     emoji: "🐾",
     theme: "고양이",
-    thumbnail: "/images/tests/cat-mbti/ENFJ.png",
+    thumbnail: "/images/tests/cat-mbti/ENFJ.webp",
     isFeatured: true,
     isThemed: true,
     description: "고양이가 되어버린 나. 나는 어떤 성격의 고양이일까?",
@@ -49,7 +50,7 @@ export const THEMED_TESTS = [
     world: "공룡시대",
     emoji: "🦕",
     theme: "쥬라기",
-    thumbnail: "/images/tests/dinosaur/ENTJ.png",
+    thumbnail: "/images/tests/dinosaur/ENTJ.webp",
     isFeatured: false,
     isThemed: true,
     description: "만약 내가 공룡시대에 태어났다면? 나는 어떤 공룡이였을까?",
@@ -192,6 +193,32 @@ export const CASUAL_TESTS = [
     difficulty: "easy",
     estimatedTime: "2분",
     questionCount: 7
+  },
+  {
+    id: "love-habit-test",
+    title: "나를 가장 힘들게 했던 연애 습관은?",
+    emoji: "💘",
+    thumbnail: "/images/tests/love-habit-test.png",
+    isThemed: false,
+    description: "연애할 때 나도 모르게 반복되는 습관, 알고 보면 다 이유가 있어요",
+    tags: ["연애", "심리", "성격", "자아"],
+    route: "/love-habit-test",
+    difficulty: "easy",
+    estimatedTime: "3분",
+    questionCount: 10
+  },
+  {
+    id: "drama-test",
+    title: "나는 어떤 드라마의 주인공일까?",
+    emoji: "📺",
+    thumbnail: "/images/tests/drama-test.png",
+    isThemed: false,
+    description: "당신의 연애 스타일을 드라마 주인공으로 분석해드려요",
+    tags: ["연애", "드라마", "성격", "재미"],
+    route: "/drama-test",
+    difficulty: "easy",
+    estimatedTime: "4분",
+    questionCount: 10
   },
   // 🔒 미래 구현 예정
   {

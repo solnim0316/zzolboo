@@ -5,11 +5,12 @@ export default function HeroBanner({ featuredTest }) {
   return (
     <section className="w-full rounded-xl sm:rounded-2xl shadow-lg mb-8 overflow-hidden">
       {/* 🖼️ 쫄부월드 메인 OG 이미지 */}
-      <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem]">
+      <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] md:aspect-[3/1]">
         <img 
           src="/images/banner/1.png" 
           alt="쫄부월드 메인 이미지" 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
+          loading="eager"
         />
       </div>
     </section>
