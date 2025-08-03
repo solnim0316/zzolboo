@@ -427,7 +427,7 @@ const LolTest = () => {
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
             <LoadingSpinner />
-            <p className="text-white text-lg mt-4">결과를 분석하고 있습니다...</p>
+            <p className="text-white text-lg mt-4">두구두구... 결과 나오는 중! 🎮</p>
           </div>
         </div>
         <Footer />
@@ -495,7 +495,7 @@ const LolTest = () => {
           <div className="bg-black bg-opacity-20 rounded-xl p-6">
             <h3 className="text-xl font-bold mb-2">🎮 롤 라인 추천 테스트</h3>
             <p className="text-gray-300">
-              당신의 성향을 분석하여 가장 어울리는 롤 라인과 역할군을 추천해드립니다.
+              야 너 롤할 때 어떤 라인이 제일 잘 맞을까? 내가 다 분석해줄게! 😄
             </p>
             <div className="mt-4 text-sm text-gray-400">
               총 {lolTestData.lineQuestions.length + 5}문항 • 약 4분 소요

@@ -31,34 +31,29 @@ export default function ThemedTestList({ tests }) {
 
   return (
     <section className="mb-6">
-      {/* 📋 섹션 제목 */}
-      <h2 className="text-xl sm:text-2xl font-bold mb-2 text-[#5D4037]">
-        🐱 쫄부 세계관 테스트
-      </h2>
-      
       {/* 🎴 테스트 카드 그리드 */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {tests && tests.map(test => (
           <div key={test.id} 
                className={`${getThemeColors(test.theme)} rounded-lg sm:rounded-xl shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105 cursor-pointer overflow-hidden`}>
             
             {/* 🎨 카드 내용 */}
-            <div className="p-4 sm:p-5">
+            <div className="p-4">
               {/* 🌍 세계관 정보 */}
               <div className="flex items-center justify-between mb-3">
-                <span className="text-lg sm:text-xl">{test.emoji}</span>
-                <span className="text-xs sm:text-sm bg-white/80 px-2 py-1 rounded-full text-gray-700">
+                <span className="text-xl">{test.emoji}</span>
+                <span className="text-xs bg-white/80 px-2 py-1 rounded-full text-gray-700">
                   {test.world}
                 </span>
               </div>
               
               {/* 📝 제목 */}
-              <h3 className="text-sm sm:text-base md:text-lg font-bold text-[#5D4037] mb-2">
+              <h3 className="text-base font-bold text-[#5D4037] mb-2">
                 {test.title}
               </h3>
               
               {/* 💬 설명 */}
-              <p className="text-xs sm:text-sm text-[#6D4C41] mb-3 leading-relaxed">
+              <p className="text-sm text-[#6D4C41] mb-3 leading-relaxed">
                 {test.description}
               </p>
               
@@ -76,10 +71,10 @@ export default function ThemedTestList({ tests }) {
             </div>
             
             {/* 🚀 테스트 시작 버튼 */}
-            <div className="px-4 sm:px-5 pb-4 sm:pb-5">
+            <div className="px-4 pb-4">
               <button 
                 onClick={() => handleTestStart(test.id)}
-                className="w-full bg-[#5D4037] hover:bg-[#4E342E] text-white text-xs sm:text-sm font-semibold py-2 sm:py-3 rounded-lg transition-colors duration-200"
+                className="w-full bg-[#5D4037] hover:bg-[#4E342E] text-white text-sm font-semibold py-3 rounded-lg transition-colors duration-200"
               >
                 테스트 시작하기
               </button>

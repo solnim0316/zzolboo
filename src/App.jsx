@@ -28,6 +28,10 @@ import FreeImageGeneratorDemo from "./pages/FreeImageGeneratorDemo";
 import LolTest from "./pages/bro/LolTest";
 import LolTestResult from "./pages/bro/LolTestResult";
 import BroHome from "./pages/bro/BroHome";
+import BitcoinTest from "./pages/bro/BitcoinTest";
+import BitcoinTestResult from "./pages/bro/BitcoinTestResult";
+import IsekaiTest from "./pages/IsekaiTest";
+import IsekaiTestResult from "./pages/IsekaiTestResult";
 import LoveHabitTest from "./pages/LoveHabitTest";
 import LoveHabitTestResult from "./pages/LoveHabitTestResult";
 import DramaTest from "./pages/DramaTest";
@@ -66,6 +70,10 @@ export default function App() {
                             <Route path="/free-image-generator" element={<FreeImageGeneratorDemo />} />
                           <Route path="/bro/lol-test" element={<LolTest />} />
         <Route path="/bro/lol-result/:resultKey" element={<LolTestResult />} />
+                  <Route path="/bro/bitcoin-test" element={<BitcoinTest />} />
+                  <Route path="/bro/bitcoin-result/:resultKey" element={<BitcoinTestResult />} />
+                  <Route path="/isekai-test" element={<IsekaiTest />} />
+                  <Route path="/isekai-result/:resultKey" element={<IsekaiTestResult />} />
                   <Route path="/bro" element={<BroHome />} />
                   <Route path="/love-habit-test" element={<LoveHabitTest />} />
                   <Route path="/love-habit-result/:resultKey" element={<LoveHabitTestResult />} />

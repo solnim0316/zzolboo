@@ -61,7 +61,7 @@ const LolTestResult = () => {
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center text-white">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
-            <p>결과를 불러오는 중...</p>
+            <p>짜잔! 결과 나왔어! 🎉</p>
           </div>
         </div>
         <Footer />
@@ -75,13 +75,13 @@ const LolTestResult = () => {
         <BroHeader />
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center text-white">
-            <h2 className="text-2xl font-bold mb-4">결과를 찾을 수 없습니다</h2>
-            <button 
-              onClick={handleRetakeTest} 
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-medium transition-colors"
-            >
-              테스트 다시하기
-            </button>
+            <h2 className="text-2xl font-bold mb-4">어? 결과가 없네요! 😅</h2>
+                          <button 
+                onClick={handleRetakeTest} 
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-medium transition-colors"
+              >
+                다시 테스트해보기! 🎮
+              </button>
           </div>
         </div>
         <Footer />
@@ -212,34 +212,34 @@ const LolTestResult = () => {
               onClick={handleRetakeTest}
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-medium transition-colors"
             >
-              🎮 테스트 다시하기
+              🎮 다시 테스트해보기!
             </button>
             <button
               onClick={() => setShowShareModal(true)}
               className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-xl font-medium transition-colors"
             >
-              📤 공유하기
+              📤 친구한테 자랑하기!
             </button>
           </div>
 
           {/* 추가 정보 */}
           <div className="bg-black bg-opacity-20 rounded-xl p-6 text-center text-white">
-            <h3 className="text-xl font-bold mb-4">💡 플레이 팁</h3>
+            <h3 className="text-xl font-bold mb-4">💡 이거 알면 티어 올라가! 🚀</h3>
             <div className="grid md:grid-cols-2 gap-6 text-left">
               <div>
                 <h4 className="font-bold text-blue-200 mb-2">라인별 특징</h4>
                 <ul className="text-sm text-gray-300 space-y-1">
-                  <li>• {result.line} 라인은 {result.role} 플레이어에게 최적화</li>
-                  <li>• 팀과의 협력이 승리의 핵심</li>
-                  <li>• 꾸준한 연습으로 실력을 향상시켜보세요</li>
+                  <li>• {result.line} 라인은 {result.role} 플레이어에게 완전 최적화!</li>
+                  <li>• 팀과 협력하면 승리 확정! 🏆</li>
+                  <li>• 꾸준히 연습하면 티어 올라갈 거야! 💪</li>
                 </ul>
               </div>
               <div>
                 <h4 className="font-bold text-blue-200 mb-2">성장 방향</h4>
                 <ul className="text-sm text-gray-300 space-y-1">
-                  <li>• 추천 챔피언부터 연습해보세요</li>
-                  <li>• 시너지 좋은 라인과 함께 플레이</li>
-                  <li>• 긍정적인 마인드로 게임을 즐기세요</li>
+                  <li>• 추천 챔피언부터 연습해봐! 🎯</li>
+                  <li>• 시너지 좋은 라인과 함께 플레이하자!</li>
+                  <li>• 긍정적인 마인드로 게임 즐겨! 😄</li>
                 </ul>
               </div>
             </div>

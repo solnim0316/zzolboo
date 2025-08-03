@@ -26,13 +26,8 @@ export default function GeneralTestList({ tests }) {
 
   return (
     <section className="mb-8">
-      {/* 📋 섹션 제목 */}
-      <h2 className="text-xl sm:text-2xl font-bold mb-4 text-[#5D4037]">
-        🎯 일상 테스트
-      </h2>
-      
       {/* 🎴 테스트 카드 그리드 - 매력적인 레이아웃 */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {tests && tests.map(test => (
           <div 
             key={test.id} 
@@ -41,24 +36,24 @@ export default function GeneralTestList({ tests }) {
           >
             
             {/* 🎨 카드 내용 */}
-            <div className="p-4 sm:p-5">
+            <div className="p-4">
               {/* 🌟 테스트 정보 헤더 */}
               <div className="flex items-center justify-between mb-3">
-                <span className="text-2xl sm:text-3xl">{test.emoji}</span>
+                <span className="text-2xl">{test.emoji}</span>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs sm:text-sm bg-white/80 px-2 py-1 rounded-full text-gray-700 font-medium">
+                  <span className="text-xs bg-white/80 px-2 py-1 rounded-full text-gray-700 font-medium">
                     {test.estimatedTime}
                   </span>
                 </div>
               </div>
               
               {/* 📝 제목 */}
-              <h3 className="text-sm sm:text-base md:text-lg font-bold text-[#5D4037] mb-2 leading-tight">
+              <h3 className="text-base font-bold text-[#5D4037] mb-2 leading-tight">
                 {test.title}
               </h3>
               
               {/* 💬 설명 */}
-              <p className="text-xs sm:text-sm text-[#6D4C41] mb-4 leading-relaxed">
+              <p className="text-sm text-[#6D4C41] mb-4 leading-relaxed">
                 {test.description}
               </p>
               
@@ -89,8 +84,8 @@ export default function GeneralTestList({ tests }) {
             </div>
             
             {/* 🚀 테스트 시작 버튼 */}
-            <div className="px-4 sm:px-5 pb-4 sm:pb-5">
-              <button className="w-full bg-[#5D4037] hover:bg-[#4E342E] text-white text-xs sm:text-sm font-semibold py-2 sm:py-3 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-md">
+            <div className="px-4 pb-4">
+              <button className="w-full bg-[#5D4037] hover:bg-[#4E342E] text-white text-sm font-semibold py-3 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-md">
                 🚀 테스트 시작하기
               </button>
             </div>

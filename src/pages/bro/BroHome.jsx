@@ -28,7 +28,7 @@ export default function SubHome() {
       world: "리그 오브 레전드",
       emoji: "🎮",
       theme: "게임",
-      thumbnail: "/images/tests/lol/thumbnail.png",
+                    thumbnail: "/images/tests/lol/thumbnail.webp",
       isFeatured: true,
       isThemed: true,
       description: "티어가 오르지않는 이유가 어쩌면?",
@@ -41,6 +41,50 @@ export default function SubHome() {
         backgroundColor: "#1a1a2e",
         primaryColor: "#16213e",
         characterStyle: "gaming",
+        backgroundMusic: null
+      }
+    },
+    {
+      id: "bitcoin-personality",
+             title: "내가 비트코인 투자자라면?",
+      world: "암호화폐 세계",
+      emoji: "₿",
+      theme: "투자",
+                    thumbnail: "/images/tests/bitcoin/thumbnail.webp",
+      isFeatured: true,
+      isThemed: true,
+             description: "야 너두 비트코인 투자자 될 수 있어! 재미있게 분석해줄게! 💎",
+      tags: ["비트코인", "투자", "암호화폐", "HODL"],
+      route: "/bro/bitcoin-test",
+      difficulty: "easy",
+      estimatedTime: "3분",
+      questionCount: 8,
+      worldConfig: {
+        backgroundColor: "#f7931a",
+        primaryColor: "#ff9500",
+        characterStyle: "crypto",
+        backgroundMusic: null
+      }
+    },
+    {
+      id: "isekai-transfer",
+      title: "이세계로 전이했을 때 나는?",
+      world: "이세계 판타지",
+      emoji: "🌍",
+      theme: "판타지",
+      thumbnail: "/images/tests/isekai/thumbnail.webp",
+      isFeatured: true,
+      isThemed: true,
+      description: "갑자기 빛에 휩싸여 이세계로 전이했다면, 당신은 어떤 캐릭터가 될까요?",
+      tags: ["이세계", "판타지", "캐릭터", "모험"],
+      route: "/isekai-test",
+      difficulty: "easy",
+      estimatedTime: "3분",
+      questionCount: 11,
+      worldConfig: {
+        backgroundColor: "#8b5cf6",
+        primaryColor: "#7c3aed",
+        characterStyle: "fantasy",
         backgroundMusic: null
       }
     }
@@ -66,7 +110,7 @@ export default function SubHome() {
             {/* 🖼️ BRO 전용 배너 이미지 */}
             <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] md:aspect-[3/1]">
               <img 
-                src="/images/banner/bro/bro1.png" 
+                src="/images/banner/bro/bro1.webp" 
                 alt="BRO 전용 배너 이미지" 
                 className="w-full h-full object-cover object-center"
                 loading="eager"
@@ -194,8 +238,8 @@ export default function SubHome() {
                       <p className="text-sm text-[#6D4C41]">골프 플레이 스타일과 어울리는 클럽 추천</p>
                     </div>
                     <div className="bg-white rounded-lg p-4 shadow-sm border border-[#F8BBD9]">
-                      <h3 className="font-semibold text-[#5D4037] mb-2">📈 투자 성향 테스트</h3>
-                      <p className="text-sm text-[#6D4C41]">본인의 투자 성향과 적합한 투자 전략</p>
+                                             <h3 className="font-semibold text-[#5D4037] mb-2">₿ 비트코인 투자자 테스트</h3>
+                      <p className="text-sm text-[#6D4C41]">비트코인 투자 성향과 HODL 전략 분석</p>
                     </div>
                     <div className="bg-white rounded-lg p-4 shadow-sm border border-[#F8BBD9]">
                       <h3 className="font-semibold text-[#5D4037] mb-2">💪 헬스 루틴 테스트</h3>
@@ -235,14 +279,14 @@ export default function SubHome() {
                      <div className="text-3xl font-bold text-[#F06292] mb-2">0</div>
                      <div className="text-[#5D4037]">골프 테스트</div>
                    </div>
-                   <div className="text-center">
-                     <div className="text-3xl font-bold text-[#E91E63] mb-2">0</div>
-                     <div className="text-[#5D4037]">취미 테스트</div>
+                                       <div className="text-center">
+                      <div className="text-3xl font-bold text-[#E91E63] mb-2">1</div>
+                      <div className="text-[#5D4037]">판타지 테스트</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-[#C2185B] mb-2">1</div>
+                      <div className="text-[#5D4037]">투자 테스트</div>
                    </div>
-                   <div className="text-center">
-                     <div className="text-3xl font-bold text-[#C2185B] mb-2">0</div>
-                     <div className="text-[#5D4037]">투자 테스트</div>
-                  </div>
                </div>
                
                {/* 게임 관련 저작권 표기 */}

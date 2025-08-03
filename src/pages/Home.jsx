@@ -46,31 +46,30 @@ export default function Home() {
           
           {/* �️ 태그 네비게이션 섹션 */}
           <section className="mb-12">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold mb-4 text-[#5D4037]">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl font-bold text-[#5D4037]">
                 🏷️ 테스트 카테고리별 탐색
               </h2>
-              <p className="text-gray-600">
-                원하는 스타일의 테스트를 쉽게 찾아보세요!
-              </p>
             </div>
             
-            {/* 태그 필터 버튼들 */}
-            <div className="flex flex-wrap justify-center gap-3 mb-8">
-              {tagCategories.map((tag) => (
-                <button
-                  key={tag.id}
-                  onClick={() => setSelectedTag(tag.id)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all ${
-                    selectedTag === tag.id
-                      ? 'bg-[#5D4037] text-white shadow-lg'
-                      : 'bg-white text-gray-700 hover:bg-gray-100 shadow-md'
-                  }`}
-                >
-                  <span>{tag.icon}</span>
-                  <span>{tag.name}</span>
-                </button>
-              ))}
+            {/* 태그 필터 버튼들 - 진짜 한 줄로 표시 */}
+            <div className="overflow-x-auto mb-6">
+              <div className="flex gap-2 px-4 min-w-max">
+                {tagCategories.map((tag) => (
+                  <button
+                    key={tag.id}
+                    onClick={() => setSelectedTag(tag.id)}
+                    className={`flex items-center gap-1 px-3 py-2 rounded-lg font-medium transition-all text-sm whitespace-nowrap ${
+                      selectedTag === tag.id
+                        ? 'bg-[#5D4037] text-white shadow-lg'
+                        : 'bg-white text-gray-700 hover:bg-gray-100 shadow-md'
+                    }`}
+                  >
+                    <span>{tag.icon}</span>
+                    <span>{tag.name}</span>
+                  </button>
+                ))}
+              </div>
             </div>
             
             {/* 필터링 결과 표시 */}
@@ -93,15 +92,32 @@ export default function Home() {
           
           {/* 🎭 쫄부 세계관 테스트 */}
           {filteredThemedTests.length > 0 && (
-            <ThemedTestList tests={filteredThemedTests} />
+            <section className="mb-8">
+              <div className="text-center mb-6">
+                <h2 className="text-2xl font-bold text-[#5D4037] mb-2">
+                  🎭 쫄부 세계관 테스트
+                </h2>
+                <p className="text-gray-600 text-sm">
+                  쫄과 부의 특별한 세계관을 체험해보세요!
+                </p>
+              </div>
+              <ThemedTestList tests={filteredThemedTests} />
+            </section>
           )}
-          
-          {/* 🔒 비밀 세계관 배너 - 전체 보기일 때만 표시 */}
-          {/* {selectedTag === 'all' && <SecretWorldBanner />} */}
           
           {/* 🎯 일반 테스트 */}
           {filteredCasualTests.length > 0 && (
-            <GeneralTestList tests={filteredCasualTests} />
+            <section className="mb-8">
+              <div className="text-center mb-6">
+                <h2 className="text-2xl font-bold text-[#5D4037] mb-2">
+                  🎯 재미있는 테스트들
+                </h2>
+                <p className="text-gray-600 text-sm">
+                  다양한 주제의 재미있는 테스트를 즐겨보세요!
+                </p>
+              </div>
+              <GeneralTestList tests={filteredCasualTests} />
+            </section>
           )}
 
           {/* 📸 갤러리 미리보기 섹션 - 전체 보기일 때만 표시 */}

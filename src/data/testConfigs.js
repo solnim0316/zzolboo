@@ -137,6 +137,29 @@ export const THEMED_TESTS = [
       characterStyle: "magical",
       backgroundMusic: null
     }
+  },
+  // 🌍 이세계 테스트
+  {
+    id: "isekai-transfer",
+    title: "이세계로 전이했을 때 나는?",
+    world: "이세계 판타지",
+    emoji: "🌍",
+    theme: "판타지",
+    thumbnail: "/images/tests/isekai/thumbnail.webp",
+    isFeatured: true,
+    isThemed: true,
+    description: "갑자기 빛에 휩싸여 이세계로 전이했다면, 당신은 어떤 캐릭터가 될까요?",
+    tags: ["이세계", "판타지", "캐릭터", "모험"],
+    route: "/isekai-test",
+    difficulty: "easy",
+    estimatedTime: "3분",
+    questionCount: 11,
+    worldConfig: {
+      backgroundColor: "#8b5cf6",
+      primaryColor: "#7c3aed",
+      characterStyle: "fantasy",
+      backgroundMusic: null
+    }
   }
 ];
 
