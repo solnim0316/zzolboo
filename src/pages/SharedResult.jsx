@@ -25,7 +25,7 @@ export default function SharedResult() {
   
   useEffect(() => {
     // 📊 결과 데이터 로드
-    const loadResultData = () => {
+    const loadResultData = async () => {
       if (!testType || !mbtiResult) {
         navigate('/');
         return;
@@ -81,7 +81,7 @@ export default function SharedResult() {
       
       // 🏷️ 메타 태그 설정
       const title = `${testData.emoji} ${userName ? `${userName}님의` : ''} ${testData.title} 결과`;
-      const description = `${testData.world}에서 ${userName ? `${userName}님은` : '결과는'} "${characterName}" ${testData.emoji}\\n\\n쫄부월드에서 함께 테스트해보세요!`;
+      const description = `${testData.world}에서 ${userName ? `${userName}님은` : '결과는'} "${characterName}" ${testData.emoji}\n\n쫄부월드에서 함께 테스트해보세요!`;
       const imageUrl = `${window.location.origin}${result.image}`;
       
       setMetaTags({
@@ -95,7 +95,7 @@ export default function SharedResult() {
     };
     
     loadResultData();
-  }, [testType, mbtiResult, characterName, userName, navigate]);
+  }, [testType, mbtiResult, characterName, userName, navigate, saveTestResult]);
   
   // 🎨 MBTI별 카드 색상 (고양이 테스트와 동일)
   const getCardPalette = (mbtiType) => {
