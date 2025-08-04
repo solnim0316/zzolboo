@@ -54,7 +54,7 @@ export default function FingerprincessTestResult() {
             </div>
 
             <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl p-8 mb-8 border border-pink-200">
-              <h2 className="text-2xl font-bold text-center mb-4" style={{ color: result.color }}>
+              <h2 className="text-2xl font-bold text-center mb-4 text-[#5D4037]">
                 {result.title}
               </h2>
               <p className="text-gray-700 leading-relaxed mb-6">
@@ -64,19 +64,14 @@ export default function FingerprincessTestResult() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <h3 className="text-lg font-semibold text-[#5D4037] mb-3">🎨 핑프 특징</h3>
-                  <ul className="space-y-2">
-                    {result.characteristics.map((char, index) => (
-                      <li key={index} className="flex items-center gap-2">
-                        <span className="text-pink-500">•</span>
-                        <span className="text-gray-700">{char}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="text-gray-700 leading-relaxed whitespace-pre-line">
+                    {result.characteristics}
+                  </div>
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-[#5D4037] mb-3">💡 핑프 라이프스타일</h3>
                   <p className="text-gray-700 leading-relaxed">
-                    {result.strategy}
+                    {result.lifestyle}
                   </p>
                 </div>
               </div>

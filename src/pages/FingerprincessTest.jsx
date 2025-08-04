@@ -30,9 +30,6 @@ export default function FingerprincessTest() {
   };
 
   const calculateResult = () => {
-    setIsLoading(true);
-    
-    // 점수 계산
     const scores = {
       pastel: 0,
       soft: 0,
@@ -46,39 +43,24 @@ export default function FingerprincessTest() {
       natural: 0,
       warm: 0,
       cozy: 0,
-      organized: 0,
-      clean: 0,
-      systematic: 0,
-      creative: 0,
-      free: 0,
       artistic: 0,
-      comfortable: 0,
-      relaxed: 0,
-      unique: 0,
-      individual: 0,
-      distinctive: 0,
-      introvert: 0,
-      quiet: 0,
+      creative: 0,
+      expressive: 0,
+      urban: 0,
+      rhythm: 0,
+      trendy: 0,
+      mysterious: 0,
+      deep: 0,
+      night: 0,
+      energetic: 0,
+      dynamic: 0,
+      active: 0,
+      caring: 0,
       peaceful: 0,
+      free: 0,
       social: 0,
       fun: 0,
-      energetic: 0,
-      expressive: 0,
-      active: 0,
-      dynamic: 0,
-      emotional: 0,
-      gentle: 0,
-      hiphop: 0,
-      rhythm: 0,
-      urban: 0,
-      indie: 0,
-      alternative: 0,
-      pop: 0,
-      dance: 0,
-      upbeat: 0,
-      simple: 0,
-      casual: 0,
-      trendy: 0,
+      entertaining: 0,
       sophisticated: 0,
       fashionable: 0,
       morning: 0,
@@ -87,19 +69,29 @@ export default function FingerprincessTest() {
       afternoon: 0,
       evening: 0,
       calm: 0,
-      night: 0,
-      mysterious: 0,
-      deep: 0,
       direct: 0,
       honest: 0,
       straightforward: 0,
-      caring: 0,
       humorous: 0,
-      entertaining: 0,
       stable: 0,
       balanced: 0,
       adventurous: 0,
-      exciting: 0
+      exciting: 0,
+      quiet: 0,
+      zen: 0,
+      cooperative: 0,
+      innovative: 0,
+      logical: 0,
+      flexible: 0,
+      adaptable: 0,
+      intimate: 0,
+      cultural: 0,
+      empathetic: 0,
+      inspiring: 0,
+      thoughtful: 0,
+      progressive: 0,
+      unique: 0,
+      individual: 0
     };
 
     Object.entries(answers).forEach(([questionId, optionIndex]) => {
@@ -111,65 +103,111 @@ export default function FingerprincessTest() {
       });
     });
 
-    // 가장 높은 점수의 카테고리 찾기
-    const maxScore = Math.max(...Object.values(scores));
-    const topCategories = Object.entries(scores)
-      .filter(([_, score]) => score === maxScore)
-      .map(([category, _]) => category);
-
     // 결과 결정 (23개 결과지)
     let resultKey = 'pastel_dreamer'; // 기본값
 
     // 🌟 RARE 결과지 (매우 희귀한 결과 - 낮은 확률)
     const rareChance = Math.random();
     if (rareChance < 0.05) { // 5% 확률로 rare 결과
-      if (scores.mysterious >= 6 && scores.deep >= 6) {
+      if (scores.mysterious >= 8 && scores.deep >= 8) {
         resultKey = 'cosmic_legend';
-      } else if (scores.artistic >= 8 && scores.creative >= 8) {
+      } else if (scores.artistic >= 10 && scores.creative >= 10) {
         resultKey = 'pixel_goddess';
-      } else if (scores.energetic >= 8 && scores.dynamic >= 8) {
+      } else if (scores.energetic >= 10 && scores.dynamic >= 10) {
         resultKey = 'digital_phoenix';
       }
     } else {
-      // 🌸 일반 결과지 (20개)
-      if (scores.pastel >= 8 || scores.soft >= 6 || scores.dreamy >= 6) {
+      // 🌸 일반 결과지 (20개) - 점수 기반으로 더 정확한 분류
+      const maxScores = [];
+      
+      // 각 카테고리별 최고 점수 찾기
+      const categories = {
+        pastel: scores.pastel + scores.soft + scores.dreamy,
+        neon: scores.neon + scores.vibrant + scores.bold,
+        minimal: scores.monochrome + scores.minimal + scores.elegant,
+        natural: scores.natural + scores.warm + scores.cozy,
+        artistic: scores.artistic + scores.creative + scores.expressive,
+        urban: scores.urban + scores.rhythm + scores.trendy,
+        mystical: scores.mysterious + scores.deep + scores.night,
+        energetic: scores.energetic + scores.dynamic + scores.active,
+        caring: scores.warm + scores.caring + scores.peaceful,
+        adventurous: scores.adventurous + scores.free + scores.creative,
+        social: scores.social + scores.fun + scores.entertaining,
+        tech: scores.sophisticated + scores.fashionable + scores.urban,
+        nature: scores.natural + scores.peaceful + scores.balanced,
+        night: scores.night + scores.quiet + scores.calm,
+        optimistic: scores.fun + scores.entertaining + scores.energetic,
+        vintage: scores.unique + scores.individual + scores.artistic,
+        nomad: scores.adventurous + scores.exciting + scores.free,
+        zen: scores.calm + scores.peaceful + scores.balanced
+      };
+
+      // 점수별로 정렬
+      const sortedCategories = Object.entries(categories)
+        .sort(([,a], [,b]) => b - a);
+
+      // 상위 3개 카테고리 기반으로 결과 결정
+      const topCategories = sortedCategories.slice(0, 3).map(([cat]) => cat);
+
+      if (topCategories.includes('pastel')) {
         resultKey = 'pastel_dreamer';
-      } else if (scores.neon >= 8 || scores.vibrant >= 6 || scores.bold >= 6) {
+      } else if (topCategories.includes('neon')) {
         resultKey = 'neon_vibes';
-      } else if (scores.monochrome >= 8 || scores.minimal >= 6 || scores.elegant >= 6) {
+      } else if (topCategories.includes('minimal')) {
         resultKey = 'minimal_elegance';
-      } else if (scores.natural >= 8 || scores.warm >= 6 || scores.cozy >= 6) {
+      } else if (topCategories.includes('natural')) {
         resultKey = 'cozy_warmth';
-      } else if (scores.artistic >= 8 || scores.creative >= 6 || scores.expressive >= 6) {
+      } else if (topCategories.includes('artistic')) {
         resultKey = 'artistic_soul';
-      } else if (scores.urban >= 8 || scores.rhythm >= 6 || scores.trendy >= 6) {
+      } else if (topCategories.includes('urban')) {
         resultKey = 'urban_rhythm';
-      } else if (scores.mysterious >= 8 || scores.deep >= 6 || scores.night >= 6) {
+      } else if (topCategories.includes('mystical')) {
         resultKey = 'mystical_dream';
-      } else if (scores.energetic >= 8 || scores.dynamic >= 6 || scores.active >= 6) {
+      } else if (topCategories.includes('energetic')) {
         resultKey = 'vibrant_energy';
-      } else if (scores.warm >= 8 || scores.caring >= 6 || scores.peaceful >= 6) {
+      } else if (topCategories.includes('caring')) {
         resultKey = 'gentle_healer';
-      } else if (scores.adventurous >= 8 || scores.free >= 6 || scores.creative >= 6) {
+      } else if (topCategories.includes('adventurous')) {
         resultKey = 'cosmic_wanderer';
-      } else if (scores.humorous >= 6 || scores.entertaining >= 6) {
-        resultKey = 'retro_charm';
-      } else if (scores.sophisticated >= 6 || scores.fashionable >= 6) {
-        resultKey = 'tech_savvy';
-      } else if (scores.peaceful >= 6 || scores.balanced >= 6) {
-        resultKey = 'nature_spirit';
-      } else if (scores.social >= 8 || scores.fun >= 6) {
+      } else if (topCategories.includes('social')) {
         resultKey = 'social_butterfly';
-      } else if (scores.night >= 6 || scores.quiet >= 6) {
+      } else if (topCategories.includes('tech')) {
+        resultKey = 'tech_savvy';
+      } else if (topCategories.includes('nature')) {
+        resultKey = 'nature_spirit';
+      } else if (topCategories.includes('night')) {
         resultKey = 'midnight_owl';
-      } else if (scores.fun >= 6 || scores.entertaining >= 6) {
+      } else if (topCategories.includes('optimistic')) {
         resultKey = 'sunshine_optimist';
-      } else if (scores.unique >= 6 || scores.individual >= 6) {
+      } else if (topCategories.includes('vintage')) {
         resultKey = 'vintage_collector';
-      } else if (scores.adventurous >= 6 || scores.exciting >= 6) {
+      } else if (topCategories.includes('nomad')) {
         resultKey = 'urban_nomad';
-      } else if (scores.calm >= 6 || scores.peaceful >= 6) {
+      } else if (topCategories.includes('zen')) {
         resultKey = 'zen_master';
+      } else {
+        // 기본값들
+        if (scores.humorous >= 6) {
+          resultKey = 'retro_charm';
+        } else if (scores.sophisticated >= 6) {
+          resultKey = 'tech_savvy';
+        } else if (scores.peaceful >= 6) {
+          resultKey = 'nature_spirit';
+        } else if (scores.social >= 6) {
+          resultKey = 'social_butterfly';
+        } else if (scores.night >= 6) {
+          resultKey = 'midnight_owl';
+        } else if (scores.fun >= 6) {
+          resultKey = 'sunshine_optimist';
+        } else if (scores.unique >= 6) {
+          resultKey = 'vintage_collector';
+        } else if (scores.adventurous >= 6) {
+          resultKey = 'urban_nomad';
+        } else if (scores.calm >= 6) {
+          resultKey = 'zen_master';
+        } else {
+          resultKey = 'pastel_dreamer';
+        }
       }
     }
 
