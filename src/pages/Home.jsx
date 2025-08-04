@@ -19,18 +19,20 @@ export default function Home() {
   const themedTests = testUtils.getThemedTests();
   const casualTests = testUtils.getCasualTests();
 
-  // 모든 테스트 합치기 (testConfigs 활용)
-  const allTests = testUtils.getPublicTests();
+  // 모든 테스트 합치기 (testConfigs 활용, bro 테스트 제외)
+  const allTests = testUtils.getMainChannelTests();
 
-  // 태그별 필터링 (testConfigs 활용)
-  const filteredTests = testUtils.getTestsByTag(selectedTag);
+  // 태그별 필터링 (testConfigs 활용, bro 테스트 제외)
+  const filteredTests = selectedTag === 'all' 
+    ? testUtils.getMainChannelTests()
+    : testUtils.getMainChannelTests().filter(test => test.tags && test.tags.includes(selectedTag));
 
   // 필터링된 테스트를 테마형과 일반형으로 분리
   const filteredThemedTests = filteredTests.filter(test => test.isThemed);
   const filteredCasualTests = filteredTests.filter(test => !test.isThemed);
 
-  // 🌟 Featured 테스트 찾기 (testConfigs 활용)
-  const featuredTest = testUtils.getFeaturedTest();
+  // 🌟 Featured 테스트 찾기 (메인 채널용)
+  const featuredTest = testUtils.getMainChannelTests().find(test => test.isFeatured);
   
   return (
     <>

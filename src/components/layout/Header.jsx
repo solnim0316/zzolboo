@@ -36,7 +36,8 @@ export default function Header() {
         { name: 'FAQ', path: '/faq', icon: '❓' },
         { name: '소개', path: '/about', icon: '💫' }
       ]
-    }
+    },
+    { name: '내 히스토리', path: '/offline-history', icon: '📊' }
   ];
 
   const handleDropdownToggle = (menuName) => {

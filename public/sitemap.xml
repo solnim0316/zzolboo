@@ -175,6 +175,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.zzolbooworld.com/offline-history</loc>
+    <lastmod>2025-08-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.zzolbooworld.com/privacy</loc>
     <lastmod>2025-08-04</lastmod>
     <changefreq>yearly</changefreq>
@@ -187,10 +193,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.zzolbooworld.com/stock-investor</loc>
+    <lastmod>2025-08-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.zzolbooworld.com/terms</loc>
     <lastmod>2025-08-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.zzolbooworld.com/tetogen</loc>
+    <lastmod>2025-08-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.zzolbooworld.com/workout-mate</loc>

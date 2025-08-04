@@ -16,7 +16,8 @@ export const TAG_CATEGORIES = [
   { id: '영화', name: '영화', icon: '🎬' },
   { id: '색깔', name: '색깔', icon: '🎨' },
   { id: '게임', name: '게임', icon: '🎮' },
-  { id: '연애', name: '연애', icon: '💘' }
+  { id: '연애', name: '연애', icon: '💘' },
+  { id: '투자', name: '투자', icon: '📈' }
 ];
 
 // 🎭 쫄부 테마 테스트 (세계관 기반)
@@ -286,6 +287,32 @@ export const CASUAL_TESTS = [
     difficulty: "easy",
     estimatedTime: "4분",
     questionCount: 10
+    },
+  {
+    id: "stock-investor",
+    title: "갑자기 주식이 떡락했다. 나의 선택은?",
+    emoji: "📈",
+    thumbnail: "/images/tests/stock-test.png",
+    isThemed: false,
+    description: "주식 투자에서 당신의 성향을 분석해드려요!",
+    tags: ["투자", "금융", "성격", "재미"],
+    route: "/stock-investor",
+    difficulty: "easy",
+    estimatedTime: "3분",
+    questionCount: 10
+  },
+  {
+    id: "tetogen",
+    title: "테토에겐 테스트",
+    emoji: "🎭",
+    thumbnail: "/og-image.png",
+    isThemed: false,
+    description: "당신은 테토인가요, 에겐인가요? 🎭",
+    tags: ["성격", "연애", "재미", "분석"],
+    route: "/tetogen",
+    difficulty: "easy",
+    estimatedTime: "4분",
+    questionCount: 12
   },
   // 🔒 미래 구현 예정
   {
@@ -318,7 +345,7 @@ export const CASUAL_TESTS = [
     isBroTest: true
   },
   {
-    id: "stock-investor",
+    id: "stock-investor-bro",
     title: "갑자기 주식이 떡락했다. 나의 선택은?",
     emoji: "📈",
     thumbnail: "/og-image.png",
@@ -332,6 +359,7 @@ export const CASUAL_TESTS = [
     isBroTest: true
   },
 
+
 ];
 
 // 🎯 유틸리티 함수들
@@ -341,6 +369,9 @@ export const testUtils = {
   
   // 공개된 테스트만 가져오기 (숨겨진 테스트 제외)
   getPublicTests: () => [...THEMED_TESTS, ...CASUAL_TESTS].filter(test => !test.isHidden),
+  
+  // 메인 채널용 공개 테스트만 가져오기 (bro 테스트 제외)
+  getMainChannelTests: () => [...THEMED_TESTS, ...CASUAL_TESTS].filter(test => !test.isHidden && !test.isBroTest),
   
   // Featured 테스트 찾기
   getFeaturedTest: () => THEMED_TESTS.find(test => test.isFeatured),

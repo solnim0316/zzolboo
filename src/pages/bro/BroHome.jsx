@@ -111,7 +111,7 @@ export default function SubHome() {
       }
     },
     {
-      id: "stock-investor",
+      id: "stock-investor-bro",
       title: "갑자기 주식이 떡락했다. 나의 선택은?",
       world: "주식 투자",
       emoji: "📈",

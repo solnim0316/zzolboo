@@ -1,6 +1,6 @@
-// 📈 주식 투자자 테스트 결과 페이지
+// 📈 주식 투자자 테스트 결과 페이지 (메인 채널)
 import { useParams, useNavigate } from 'react-router-dom';
-import BroHeader from "@/components/layout/BroHeader";
+import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { useState } from 'react';
 import { stockInvestorTestData } from '@/data/stockInvestorTestData';
@@ -16,7 +16,7 @@ export default function StockInvestorTestResult() {
 
   return (
     <>
-      <BroHeader />
+      <Header />
       <main className="bg-gradient-to-br from-green-100 via-blue-100 to-purple-100 min-h-screen px-4 py-8">
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-3xl shadow-xl p-8 border border-green-200">
@@ -73,16 +73,16 @@ export default function StockInvestorTestResult() {
                 📤 결과 공유하기
               </button>
               <button
-                onClick={() => navigate('/bro/stock-investor')}
+                onClick={() => navigate('/stock-investor')}
                 className="bg-gray-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-600 transition-colors"
               >
                 🔄 다시 테스트하기
               </button>
               <button
-                onClick={() => navigate('/bro')}
+                onClick={() => navigate('/')}
                 className="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors"
               >
-                🏠 홈으로 돌아가기
+                🏠 처음으로
               </button>
             </div>
 
@@ -98,58 +98,45 @@ export default function StockInvestorTestResult() {
                     <li>• 다양한 투자 전략</li>
                     <li>• 리스크 관리의 중요성</li>
                     <li>• 장기적 관점의 중요성</li>
+                    <li>• 감정 컨트롤의 필요성</li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-green-700 mb-2">📊 시장 분석</h4>
+                  <h4 className="font-semibold text-green-700 mb-2">📊 투자자 유형</h4>
                   <ul className="space-y-1 text-gray-700">
-                    <li>• 기술적 분석</li>
-                    <li>• 기본적 분석</li>
-                    <li>• 심리적 분석</li>
+                    <li>• 보수적 투자자</li>
+                    <li>• 공격적 투자자</li>
+                    <li>• 가치 투자자</li>
+                    <li>• 성장 투자자</li>
                   </ul>
                 </div>
               </div>
+            </div>
 
-              {/* 투자 안내 */}
-              <div className="mt-4 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
-                <p className="text-sm text-yellow-800 text-center">
-                  📈 <strong>투자의 세계!</strong> 당신만의 투자 스타일을 확인해보세요! 💰
-                </p>
-              </div>
-
-              {/* 추가 정보 */}
-              <div className="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
-                <p className="text-xs text-gray-600 text-center">
-                  💡 투자에 대해 더 알고 싶다면 전문가의 조언을 받아보세요!
-                </p>
-                <div className="text-center mt-2">
-                  <a 
-                    href="https://www.krx.co.kr/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-green-500 hover:text-green-600 font-medium text-sm inline-block"
-                  >
-                    🌐 한국거래소
-                  </a>
-                </div>
-              </div>
+            {/* 추가 정보 */}
+            <div className="mt-8 text-center">
+              <p className="text-sm text-gray-600">
+                💡 이 테스트는 재미를 위한 것이며, 실제 투자 결정에는 전문가의 조언을 구하세요.
+              </p>
             </div>
           </div>
         </div>
       </main>
-
-      {/* 통일된 공유 모달 */}
-      <UnifiedShareModal
-        isOpen={showShareModal}
-        onClose={() => setShowShareModal(false)}
-        result={{
-          title: result?.title || '투자자',
-          catchphrase: result?.description || '당신의 투자 스타일을 확인해보세요!'
-        }}
-        testType="stock-investor"
-      />
-
       <Footer />
+      
+      {/* 공유 모달 */}
+      {showShareModal && (
+        <UnifiedShareModal
+          isOpen={showShareModal}
+          onClose={() => setShowShareModal(false)}
+          shareData={{
+            title: `주식 투자자 테스트: ${result.title}`,
+            description: result.description,
+            url: window.location.href,
+            imageUrl: window.location.origin + '/images/thumbs/stocktest.png'
+          }}
+        />
+      )}
     </>
   );
 } 

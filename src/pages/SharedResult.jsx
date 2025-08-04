@@ -8,12 +8,14 @@ import { dinosaurTestData } from '@/data/dinosaurTestData';
 import { catImages } from '@/data/catImages';
 import SocialShare from '@/components/common/SocialShare';
 import { setMetaTags } from '@/utils/shareUtils';
+import { useOfflineDatabase } from '@/hooks/useOfflineDatabase';
 
 export default function SharedResult() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const [resultData, setResultData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { saveTestResult } = useOfflineDatabase();
   
   // 🎯 URL 파라미터에서 데이터 추출
   const testType = searchParams.get('test');
@@ -61,6 +63,21 @@ export default function SharedResult() {
       }
       
       setResultData({ ...result, MBTI: mbtiResult, testData });
+      
+      // 💾 오프라인 데이터베이스에 결과 저장
+      try {
+        await saveTestResult({
+          testId: testType,
+          testName: testData.title,
+          result: { ...result, MBTI: mbtiResult, testData },
+          answers: [],
+          score: 0,
+          userId: userName || 'anonymous'
+        });
+        console.log('✅ 테스트 결과가 오프라인에 저장되었습니다.');
+      } catch (error) {
+        console.error('❌ 오프라인 저장 실패:', error);
+      }
       
       // 🏷️ 메타 태그 설정
       const title = `${testData.emoji} ${userName ? `${userName}님의` : ''} ${testData.title} 결과`;

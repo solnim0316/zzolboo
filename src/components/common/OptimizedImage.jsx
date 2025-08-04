@@ -1,102 +1,144 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
+/**
+ * 🖼️ 최적화된 이미지 컴포넌트
+ * - 지연 로딩 (Lazy Loading)
+ * - 에러 처리
+ * - 로딩 상태 표시
+ * - WebP 포맷 지원
+ */
 export default function OptimizedImage({
   src,
   alt,
-  fallbackSrc = '/images/placeholder.png',
   className = '',
+  placeholder = '/images/placeholder.webp',
+  fallback = '/images/fallback.webp',
   loading = 'lazy',
-  onLoad,
-  onError,
   ...props
 }) {
-  const [imageSrc, setImageSrc] = useState(src);
+  const [imageSrc, setImageSrc] = useState(placeholder);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
-  const [supportsWebP, setSupportsWebP] = useState(false);
+  const imgRef = useRef(null);
 
-  // WebP 지원 확인
   useEffect(() => {
-    const checkWebPSupport = () => {
-      const canvas = document.createElement('canvas');
-      canvas.width = 1;
-      canvas.height = 1;
-      return canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+    const img = imgRef.current;
+    if (!img) return;
+
+    const loadImage = () => {
+      setIsLoading(true);
+      setHasError(false);
+      
+      // 실제 이미지 로드
+      const actualImg = new Image();
+      
+      actualImg.onload = () => {
+        setImageSrc(src);
+        setIsLoading(false);
+      };
+      
+      actualImg.onerror = () => {
+        setImageSrc(fallback);
+        setIsLoading(false);
+        setHasError(true);
+      };
+      
+      actualImg.src = src;
     };
-    setSupportsWebP(checkWebPSupport());
-  }, []);
 
-  // WebP 이미지 URL 생성
-  const getWebPUrl = (originalSrc) => {
-    if (!supportsWebP) return originalSrc;
-    
-    // 이미 WebP인 경우 그대로 반환
-    if (originalSrc.includes('.webp')) return originalSrc;
-    
-    // 확장자 변경
-    return originalSrc.replace(/\.(jpg|jpeg|png)$/i, '.webp');
-  };
+    // Intersection Observer를 사용한 지연 로딩
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            loadImage();
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        rootMargin: '50px 0px',
+        threshold: 0.1
+      }
+    );
 
-  const handleLoad = () => {
-    setIsLoading(false);
-    setHasError(false);
-    onLoad?.();
-  };
+    observer.observe(img);
 
-  const handleError = () => {
-    setIsLoading(false);
-    setHasError(true);
-    
-    // 대체 이미지로 시도
-    if (imageSrc !== fallbackSrc) {
-      setImageSrc(fallbackSrc);
-    } else {
-      // 최종 대체 이미지도 실패한 경우
-      console.warn('이미지 로딩 실패:', src);
-      onError?.();
-    }
-  };
-
-  // 이미지 소스 변경 시 상태 리셋
-  useEffect(() => {
-    setImageSrc(src);
-    setIsLoading(true);
-    setHasError(false);
-  }, [src]);
+    return () => {
+      observer.unobserve(img);
+    };
+  }, [src, fallback]);
 
   return (
     <div className={`relative ${className}`}>
-      {/* 🖼️ 메인 이미지 */}
       <img
-        src={getWebPUrl(imageSrc)}
+        ref={imgRef}
+        src={imageSrc}
         alt={alt}
         loading={loading}
-        onLoad={handleLoad}
-        onError={handleError}
-        className={`w-full h-full object-cover transition-opacity duration-300 ${
+        className={`transition-opacity duration-300 ${
           isLoading ? 'opacity-0' : 'opacity-100'
         }`}
         {...props}
       />
       
-      {/* 🌀 로딩 스피너 */}
+      {/* 로딩 스피너 */}
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
-          <div className="w-8 h-8 border-4 border-[#F48FB1] border-t-transparent rounded-full animate-spin"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#5D4037]"></div>
         </div>
       )}
       
-      {/* ❌ 에러 상태 */}
-      {hasError && imageSrc === fallbackSrc && (
+      {/* 에러 상태 */}
+      {hasError && (
         <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
           <div className="text-center text-gray-500">
-            <div className="text-4xl mb-2">🖼️</div>
-            <p className="text-sm">이미지를 불러올 수 없습니다</p>
+            <div className="text-2xl mb-2">🖼️</div>
+            <div className="text-sm">이미지를 불러올 수 없습니다</div>
           </div>
         </div>
       )}
     </div>
   );
+}
+
+/**
+ * 🎯 WebP 지원 확인 및 폴백 처리
+ */
+export function useWebPSupport() {
+  const [supportsWebP, setSupportsWebP] = useState(false);
+
+  useEffect(() => {
+    const checkWebPSupport = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = 1;
+      canvas.height = 1;
+      
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return false;
+      
+      const dataURL = canvas.toDataURL('image/webp');
+      return dataURL.indexOf('data:image/webp') === 0;
+    };
+
+    setSupportsWebP(checkWebPSupport());
+  }, []);
+
+  return supportsWebP;
+}
+
+/**
+ * 🖼️ 이미지 URL 최적화 (WebP 지원 시)
+ */
+export function getOptimizedImageUrl(originalUrl, supportsWebP = false) {
+  if (!originalUrl) return originalUrl;
+  
+  // WebP 지원 시 .webp 확장자로 변경
+  if (supportsWebP && !originalUrl.includes('.webp')) {
+    return originalUrl.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+  }
+  
+  return originalUrl;
 }
 
 // 🎯 테스트 결과 이미지용 특화 컴포넌트

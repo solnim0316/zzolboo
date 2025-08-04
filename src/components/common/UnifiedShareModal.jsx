@@ -54,7 +54,9 @@ export default function UnifiedShareModal({ isOpen, onClose, result, testType = 
       url: currentUrl,
       title: `${getTestTitle()} 결과: ${result.title || result.type || '나의 결과'}`,
       description: result.catchphrase || result.description || result.summary || '테스트 결과를 확인해보세요!',
-      imageUrl: `${baseUrl}/og-image.png`,
+      imageUrl: testType === 'fingerprincess' && result.imageUrl 
+        ? `${baseUrl}${result.imageUrl}` 
+        : `${baseUrl}/og-image.png`,
       testType: testType
     };
   };

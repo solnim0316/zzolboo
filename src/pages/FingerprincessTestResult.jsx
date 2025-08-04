@@ -14,13 +14,37 @@ export default function FingerprincessTestResult() {
   const { results } = fingerprincessTestData;
   const result = results[resultKey] || results.pastel_dreamer;
 
-  // 결과에 따른 이미지 선택 (1-375 사이의 랜덤 이미지, GIF였던 이미지들도 포함)
-  const getRandomImage = () => {
-    const imageNumber = Math.floor(Math.random() * 375) + 1;
+  // 결과에 따른 이미지 선택 (각 결과별로 특정 이미지 매핑)
+  const getResultImage = (resultKey) => {
+    // 각 결과별로 특정 이미지 번호 매핑
+    const imageMapping = {
+      'pastel_dreamer': 1,
+      'neon_vibes': 2,
+      'minimal_elegance': 3,
+      'cozy_warmth': 4,
+      'artistic_soul': 5,
+      'urban_rhythm': 6,
+      'mystical_dream': 7,
+      'vibrant_energy': 8,
+      'gentle_healer': 9,
+      'cosmic_wanderer': 10,
+      'retro_charm': 11,
+      'ethereal_grace': 12,
+      'wild_spirit': 13,
+      'serene_zen': 14,
+      'bold_rebel': 15,
+      'sweet_romance': 16,
+      'tech_savvy': 17,
+      'nature_lover': 18,
+      'classic_beauty': 19,
+      'modern_edge': 20
+    };
+    
+    const imageNumber = imageMapping[resultKey] || 1; // 기본값은 1번 이미지
     return `/images/fingerprincess/${imageNumber}.webp`;
   };
 
-  const [fingerprincessImage] = useState(getRandomImage());
+  const [fingerprincessImage] = useState(getResultImage(resultKey));
 
   return (
     <>
@@ -175,7 +199,8 @@ export default function FingerprincessTestResult() {
         onClose={() => setShowShareModal(false)}
         result={{
           title: result?.title || '나만의 핑프',
-          catchphrase: result?.description || 'boyboyboy의 픽셀아트로 완성된 나만의 핑프를 확인해보세요!'
+          catchphrase: result?.description || 'boyboyboy의 픽셀아트로 완성된 나만의 핑프를 확인해보세요!',
+          imageUrl: fingerprincessImage
         }}
         testType="fingerprincess"
       />

@@ -1,0 +1,102 @@
+{
+  "name": "쫄부월드 - 성향 기반 맞춤형 테스트 플랫폼",
+  "short_name": "쫄부월드",
+  "description": "고양이 캐릭터 '쫄'과 '부'가 다양한 세계관을 여행하며 성격 유형 테스트를 진행하는 인터랙티브 웹 플랫폼",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF8E1",
+  "theme_color": "#5D4037",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "ko",
+  "dir": "ltr",
+  "categories": ["entertainment", "lifestyle", "education"],
+  "icons": [
+    {
+      "src": "/images/logo/logo.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/logo/logo.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/screenshots/home.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "쫄부월드 홈 화면"
+    },
+    {
+      "src": "/images/screenshots/test.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "테스트 진행 화면"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "고양이 MBTI 테스트",
+      "short_name": "고양이 테스트",
+      "description": "고양이가 되어버린 나의 성격은?",
+      "url": "/cat-test",
+      "icons": [
+        {
+          "src": "/images/tests/cat-mbti/ENFJ.webp",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "공룡 MBTI 테스트",
+      "short_name": "공룡 테스트",
+      "description": "공룡시대에 태어난 나는 어떤 공룡?",
+      "url": "/dinosaur-test",
+      "icons": [
+        {
+          "src": "/images/tests/dinosaur/ENTJ.webp",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "음식 테스트",
+      "short_name": "음식 테스트",
+      "description": "오늘 뭐 먹지? 테스트",
+      "url": "/food-test",
+      "icons": [
+        {
+          "src": "/images/tests/food-test.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "handle_links": "preferred",
+  "protocol_handlers": [
+    {
+      "protocol": "web+zzolboo",
+      "url": "/?test=%s"
+    }
+  ]
+} 

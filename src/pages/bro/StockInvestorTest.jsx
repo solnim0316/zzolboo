@@ -1,7 +1,7 @@
 // 📈 주식 투자자 테스트 페이지
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '@/components/layout/Header';
+import BroHeader from '@/components/layout/BroHeader';
 import Footer from '@/components/layout/Footer';
 import { stockInvestorTestData } from '@/data/stockInvestorTestData';
 
@@ -166,7 +166,7 @@ export default function StockInvestorTest() {
 
   return (
     <>
-      <Header />
+      <BroHeader />
       <main className="bg-gradient-to-br from-green-100 via-blue-100 to-purple-100 min-h-screen px-4 py-8">
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-3xl shadow-xl p-8 border border-green-200">

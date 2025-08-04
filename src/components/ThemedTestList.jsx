@@ -31,7 +31,8 @@ export default function ThemedTestList({ tests }) {
     } else if (testId === 'fingerprincess') {
       navigate('/fingerprincess');
     } else {
-      navigate(`/test/${testId}`);
+      // 아직 구현되지 않은 테스트는 홈으로 리다이렉트
+      navigate('/');
     }
   };
 

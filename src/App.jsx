@@ -1,115 +1,137 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import ErrorBoundary from "./components/common/ErrorBoundary";
-import Home from "./pages/Home";
-import TestPlayer from "./pages/TestPlayer";
-import ResultPage from "./pages/ResultPage";
-import DinosaurTest from "./pages/DinosaurTest";
-import CatTest from "./pages/CatTest";
-import FoodTest from "./pages/FoodTest";
-import FashionTest from "./pages/FashionTest";
-import MovieTest from "./pages/MovieTest";
-import ColorTest from "./pages/ColorTest";
-import SharedResult from "./pages/SharedResult";
-import About from "./pages/About";
-import TermsOfService from "./pages/TermsOfService";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import CookiePolicy from "./pages/CookiePolicy";
-import Contact from "./pages/Contact";
-import MBTIGuide from "./pages/MBTIGuide";
-import FAQ from "./pages/FAQ";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-import FamilyMbtiTest from "./pages/FamilyMbtiTest";
-import FamilyMbtiResult from "./pages/FamilyMbtiResult";
-import Gallery from "./pages/Gallery";
-import ImageCuratorDemo from "./pages/ImageCuratorDemo";
-import AutoImageGeneratorDemo from "./pages/AutoImageGeneratorDemo";
-import FreeImageGeneratorDemo from "./pages/FreeImageGeneratorDemo";
-import LolTest from "./pages/bro/LolTest";
-import LolTestResult from "./pages/bro/LolTestResult";
-import BroHome from "./pages/bro/BroHome";
-import BitcoinTest from "./pages/bro/BitcoinTest";
-import BitcoinTestResult from "./pages/bro/BitcoinTestResult";
-import IsekaiTest from "./pages/IsekaiTest";
-import IsekaiTestResult from "./pages/IsekaiTestResult";
-import BroIsekaiTest from "./pages/bro/BroIsekaiTest";
-import BroIsekaiTestResult from "./pages/bro/BroIsekaiTestResult";
-import F1DriverTest from "./pages/bro/F1DriverTest";
-import F1DriverTestResult from "./pages/bro/F1DriverTestResult";
-import StockInvestorTest from "./pages/bro/StockInvestorTest";
-import StockInvestorTestResult from "./pages/bro/StockInvestorTestResult";
 
-import WorkoutMateTest from "./pages/WorkoutMateTest";
-import WorkoutMateTestResult from "./pages/WorkoutMateTestResult";
-import FingerprincessTest from "./pages/FingerprincessTest";
-import FingerprincessTestResult from "./pages/FingerprincessTestResult";
-import LoveHabitTest from "./pages/LoveHabitTest";
-import LoveHabitTestResult from "./pages/LoveHabitTestResult";
-import DramaTest from "./pages/DramaTest";
-import DramaTestResult from "./pages/DramaTestResult";
-import NotFound from "./pages/NotFound";
+// 🚀 지연 로딩을 위한 컴포넌트들
+const Home = lazy(() => import("./pages/Home"));
+const DinosaurTest = lazy(() => import("./pages/DinosaurTest"));
+const CatTest = lazy(() => import("./pages/CatTest"));
+const FoodTest = lazy(() => import("./pages/FoodTest"));
+const FashionTest = lazy(() => import("./pages/FashionTest"));
+const MovieTest = lazy(() => import("./pages/MovieTest"));
+const ColorTest = lazy(() => import("./pages/ColorTest"));
+const SharedResult = lazy(() => import("./pages/SharedResult"));
+const About = lazy(() => import("./pages/About"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const CookiePolicy = lazy(() => import("./pages/CookiePolicy"));
+const Contact = lazy(() => import("./pages/Contact"));
+const MBTIGuide = lazy(() => import("./pages/MBTIGuide"));
+const FAQ = lazy(() => import("./pages/FAQ"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const FamilyMbtiTest = lazy(() => import("./pages/FamilyMbtiTest"));
+const FamilyMbtiResult = lazy(() => import("./pages/FamilyMbtiResult"));
+const Gallery = lazy(() => import("./pages/Gallery"));
+const ImageCuratorDemo = lazy(() => import("./pages/ImageCuratorDemo"));
+const AutoImageGeneratorDemo = lazy(() => import("./pages/AutoImageGeneratorDemo"));
+const FreeImageGeneratorDemo = lazy(() => import("./pages/FreeImageGeneratorDemo"));
+const OfflineHistoryPage = lazy(() => import("./pages/OfflineHistory"));
+
+// Bro 페이지들
+const LolTest = lazy(() => import("./pages/bro/LolTest"));
+const LolTestResult = lazy(() => import("./pages/bro/LolTestResult"));
+const BroHome = lazy(() => import("./pages/bro/BroHome"));
+const BitcoinTest = lazy(() => import("./pages/bro/BitcoinTest"));
+const BitcoinTestResult = lazy(() => import("./pages/bro/BitcoinTestResult"));
+const IsekaiTest = lazy(() => import("./pages/IsekaiTest"));
+const IsekaiTestResult = lazy(() => import("./pages/IsekaiTestResult"));
+const BroIsekaiTest = lazy(() => import("./pages/bro/BroIsekaiTest"));
+const BroIsekaiTestResult = lazy(() => import("./pages/bro/BroIsekaiTestResult"));
+const F1DriverTest = lazy(() => import("./pages/bro/F1DriverTest"));
+const F1DriverTestResult = lazy(() => import("./pages/bro/F1DriverTestResult"));
+const StockInvestorTest = lazy(() => import("./pages/bro/StockInvestorTest"));
+const StockInvestorTestResult = lazy(() => import("./pages/bro/StockInvestorTestResult"));
+const MainStockInvestorTest = lazy(() => import("./pages/StockInvestorTest"));
+const MainStockInvestorTestResult = lazy(() => import("./pages/StockInvestorTestResult"));
+const TetogenTest = lazy(() => import("./pages/TetogenTest"));
+const TetogenTestResult = lazy(() => import("./pages/TetogenTestResult"));
+
+const WorkoutMateTest = lazy(() => import("./pages/WorkoutMateTest"));
+const WorkoutMateTestResult = lazy(() => import("./pages/WorkoutMateTestResult"));
+const FingerprincessTest = lazy(() => import("./pages/FingerprincessTest"));
+const FingerprincessTestResult = lazy(() => import("./pages/FingerprincessTestResult"));
+const LoveHabitTest = lazy(() => import("./pages/LoveHabitTest"));
+const LoveHabitTestResult = lazy(() => import("./pages/LoveHabitTestResult"));
+const DramaTest = lazy(() => import("./pages/DramaTest"));
+const DramaTestResult = lazy(() => import("./pages/DramaTestResult"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+
+// 🎯 로딩 컴포넌트
+const LoadingSpinner = () => (
+  <div className="min-h-screen bg-background flex items-center justify-center">
+    <div className="text-center">
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#5D4037] mx-auto mb-4"></div>
+      <p className="text-[#8D6E63]">페이지 로딩 중...</p>
+    </div>
+  </div>
+);
 
 export default function App() {
   return (
     <ErrorBoundary>
       <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/test/:testId" element={<TestPlayer />} />
-          <Route path="/test/:testId/result" element={<ResultPage />} />
-          <Route path="/share" element={<SharedResult />} />
-          <Route path="/dinosaur-test" element={<DinosaurTest />} />
-          <Route path="/cat-test" element={<CatTest />} />
-          <Route path="/food-test" element={<FoodTest />} />
-          <Route path="/fashion-test" element={<FashionTest />} />
-          <Route path="/movie-test" element={<MovieTest />} />
-          <Route path="/color-test" element={<ColorTest />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/mbti-guide" element={<MBTIGuide />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:postId" element={<BlogPost />} />
-          <Route path="/family-mbti" element={<FamilyMbtiTest />} />
-          <Route path="/family-mbti-result/:resultType" element={<FamilyMbtiResult />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/terms" element={<TermsOfService />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} />
-          <Route path="/cookies" element={<CookiePolicy />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/image-curator" element={<ImageCuratorDemo />} />
-          <Route path="/auto-image-generator" element={<AutoImageGeneratorDemo />} />
-
-          <Route path="/free-image-generator" element={<FreeImageGeneratorDemo />} />
-          
-          {/* Bro 페이지 라우트 */}
-          <Route path="/bro" element={<BroHome />} />
-          <Route path="/bro/lol-test" element={<LolTest />} />
-          <Route path="/bro/lol-result/:resultKey" element={<LolTestResult />} />
-          <Route path="/bro/bitcoin-test" element={<BitcoinTest />} />
-          <Route path="/bro/bitcoin-result/:resultKey" element={<BitcoinTestResult />} />
-          <Route path="/bro/isekai" element={<BroIsekaiTest />} />
-          <Route path="/bro/isekai-result/:resultKey" element={<BroIsekaiTestResult />} />
-          <Route path="/bro/f1-driver" element={<F1DriverTest />} />
-          <Route path="/bro/f1-driver-result/:resultKey" element={<F1DriverTestResult />} />
-          <Route path="/bro/stock-investor" element={<StockInvestorTest />} />
-          <Route path="/bro/stock-investor-result/:resultKey" element={<StockInvestorTestResult />} />
-          
-          
-          {/* 메인 페이지 테스트 라우트 */}
-          <Route path="/isekai" element={<IsekaiTest />} />
-          <Route path="/isekai-result/:resultKey" element={<IsekaiTestResult />} />
-          <Route path="/workout-mate" element={<WorkoutMateTest />} />
-          <Route path="/workout-mate-result/:resultKey" element={<WorkoutMateTestResult />} />
-          <Route path="/fingerprincess" element={<FingerprincessTest />} />
-          <Route path="/fingerprincess-result/:resultKey" element={<FingerprincessTestResult />} />
-          <Route path="/love-habit-test" element={<LoveHabitTest />} />
-          <Route path="/love-habit-result/:resultKey" element={<LoveHabitTestResult />} />
-          <Route path="/drama-test" element={<DramaTest />} />
-          <Route path="/drama-result/:resultKey" element={<DramaTestResult />} />
-          
-          {/* 404 에러 페이지 - 모든 라우트의 마지막에 위치 */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/share" element={<SharedResult />} />
+            <Route path="/dinosaur-test" element={<DinosaurTest />} />
+            <Route path="/cat-test" element={<CatTest />} />
+            <Route path="/food-test" element={<FoodTest />} />
+            <Route path="/fashion-test" element={<FashionTest />} />
+            <Route path="/movie-test" element={<MovieTest />} />
+            <Route path="/color-test" element={<ColorTest />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/mbti-guide" element={<MBTIGuide />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:postId" element={<BlogPost />} />
+            <Route path="/family-mbti" element={<FamilyMbtiTest />} />
+            <Route path="/family-mbti-result/:resultType" element={<FamilyMbtiResult />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/cookies" element={<CookiePolicy />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/image-curator" element={<ImageCuratorDemo />} />
+            <Route path="/auto-image-generator" element={<AutoImageGeneratorDemo />} />
+            <Route path="/free-image-generator" element={<FreeImageGeneratorDemo />} />
+            <Route path="/offline-history" element={<OfflineHistoryPage />} />
+            
+            {/* Bro 페이지 라우트 */}
+            <Route path="/bro" element={<BroHome />} />
+            <Route path="/bro/lol-test" element={<LolTest />} />
+            <Route path="/bro/lol-result/:resultKey" element={<LolTestResult />} />
+            <Route path="/bro/bitcoin-test" element={<BitcoinTest />} />
+            <Route path="/bro/bitcoin-result/:resultKey" element={<BitcoinTestResult />} />
+            <Route path="/bro/isekai" element={<BroIsekaiTest />} />
+            <Route path="/bro/isekai-result/:resultKey" element={<BroIsekaiTestResult />} />
+            <Route path="/bro/f1-driver" element={<F1DriverTest />} />
+            <Route path="/bro/f1-driver-result/:resultKey" element={<F1DriverTestResult />} />
+            <Route path="/bro/stock-investor" element={<StockInvestorTest />} />
+            <Route path="/bro/stock-investor-result/:resultKey" element={<StockInvestorTestResult />} />
+            
+            
+            {/* 메인 페이지 테스트 라우트 */}
+            <Route path="/stock-investor" element={<MainStockInvestorTest />} />
+            <Route path="/stock-investor-result/:resultKey" element={<MainStockInvestorTestResult />} />
+            <Route path="/isekai" element={<IsekaiTest />} />
+            <Route path="/isekai-result/:resultKey" element={<IsekaiTestResult />} />
+            <Route path="/workout-mate" element={<WorkoutMateTest />} />
+            <Route path="/workout-mate-result/:resultKey" element={<WorkoutMateTestResult />} />
+            <Route path="/fingerprincess" element={<FingerprincessTest />} />
+            <Route path="/fingerprincess-result/:resultKey" element={<FingerprincessTestResult />} />
+            <Route path="/love-habit-test" element={<LoveHabitTest />} />
+            <Route path="/love-habit-result/:resultKey" element={<LoveHabitTestResult />} />
+            <Route path="/drama-test" element={<DramaTest />} />
+            <Route path="/drama-result/:resultKey" element={<DramaTestResult />} />
+            <Route path="/tetogen" element={<TetogenTest />} />
+            <Route path="/tetogen-result/:resultKey" element={<TetogenTestResult />} />
+            
+            {/* 404 에러 페이지 - 모든 라우트의 마지막에 위치 */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </Router>
     </ErrorBoundary>
   );
