@@ -77,7 +77,7 @@ export default function SubHome() {
       isThemed: true,
       description: "갑자기 빛에 휩싸여 이세계로 전이했다면, 당신은 어떤 캐릭터가 될까요?",
       tags: ["이세계", "판타지", "캐릭터", "모험"],
-      route: "/isekai-test",
+      route: "/bro/isekai",
       difficulty: "easy",
       estimatedTime: "3분",
       questionCount: 11,

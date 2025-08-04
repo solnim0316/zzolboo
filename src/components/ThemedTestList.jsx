@@ -24,6 +24,10 @@ export default function ThemedTestList({ tests }) {
       navigate('/cat-test');
     } else if (testId === 'family-mbti') {
       navigate('/family-mbti');
+    } else if (testId === 'isekai') {
+      navigate('/isekai');
+    } else if (testId === 'workout-mate') {
+      navigate('/workout-mate');
     } else {
       navigate(`/test/${testId}`);
     }

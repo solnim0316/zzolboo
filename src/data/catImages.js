@@ -1,22 +1,22 @@
 // 🐱 고양이 이미지 경로 매핑
 export const catImages = {
-  ENFJ: '/images/tests/cat-mbti/ENFJ.png',      // 랙돌
-  INFP: '/images/tests/cat-mbti/INFP.png',      // 샴
-  ISTP: '/images/tests/cat-mbti/ISTP.png',      // 러시안블루
-  ESFP: '/images/tests/cat-mbti/ESFP.png',      // 토이거
-  INTJ: '/images/tests/cat-mbti/INTJ.png',      // 브리티시 숏헤어
-  ISFJ: '/images/tests/cat-mbti/ISFJ.png',      // 스코티시 폴드
-  ENTP: '/images/tests/cat-mbti/ENTP.png',      // 먼치킨
-  INFJ: '/images/tests/cat-mbti/INFJ.png',      // 노르웨이숲
-  ENFP: '/images/tests/cat-mbti/ENFP.png',      // 버마
-  ESTP: '/images/tests/cat-mbti/ESTP.png',      // 벵갈
-  ISFP: '/images/tests/cat-mbti/ISFP.png',      // 페르시안
-  ESTJ: '/images/tests/cat-mbti/ESTJ.png',      // 아비시니안
-  ESFJ: '/images/tests/cat-mbti/ESFJ.png',      // 셀커크 렉스
-  ISTJ: '/images/tests/cat-mbti/ISTJ.png',      // 터키시 앙고라
-  INTP: '/images/tests/cat-mbti/INTP.png',      // 오리엔탈 쇼트헤어
-  ENTJ: '/images/tests/cat-mbti/ENTJ.png',      // 싱가푸라
-  '???': '/images/tests/cat-mbti/UNKNOWN.png',   // 믹스묘 (균형형)
+  ENFJ: '/images/tests/cat-mbti/ENFJ.webp',      // 랙돌
+  INFP: '/images/tests/cat-mbti/INFP.webp',      // 샴
+  ISTP: '/images/tests/cat-mbti/ISTP.webp',      // 러시안블루
+  ESFP: '/images/tests/cat-mbti/ESFP.webp',      // 토이거
+  INTJ: '/images/tests/cat-mbti/INTJ.webp',      // 브리티시 숏헤어
+  ISFJ: '/images/tests/cat-mbti/ISFJ.webp',      // 스코티시 폴드
+  ENTP: '/images/tests/cat-mbti/ENTP.webp',      // 먼치킨
+  INFJ: '/images/tests/cat-mbti/INFJ.webp',      // 노르웨이숲
+  ENFP: '/images/tests/cat-mbti/ENFP.webp',      // 버마
+  ESTP: '/images/tests/cat-mbti/ESTP.webp',      // 벵갈
+  ISFP: '/images/tests/cat-mbti/ISFP.webp',      // 페르시안
+  ESTJ: '/images/tests/cat-mbti/ESTJ.webp',      // 아비시니안
+  ESFJ: '/images/tests/cat-mbti/ESFJ.webp',      // 셀커크 렉스
+  ISTJ: '/images/tests/cat-mbti/ISTJ.webp',      // 터키시 앙고라
+  INTP: '/images/tests/cat-mbti/INTP.webp',      // 오리엔탈 쇼트헤어
+  ENTJ: '/images/tests/cat-mbti/ENTJ.webp',      // 싱가푸라
+  '???': '/images/tests/cat-mbti/UNKNOWN.webp',   // 믹스묘 (균형형)
 };
 
 // 🎨 고양이별 테마 색상 (부드럽고 따뜻한 고양이 느낌)

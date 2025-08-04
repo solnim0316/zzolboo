@@ -50,6 +50,7 @@ import { useNavigate } from 'react-router-dom';
 import { foodTestData } from '../data/foodTestData';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
+import UnifiedShareModal from '../components/common/UnifiedShareModal';
 
 
 export default function FoodTest() {
@@ -156,41 +157,7 @@ export default function FoodTest() {
                 📤 공유하기
               </button>
             </div>
-            {/* 공유 모달 */}
-            {shareModalOpen && (
-              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
-                <div className="bg-white rounded-xl shadow-lg p-6 w-80 text-center relative">
-                  <button
-                    className="absolute top-2 right-2 text-gray-400 hover:text-gray-700 text-xl"
-                    onClick={() => setShareModalOpen(false)}
-                  >
-                    ×
-                  </button>
-                  <h3 className="text-lg font-bold mb-4">공유 방법 선택</h3>
-                  <div className="flex flex-col gap-3">
-                    <button
-                      onClick={() => {
-                        navigator.clipboard.writeText(window.location.href);
-                        alert('링크가 복사되었습니다!');
-                        setShareModalOpen(false);
-                      }}
-                      className="w-full py-3 bg-gradient-to-r from-blue-400 to-purple-400 text-white rounded-xl font-semibold hover:from-blue-500 hover:to-purple-500 transition-all duration-200 shadow-md"
-                    >
-                      🔗 링크 복사하기
-                    </button>
-                    <button
-                      onClick={() => {
-                        shareKakao(result);
-                        setShareModalOpen(false);
-                      }}
-                      className="w-full py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-white rounded-xl font-semibold hover:from-yellow-500 hover:to-yellow-600 transition-all duration-200 shadow-md"
-                    >
-                      💬 카카오톡으로 공유하기
-                    </button>
-                  </div>
-                </div>
-              </div>
-            )}
+
             <div className="flex gap-3 justify-center">
               <button
                 onClick={restartTest}
@@ -208,6 +175,17 @@ export default function FoodTest() {
           </div>
         </div>
         <Footer />
+        
+        {/* 통일된 공유 모달 */}
+        <UnifiedShareModal
+          isOpen={shareModalOpen}
+          onClose={() => setShareModalOpen(false)}
+          result={{
+            title: result?.name || '음식',
+            catchphrase: result?.description || '나의 음식 취향을 확인해보세요!'
+          }}
+          testType="food"
+        />
       </div>
     );
   }

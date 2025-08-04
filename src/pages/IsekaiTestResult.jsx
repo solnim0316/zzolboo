@@ -4,6 +4,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { useState } from 'react';
 import { isekaiTestData } from '@/data/isekaiTestData';
+import UnifiedShareModal from '@/components/common/UnifiedShareModal';
 
 export default function IsekaiTestResult() {
   const { resultKey } = useParams();
@@ -12,57 +13,6 @@ export default function IsekaiTestResult() {
 
   const { results } = isekaiTestData;
   const result = results[resultKey] || results.magic_master;
-
-  const handleShare = (platform) => {
-    const url = window.location.href;
-    const text = result.shareText;
-    
-    let shareUrl = '';
-    
-    switch (platform) {
-      case 'kakao':
-        if (window.Kakao) {
-          window.Kakao.Link.sendDefault({
-            objectType: 'feed',
-            content: {
-              title: '이세계로 전이했을 때 나는?',
-              description: result.title,
-              imageUrl: result.image,
-              link: {
-                mobileWebUrl: url,
-                webUrl: url,
-              },
-            },
-            buttons: [
-              {
-                title: '테스트 해보기',
-                link: {
-                  mobileWebUrl: url,
-                  webUrl: url,
-                },
-              },
-            ],
-          });
-        }
-        break;
-      case 'twitter':
-        shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
-        window.open(shareUrl, '_blank');
-        break;
-      case 'facebook':
-        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-        window.open(shareUrl, '_blank');
-        break;
-      case 'copy':
-        navigator.clipboard.writeText(`${text}\n${url}`);
-        alert('링크가 복사되었습니다!');
-        break;
-      default:
-        break;
-    }
-    
-    setShowShareModal(false);
-  };
 
   return (
     <>
@@ -118,7 +68,7 @@ export default function IsekaiTestResult() {
                 📤 결과 공유하기
               </button>
               <button
-                onClick={() => navigate('/isekai-test')}
+                onClick={() => navigate('/isekai')}
                 className="bg-gray-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-600 transition-colors"
               >
                 🔄 다시 테스트하기
@@ -173,48 +123,16 @@ export default function IsekaiTestResult() {
         </div>
       </main>
 
-      {/* 공유 모달 */}
-      {showShareModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-2xl p-6 max-w-sm w-full mx-4">
-            <h3 className="text-lg font-semibold text-[#5D4037] mb-4 text-center">
-              결과 공유하기
-            </h3>
-            <div className="grid grid-cols-2 gap-3">
-              <button
-                onClick={() => handleShare('kakao')}
-                className="bg-yellow-400 text-white p-3 rounded-lg font-semibold hover:bg-yellow-500 transition-colors"
-              >
-                카카오톡
-              </button>
-              <button
-                onClick={() => handleShare('twitter')}
-                className="bg-blue-400 text-white p-3 rounded-lg font-semibold hover:bg-blue-500 transition-colors"
-              >
-                트위터
-              </button>
-              <button
-                onClick={() => handleShare('facebook')}
-                className="bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-              >
-                페이스북
-              </button>
-              <button
-                onClick={() => handleShare('copy')}
-                className="bg-gray-500 text-white p-3 rounded-lg font-semibold hover:bg-gray-600 transition-colors"
-              >
-                링크 복사
-              </button>
-            </div>
-            <button
-              onClick={() => setShowShareModal(false)}
-              className="w-full mt-4 bg-gray-200 text-gray-700 p-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors"
-            >
-              닫기
-            </button>
-          </div>
-        </div>
-      )}
+      {/* 통일된 공유 모달 */}
+      <UnifiedShareModal
+        isOpen={showShareModal}
+        onClose={() => setShowShareModal(false)}
+        result={{
+          title: result?.title || '이세계 캐릭터',
+          catchphrase: result?.description || '나의 이세계 캐릭터를 확인해보세요!'
+        }}
+        testType="isekai"
+      />
 
       <Footer />
     </>

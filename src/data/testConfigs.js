@@ -140,17 +140,17 @@ export const THEMED_TESTS = [
   },
   // 🌍 이세계 테스트
   {
-    id: "isekai-transfer",
+    id: "isekai",
     title: "이세계로 전이했을 때 나는?",
     world: "이세계 판타지",
     emoji: "🌍",
     theme: "판타지",
-    thumbnail: "/images/tests/isekai/thumbnail.webp",
+    thumbnail: "/og-image.png",
     isFeatured: true,
     isThemed: true,
     description: "갑자기 빛에 휩싸여 이세계로 전이했다면, 당신은 어떤 캐릭터가 될까요?",
     tags: ["이세계", "판타지", "캐릭터", "모험"],
-    route: "/isekai-test",
+    route: "/isekai",
     difficulty: "easy",
     estimatedTime: "3분",
     questionCount: 11,
@@ -158,6 +158,28 @@ export const THEMED_TESTS = [
       backgroundColor: "#8b5cf6",
       primaryColor: "#7c3aed",
       characterStyle: "fantasy",
+      backgroundMusic: null
+    }
+  },
+  {
+    id: "workout-mate",
+    title: "나에게 어울리는 운동메이트는 누구!",
+    world: "피트니스 월드",
+    emoji: "💪",
+    theme: "운동",
+    thumbnail: "/og-image.png",
+    isFeatured: true,
+    isThemed: true,
+    description: "운동할 때 나와 가장 잘 맞는 파트너를 찾아보세요!",
+    tags: ["운동", "피트니스", "파트너", "건강"],
+    route: "/workout-mate",
+    difficulty: "easy",
+    estimatedTime: "3분",
+    questionCount: 8,
+    worldConfig: {
+      backgroundColor: "#10b981",
+      primaryColor: "#059669",
+      characterStyle: "fitness",
       backgroundMusic: null
     }
   }

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { fashionTestData } from '../data/fashionTestData';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import UnifiedShareModal from '@/components/common/UnifiedShareModal';
 
 // 카카오톡 공유를 위한 스크립트 로드 및 함수
 const loadKakaoScript = () => {
@@ -209,42 +210,19 @@ export default function FashionTest() {
           </div>
         </div>
 
-        {/* 공유 모달 */}
-        {shareModalOpen && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-2xl p-6 max-w-sm w-full">
-              <h3 className="text-lg font-bold mb-4">공유 방법 선택</h3>
-              <div className="flex flex-col gap-3">
-                <button
-                  onClick={() => {
-                    navigator.clipboard.writeText(window.location.href);
-                    alert('링크가 복사되었습니다!');
-                    setShareModalOpen(false);
-                  }}
-                  className="w-full py-3 bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded-lg font-semibold hover:from-blue-500 hover:to-blue-700 transition-all duration-200"
-                >
-                  🔗 링크 복사하기
-                </button>
-                <button
-                  onClick={() => {
-                    shareKakao(result);
-                    setShareModalOpen(false);
-                  }}
-                  className="w-full py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-white rounded-lg font-semibold hover:from-yellow-500 hover:to-yellow-600 transition-all duration-200"
-                >
-                  💬 카카오톡 공유
-                </button>
-                <button
-                  onClick={() => setShareModalOpen(false)}
-                  className="w-full py-3 bg-gray-400 text-white rounded-lg font-semibold hover:bg-gray-500 transition-colors"
-                >
-                  닫기
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
+
         <Footer />
+        
+        {/* 통일된 공유 모달 */}
+        <UnifiedShareModal
+          isOpen={shareModalOpen}
+          onClose={() => setShareModalOpen(false)}
+          result={{
+            title: result?.name || '패션',
+            catchphrase: result?.description || '나의 패션 스타일을 확인해보세요!'
+          }}
+          testType="fashion"
+        />
       </div>
     );
   }

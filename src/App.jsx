@@ -32,6 +32,10 @@ import BitcoinTest from "./pages/bro/BitcoinTest";
 import BitcoinTestResult from "./pages/bro/BitcoinTestResult";
 import IsekaiTest from "./pages/IsekaiTest";
 import IsekaiTestResult from "./pages/IsekaiTestResult";
+import BroIsekaiTest from "./pages/bro/BroIsekaiTest";
+import BroIsekaiTestResult from "./pages/bro/BroIsekaiTestResult";
+import WorkoutMateTest from "./pages/WorkoutMateTest";
+import WorkoutMateTestResult from "./pages/WorkoutMateTestResult";
 import LoveHabitTest from "./pages/LoveHabitTest";
 import LoveHabitTestResult from "./pages/LoveHabitTestResult";
 import DramaTest from "./pages/DramaTest";
@@ -67,20 +71,30 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/image-curator" element={<ImageCuratorDemo />} />
           <Route path="/auto-image-generator" element={<AutoImageGeneratorDemo />} />
-                            <Route path="/free-image-generator" element={<FreeImageGeneratorDemo />} />
-                          <Route path="/bro/lol-test" element={<LolTest />} />
-        <Route path="/bro/lol-result/:resultKey" element={<LolTestResult />} />
-                  <Route path="/bro/bitcoin-test" element={<BitcoinTest />} />
-                  <Route path="/bro/bitcoin-result/:resultKey" element={<BitcoinTestResult />} />
-                  <Route path="/isekai-test" element={<IsekaiTest />} />
-                  <Route path="/isekai-result/:resultKey" element={<IsekaiTestResult />} />
-                  <Route path="/bro" element={<BroHome />} />
-                  <Route path="/love-habit-test" element={<LoveHabitTest />} />
-                  <Route path="/love-habit-result/:resultKey" element={<LoveHabitTestResult />} />
-                  <Route path="/drama-test" element={<DramaTest />} />
-                  <Route path="/drama-result/:resultKey" element={<DramaTestResult />} />
-                  {/* 404 에러 페이지 - 모든 라우트의 마지막에 위치 */}
-                  <Route path="*" element={<NotFound />} />
+
+          <Route path="/free-image-generator" element={<FreeImageGeneratorDemo />} />
+          
+          {/* Bro 페이지 라우트 */}
+          <Route path="/bro" element={<BroHome />} />
+          <Route path="/bro/lol-test" element={<LolTest />} />
+          <Route path="/bro/lol-result/:resultKey" element={<LolTestResult />} />
+          <Route path="/bro/bitcoin-test" element={<BitcoinTest />} />
+          <Route path="/bro/bitcoin-result/:resultKey" element={<BitcoinTestResult />} />
+          <Route path="/bro/isekai" element={<BroIsekaiTest />} />
+          <Route path="/bro/isekai-result/:resultKey" element={<BroIsekaiTestResult />} />
+          
+          {/* 메인 페이지 테스트 라우트 */}
+          <Route path="/isekai" element={<IsekaiTest />} />
+          <Route path="/isekai-result/:resultKey" element={<IsekaiTestResult />} />
+          <Route path="/workout-mate" element={<WorkoutMateTest />} />
+          <Route path="/workout-mate-result/:resultKey" element={<WorkoutMateTestResult />} />
+          <Route path="/love-habit-test" element={<LoveHabitTest />} />
+          <Route path="/love-habit-result/:resultKey" element={<LoveHabitTestResult />} />
+          <Route path="/drama-test" element={<DramaTest />} />
+          <Route path="/drama-result/:resultKey" element={<DramaTestResult />} />
+          
+          {/* 404 에러 페이지 - 모든 라우트의 마지막에 위치 */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </ErrorBoundary>

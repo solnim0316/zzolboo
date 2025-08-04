@@ -7,7 +7,7 @@ import { catImages } from '@/data/catImages';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ImageGeneratorComponent from '@/components/common/ImageGeneratorComponent';
-import SocialShare from '@/components/common/SocialShare';
+import UnifiedShareModal from '@/components/common/UnifiedShareModal';
 
 export default function CatTest() {
   const navigate = useNavigate();
@@ -17,6 +17,7 @@ export default function CatTest() {
   const [scores, setScores] = useState({ E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 });
   const [result, setResult] = useState(null);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const [showShareModal, setShowShareModal] = useState(false);
 
   // 테스트 정보
   const testInfo = {
@@ -707,12 +708,14 @@ export default function CatTest() {
                     다시 테스트
                   </button>
                   
-                  {/* 소셜 공유 컴포넌트 */}
-                  <SocialShare 
-                    testType="cat"
-                    result={result}
-                    userName={userName}
-                  />
+                  {/* 공유하기 버튼 */}
+                  <button
+                    onClick={() => setShowShareModal(true)}
+                    className="flex-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white py-4 rounded-2xl font-bold hover:from-green-600 hover:to-emerald-600 transition-all duration-200 text-lg shadow-lg transform hover:scale-105 flex items-center justify-center gap-2"
+                  >
+                    <span className="text-xl">📤</span>
+                    공유하기
+                  </button>
                 {/* 이미지 저장 버튼 및 생성 컴포넌트 */}
                 <div className="flex-1 mt-2">
                   <ImageGeneratorComponent
@@ -732,6 +735,17 @@ export default function CatTest() {
 
       </main>
       <Footer />
+      
+      {/* 통일된 공유 모달 */}
+      <UnifiedShareModal
+        isOpen={showShareModal}
+        onClose={() => setShowShareModal(false)}
+        result={{
+          title: result?.breed || '고양이',
+          catchphrase: result?.description || '나의 고양이 성격을 확인해보세요!'
+        }}
+        testType="cat"
+      />
     </>
   );
 }
