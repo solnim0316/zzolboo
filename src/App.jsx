@@ -36,6 +36,8 @@ import BroIsekaiTest from "./pages/bro/BroIsekaiTest";
 import BroIsekaiTestResult from "./pages/bro/BroIsekaiTestResult";
 import WorkoutMateTest from "./pages/WorkoutMateTest";
 import WorkoutMateTestResult from "./pages/WorkoutMateTestResult";
+import FingerprincessTest from "./pages/FingerprincessTest";
+import FingerprincessTestResult from "./pages/FingerprincessTestResult";
 import LoveHabitTest from "./pages/LoveHabitTest";
 import LoveHabitTestResult from "./pages/LoveHabitTestResult";
 import DramaTest from "./pages/DramaTest";
@@ -88,6 +90,8 @@ export default function App() {
           <Route path="/isekai-result/:resultKey" element={<IsekaiTestResult />} />
           <Route path="/workout-mate" element={<WorkoutMateTest />} />
           <Route path="/workout-mate-result/:resultKey" element={<WorkoutMateTestResult />} />
+          <Route path="/fingerprincess" element={<FingerprincessTest />} />
+          <Route path="/fingerprincess-result/:resultKey" element={<FingerprincessTestResult />} />
           <Route path="/love-habit-test" element={<LoveHabitTest />} />
           <Route path="/love-habit-result/:resultKey" element={<LoveHabitTestResult />} />
           <Route path="/drama-test" element={<DramaTest />} />

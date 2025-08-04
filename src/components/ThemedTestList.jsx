@@ -28,6 +28,8 @@ export default function ThemedTestList({ tests }) {
       navigate('/isekai');
     } else if (testId === 'workout-mate') {
       navigate('/workout-mate');
+    } else if (testId === 'fingerprincess') {
+      navigate('/fingerprincess');
     } else {
       navigate(`/test/${testId}`);
     }

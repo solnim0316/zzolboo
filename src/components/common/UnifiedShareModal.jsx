@@ -32,6 +32,8 @@ export default function UnifiedShareModal({ isOpen, onClose, result, testType = 
           return '🌍 이세계 전이 테스트';
         case 'workout-mate':
           return '💪 운동메이트 테스트';
+        case 'fingerprincess':
+          return '🎨 나만의 핑프 테스트';
         case 'family':
           return '👨‍👩‍👧‍👦 가족 MBTI 테스트';
         case 'love':

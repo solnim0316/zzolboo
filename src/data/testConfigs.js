@@ -182,6 +182,28 @@ export const THEMED_TESTS = [
       characterStyle: "fitness",
       backgroundMusic: null
     }
+  },
+  {
+             id: "fingerprincess",
+         title: "나만의 fingerprincess(핑프)는?",
+         world: "아트 월드",
+         emoji: "🎨",
+         theme: "아트",
+         thumbnail: "/og-image.png",
+         isFeatured: true,
+         isThemed: true,
+         description: "픽셀 아티스트이자 래퍼인 소년소년소년이 말아주는 나만의 픽셀 아트는? @boyboyboy x zzolbooworld Colab",
+         tags: ["아트", "픽셀아트", "콜라보", "스타일"],
+    route: "/fingerprincess",
+    difficulty: "easy",
+    estimatedTime: "3분",
+    questionCount: 8,
+    worldConfig: {
+      backgroundColor: "#EC4899",
+      primaryColor: "#DB2777",
+      characterStyle: "artistic",
+      backgroundMusic: null
+    }
   }
 ];
 
