@@ -11,8 +11,9 @@ export default function IsekaiTestResult() {
   const navigate = useNavigate();
   const [showShareModal, setShowShareModal] = useState(false);
 
-  const { results } = isekaiTestData;
+  const { results, worlds } = isekaiTestData;
   const result = results[resultKey] || results.magic_master;
+  const worldInfo = worlds[result.world];
 
   return (
     <>
@@ -58,6 +59,51 @@ export default function IsekaiTestResult() {
                 </div>
               </div>
             </div>
+
+            {/* 🌍 세계관 정보 섹션 */}
+            {worldInfo && (
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 mb-8 border border-blue-200">
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-bold text-[#5D4037] mb-2">
+                    🌍 당신이 떨어진 세계: {worldInfo.name}
+                  </h3>
+                  <p className="text-gray-600">
+                    이 세계관에 대해 더 알아보세요!
+                  </p>
+                </div>
+                
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-[#5D4037] mb-3">📖 세계관 시놉시스</h4>
+                  <p className="text-gray-700 leading-relaxed mb-4">
+                    {worldInfo.description}
+                  </p>
+                  <p className="text-sm text-gray-600 italic">
+                    분위기: {worldInfo.atmosphere}
+                  </p>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="text-lg font-semibold text-[#5D4037] mb-3">✨ 세계관 특징</h4>
+                    <ul className="space-y-2">
+                      {worldInfo.features.map((feature, index) => (
+                        <li key={index} className="flex items-center gap-2">
+                          <span className="text-blue-500">•</span>
+                          <span className="text-gray-700">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 border border-purple-200">
+                    <h4 className="text-lg font-semibold text-[#5D4037] mb-3">💭 이 세계에서의 당신</h4>
+                    <p className="text-gray-700 text-sm leading-relaxed">
+                      {worldInfo.name}에서 당신은 <strong>{result.title}</strong>으로 살아가게 됩니다. 
+                      이 세계의 분위기와 특징을 잘 활용해서 행복한 이세계 생활을 만들어보세요!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
 
             {/* 공유 버튼들 */}
             <div className="flex flex-wrap justify-center gap-4 mb-8">

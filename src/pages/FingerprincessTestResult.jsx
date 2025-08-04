@@ -2,9 +2,10 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { fingerprincessTestData } from '@/data/fingerprincessTestData';
 import UnifiedShareModal from '@/components/common/UnifiedShareModal';
+import { setMetaTags } from '@/utils/shareUtils';
 
 export default function FingerprincessTestResult() {
   const { resultKey } = useParams();
@@ -14,37 +15,82 @@ export default function FingerprincessTestResult() {
   const { results } = fingerprincessTestData;
   const result = results[resultKey] || results.pastel_dreamer;
 
-  // 결과에 따른 이미지 선택 (각 결과별로 특정 이미지 매핑)
+  // 결과에 따른 이미지 선택 (각 결과별로 여러 이미지 중 랜덤 선택)
   const getResultImage = (resultKey) => {
-    // 각 결과별로 특정 이미지 번호 매핑
+    // 각 결과별로 여러 이미지 번호 배열 (실제 존재하는 이미지만 사용)
     const imageMapping = {
-      'pastel_dreamer': 1,
-      'neon_vibes': 2,
-      'minimal_elegance': 3,
-      'cozy_warmth': 4,
-      'artistic_soul': 5,
-      'urban_rhythm': 6,
-      'mystical_dream': 7,
-      'vibrant_energy': 8,
-      'gentle_healer': 9,
-      'cosmic_wanderer': 10,
-      'retro_charm': 11,
-      'ethereal_grace': 12,
-      'wild_spirit': 13,
-      'serene_zen': 14,
-      'bold_rebel': 15,
-      'sweet_romance': 16,
-      'tech_savvy': 17,
-      'nature_lover': 18,
-      'classic_beauty': 19,
-      'modern_edge': 20
+      'pastel_dreamer': ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'],
+      'neon_vibes': ['21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40'],
+      'minimal_elegance': ['41', '42', '43', '44', '45', '46', '47', '48', '49', '51', '52', '53', '55', '56', '57', '58', '59', '60', '61', '62'],
+      'cozy_warmth': ['63', '64', '65', '66', '67', '68', '69', '70', '71', '72', '73', '74', '75', '76', '77', '78', '79', '80', '81', '82'],
+      'artistic_soul': ['83', '84', '85', '86', '87', '88', '89', '90', '91', '92', '93', '94', '95', '96', '97', '98', '99', '100', '101', '102'],
+      'urban_rhythm': ['103', '104', '105', '106', '107', '108', '109', '110', '111', '112', '113', '114', '115', '116', '117', '118', '119', '120', '121', '122'],
+      'mystical_dream': ['123', '124', '125', '126', '127', '128', '129', '130', '131', '132', '133', '134', '135', '136', '137', '138', '139', '140', '163', '164'],
+      'vibrant_energy': ['165', '166', '167', '168', '169', '170', '171', '172', '173', '174', '175', '176', '177', '178', '179', '180', '181', '182', '183', '184'],
+      'gentle_healer': ['185', '186', '187', '188', '189', '190', '191', '192', '193', '194', '195', '196', '197', '198', '199', '200', '201', '202', '203', '204'],
+      'cosmic_wanderer': ['205', '206', '207', '208', '209', '211', '213', '214', '215', '217', '218', '219', '220', '221', '222', '223', '224', '225', '226', '227'],
+      'retro_charm': ['228', '229', '230', '231', '232', '233', '234', '235', '236', '237', '238', '239', '240', '241', '242', '243', '244', '245', '246', '247'],
+      'ethereal_grace': ['248', '249', '250', '251', '252', '253', '254', '255', '256', '257', '258', '259', '260', '261', '262', '263', '264', '265', '266', '267'],
+      'wild_spirit': ['268', '269', '270', '271', '272', '273', '274', '275', '276', '277', '278', '279', '280', '281', '282', '283', '284', '285', '286', '287'],
+      'serene_zen': ['288', '289', '290', '291', '292', '293', '294', '295', '296', '297', '298', '299', '300', '301', '302', '303', '304', '305', '306', '307'],
+      'bold_rebel': ['308', '309', '310', '311', '312', '313', '314', '315', '316', '317', '318', '319', '320', '321', '322', '323', '324', '325', '326', '327'],
+      'sweet_romance': ['328', '329', '330', '331', '332', '333', '334', '335', '336', '337', '338', '339', '340', '341', '342', '343', '344', '345', '346', '347'],
+      'tech_savvy': ['348', '349', '350', '351', '352', '353', '354', '355', '356', '357', '358', '359', '360', '361', '362', '363', '364', '365', '366', '367'],
+      'nature_lover': ['368', '369', '370', '371', '372', '373', '374', '375', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+      'classic_beauty': ['13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32'],
+      'modern_edge': ['33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '51', '52', '53']
     };
     
-    const imageNumber = imageMapping[resultKey] || 1; // 기본값은 1번 이미지
+    const imageArray = imageMapping[resultKey] || imageMapping['pastel_dreamer'];
+    const randomIndex = Math.floor(Math.random() * imageArray.length);
+    const imageNumber = imageArray[randomIndex];
     return `/images/fingerprincess/${imageNumber}.webp`;
   };
 
+  // OG 이미지용 고정 이미지 (결과 타입별 대표 이미지)
+  const getOGImage = (resultKey) => {
+    const ogImageMapping = {
+      'pastel_dreamer': '01',
+      'neon_vibes': '21',
+      'minimal_elegance': '41',
+      'cozy_warmth': '63',
+      'artistic_soul': '83',
+      'urban_rhythm': '103',
+      'mystical_dream': '123',
+      'vibrant_energy': '165',
+      'gentle_healer': '185',
+      'cosmic_wanderer': '205',
+      'retro_charm': '228',
+      'ethereal_grace': '248',
+      'wild_spirit': '268',
+      'serene_zen': '288',
+      'bold_rebel': '308',
+      'sweet_romance': '328',
+      'tech_savvy': '348',
+      'nature_lover': '368',
+      'classic_beauty': '13',
+      'modern_edge': '33'
+    };
+    
+    const imageNumber = ogImageMapping[resultKey] || '01';
+    return `${window.location.origin}/images/fingerprincess/${imageNumber}.webp`;
+  };
+
   const [fingerprincessImage] = useState(getResultImage(resultKey));
+
+  // 메타 태그 설정
+  useEffect(() => {
+    const ogImage = getOGImage(resultKey);
+    const title = `🎨 나만의 fingerprincess(핑프)는? - ${result.title}`;
+    const description = `${result.description}\n\nboyboyboy의 픽셀아트로 완성된 당신만의 핑프를 확인해보세요!`;
+    
+    setMetaTags({
+      title,
+      description,
+      image: ogImage,
+      url: window.location.href
+    });
+  }, [resultKey, result]);
 
   return (
     <>
