@@ -87,7 +87,52 @@ export default function SubHome() {
         characterStyle: "fantasy",
         backgroundMusic: null
       }
-    }
+    },
+    {
+      id: "f1-driver",
+      title: "F1 선수가 되어버렸다!",
+      world: "F1 레이싱",
+      emoji: "🏎️",
+      theme: "스포츠",
+      thumbnail: "/og-image.png",
+      isFeatured: false,
+      isThemed: true,
+      description: "갑자기 F1 레이서가 되었다면? 당신의 레이싱 스타일을 분석해드려요!",
+      tags: ["스포츠", "레이싱", "성격", "재미"],
+      route: "/bro/f1-driver",
+      difficulty: "easy",
+      estimatedTime: "3분",
+      questionCount: 10,
+      worldConfig: {
+        backgroundColor: "#dc2626",
+        primaryColor: "#b91c1c",
+        characterStyle: "racing",
+        backgroundMusic: null
+      }
+    },
+    {
+      id: "stock-investor",
+      title: "갑자기 주식이 떡락했다. 나의 선택은?",
+      world: "주식 투자",
+      emoji: "📈",
+      theme: "투자",
+      thumbnail: "/og-image.png",
+      isFeatured: false,
+      isThemed: true,
+      description: "주식 투자에서 당신의 성향을 분석해드려요!",
+      tags: ["투자", "금융", "성격", "재미"],
+      route: "/bro/stock-investor",
+      difficulty: "easy",
+      estimatedTime: "3분",
+      questionCount: 10,
+      worldConfig: {
+        backgroundColor: "#059669",
+        primaryColor: "#047857",
+        characterStyle: "finance",
+        backgroundMusic: null
+      }
+    },
+
     // 추후 더 많은 성인 취향 테스트 추가 예정
   ];
 

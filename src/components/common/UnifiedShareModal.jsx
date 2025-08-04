@@ -40,6 +40,11 @@ export default function UnifiedShareModal({ isOpen, onClose, result, testType = 
           return '💕 연애 습관 테스트';
         case 'drama':
           return '🎭 드라마 성향 테스트';
+        case 'f1-driver':
+          return '🏎️ F1 드라이버 테스트';
+        case 'stock-investor':
+          return '📈 주식 투자자 테스트';
+
         default:
           return '🎯 성격 테스트';
       }

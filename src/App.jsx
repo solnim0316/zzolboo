@@ -34,6 +34,11 @@ import IsekaiTest from "./pages/IsekaiTest";
 import IsekaiTestResult from "./pages/IsekaiTestResult";
 import BroIsekaiTest from "./pages/bro/BroIsekaiTest";
 import BroIsekaiTestResult from "./pages/bro/BroIsekaiTestResult";
+import F1DriverTest from "./pages/bro/F1DriverTest";
+import F1DriverTestResult from "./pages/bro/F1DriverTestResult";
+import StockInvestorTest from "./pages/bro/StockInvestorTest";
+import StockInvestorTestResult from "./pages/bro/StockInvestorTestResult";
+
 import WorkoutMateTest from "./pages/WorkoutMateTest";
 import WorkoutMateTestResult from "./pages/WorkoutMateTestResult";
 import FingerprincessTest from "./pages/FingerprincessTest";
@@ -84,6 +89,11 @@ export default function App() {
           <Route path="/bro/bitcoin-result/:resultKey" element={<BitcoinTestResult />} />
           <Route path="/bro/isekai" element={<BroIsekaiTest />} />
           <Route path="/bro/isekai-result/:resultKey" element={<BroIsekaiTestResult />} />
+          <Route path="/bro/f1-driver" element={<F1DriverTest />} />
+          <Route path="/bro/f1-driver-result/:resultKey" element={<F1DriverTestResult />} />
+          <Route path="/bro/stock-investor" element={<StockInvestorTest />} />
+          <Route path="/bro/stock-investor-result/:resultKey" element={<StockInvestorTestResult />} />
+          
           
           {/* 메인 페이지 테스트 라우트 */}
           <Route path="/isekai" element={<IsekaiTest />} />

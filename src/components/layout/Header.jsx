@@ -1,9 +1,10 @@
 // 🐱 웹사이트 헤더 컴포넌트
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { AccessibleNavButton } from '@/components/common/AccessibleButton';
 
 export default function Header() {
+  const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdowns, setActiveDropdowns] = useState(new Set());
 
@@ -60,7 +61,7 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           {/* 🏷️ 로고/브랜드 */}
           <Link 
-            to="/" 
+            to={location.pathname.startsWith('/bro') ? '/bro' : '/'}
             className="flex items-center space-x-2 text-lg sm:text-xl font-bold text-[#5D4037] hover:text-[#4A2C2A] transition-colors"
           >
                          <img 

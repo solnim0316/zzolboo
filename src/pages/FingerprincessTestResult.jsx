@@ -14,9 +14,9 @@ export default function FingerprincessTestResult() {
   const { results } = fingerprincessTestData;
   const result = results[resultKey] || results.pastel_dreamer;
 
-  // 결과에 따른 이미지 선택 (1-370 사이의 랜덤 이미지)
+  // 결과에 따른 이미지 선택 (1-375 사이의 랜덤 이미지, GIF였던 이미지들도 포함)
   const getRandomImage = () => {
-    const imageNumber = Math.floor(Math.random() * 370) + 1;
+    const imageNumber = Math.floor(Math.random() * 375) + 1;
     return `/images/fingerprincess/${imageNumber}.webp`;
   };
 
@@ -135,16 +135,34 @@ export default function FingerprincessTestResult() {
                 <p className="text-xs text-gray-600 text-center">
                   💡 더 많은 boyboyboy의 작품을 보고 싶다면 SNS를 팔로우해보세요!
                 </p>
-                <div className="text-center mt-2">
-                  <a 
-                    href="https://www.instagram.com/imboyboyboy/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-pink-500 hover:text-pink-600 font-medium text-sm inline-block"
-                  >
-                    📸 @https://www.instagram.com/imboyboyboy/
-                  </a>
-                </div>
+                                 <div className="text-center mt-2">
+                   <div className="inline-flex items-center gap-3">
+                     {/* Instagram SVG */}
+                     <a 
+                       href="https://www.instagram.com/imboyboyboy/" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       className="inline-flex items-center justify-center w-12 h-12 hover:scale-110 transition-all duration-200"
+                       title="Instagram"
+                     >
+                       <img 
+                         src="/SVG/instagram.svg" 
+                         alt="Instagram" 
+                         className="w-12 h-12"
+                       />
+                     </a>
+                     
+                     {/* BOYBOYBOY 텍스트 */}
+                     <a 
+                       href="https://www.instagram.com/imboyboyboy/" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       className="text-lg font-bold text-gray-800 hover:text-pink-600 transition-colors cursor-pointer"
+                     >
+                       BOYBOYBOY
+                     </a>
+                   </div>
+                 </div>
               </div>
             </div>
           </div>
