@@ -46,7 +46,7 @@ export default function Home() {
           {/* 🌟 Hero 배너 - 오늘의 추천 */}
           <HeroBanner featuredTest={featuredTest} />
           
-          {/* �️ 태그 네비게이션 섹션 */}
+          {/* 🏷️ 태그 네비게이션 섹션 */}
           <section className="mb-12">
             <div className="text-center mb-6">
               <h2 className="text-2xl font-bold text-[#5D4037]">
