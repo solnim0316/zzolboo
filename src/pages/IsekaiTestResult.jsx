@@ -31,32 +31,67 @@ export default function IsekaiTestResult() {
               </p>
             </div>
 
+            {/* Hook 섹션 */}
             <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8 mb-8 border border-purple-200">
               <h2 className="text-2xl font-bold text-center mb-4" style={{ color: result.color }}>
                 {result.title}
               </h2>
-              <p className="text-gray-700 leading-relaxed mb-6">
-                {result.description}
-              </p>
+              <div className="text-center mb-4">
+                <p className="text-lg font-semibold text-gray-600 mb-2">
+                  {result.character_name}
+                </p>
+                <p className="text-xl font-semibold text-gray-800 italic">
+                  "{result.hook}"
+                </p>
+              </div>
+            </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h3 className="text-lg font-semibold text-[#5D4037] mb-3">🎯 주요 특징</h3>
-                  <ul className="space-y-2">
-                    {result.characteristics.map((char, index) => (
-                      <li key={index} className="flex items-center gap-2">
-                        <span className="text-purple-500">•</span>
-                        <span className="text-gray-700">{char}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-[#5D4037] mb-3">💡 이세계 생존 전략</h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    {result.strategy}
-                  </p>
-                </div>
+            {/* Emotion Script 섹션 */}
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 mb-8 border border-blue-200">
+              <h3 className="text-xl font-bold text-[#5D4037] mb-4 text-center">
+                💭 당신의 이야기
+              </h3>
+              <div className="text-center">
+                <p className="text-gray-700 leading-relaxed whitespace-pre-line text-lg">
+                  {result.emotion_script}
+                </p>
+              </div>
+            </div>
+
+            {/* Story & Routine 섹션 */}
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-6 border border-green-200">
+                <h3 className="text-lg font-semibold text-[#5D4037] mb-3">📖 당신의 설정</h3>
+                <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+                  {result.story}
+                </p>
+              </div>
+              <div className="bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl p-6 border border-orange-200">
+                <h3 className="text-lg font-semibold text-[#5D4037] mb-3">🌅 일상 루틴</h3>
+                <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+                  {result.routine}
+                </p>
+              </div>
+            </div>
+
+            {/* Characteristics & Strategy 섹션 */}
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-6 border border-purple-200">
+                <h3 className="text-lg font-semibold text-[#5D4037] mb-3">🎯 주요 특징</h3>
+                <ul className="space-y-2">
+                  {result.characteristics.map((char, index) => (
+                    <li key={index} className="flex items-center gap-2">
+                      <span className="text-purple-500">•</span>
+                      <span className="text-gray-700">{char}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-2xl p-6 border border-teal-200">
+                <h3 className="text-lg font-semibold text-[#5D4037] mb-3">💡 생존 전략</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  {result.strategy}
+                </p>
               </div>
             </div>
 
@@ -104,6 +139,42 @@ export default function IsekaiTestResult() {
                 </div>
               </div>
             )}
+
+            {/* 같은 세계 다른 유형 보기 */}
+            <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl p-8 mb-8 border border-yellow-200">
+              <h3 className="text-xl font-bold text-[#5D4037] mb-6 text-center">
+                🌍 같은 세계, 다른 운명들
+              </h3>
+              <div className="grid md:grid-cols-3 gap-4">
+                {Object.entries(results)
+                  .filter(([key, res]) => res.world === result.world && key !== resultKey)
+                  .slice(0, 3)
+                  .map(([key, res]) => (
+                    <div 
+                      key={key}
+                      className="bg-white rounded-xl p-4 border border-gray-200 hover:shadow-lg transition-shadow cursor-pointer"
+                      onClick={() => navigate(`/isekai-result/${key}`)}
+                    >
+                      <div className="text-center">
+                        <h4 className="font-semibold text-sm text-gray-800 mb-2">
+                          {res.title}
+                        </h4>
+                        <p className="text-xs text-gray-600 mb-2">
+                          {res.character_name}
+                        </p>
+                        <p className="text-xs text-gray-500 italic">
+                          "{res.hook}"
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+              <div className="text-center mt-4">
+                <p className="text-sm text-gray-600">
+                  다른 운명도 확인해보세요! 👆
+                </p>
+              </div>
+            </div>
 
             {/* 공유 버튼들 */}
             <div className="flex flex-wrap justify-center gap-4 mb-8">
@@ -175,7 +246,7 @@ export default function IsekaiTestResult() {
         onClose={() => setShowShareModal(false)}
         result={{
           title: result?.title || '이세계 캐릭터',
-          catchphrase: result?.description || '나의 이세계 캐릭터를 확인해보세요!'
+          catchphrase: result?.hook || '나의 이세계 캐릭터를 확인해보세요!'
         }}
         testType="isekai"
       />

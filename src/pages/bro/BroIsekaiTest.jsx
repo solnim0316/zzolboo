@@ -52,38 +52,8 @@ export default function BroIsekaiTest() {
       });
     });
 
-    // 가장 높은 점수의 카테고리 찾기
-    const maxScore = Math.max(...Object.values(scores));
-    const topCategories = Object.entries(scores)
-      .filter(([_, score]) => score === maxScore)
-      .map(([category, _]) => category);
-
-    // 결과 결정
-    let resultKey = 'magic_master'; // 기본값
-
-    if (topCategories.includes('magic')) {
-      if (scores.magic >= 8) resultKey = 'magic_master';
-      else if (scores.magic >= 6) resultKey = 'slime_master';
-      else resultKey = 'magic_dropout';
-    } else if (topCategories.includes('hero')) {
-      if (scores.hero >= 8) resultKey = 'hero_accident';
-      else if (scores.hero >= 6) resultKey = 'dungeon_chef';
-      else resultKey = 'npc_legend';
-    } else if (topCategories.includes('demon')) {
-      if (scores.demon >= 4) resultKey = 'yandere_contractor';
-      else resultKey = 'demon_lover';
-    } else if (topCategories.includes('knight')) {
-      if (scores.knight >= 6) resultKey = 'knight_chef';
-      else resultKey = 'knight_failure';
-    } else if (topCategories.includes('pet')) {
-      if (scores.pet >= 6) resultKey = 'cute_pet';
-      else resultKey = 'demon_pet';
-    } else if (topCategories.includes('healer')) {
-      if (scores.healer >= 8) resultKey = 'tree_healer';
-      else resultKey = 'onsen_manager';
-    } else if (topCategories.includes('school')) {
-      resultKey = 'school_lover';
-    }
+    // 새로운 결과 계산 시스템 사용
+    const resultKey = isekaiTestData.calculateResult(scores);
 
     setTimeout(() => {
       navigate(`/bro/isekai-result/${resultKey}`);
