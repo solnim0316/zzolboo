@@ -73,8 +73,11 @@ function createSitemapEntry(url) {
   const currentDate = new Date().toISOString().split('T')[0];
   const specialConfig = SPECIAL_PAGES[url] || {};
   
+  // URL 정규화 (별표 제거)
+  const cleanUrl = url.replace(/\*$/, '');
+  
   const entry = {
-    url: `${SITE_CONFIG.url}${url}`,
+    url: `${SITE_CONFIG.url}${cleanUrl}`,
     lastmod: currentDate,
     changefreq: specialConfig.changefreq || SITE_CONFIG.defaultChangefreq,
     priority: specialConfig.priority || SITE_CONFIG.defaultPriority
