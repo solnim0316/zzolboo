@@ -22,6 +22,11 @@ export default defineConfig({
     port: 5173,
     open: false
   },
+  // SPA 라우팅을 위한 설정
+  preview: {
+    port: 4173,
+    host: true
+  },
   build: {
     rollupOptions: {
       output: {

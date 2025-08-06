@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /
+
+# 정적 파일은 그대로 서빙
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^.*$ - [L]
+
+# SPA 라우팅: 모든 경로를 index.html로 리디렉션
+RewriteRule ^.*$ /index.html [L] 
