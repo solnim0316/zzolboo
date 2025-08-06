@@ -1,16 +1,25 @@
 User-agent: *
 Allow: /
 
-# 명시적 허용 경로 (선택적)
+# 명시적 허용 경로
 Allow: /dinosaur-test
 Allow: /cat-test
 Allow: /about
 Allow: /contact
 Allow: /terms
 Allow: /privacy
+Allow: /bro
+Allow: /gallery
+Allow: /blog
+
+# 차단할 경로
+Disallow: /admin
+Disallow: /api
+Disallow: /_next
+Disallow: /sw.js
 
 # 사이트맵 위치
 Sitemap: https://www.zzolbooworld.com/sitemap.xml
 
-# 크롤링 속도 (선택 사항: 크롤링이 느릴 경우만 설정)
+# 크롤링 속도 (선택 사항)
 # Crawl-delay: 1
