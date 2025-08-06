@@ -15,9 +15,57 @@ const pages = [
     lastmod: CURRENT_DATE
   },
   {
-    url: '/dinosaur-test',
+    url: '/about',
+    changefreq: 'monthly',
+    priority: '0.8',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/auto-image-generator',
+    changefreq: 'monthly',
+    priority: '0.6',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/blog',
+    changefreq: 'weekly',
+    priority: '0.8',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/bro',
     changefreq: 'weekly',
     priority: '0.9',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/bro/bitcoin-test',
+    changefreq: 'weekly',
+    priority: '0.8',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/bro/f1-driver',
+    changefreq: 'weekly',
+    priority: '0.8',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/bro/isekai',
+    changefreq: 'weekly',
+    priority: '0.8',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/bro/lol-test',
+    changefreq: 'weekly',
+    priority: '0.8',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/bro/stock-investor',
+    changefreq: 'weekly',
+    priority: '0.8',
     lastmod: CURRENT_DATE
   },
   {
@@ -27,8 +75,8 @@ const pages = [
     lastmod: CURRENT_DATE
   },
   {
-    url: '/about',
-    changefreq: 'monthly',
+    url: '/color-test',
+    changefreq: 'weekly',
     priority: '0.8',
     lastmod: CURRENT_DATE
   },
@@ -39,15 +87,135 @@ const pages = [
     lastmod: CURRENT_DATE
   },
   {
-    url: '/terms',
+    url: '/cookies',
     changefreq: 'yearly',
     priority: '0.5',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/dinosaur-test',
+    changefreq: 'weekly',
+    priority: '0.9',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/drama-test',
+    changefreq: 'weekly',
+    priority: '0.8',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/family-mbti',
+    changefreq: 'weekly',
+    priority: '0.8',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/faq',
+    changefreq: 'weekly',
+    priority: '0.8',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/fashion-test',
+    changefreq: 'weekly',
+    priority: '0.8',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/fingerprincess',
+    changefreq: 'weekly',
+    priority: '0.8',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/food-test',
+    changefreq: 'weekly',
+    priority: '0.8',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/free-image-generator',
+    changefreq: 'monthly',
+    priority: '0.6',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/gallery',
+    changefreq: 'weekly',
+    priority: '0.8',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/image-curator',
+    changefreq: 'monthly',
+    priority: '0.6',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/isekai',
+    changefreq: 'weekly',
+    priority: '0.8',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/love-habit-test',
+    changefreq: 'weekly',
+    priority: '0.8',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/mbti-guide',
+    changefreq: 'weekly',
+    priority: '0.8',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/movie-test',
+    changefreq: 'weekly',
+    priority: '0.8',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/offline-history',
+    changefreq: 'weekly',
+    priority: '0.8',
     lastmod: CURRENT_DATE
   },
   {
     url: '/privacy',
     changefreq: 'yearly',
     priority: '0.5',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/share',
+    changefreq: 'weekly',
+    priority: '0.8',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/stock-investor',
+    changefreq: 'weekly',
+    priority: '0.8',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/terms',
+    changefreq: 'yearly',
+    priority: '0.5',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/tetogen',
+    changefreq: 'weekly',
+    priority: '0.8',
+    lastmod: CURRENT_DATE
+  },
+  {
+    url: '/workout-mate',
+    changefreq: 'weekly',
+    priority: '0.8',
     lastmod: CURRENT_DATE
   }
 ];
@@ -103,7 +271,7 @@ export function addPageToSitemap(url, options = {}) {
 }
 
 // 메인 실행
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && process.argv[1].endsWith('generateSitemap.js')) {
   saveSitemap();
 }
 
