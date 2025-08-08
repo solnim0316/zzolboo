@@ -57,6 +57,8 @@ function extractRoutesFromApp() {
     const routes = routeMatches
       .map(match => match.replace('path="', '').replace('"', ''))
       .filter(route => !route.includes(':')) // 동적 라우트 제외 (/test/:testId 등)
+      .filter(route => route !== '*') // 404 와일드카드 제외 (도메인 루트로 잘못 기록 방지)
+      .filter(route => route.trim().length > 0)
       .filter(route => !EXCLUDED_PATHS.some(excluded => route.startsWith(excluded)));
     
     console.log('📋 발견된 라우트:', routes);
@@ -104,8 +106,10 @@ function generateDynamicSitemap() {
   const xmlHeader = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
   
-  const urlEntries = routes
-    .sort() // 알파벳 순으로 정렬
+  // 중복 제거 및 정렬
+  const uniqueRoutes = Array.from(new Set(routes));
+  const urlEntries = uniqueRoutes
+    .sort()
     .map(createSitemapEntry)
     .join('');
   
@@ -152,10 +156,8 @@ function addNewRoute(routePath, config = {}) {
   saveDynamicSitemap();
 }
 
-// 메인 실행
-if (import.meta.url === `file://${process.argv[1]}`) {
-  console.log('🚀 동적 Sitemap 생성기 시작...');
-  saveDynamicSitemap();
-}
+// 메인 실행 (Windows/Unix 모두 호환)
+console.log('🚀 동적 Sitemap 생성기 시작...');
+saveDynamicSitemap();
 
 export { saveDynamicSitemap, addNewRoute, SPECIAL_PAGES };

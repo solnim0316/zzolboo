@@ -32,18 +32,11 @@
   ],
   "screenshots": [
     {
-      "src": "/images/screenshots/home.png",
+      "src": "/images/banner/1.webp",
       "sizes": "1280x720",
-      "type": "image/png",
+      "type": "image/webp",
       "form_factor": "wide",
       "label": "쫄부월드 홈 화면"
-    },
-    {
-      "src": "/images/screenshots/test.png",
-      "sizes": "750x1334",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "테스트 진행 화면"
     }
   ],
   "shortcuts": [

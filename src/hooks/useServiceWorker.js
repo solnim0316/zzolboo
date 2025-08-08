@@ -14,6 +14,13 @@ export function useServiceWorker() {
 
   // 서비스 워커 등록
   const registerServiceWorker = useCallback(async () => {
+    // 봇/크롤러 감지 시 등록 건너뛰기 (AdSense/Googlebot 등)
+    const ua = navigator.userAgent || '';
+    const isBot = /(googlebot|adsbot-google|mediapartners-google|bingbot|duckduckbot|baiduspider|yandex|sogou|exabot|facebookexternalhit|twitterbot|linkedinbot)/i.test(ua);
+    if (isBot) {
+      console.log('🤖 봇 감지: 서비스 워커 등록 생략');
+      return null;
+    }
     if ('serviceWorker' in navigator) {
       try {
         console.log('🚀 서비스 워커 등록 중...');

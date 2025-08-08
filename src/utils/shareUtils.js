@@ -53,7 +53,8 @@ export function shareToKakao(shareData) {
   
   // 카카오 SDK 로드 및 초기화 확인
   if (!isKakaoLoaded()) {
-    alert('카카오톡 공유 기능을 준비 중입니다! 잠시만 기다려주세요 🙏');
+    // Toast 알림으로 교체 예정
+    console.warn('카카오톡 공유 기능을 준비 중입니다!');
     return;
   }
   
@@ -64,14 +65,15 @@ export function shareToKakao(shareData) {
       console.log('공유할 데이터:', { url, title, description, imageUrl });
     }
     copyToClipboard(url).then(() => {
-      alert('🔧 개발 모드: 공유 링크가 복사되었습니다! (카카오톡 공유 시뮬레이션)');
+      // Toast 알림으로 교체 예정
+      console.log('🔧 개발 모드: 공유 링크가 복사되었습니다!');
     });
     return;
   }
   
   // 카카오 SDK 초기화
   if (!initKakao()) {
-    alert('카카오톡 공유 기능을 초기화할 수 없습니다. 😔');
+    console.error('카카오톡 공유 기능을 초기화할 수 없습니다.');
     return;
   }
 
@@ -122,7 +124,8 @@ export function shareToTwitter(shareData) {
 export async function copyToClipboard(url) {
   try {
     await navigator.clipboard.writeText(url);
-    alert('링크가 복사되었습니다! 📋');
+    // Toast 알림으로 교체 예정
+    console.log('링크가 복사되었습니다!');
   } catch (err) {
     // 폴백: input 엘리먼트를 사용한 복사
     const textArea = document.createElement('textarea');
@@ -131,7 +134,8 @@ export async function copyToClipboard(url) {
     textArea.select();
     document.execCommand('copy');
     document.body.removeChild(textArea);
-    alert('링크가 복사되었습니다! 📋');
+    // Toast 알림으로 교체 예정
+    console.log('링크가 복사되었습니다!');
   }
 }
 

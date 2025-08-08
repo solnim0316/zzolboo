@@ -1,9 +1,9 @@
 // 🚀 쫄부월드 서비스 워커
 // 오프라인 지원, 캐싱, 푸시 알림 기능 제공
 
-const CACHE_NAME = 'zzolboo-v1.0.0';
-const STATIC_CACHE = 'zzolboo-static-v1.0.0';
-const DYNAMIC_CACHE = 'zzolboo-dynamic-v1.0.0';
+const CACHE_NAME = 'zzolboo-v1.0.1';
+const STATIC_CACHE = 'zzolboo-static-v1.0.1';
+const DYNAMIC_CACHE = 'zzolboo-dynamic-v1.0.1';
 
 // 캐시할 정적 리소스들
 const STATIC_ASSETS = [

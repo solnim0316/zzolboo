@@ -12,7 +12,8 @@ const pages = [
     url: '/',
     changefreq: 'daily',
     priority: '1.0',
-    lastmod: CURRENT_DATE
+    lastmod: CURRENT_DATE,
+    canonical: `${SITE_URL}/`
   },
   {
     url: '/about',

@@ -11,10 +11,7 @@ export default function FamilyMbtiResult() {
   const navigate = useNavigate();
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // 디버깅용 console.log 추가
-  console.log('FamilyMbtiResult 컴포넌트 렌더링');
-  console.log('resultType:', resultType);
-  console.log('familyMbtiTestData:', familyMbtiTestData);
+  // 결과 데이터 준비
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -26,13 +23,7 @@ export default function FamilyMbtiResult() {
   // 결과 데이터 가져오기
   const result = familyMbtiTestData.results[resultType];
   
-  // 디버깅용 console.log 추가
-  console.log('result:', result);
-  console.log('familyMbtiTestData.results:', familyMbtiTestData.results);
-  console.log('Available result types:', Object.keys(familyMbtiTestData.results || {}));
-  
   if (!result) {
-    console.log('결과를 찾을 수 없습니다. resultType:', resultType);
     return (
       <div style={{ 
         backgroundColor: 'yellow', 
