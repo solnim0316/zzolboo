@@ -26,6 +26,7 @@ const Gallery = lazy(() => import("./pages/Gallery"));
 const ImageCuratorDemo = lazy(() => import("./pages/ImageCuratorDemo"));
 const AutoImageGeneratorDemo = lazy(() => import("./pages/AutoImageGeneratorDemo"));
 const FreeImageGeneratorDemo = lazy(() => import("./pages/FreeImageGeneratorDemo"));
+const IsekaiCardDemo = lazy(() => import("./pages/IsekaiCardDemo"));
 const OfflineHistoryPage = lazy(() => import("./pages/OfflineHistory"));
 
 // Bro 페이지들
@@ -96,6 +97,7 @@ export default function App() {
             <Route path="/image-curator" element={<ImageCuratorDemo />} />
             <Route path="/auto-image-generator" element={<AutoImageGeneratorDemo />} />
             <Route path="/free-image-generator" element={<FreeImageGeneratorDemo />} />
+            <Route path="/isekai-card-demo" element={<IsekaiCardDemo />} />
             <Route path="/offline-history" element={<OfflineHistoryPage />} />
             
             {/* Bro 페이지 라우트 */}

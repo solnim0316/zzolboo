@@ -8,6 +8,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ImageGeneratorComponent from '@/components/common/ImageGeneratorComponent';
 import UnifiedShareModal from '@/components/common/UnifiedShareModal';
+import AdSenseAd from '@/components/common/AdSenseAd';
 
 export default function CatTest() {
   const navigate = useNavigate();
@@ -690,6 +691,13 @@ export default function CatTest() {
                     </div>
                   )}
                 </div>
+
+                {/* 📢 AdSense 광고 */}
+                <AdSenseAd 
+                  adSlot="1234567890" 
+                  adFormat="auto"
+                  className="my-8"
+                />
 
                 {/* 🔄 액션 버튼들 - 더 매력적으로 */}
                 <div className="flex flex-col sm:flex-row gap-4">

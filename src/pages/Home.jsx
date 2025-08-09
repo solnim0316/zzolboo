@@ -8,6 +8,7 @@ import GeneralTestList from "@/components/GeneralTestList";
 import SecretWorldBanner from "@/components/SecretWorldBanner";
 import { useState } from "react";
 import { TAG_CATEGORIES, testUtils } from "@/data/testConfigs";
+import AdSenseAd from "@/components/common/AdSenseAd";
 
 export default function Home() {
   const [selectedTag, setSelectedTag] = useState('all');
@@ -104,6 +105,13 @@ export default function Home() {
                 </p>
               </div>
               <ThemedTestList tests={filteredThemedTests} />
+              
+              {/* 📢 AdSense 광고 */}
+              <AdSenseAd 
+                adSlot="1234567890" 
+                adFormat="auto"
+                className="my-8"
+              />
             </section>
           )}
           

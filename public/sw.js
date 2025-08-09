@@ -1,9 +1,9 @@
 // 🚀 쫄부월드 서비스 워커
 // 오프라인 지원, 캐싱, 푸시 알림 기능 제공
 
-const CACHE_NAME = 'zzolboo-v1.0.1';
-const STATIC_CACHE = 'zzolboo-static-v1.0.1';
-const DYNAMIC_CACHE = 'zzolboo-dynamic-v1.0.1';
+const CACHE_NAME = 'zzolboo-v1.0.2';
+const STATIC_CACHE = 'zzolboo-static-v1.0.2';
+const DYNAMIC_CACHE = 'zzolboo-dynamic-v1.0.2';
 
 // 캐시할 정적 리소스들
 const STATIC_ASSETS = [
@@ -75,12 +75,15 @@ self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // HTML 페이지 요청
+  // HTML 페이지 요청: 30x(리디렉션) 응답은 캐시하지 않음
   if (request.destination === 'document') {
     event.respondWith(
       fetch(request)
         .then((response) => {
-          // 성공 시 캐시에 저장
+          const isRedirectLike = response.redirected || (response.status >= 300 && response.status < 400);
+          if (isRedirectLike) {
+            return response; // 리디렉션 응답은 캐시 금지
+          }
           const responseClone = response.clone();
           caches.open(DYNAMIC_CACHE)
             .then((cache) => {
