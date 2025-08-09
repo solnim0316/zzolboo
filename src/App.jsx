@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import ErrorBoundary from "./components/common/ErrorBoundary";
+import Canonical from "./components/common/Canonical";
 
 // 🚀 지연 로딩을 위한 컴포넌트들
 const Home = lazy(() => import("./pages/Home"));
@@ -73,6 +74,7 @@ export default function App() {
     <ErrorBoundary>
       <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <Suspense fallback={<LoadingSpinner />}>
+          <Canonical />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/share" element={<SharedResult />} />
