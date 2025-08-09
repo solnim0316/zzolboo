@@ -19,7 +19,7 @@
   <!-- Open Graph 메타 태그 (소셜 미디어 공유용) -->
 
   <!-- 카카오톡 SDK -->
-  <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" integrity="sha384-TiCUE00h649CAMonG018J2ujOgDKW/kVWlChEuu4jK2vxfAAD0eZxzCKakxg55G4" crossorigin="anonymous"></script>
+  <script defer src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" integrity="sha384-TiCUE00h649CAMonG018J2ujOgDKW/kVWlChEuu4jK2vxfAAD0eZxzCKakxg55G4" crossorigin="anonymous"></script>
   <!-- AdSense 임시 비활성화 (AI 이미지 생성 테스트용) -->
   <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2842847878240169"
      crossorigin="anonymous"></script>
@@ -49,13 +49,13 @@
   <link rel="canonical" href="https://www.zzolbooworld.com" />
   
   <!-- 성능 최적화 -->
-  <link rel="preconnect" href="https://www.google-analytics.com" />
-  <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="dns-prefetch" href="https://t1.kakaocdn.net" />
   
-  <!-- 중요 리소스 preload -->
-  <link rel="preload" href="/src/main.jsx" as="script" />
-  <link rel="preload" href="/src/styles/index.css" as="style" />
+  <!-- LCP 이미지 Preload -->
+  <link rel="preload" as="image" href="/images/banner/1.webp" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QYLBRX8SN1"></script>

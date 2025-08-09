@@ -11,6 +11,9 @@ export default function HeroBanner({ featuredTest }) {
           alt="쫄부월드 메인 이미지" 
           className="w-full h-full object-cover object-center"
           loading="eager"
+          fetchpriority="high"
+          width="1280"
+          height="427"
         />
       </div>
     </section>

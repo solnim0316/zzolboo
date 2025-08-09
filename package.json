@@ -6,6 +6,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "gen:icons": "node scripts/gen-icons.mjs",
     "sitemap": "node scripts/generateSitemap.js",
     "sitemap:dynamic": "node scripts/dynamicSitemap.js",
     "sitemap:monitor": "node scripts/sitemapMonitor.js start",

@@ -42,6 +42,7 @@ export default function Home() {
       
       {/* 📱 메인 콘텐츠 */}
       <main className="bg-background text-text min-h-screen px-4 pt-0 pb-6 sm:px-6 md:px-8 lg:px-12">
+        <h1 className="sr-only">쫄부월드 | 재미있는 MBTI 성격 테스트 모음</h1>
         <div className="max-w-7xl mx-auto">
           
           {/* 🌟 Hero 배너 - 오늘의 추천 */}

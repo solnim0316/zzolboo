@@ -1,14 +1,15 @@
 // 🚀 쫄부월드 서비스 워커
 // 오프라인 지원, 캐싱, 푸시 알림 기능 제공
 
-const CACHE_NAME = 'zzolboo-v1.0.2';
-const STATIC_CACHE = 'zzolboo-static-v1.0.2';
-const DYNAMIC_CACHE = 'zzolboo-dynamic-v1.0.2';
+const CACHE_NAME = 'zzolboo-v1.0.3';
+const STATIC_CACHE = 'zzolboo-static-v1.0.3';
+const DYNAMIC_CACHE = 'zzolboo-dynamic-v1.0.3';
 
 // 캐시할 정적 리소스들
 const STATIC_ASSETS = [
   '/',
   '/index.html',
+  '/offline.html',
   '/manifest.json',
   '/favicon.ico',
   '/og-image.png',
@@ -129,8 +130,8 @@ self.addEventListener('fetch', (event) => {
               return response;
             })
             .catch(() => {
-              // 이미지 로드 실패 시 플레이스홀더 반환
-              return caches.match('/images/placeholder.webp');
+              // 이미지 로드 실패 시 플레이스홀더 반환 (존재하는 자산으로 안전하게 대체)
+              return caches.match('/images/logo/logo.webp');
             });
         })
     );
