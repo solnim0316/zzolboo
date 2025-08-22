@@ -6,6 +6,7 @@ import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import SocialShare from '../components/common/SocialShare';
 import ImageGeneratorComponent from '../components/common/ImageGeneratorComponent';
+import AdSenseAd, { AdUnits } from '../components/common/AdSenseAd';
 
 export default function DinosaurTestResult() {
   const { resultType, userName } = useParams();
@@ -204,6 +205,23 @@ export default function DinosaurTestResult() {
             >
               🔄 다른 공룡으로 다시 테스트하기
             </button>
+          </div>
+          
+          {/* 📊 결과 페이지 하단 광고 */}
+          <div className={`mt-8 ${isLoaded ? 'animate-fadeInUp animation-delay-800' : 'opacity-0'}`}>
+            {/* 데스크톱 광고 */}
+            <AdSenseAd 
+              adSlot={AdUnits.RESULT_BOTTOM}
+              adFormat="banner"
+              className="mb-6 hidden md:block"
+            />
+            
+            {/* 모바일 광고 */}
+            <AdSenseAd 
+              adSlot={AdUnits.MOBILE_BANNER}
+              adFormat="mobile"
+              className="mb-6 md:hidden"
+            />
           </div>
           
         </div>

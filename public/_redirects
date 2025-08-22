@@ -1,4 +1,6 @@
-/index.html                   /                                   301!
+# 도메인 정규화 (한 번에 처리)
 http://zzolbooworld.com/*     https://www.zzolbooworld.com/:splat  301!
 https://zzolbooworld.com/*    https://www.zzolbooworld.com/:splat  301!
+
+# SPA 라우팅 (Cloudflare Pages)
 /*                           /index.html                           200

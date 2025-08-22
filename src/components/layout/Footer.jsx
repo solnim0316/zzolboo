@@ -12,7 +12,7 @@ export default function Footer() {
       {/* 🔗 필수 법적 링크들 */}
       <div className="mt-2 sm:mt-3 flex flex-wrap justify-center gap-4 sm:gap-6 text-xs sm:text-sm">
         <Link to="/about" className="text-gray-500 hover:text-gray-700 transition-colors duration-200">
-          회사소개
+          쫄부 소개
         </Link>
         <Link to="/terms" className="text-gray-500 hover:text-gray-700 transition-colors duration-200">
           이용약관
@@ -24,14 +24,14 @@ export default function Footer() {
           쿠키 정책
         </Link>
         <Link to="/contact" className="text-gray-500 hover:text-gray-700 transition-colors duration-200">
-          문의하기
+          쫄부에게 말하기
         </Link>
       </div>
       
       {/* 📧 연락처 정보 */}
       <div className="mt-3 sm:mt-4 text-xs text-gray-500">
-        <p>문의: 016sol@gmail.com</p>
-        <p className="mt-1">🐱 쫄과 부가 함께하는 특별한 성격 테스트 세계 🐰</p>
+        <p>💌 쫄부에게 연락하기: 016sol@gmail.com</p>
+        <p className="mt-1">🐱 쫄과 부가 당신을 기다리고 있어요! 🐰</p>
       </div>
     </footer>
   )

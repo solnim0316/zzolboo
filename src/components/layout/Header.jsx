@@ -14,7 +14,7 @@ export default function Header() {
       icon: '🏠', 
       type: 'dropdown',
       items: [
-        { name: '메인 홈', path: '/', icon: '🏠' },
+        { name: '쫄부월드 메인', path: '/', icon: '🏠' },
         { name: 'BRO', path: '/bro', icon: '🕶️' }
       ]
     },
@@ -24,20 +24,19 @@ export default function Header() {
       icon: '📚', 
       type: 'dropdown',
       items: [
-        { name: 'MBTI 가이드', path: '/mbti-guide', icon: '📖' },
-        { name: '블로그', path: '/blog', icon: '📝' }
+        { name: 'MBTI 알아보기', path: '/mbti-guide', icon: '📖' },
+        { name: '쫄부 블로그', path: '/blog', icon: '📝' }
       ]
     },
     { 
-      name: '소개', 
+      name: '궁금해요', 
       icon: '❓', 
       type: 'dropdown',
       items: [
-        { name: 'FAQ', path: '/faq', icon: '❓' },
-        { name: '소개', path: '/about', icon: '💫' }
+        { name: '자주 묻는 질문', path: '/faq', icon: '❓' },
+        { name: '쫄부 소개', path: '/about', icon: '💫' }
       ]
-    },
-    { name: '내 히스토리', path: '/offline-history', icon: '📊' }
+    }
   ];
 
   const handleDropdownToggle = (menuName) => {

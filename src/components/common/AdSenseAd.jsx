@@ -1,22 +1,32 @@
-// 📢 AdSense 광고 컴포넌트
-import { useEffect } from 'react';
+// 📊 Google AdSense 광고 컴포넌트 - 수익 최적화 버전
+import { useEffect, useRef } from 'react';
 
 const AdSenseAd = ({ 
   adSlot, 
   adFormat = 'auto', 
   style = {}, 
   className = '',
-  responsive = true 
+  responsive = true,
+  fullWidthResponsive = false,
+  // 콘텐츠 인피드용 새로운 옵션들
+  isContentInfeed = false,
+  cardStyle = false,
+  youtubeThumbnailStyle = false
 }) => {
-  useEffect(() => {
-    // AdSense 광고 로드
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (error) {
-      console.log('AdSense 광고 로드 중 오류:', error);
-    }
-  }, []);
+  const adRef = useRef(null);
 
+  useEffect(() => {
+    // AdSense 스크립트가 로드되었는지 확인
+    if (window.adsbygoogle && adRef.current) {
+      try {
+        window.adsbygoogle.push({});
+      } catch (error) {
+        console.warn('AdSense 광고 로드 실패:', error);
+      }
+    }
+  }, [adSlot]);
+
+  // 광고 단위별 스타일 설정
   const getAdStyle = () => {
     const baseStyle = {
       display: 'block',
@@ -25,25 +35,178 @@ const AdSenseAd = ({
       ...style
     };
 
-    if (responsive) {
-      baseStyle.overflow = 'hidden';
+    // 콘텐츠 인피드용 특별 스타일
+    if (isContentInfeed) {
+      return {
+        ...baseStyle,
+        margin: '0',
+        borderRadius: '12px',
+        overflow: 'hidden',
+        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+        transition: 'transform 0.2s ease-in-out',
+        cursor: 'pointer'
+      };
     }
 
-    return baseStyle;
+    // 카드 스타일 (테스트 카드와 동일)
+    if (cardStyle) {
+      return {
+        ...baseStyle,
+        margin: '0',
+        borderRadius: '12px',
+        overflow: 'hidden',
+        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+        transition: 'all 0.3s ease',
+        cursor: 'pointer',
+        background: 'linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%)',
+        border: '1px solid rgba(255, 255, 255, 0.2)'
+      };
+    }
+
+    // 유튜브 썸네일 스타일
+    if (youtubeThumbnailStyle) {
+      return {
+        ...baseStyle,
+        margin: '0',
+        borderRadius: '12px',
+        overflow: 'hidden',
+        boxShadow: '0 8px 16px rgba(0, 0, 0, 0.15)',
+        transition: 'all 0.3s ease',
+        cursor: 'pointer',
+        position: 'relative'
+      };
+    }
+
+    switch (adFormat) {
+      case 'banner':
+        return {
+          ...baseStyle,
+          width: '728px',
+          height: '90px',
+          '@media (max-width: 768px)': {
+            width: '320px',
+            height: '50px'
+          }
+        };
+      case 'skyscraper':
+        return {
+          ...baseStyle,
+          width: '160px',
+          height: '600px'
+        };
+      case 'rectangle':
+        return {
+          ...baseStyle,
+          width: '300px',
+          height: '250px'
+        };
+      case 'mobile':
+        return {
+          ...baseStyle,
+          width: '320px',
+          height: '50px'
+        };
+      case 'content-infeed':
+        return {
+          ...baseStyle,
+          width: '100%',
+          height: 'auto',
+          minHeight: '200px'
+        };
+      default:
+        return baseStyle;
+    }
   };
 
+  // 콘텐츠 인피드 광고 래퍼
+  if (isContentInfeed) {
+    return (
+      <div 
+        className={`content-infeed-ad ${className}`} 
+        style={getAdStyle()}
+        onMouseEnter={(e) => {
+          if (youtubeThumbnailStyle) {
+            e.currentTarget.style.transform = 'scale(1.02)';
+            e.currentTarget.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.2)';
+          }
+        }}
+        onMouseLeave={(e) => {
+          if (youtubeThumbnailStyle) {
+            e.currentTarget.style.transform = 'scale(1)';
+            e.currentTarget.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.15)';
+          }
+        }}
+      >
+        <ins
+          ref={adRef}
+          className="adsbygoogle"
+          style={{ display: 'block' }}
+          data-ad-client="ca-pub-2842847878240169"
+          data-ad-slot={adSlot}
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        />
+      </div>
+    );
+  }
+
+  // 반응형 광고 단위
+  if (responsive) {
+    return (
+      <div className={`adsense-responsive ${className}`} style={getAdStyle()}>
+        <ins
+          ref={adRef}
+          className="adsbygoogle"
+          style={{ display: 'block' }}
+          data-ad-client="ca-pub-2842847878240169"
+          data-ad-slot={adSlot}
+          data-ad-format={fullWidthResponsive ? 'auto' : adFormat}
+          data-full-width-responsive={fullWidthResponsive}
+        />
+      </div>
+    );
+  }
+
+  // 고정 크기 광고 단위
   return (
-    <div className={`adsense-container ${className}`} style={getAdStyle()}>
+    <div className={`adsense-fixed ${className}`} style={getAdStyle()}>
       <ins
+        ref={adRef}
         className="adsbygoogle"
         style={{ display: 'block' }}
         data-ad-client="ca-pub-2842847878240169"
         data-ad-slot={adSlot}
         data-ad-format={adFormat}
-        data-full-width-responsive={responsive}
       />
     </div>
   );
+};
+
+// 사전 정의된 광고 단위들
+export const AdUnits = {
+  // 헤더 배너 (728x90)
+  HEADER_BANNER: 'header-banner-728x90',
+  
+  // 사이드바 스카이스크래퍼 (160x600)
+  SIDEBAR_SKYSCRAPER: 'sidebar-skyscraper-160x600',
+  
+  // 콘텐츠 중간 인피드 (728x90)
+  CONTENT_INFEED: 'content-infeed-728x90',
+  
+  // 결과 페이지 하단 (728x90)
+  RESULT_BOTTOM: 'result-bottom-728x90',
+  
+  // 모바일 전용 (320x50)
+  MOBILE_BANNER: 'mobile-banner-320x50',
+  
+  // 반응형 광고
+  RESPONSIVE: 'responsive-auto',
+  
+  // 콘텐츠 인피드용 새로운 광고 단위들
+  CONTENT_INFEED_CARD: 'content-infeed-card-300x250',
+  CONTENT_INFEED_THUMBNAIL: 'content-infeed-thumbnail-300x200',
+  TEST_LIST_MIDDLE: 'test-list-middle-728x90',
+  INFEED_AD: 'infeed-ad-responsive'
 };
 
 export default AdSenseAd; 

@@ -83,7 +83,7 @@ export default function ThemedTestList({ tests }) {
                 onClick={() => handleTestStart(test.id)}
                 className="w-full bg-[#5D4037] hover:bg-[#4E342E] text-white text-sm font-semibold py-3 rounded-lg transition-colors duration-200"
               >
-                테스트 시작하기
+                🎭 모험 시작하기
               </button>
             </div>
           </div>

@@ -86,7 +86,7 @@ export default function GeneralTestList({ tests }) {
             {/* 🚀 테스트 시작 버튼 */}
             <div className="px-4 pb-4">
               <button className="w-full bg-[#5D4037] hover:bg-[#4E342E] text-white text-sm font-semibold py-3 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-md">
-                🚀 테스트 시작하기
+                🎯 재미있게 시작하기
               </button>
             </div>
           </div>
