@@ -76,6 +76,21 @@ self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
+  // AdSense 및 외부 리소스는 캐시하지 않고 네트워크 우선
+  if (url.hostname.includes('googleads') || 
+      url.hostname.includes('googlesyndication') || 
+      url.hostname.includes('doubleclick') ||
+      url.hostname.includes('google.com') ||
+      url.hostname.includes('gstatic.com') ||
+      url.hostname.includes('fundingchoicesmessages.google.com') ||
+      url.hostname.includes('adtrafficquality.google') ||
+      url.hostname.includes('kakaocdn.net') ||
+      url.hostname.includes('cloudflareinsights.com') ||
+      url.hostname.includes('jsdelivr.net')) {
+    event.respondWith(fetch(request));
+    return;
+  }
+
   // HTML 페이지 요청: 30x(리디렉션) 응답은 캐시하지 않음
   if (request.destination === 'document') {
     event.respondWith(
