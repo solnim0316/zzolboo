@@ -49,18 +49,13 @@ export default function Home() {
           <HeroBanner featuredTest={featuredTest} />
           
           {/* 🏷️ 태그 네비게이션 섹션 */}
-          <section className="mb-12">
-            <div className="text-center mb-6">
-              <h2 className="text-2xl font-bold text-[#5D4037]">
-                🎭 어떤 모험을 떠날까요?
-              </h2>
-              <p className="text-gray-600 mt-2">
-                쫄과 부가 당신만의 특별한 이야기를 기다리고 있어요! 💕
-              </p>
-            </div>
+          <div className="mb-0">
+            <h2 className="text-2xl font-bold text-[#5D4037] text-center mb-0">
+              🎭 어떤 모험을 떠날까요?
+            </h2>
             
-            {/* 태그 필터 버튼들 - 진짜 한 줄로 표시 */}
-            <div className="overflow-x-auto mb-6">
+            {/* 태그 필터 버튼들 */}
+            <div className="overflow-x-auto mb-0">
               <div className="flex gap-2 px-4 min-w-max">
                 {tagCategories.map((tag) => (
                   <button
@@ -81,7 +76,7 @@ export default function Home() {
             
             {/* 필터링 결과 표시 */}
             {selectedTag !== 'all' && (
-              <div className="text-center mb-6">
+              <div className="text-center mb-0">
                 <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full">
                   <span className="text-sm">
                     🎯 '{tagCategories.find(t => t.id === selectedTag)?.name}' 테마로 찾아보는 중이에요!
@@ -95,104 +90,91 @@ export default function Home() {
                 </div>
               </div>
             )}
-          </section>
+          </div>
           
           {/* 🎭 쫄부 세계관 테스트 */}
-          {filteredThemedTests.length > 0 && (
-            <section className="mb-8">
-              {/* 📊 상단 광고 배너 - 데스크톱 */}
-              <AdSenseAd 
-                adSlot={AdUnits.HEADER_BANNER}
-                adFormat="banner"
-                className="mb-6 hidden md:block"
-              />
-              
-              {/* 📱 모바일 전용 광고 - 상단 */}
-              <AdSenseAd 
-                adSlot={AdUnits.MOBILE_BANNER}
-                adFormat="mobile"
-                className="mb-6 md:hidden"
-              />
-              
-              <div className="text-center mb-6">
-                <h2 className="text-2xl font-bold text-[#5D4037] mb-2">
-                  🎭 쫄과 부의 특별한 세계관
-                </h2>
-                <p className="text-gray-600 text-sm">
-                  쫄이 준비한 신기한 모험들을 체험해보세요! ✨
-                </p>
-              </div>
-              <ThemedTestList tests={filteredThemedTests} />
-              
-              {/* 🎯 콘텐츠 인피드 광고 - 테스트 카드와 자연스럽게 섞임 */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 my-8">
+          <div className="mb-0">
+            <h2 className="text-2xl font-bold text-[#5D4037] text-center mb-0">
+              🎭 쫄과 부의 특별한 세계관
+            </h2>
+            
+            {filteredThemedTests.length > 0 ? (
+              <>
+                <ThemedTestList tests={filteredThemedTests} />
+                
+                {/* 🎯 콘텐츠 인피드 광고 - 테스트 카드와 자연스럽게 섞임 */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 my-4">
+                  <AdSenseAd 
+                    adSlot={AdUnits.CONTENT_INFEED_CARD}
+                    adFormat="content-infeed-card"
+                    isContentInfeed={true}
+                    cardStyle={true}
+                    className="w-full h-full"
+                  />
+                </div>
+                
+                {/* 📊 테스트 목록 중간 광고 - 데스크톱 */}
                 <AdSenseAd 
-                  adSlot={AdUnits.CONTENT_INFEED_CARD}
-                  isContentInfeed={true}
-                  cardStyle={true}
-                  className="aspect-square"
+                  adSlot={AdUnits.HEADER_BANNER}
+                  adFormat="banner"
+                  className="my-4 hidden md:block"
                 />
+                
+                {/* 📱 모바일 전용 광고 - 중간 */}
+                <AdSenseAd 
+                  adSlot={AdUnits.MOBILE_BANNER}
+                  adFormat="mobile"
+                  className="my-4 md:hidden"
+                />
+                
+                {/* 🎯 인피드 광고 - 콘텐츠 중간 */}
+                <AdSenseAd 
+                  adSlot={AdUnits.RECTANGLE_INFEED}
+                  adFormat="rectangle"
+                  className="my-4"
+                />
+              </>
+            ) : (
+              <div className="text-center py-8 text-gray-500">
+                <p>🎭 선택한 테마에 맞는 쫄부 세계관 테스트가 없어요!</p>
+                <p className="text-sm mt-2">다른 테마를 선택해보세요 ✨</p>
               </div>
-              
-              {/* 📊 테스트 목록 중간 광고 - 데스크톱 */}
-              <AdSenseAd 
-                adSlot={AdUnits.TEST_LIST_MIDDLE}
-                adFormat="banner"
-                className="my-8 hidden md:block"
-              />
-              
-              {/* 📱 모바일 전용 광고 - 중간 */}
-              <AdSenseAd 
-                adSlot={AdUnits.MOBILE_BANNER}
-                adFormat="mobile"
-                className="my-8 md:hidden"
-              />
-              
-              {/* 🎯 인피드 광고 - 콘텐츠 중간 */}
-              <AdSenseAd 
-                adSlot={AdUnits.INFEED_AD}
-                adFormat="infeed"
-                fullWidthResponsive={true}
-                className="my-8"
-              />
-            </section>
-          )}
+            )}
+          </div>
           
           {/* 🎯 일반 테스트 */}
           {filteredCasualTests.length > 0 && (
-            <section className="mb-8">
-              <div className="text-center mb-6">
-                <h2 className="text-2xl font-bold text-[#5D4037] mb-2">
+            <section className="mb-2">
+              <div className="text-center mb-1">
+                <h2 className="text-2xl font-bold text-[#5D4037] mb-0">
                   🎯 부가 추천하는 재미있는 테스트들
                 </h2>
-                <p className="text-gray-600 text-sm">
-                  부가 엄선한 다양한 주제의 테스트를 즐겨보세요! 😊
-                </p>
               </div>
               <GeneralTestList tests={filteredCasualTests} />
               
               {/* 🎯 콘텐츠 인피드 광고 - 유튜브 썸네일 스타일 */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 my-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 my-4">
                 <AdSenseAd 
                   adSlot={AdUnits.CONTENT_INFEED_THUMBNAIL}
+                  adFormat="content-infeed-thumbnail"
                   isContentInfeed={true}
                   youtubeThumbnailStyle={true}
-                  className="aspect-video"
+                  className="w-full h-full"
                 />
               </div>
               
               {/* 📊 일반 테스트 하단 광고 - 데스크톱 */}
               <AdSenseAd 
-                adSlot={AdUnits.CONTENT_INFEED}
+                adSlot={AdUnits.HEADER_BANNER}
                 adFormat="banner"
-                className="mt-8 hidden md:block"
+                className="mt-4 hidden md:block"
               />
               
               {/* 📱 모바일 전용 광고 - 하단 */}
               <AdSenseAd 
                 adSlot={AdUnits.MOBILE_BANNER}
                 adFormat="mobile"
-                className="mt-8 md:hidden"
+                className="mt-4 md:hidden"
               />
             </section>
           )}

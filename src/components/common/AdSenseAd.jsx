@@ -31,7 +31,7 @@ const AdSenseAd = ({
     const baseStyle = {
       display: 'block',
       textAlign: 'center',
-      margin: '20px auto',
+      margin: '0 auto', // 20px auto에서 0 auto로 변경
       ...style
     };
 
@@ -113,6 +113,33 @@ const AdSenseAd = ({
           height: 'auto',
           minHeight: '200px'
         };
+      case 'content-infeed-card':
+        return {
+          ...baseStyle,
+          width: '100%',
+          height: 'auto',
+          aspectRatio: '1 / 1', // 정사각형으로 변경
+          borderRadius: '12px',
+          overflow: 'hidden',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+          transition: 'all 0.3s ease',
+          cursor: 'pointer',
+          background: 'linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%)',
+          border: '1px solid rgba(255, 255, 255, 0.2)'
+        };
+      case 'content-infeed-thumbnail':
+        return {
+          ...baseStyle,
+          width: '100%',
+          height: 'auto',
+          aspectRatio: '1 / 1', // 정사각형으로 변경
+          borderRadius: '12px',
+          overflow: 'hidden',
+          boxShadow: '0 8px 16px rgba(0, 0, 0, 0.15)',
+          transition: 'all 0.3s ease',
+          cursor: 'pointer',
+          position: 'relative'
+        };
       default:
         return baseStyle;
     }
@@ -184,11 +211,11 @@ const AdSenseAd = ({
 
 // 사전 정의된 광고 단위들
 export const AdUnits = {
-  // 헤더 배너 (728x90)
-  HEADER_BANNER: 'header-banner-728x90',
+  // 헤더 배너 (728x90) - 실제 생성된 ID
+  HEADER_BANNER: '9815887987',
   
-  // 사이드바 스카이스크래퍼 (160x600)
-  SIDEBAR_SKYSCRAPER: 'sidebar-skyscraper-160x600',
+  // 사이드바 스카이스크래퍼 (160x600) - 실제 생성된 ID
+  SIDEBAR_SKYSCRAPER: '4938965822',
   
   // 콘텐츠 중간 인피드 (728x90)
   CONTENT_INFEED: 'content-infeed-728x90',
@@ -196,17 +223,20 @@ export const AdUnits = {
   // 결과 페이지 하단 (728x90)
   RESULT_BOTTOM: 'result-bottom-728x90',
   
-  // 모바일 전용 (320x50)
-  MOBILE_BANNER: 'mobile-banner-320x50',
+  // 모바일 전용 (320x50) - 실제 생성된 ID
+  MOBILE_BANNER: '3250479630',
   
   // 반응형 광고
   RESPONSIVE: 'responsive-auto',
   
-  // 콘텐츠 인피드용 새로운 광고 단위들
-  CONTENT_INFEED_CARD: 'content-infeed-card-300x250',
-  CONTENT_INFEED_THUMBNAIL: 'content-infeed-thumbnail-300x200',
+  // 콘텐츠 인피드용 새로운 광고 단위들 - 실제 생성된 ID들
+  CONTENT_INFEED_CARD: '4371989611',
+  CONTENT_INFEED_THUMBNAIL: '3933005915',
   TEST_LIST_MIDDLE: 'test-list-middle-728x90',
-  INFEED_AD: 'infeed-ad-responsive'
+  INFEED_AD: 'infeed-ad-responsive',
+  
+  // 추가 광고 단위들
+  RECTANGLE_INFEED: '7872250929'
 };
 
 export default AdSenseAd; 

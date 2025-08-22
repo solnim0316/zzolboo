@@ -25,7 +25,7 @@ export default function GeneralTestList({ tests }) {
   };
 
   return (
-    <section className="mb-8" style={{ contentVisibility: 'auto', containIntrinsicSize: '1000px' }}>
+    <section className="mb-0" style={{ contentVisibility: 'auto', containIntrinsicSize: '1000px' }}>
       {/* 🎴 테스트 카드 그리드 - 매력적인 레이아웃 */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {tests && tests.map(test => (

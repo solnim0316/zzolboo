@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function HeroBanner({ featuredTest }) {
   return (
-    <section className="w-full rounded-xl sm:rounded-2xl shadow-lg mb-8 overflow-hidden">
+    <section className="w-full rounded-xl sm:rounded-2xl shadow-lg mb-0 overflow-hidden">
       {/* 🖼️ 쫄부월드 메인 OG 이미지 */}
       <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] md:aspect-[3/1]">
         <img 

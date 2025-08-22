@@ -37,7 +37,7 @@ export default function ThemedTestList({ tests }) {
   };
 
   return (
-    <section className="mb-6" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
+    <section className="mb-0" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
       {/* 🎴 테스트 카드 그리드 */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {tests && tests.map(test => (
