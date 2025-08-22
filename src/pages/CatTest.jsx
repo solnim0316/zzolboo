@@ -477,7 +477,7 @@ export default function CatTest() {
                     <p className="text-sm text-gray-500">🐱 고양이 관련 추천 상품</p>
                   </div>
                   <AdSenseAd 
-                    adSlot={AdUnits.CAT_TEST_RECTANGLE}
+                    adSlot={AdUnits.RECTANGLE_INFEED}
                     adFormat="rectangle"
                     isTestSpecific={true}
                     testCategory="cat"
@@ -725,7 +725,7 @@ export default function CatTest() {
 
                 {/* 🐱 고양이 관련 맞춤 광고 */}
                 <AdSenseAd 
-                  adSlot={AdUnits.CAT_TEST_BANNER}
+                  adSlot={AdUnits.HEADER_BANNER}
                   adFormat="banner"
                   isTestSpecific={true}
                   testCategory="cat"
@@ -734,7 +734,7 @@ export default function CatTest() {
                 
                 {/* 🐱 고양이 관련 사각 광고 */}
                 <AdSenseAd 
-                  adSlot={AdUnits.CAT_TEST_RECTANGLE}
+                  adSlot={AdUnits.RECTANGLE_INFEED}
                   adFormat="rectangle"
                   isTestSpecific={true}
                   testCategory="cat"

@@ -25,10 +25,18 @@ const AdSenseAd = ({
     // AdSense 스크립트가 로드되었는지 확인
     if (window.adsbygoogle && adRef.current) {
       try {
+        console.log('🚀 AdSense 광고 로딩 시도:', adSlot);
         window.adsbygoogle.push({});
+        console.log('✅ AdSense 광고 로딩 성공:', adSlot);
       } catch (error) {
-        console.warn('AdSense 광고 로드 실패:', error);
+        console.warn('❌ AdSense 광고 로드 실패:', error);
       }
+    } else {
+      console.warn('⚠️ AdSense 스크립트 또는 ref가 없음:', {
+        hasAdsByGoogle: !!window.adsbygoogle,
+        hasRef: !!adRef.current,
+        adSlot
+      });
     }
   }, [adSlot]);
 
