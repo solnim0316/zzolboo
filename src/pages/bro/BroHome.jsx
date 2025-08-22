@@ -4,6 +4,7 @@ import BroHeader from "@/components/layout/BroHeader";
 import Footer from "@/components/layout/Footer";
 import { useState } from "react";
 import { TAG_CATEGORIES, testUtils } from "@/data/testConfigs";
+import AdSenseAd, { AdUnits } from "@/components/common/AdSenseAd";
 
 export default function SubHome() {
   const [selectedTag, setSelectedTag] = useState('all');
@@ -212,56 +213,78 @@ export default function SubHome() {
             <section className="mb-12">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredTests.map((test) => (
-                                     <div
-                     key={test.id}
-                                           className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow overflow-hidden border border-[#F8BBD9]"
-                   >
-                     {/* 썸네일 */}
-                                           <div className="h-48 bg-gradient-to-br from-[#FCE4EC] to-[#F8BBD9] flex items-center justify-center text-6xl">
-                       {test.emoji}
-                     </div>
+                  <div
+                    key={test.id}
+                    className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow overflow-hidden border border-[#F8BBD9]"
+                  >
+                    {/* 썸네일 */}
+                    <div className="h-48 bg-gradient-to-br from-[#FCE4EC] to-[#F8BBD9] flex items-center justify-center text-6xl">
+                      {test.emoji}
+                    </div>
                     
                     {/* 내용 */}
                     <div className="p-6">
-                                             <div className="flex items-center gap-2 mb-3">
-                                                   <span className="text-sm bg-[#F48FB1] text-white px-2 py-1 rounded-full border border-[#F06292]">
-                            {test.theme}
-                          </span>
-                          <span className="text-sm text-[#5D4037]">
-                            {test.estimatedTime}
-                          </span>
-                       </div>
-                       
-                                               <h3 className="text-xl font-bold text-[#5D4037] mb-2">
-                          {test.title}
-                        </h3>
-                        
-                        <p className="text-[#6D4C41] mb-4 line-clamp-2">
-                          {test.description}
-                        </p>
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-sm bg-[#F48FB1] text-white px-2 py-1 rounded-full border border-[#F06292]">
+                          {test.theme}
+                        </span>
+                        <span className="text-sm text-[#5D4037]">
+                          {test.estimatedTime}
+                        </span>
+                      </div>
                       
-                                             {/* 태그 */}
-                       <div className="flex flex-wrap gap-1 mb-4">
-                         {test.tags.slice(0, 3).map((tag, index) => (
-                                                       <span
-                              key={index}
-                              className="text-xs bg-[#FCE4EC] text-[#5D4037] px-2 py-1 rounded border border-[#F8BBD9]"
-                            >
-                              #{tag}
-                            </span>
-                         ))}
-                       </div>
+                      <h3 className="text-xl font-bold text-[#5D4037] mb-2">
+                        {test.title}
+                      </h3>
                       
-                                             {/* 시작 버튼 */}
-                       <Link
-                         to={test.route}
-                                                   className="block w-full bg-[#F48FB1] text-white text-center py-3 rounded-lg font-semibold hover:bg-[#F06292] transition-colors border border-[#F06292]"
-                       >
-                         테스트 시작하기
-                       </Link>
+                      <p className="text-[#6D4C41] mb-4 line-clamp-2">
+                        {test.description}
+                      </p>
+                      
+                      {/* 태그 */}
+                      <div className="flex flex-wrap gap-1 mb-4">
+                        {test.tags.slice(0, 3).map((tag, index) => (
+                          <span
+                            key={index}
+                            className="text-xs bg-[#FCE4EC] text-[#5D4037] px-2 py-1 rounded border border-[#F8BBD9]"
+                          >
+                            #{tag}
+                          </span>
+                        ))}
+                      </div>
+                      
+                      {/* 시작 버튼 */}
+                      <Link
+                        to={test.route}
+                        className="block w-full bg-[#F48FB1] text-white text-center py-3 rounded-lg font-semibold hover:bg-[#F06292] transition-colors border border-[#F06292]"
+                      >
+                        테스트 시작하기
+                      </Link>
                     </div>
                   </div>
                 ))}
+              </div>
+              
+              {/* 🚀 BRO 전용 광고 - 투자/금융 관련 */}
+              <div className="mt-8">
+                <AdSenseAd 
+                  adSlot={AdUnits.BRO_FINANCE_BANNER}
+                  adFormat="banner"
+                  isBroAd={true}
+                  broCategory="finance"
+                  className="my-6"
+                />
+              </div>
+              
+              {/* 🚗 BRO 전용 광고 - 자동차 관련 */}
+              <div className="mt-8">
+                <AdSenseAd 
+                  adSlot={AdUnits.BRO_CAR_ADVERTISEMENT}
+                  adFormat="skyscraper"
+                  isBroAd={true}
+                  broCategory="car"
+                  className="my-6"
+                />
               </div>
             </section>
           )}

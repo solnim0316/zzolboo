@@ -8,17 +8,19 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import ImageGeneratorComponent from '@/components/common/ImageGeneratorComponent';
 import UnifiedShareModal from '@/components/common/UnifiedShareModal';
-import AdSenseAd from '@/components/common/AdSenseAd';
+import AdSenseAd, { AdUnits } from '@/components/common/AdSenseAd';
+import InterstitialAd from '@/components/common/InterstitialAd';
 
 export default function CatTest() {
   const navigate = useNavigate();
-  const [currentStep, setCurrentStep] = useState('intro'); // 'intro', 'test', 'result', 'loading'
+  const [currentStep, setCurrentStep] = useState('intro'); // 'intro', 'test', 'result', 'loading', 'interstitial'
   const [userName, setUserName] = useState('');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [scores, setScores] = useState({ E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 });
   const [result, setResult] = useState(null);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
+  const [showInterstitialAd, setShowInterstitialAd] = useState(false);
 
   // 테스트 정보
   const testInfo = {
@@ -341,15 +343,17 @@ export default function CatTest() {
     const img = new Image();
     img.onload = () => {
       setIsImageLoaded(true);
-      // 이미지 로드 완료 후 최소 1초 후에 결과 표시
+      // 이미지 로드 완료 후 결과 전 광고 표시
       setTimeout(() => {
-        setCurrentStep('result');
+        setShowInterstitialAd(true);
+        setCurrentStep('interstitial');
       }, 1000);
     };
     img.onerror = () => {
-      // 이미지 로드 실패시에도 2초 후 결과 표시
+      // 이미지 로드 실패시에도 2초 후 광고 표시
       setTimeout(() => {
-        setCurrentStep('result');
+        setShowInterstitialAd(true);
+        setCurrentStep('interstitial');
       }, 2000);
     };
     img.src = resultWithImage.image;
@@ -360,6 +364,17 @@ export default function CatTest() {
         test_name: 'cat-test'
       });
     }
+  };
+
+  // 🎯 결과 전 광고 처리
+  const handleInterstitialClose = () => {
+    setShowInterstitialAd(false);
+    setCurrentStep('result');
+  };
+
+  const handleInterstitialSkip = () => {
+    setShowInterstitialAd(false);
+    setCurrentStep('result');
   };
 
   // 🔄 테스트 재시작
@@ -454,6 +469,22 @@ export default function CatTest() {
                   </button>
                 ))}
               </div>
+              
+              {/* 🐱 테스트 중간 광고 (5번째, 10번째 질문 후) */}
+              {(currentQuestion === 4 || currentQuestion === 9) && (
+                <div className="mt-6">
+                  <div className="text-center mb-4">
+                    <p className="text-sm text-gray-500">🐱 고양이 관련 추천 상품</p>
+                  </div>
+                  <AdSenseAd 
+                    adSlot={AdUnits.CAT_TEST_RECTANGLE}
+                    adFormat="rectangle"
+                    isTestSpecific={true}
+                    testCategory="cat"
+                    className="mx-auto"
+                  />
+                </div>
+              )}
             </div>
           </div>
         )}
@@ -692,11 +723,22 @@ export default function CatTest() {
                   )}
                 </div>
 
-                {/* 📢 AdSense 광고 */}
+                {/* 🐱 고양이 관련 맞춤 광고 */}
                 <AdSenseAd 
-                  adSlot="1234567890" 
-                  adFormat="auto"
+                  adSlot={AdUnits.CAT_TEST_BANNER}
+                  adFormat="banner"
+                  isTestSpecific={true}
+                  testCategory="cat"
                   className="my-8"
+                />
+                
+                {/* 🐱 고양이 관련 사각 광고 */}
+                <AdSenseAd 
+                  adSlot={AdUnits.CAT_TEST_RECTANGLE}
+                  adFormat="rectangle"
+                  isTestSpecific={true}
+                  testCategory="cat"
+                  className="my-6"
                 />
 
                 {/* 🔄 액션 버튼들 - 더 매력적으로 */}
@@ -739,6 +781,16 @@ export default function CatTest() {
               </div>
             </div>
           </div>
+        )}
+
+        {/* 📺 결과 전 전면 광고 */}
+        {showInterstitialAd && (
+          <InterstitialAd 
+            testCategory="cat"
+            onAdClose={handleInterstitialClose}
+            onSkip={handleInterstitialSkip}
+            autoCloseDelay={5000}
+          />
         )}
 
       </main>

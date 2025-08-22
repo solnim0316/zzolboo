@@ -112,27 +112,6 @@ export default function Home() {
                     className="w-full h-full"
                   />
                 </div>
-                
-                {/* 📊 테스트 목록 중간 광고 - 데스크톱 */}
-                <AdSenseAd 
-                  adSlot={AdUnits.HEADER_BANNER}
-                  adFormat="banner"
-                  className="my-4 hidden md:block"
-                />
-                
-                {/* 📱 모바일 전용 광고 - 중간 */}
-                <AdSenseAd 
-                  adSlot={AdUnits.MOBILE_BANNER}
-                  adFormat="mobile"
-                  className="my-4 md:hidden"
-                />
-                
-                {/* 🎯 인피드 광고 - 콘텐츠 중간 */}
-                <AdSenseAd 
-                  adSlot={AdUnits.RECTANGLE_INFEED}
-                  adFormat="rectangle"
-                  className="my-4"
-                />
               </>
             ) : (
               <div className="text-center py-8 text-gray-500">
@@ -162,20 +141,6 @@ export default function Home() {
                   className="w-full h-full"
                 />
               </div>
-              
-              {/* 📊 일반 테스트 하단 광고 - 데스크톱 */}
-              <AdSenseAd 
-                adSlot={AdUnits.HEADER_BANNER}
-                adFormat="banner"
-                className="mt-4 hidden md:block"
-              />
-              
-              {/* 📱 모바일 전용 광고 - 하단 */}
-              <AdSenseAd 
-                adSlot={AdUnits.MOBILE_BANNER}
-                adFormat="mobile"
-                className="mt-4 md:hidden"
-              />
             </section>
           )}
 

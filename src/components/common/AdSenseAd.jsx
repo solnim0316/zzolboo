@@ -11,7 +11,13 @@ const AdSenseAd = ({
   // 콘텐츠 인피드용 새로운 옵션들
   isContentInfeed = false,
   cardStyle = false,
-  youtubeThumbnailStyle = false
+  youtubeThumbnailStyle = false,
+  // 🚀 BRO 전용 광고 옵션
+  isBroAd = false,
+  broCategory = 'investment', // 'investment', 'finance', 'car', 'crypto'
+  // 🐱 테스트별 맞춤 광고 옵션
+  isTestSpecific = false,
+  testCategory = 'general' // 'cat', 'mbti', 'love', 'food', 'movie', 'color'
 }) => {
   const adRef = useRef(null);
 
@@ -34,6 +40,101 @@ const AdSenseAd = ({
       margin: '0 auto', // 20px auto에서 0 auto로 변경
       ...style
     };
+
+    // 🐱 테스트별 맞춤 광고 스타일
+    if (isTestSpecific) {
+      const testBaseStyle = {
+        ...baseStyle,
+        borderRadius: '12px',
+        overflow: 'hidden',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+        border: '2px solid',
+        transition: 'all 0.3s ease'
+      };
+
+      switch (testCategory) {
+        case 'cat':
+          return {
+            ...testBaseStyle,
+            background: 'linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%)',
+            borderColor: '#fdcb6e'
+          };
+        case 'mbti':
+          return {
+            ...testBaseStyle,
+            background: 'linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%)',
+            borderColor: '#6c5ce7'
+          };
+        case 'love':
+          return {
+            ...testBaseStyle,
+            background: 'linear-gradient(135deg, #fd79a8 0%, #e84393 100%)',
+            borderColor: '#e84393'
+          };
+        case 'food':
+          return {
+            ...testBaseStyle,
+            background: 'linear-gradient(135deg, #55a3ff 0%, #0984e3 100%)',
+            borderColor: '#0984e3'
+          };
+        case 'movie':
+          return {
+            ...testBaseStyle,
+            background: 'linear-gradient(135deg, #81ecec 0%, #00b894 100%)',
+            borderColor: '#00b894'
+          };
+        case 'color':
+          return {
+            ...testBaseStyle,
+            background: 'linear-gradient(135deg, #fab1a0 0%, #e17055 100%)',
+            borderColor: '#e17055'
+          };
+        default:
+          return testBaseStyle;
+      }
+    }
+
+    // 🚀 BRO 전용 광고 스타일
+    if (isBroAd) {
+      const broBaseStyle = {
+        ...baseStyle,
+        borderRadius: '8px',
+        overflow: 'hidden',
+        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+        border: '1px solid rgba(0, 0, 0, 0.1)',
+        background: 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)',
+        transition: 'all 0.3s ease'
+      };
+
+      switch (broCategory) {
+        case 'investment':
+          return {
+            ...broBaseStyle,
+            background: 'linear-gradient(135deg, #2e7d32 0%, #388e3c 100%)',
+            border: '1px solid rgba(46, 125, 50, 0.3)'
+          };
+        case 'finance':
+          return {
+            ...broBaseStyle,
+            background: 'linear-gradient(135deg, #1976d2 0%, #1565c0 100%)',
+            border: '1px solid rgba(25, 118, 210, 0.3)'
+          };
+        case 'car':
+          return {
+            ...broBaseStyle,
+            background: 'linear-gradient(135deg, #d32f2f 0%, #c62828 100%)',
+            border: '1px solid rgba(211, 47, 47, 0.3)'
+          };
+        case 'crypto':
+          return {
+            ...broBaseStyle,
+            background: 'linear-gradient(135deg, #ff8f00 0%, #f57c00 100%)',
+            border: '1px solid rgba(255, 143, 0, 0.3)'
+          };
+        default:
+          return broBaseStyle;
+      }
+    }
 
     // 콘텐츠 인피드용 특별 스타일
     if (isContentInfeed) {
@@ -172,6 +273,10 @@ const AdSenseAd = ({
           data-ad-slot={adSlot}
           data-ad-format="auto"
           data-full-width-responsive="true"
+          data-adtest="off"
+          data-ad-region="test"
+          data-ad-layout="in-article"
+          data-ad-layout-key="-fb+5w+4e-db+86"
         />
       </div>
     );
@@ -236,7 +341,39 @@ export const AdUnits = {
   INFEED_AD: 'infeed-ad-responsive',
   
   // 추가 광고 단위들
-  RECTANGLE_INFEED: '7872250929'
+  RECTANGLE_INFEED: '7872250929',
+  
+  // 🚀 BRO 전용 광고 단위들 (투자/금융/자동차 관련)
+  BRO_HEADER_BANNER: 'bro-header-banner-728x90',
+  BRO_SIDEBAR_SKYSCRAPER: 'bro-sidebar-skyscraper-160x600',
+  BRO_CONTENT_INFEED: 'bro-content-infeed-728x90',
+  BRO_MOBILE_BANNER: 'bro-mobile-banner-320x50',
+  BRO_INVESTMENT_CARD: 'bro-investment-card-300x250',
+  BRO_FINANCE_BANNER: 'bro-finance-banner-728x90',
+  BRO_CAR_ADVERTISEMENT: 'bro-car-ad-300x600',
+  BRO_CRYPTO_INFEED: 'bro-crypto-infeed-728x90',
+  
+  // 🐱 테스트별 맞춤 광고 단위들
+  CAT_TEST_BANNER: 'cat-test-banner-728x90',
+  CAT_TEST_RECTANGLE: 'cat-test-rectangle-300x250',
+  MBTI_TEST_BANNER: 'mbti-test-banner-728x90', 
+  MBTI_TEST_RECTANGLE: 'mbti-test-rectangle-300x250',
+  LOVE_TEST_BANNER: 'love-test-banner-728x90',
+  LOVE_TEST_RECTANGLE: 'love-test-rectangle-300x250',
+  FOOD_TEST_BANNER: 'food-test-banner-728x90',
+  FOOD_TEST_RECTANGLE: 'food-test-rectangle-300x250',
+  MOVIE_TEST_BANNER: 'movie-test-banner-728x90',
+  MOVIE_TEST_RECTANGLE: 'movie-test-rectangle-300x250',
+  COLOR_TEST_BANNER: 'color-test-banner-728x90',
+  COLOR_TEST_RECTANGLE: 'color-test-rectangle-300x250',
+  
+  // 📺 결과 전 광고 단위들 (전면 광고 스타일)
+  INTERSTITIAL_CAT: 'interstitial-cat-ad',
+  INTERSTITIAL_MBTI: 'interstitial-mbti-ad',
+  INTERSTITIAL_LOVE: 'interstitial-love-ad',
+  INTERSTITIAL_FOOD: 'interstitial-food-ad',
+  INTERSTITIAL_MOVIE: 'interstitial-movie-ad',
+  INTERSTITIAL_COLOR: 'interstitial-color-ad'
 };
 
 export default AdSenseAd; 
