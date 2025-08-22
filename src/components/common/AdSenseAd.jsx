@@ -1,5 +1,5 @@
 // 📊 Google AdSense 광고 컴포넌트 - 수익 최적화 버전
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 const AdSenseAd = ({ 
   adSlot, 
@@ -14,37 +14,15 @@ const AdSenseAd = ({
   youtubeThumbnailStyle = false
 }) => {
   const adRef = useRef(null);
-  const [isAdLoaded, setIsAdLoaded] = useState(false);
 
   useEffect(() => {
     // AdSense 스크립트가 로드되었는지 확인
     if (window.adsbygoogle && adRef.current) {
       try {
-        console.log('🚀 AdSense 광고 로딩 시도:', adSlot);
         window.adsbygoogle.push({});
-        console.log('✅ AdSense 광고 로딩 성공:', adSlot);
-        
-        // 광고 로딩 확인을 위한 타이머
-        setTimeout(() => {
-          if (adRef.current && adRef.current.innerHTML.trim() === '') {
-            console.warn('⚠️ 광고가 로드되지 않음:', adSlot);
-            setIsAdLoaded(false);
-          } else {
-            console.log('✅ 광고 콘텐츠 확인됨:', adSlot);
-            setIsAdLoaded(true);
-          }
-        }, 2000);
       } catch (error) {
-        console.warn('❌ AdSense 광고 로드 실패:', error);
-        setIsAdLoaded(false);
+        console.warn('AdSense 광고 로드 실패:', error);
       }
-    } else {
-      console.warn('⚠️ AdSense 스크립트 또는 ref가 없음:', {
-        hasAdsByGoogle: !!window.adsbygoogle,
-        hasRef: !!adRef.current,
-        adSlot
-      });
-      setIsAdLoaded(false);
     }
   }, [adSlot]);
 
@@ -195,25 +173,6 @@ const AdSenseAd = ({
           data-ad-format="auto"
           data-full-width-responsive="true"
         />
-        {!isAdLoaded && (
-          <div className="ad-placeholder" style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: 'linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%)',
-            borderRadius: '12px',
-            color: '#8D6E63',
-            fontSize: '14px',
-            fontWeight: 'bold'
-          }}>
-            📢 추천 콘텐츠
-          </div>
-        )}
       </div>
     );
   }

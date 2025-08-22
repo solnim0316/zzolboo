@@ -64,23 +64,15 @@ export default function Header() {
             to={location.pathname.startsWith('/bro') ? '/bro' : '/'}
             className="flex items-center space-x-2 text-lg sm:text-xl font-bold text-[#5D4037] hover:text-[#4A2C2A] transition-colors"
           >
-                         <img 
-                               src="/images/logo/logo.webp" 
-               alt="쫄부월드 로고" 
-               className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
-               onError={(e) => {
-                 if (import.meta.env.DEV) {
-          console.log('로고 이미지 로드 실패:', e.target.src);
-        }
-                 e.target.style.display = 'none';
-                 e.target.nextSibling.style.display = 'inline';
-               }}
-               onLoad={(e) => {
-                 if (import.meta.env.DEV) {
-          console.log('로고 이미지 로드 성공:', e.target.src);
-        }
-               }}
-             />
+            <img 
+              src="/images/logo/logo.webp" 
+              alt="쫄부월드 로고" 
+              className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.nextSibling.style.display = 'inline';
+              }}
+            />
             <span style={{ display: 'none' }}>🐱</span>
             <span>쫄부월드</span>
           </Link>
